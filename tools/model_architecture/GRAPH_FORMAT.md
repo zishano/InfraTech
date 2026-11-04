@@ -34,3 +34,5 @@
 形状和连接应体现具体模块：Q/K/V 与 α/β 等控制路径分开；输出门另画旁路；MoE 的 router、latent projection、shared experts 并行；残差/跨层聚合要有实际连线。不要通过省略运算掩盖尚未理解的结构。
 
 本格式只保存模块级结构、证据和布局，不能执行模型，不能验证数值等价。使用前应阅读 README 中的审阅步骤。
+
+正式 PNG 必须经 `export-png` 直接读取已保存的 draw.io XML 生成；不能由另一套图像提示词独立作图。PNG 与 draw.io 的配对记录使用 `.export.json`。SVG 是辅助预览，不是正式 PNG 导出的中间结构引擎。

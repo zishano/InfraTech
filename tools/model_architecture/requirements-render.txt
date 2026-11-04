@@ -1,0 +1,2 @@
+# Optional: export-png only. Core collection, extraction and XML/SVG export use stdlib.
+playwright>=1.40,<2

@@ -194,7 +194,8 @@ def drawio(g, path):
         x,y,w,h=n['box'];ET.SubElement(c,'mxGeometry',x=str(x),y=str(y),width=str(w),height=str(h),attrib={'as':'geometry'})
     for i,e in enumerate(g['edges']):
         a,b,c,d=e.get('ports',[.5,0,.5,1])
-        style=f'edgeStyle=orthogonalEdgeStyle;html=0;endArrow=block;endFill=1;exitX={a};exitY={b};entryX={c};entryY={d};'
+        routing='segmentEdgeStyle' if e.get('points') else 'orthogonalEdgeStyle'
+        style=f'edgeStyle={routing};html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX={a};exitY={b};entryX={c};entryY={d};'
         if e.get('dashed'):style+='dashed=1;'
         cell=ET.SubElement(r,'mxCell',id=e.get('id',f'edge_{i}'),source=e['source'],target=e['target'],value=e.get('label',''),edge='1',parent='1',style=style)
         geo=ET.SubElement(cell,'mxGeometry',relative='1',attrib={'as':'geometry'})
@@ -267,7 +268,7 @@ def render(g, out):
     text+=['','## Sources','']+[f'- {k}: {v}' for k,v in g.get('sources',{}).items()]
     text+=['','## Limitations','']+['- '+s for s in g.get('limitations',[])]
     (out/'evidence.md').write_text('\n'.join(text)+'\n',encoding='utf-8')
-    prompt='Create a detailed technical architecture illustration using the attached architecture.svg as the layout and evidence.md as the factual source. Preserve every computational branch, all arrow connections and bottom-to-top flow. Do not invent dimensions or collapse control/gating branches. Keep uncertain facts labelled. Use the editable graph as the factual authority. Review resulting image against the graph; image generation may duplicate blocks or alter formulas.\n'
+    prompt='Authoritative architecture PNGs MUST be exported from architecture.drawio using export-png. Do not independently generate or edit their computational content with an image model. Image generation is permitted only for separate style references explicitly labelled non-authoritative.\n'
     (out/'image_prompt.txt').write_text(prompt,encoding='utf-8')
 
 def main():
@@ -278,6 +279,8 @@ def main():
     a=sub.add_parser('validate');a.add_argument('graph')
     a=sub.add_parser('draft');a.add_argument('facts');a.add_argument('--out',required=True)
     a=sub.add_parser('render');a.add_argument('graph');a.add_argument('--out',required=True)
+    a=sub.add_parser('export-png');a.add_argument('drawio');a.add_argument('--out',required=True);a.add_argument('--mxgraph',default='/workspace/.cache/model-architecture-renderer/node_modules/mxgraph/javascript/src');a.add_argument('--scale',type=float,default=2);a.add_argument('--browser',default='/usr/bin/chromium')
+    a=sub.add_parser('verify-png');a.add_argument('drawio');a.add_argument('png');a.add_argument('manifest')
     a=p.parse_args()
     try:
         if a.command=='init':write(a.out,init_manifest(a.model,a.revision,a.github))
@@ -286,7 +289,13 @@ def main():
         elif a.command=='draft':write(a.out,draft(read(a.facts)))
         elif a.command=='validate':validate(read(a.graph));print('Graph valid')
         elif a.command=='render':render(read(a.graph),a.out);print('Rendered draw.io, SVG, evidence report and illustration prompt')
-    except (OSError,ValueError,KeyError,TypeError) as e:
+        elif a.command=='export-png':
+            from png_export import export
+            print(json.dumps(export(a.drawio,a.out,mxgraph=a.mxgraph,scale=a.scale,browser=a.browser)))
+        elif a.command=='verify-png':
+            from png_export import verify
+            verify(a.drawio,a.png,a.manifest);print('PNG and draw.io hashes match export manifest')
+    except (OSError,ValueError,KeyError,TypeError,ImportError) as e:
         print(f'Error: {e}',file=sys.stderr);return 1
     return 0
 

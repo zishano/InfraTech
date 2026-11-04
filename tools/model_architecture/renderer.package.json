@@ -1,0 +1,7 @@
+{
+  "name": "model-architecture-renderer",
+  "private": true,
+  "dependencies": {
+    "mxgraph": "4.2.2"
+  }
+}

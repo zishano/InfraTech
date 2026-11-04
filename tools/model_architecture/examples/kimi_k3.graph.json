@@ -1,35 +1,48 @@
 {
   "version": 1,
-  "title": "Kimi K3 — Detailed v2 (report-reviewed graph)",
-  "width": 2600,
-  "height": 3500,
+  "title": "Kimi K3 — native reconstruction of legacy preview v2",
+  "width": 1086,
+  "height": 1448,
   "sources": {
     "report": "https://github.com/MoonshotAI/Kimi-K3/blob/3cb39dfd32e51c3328e2e4b4af21341247d06c43/k3_tech_report.pdf"
   },
   "nodes": [
     {
+      "id": "hybrid_outline",
+      "label": "Hybrid backbone\n(93 layers)",
+      "box": [
+        455,
+        288,
+        193,
+        258
+      ],
+      "status": "inferred",
+      "kind": "decoration",
+      "style": "rounded=1;verticalAlign=top;spacingTop=8;whiteSpace=wrap;html=0;fillColor=#faf8ff;strokeColor=#333333;fontStyle=1;fontFamily=Arial;fontSize=14;arcSize=8;absoluteArcSize=1;spacing=2;"
+    },
+    {
       "id": "title",
       "label": "Kimi K3 — Architecture Study / Detailed v2",
       "box": [
-        30.0,
-        20.0,
-        2540.0,
-        70.0
+        5,
+        0,
+        1076,
+        39
       ],
-      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=42;fontColor=#24344b;",
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=28;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred"
     },
     {
       "id": "subtitle",
-      "label": "Bottom-up computational flow · editable diagrams.net / draw.io source",
+      "label": "Native reconstruction · bottom-up flow · technical-report reviewed draft",
       "box": [
-        30.0,
-        95.0,
-        2540.0,
-        45.0
+        20,
+        40,
+        1046,
+        25
       ],
-      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=25;fontColor=#24344b;",
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=13;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred"
     },
@@ -37,12 +50,12 @@
       "id": "params",
       "label": "2.78T total · 104.2B active · 93 layers · hidden 7168 · 96 heads · 1M context",
       "box": [
-        50.0,
-        155.0,
-        2500.0,
-        65.0
+        20,
+        70,
+        1046,
+        33
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=27;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -56,25 +69,25 @@
       "id": "attnres",
       "label": "",
       "box": [
-        30.0,
-        250.0,
-        820.0,
-        800.0
+        5.0,
+        116.0,
+        443.0,
+        486.0
       ],
-      "style": "rounded=1;fillColor=#ffffff;strokeColor=#8650b5;dashed=1;dashPattern=8 5;strokeWidth=2;pointerEvents=0;",
+      "style": "rounded=1;fillColor=#ffffff;strokeColor=#8650b5;dashed=1;dashPattern=8 5;strokeWidth=1;pointerEvents=0;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred"
     },
     {
       "id": "attnres_title",
-      "label": "Block Attention Residuals  ↑",
+      "label": "Block Attention Residual (AttnRes)    ↑",
       "box": [
-        40.0,
-        260.0,
-        800.0,
-        50.0
+        10,
+        121,
+        433,
+        23
       ],
-      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#8650b5;",
+      "style": "rounded=1;html=0;whiteSpace=wrap;fillColor=#7934a3;strokeColor=none;fontColor=#ffffff;fontFamily=Arial;fontSize=15;fontStyle=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred"
     },
@@ -82,25 +95,25 @@
       "id": "kda",
       "label": "",
       "box": [
-        30.0,
-        1080.0,
-        820.0,
-        1380.0
+        5.0,
+        617.0,
+        443.0,
+        590.0
       ],
-      "style": "rounded=1;fillColor=#ffffff;strokeColor=#659c33;dashed=1;dashPattern=8 5;strokeWidth=2;pointerEvents=0;",
+      "style": "rounded=1;fillColor=#ffffff;strokeColor=#659c33;dashed=1;dashPattern=8 5;strokeWidth=1;pointerEvents=0;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred"
     },
     {
       "id": "kda_title",
-      "label": "Kimi Delta Attention — five inputs + separate output gate  ↑",
+      "label": "Kimi Delta Attention (KDA)    ↑",
       "box": [
-        40.0,
-        1090.0,
-        800.0,
-        50.0
+        10,
+        622,
+        433,
+        23
       ],
-      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#659c33;",
+      "style": "rounded=1;html=0;whiteSpace=wrap;fillColor=#1b861f;strokeColor=none;fontColor=#ffffff;fontFamily=Arial;fontSize=15;fontStyle=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred",
       "evidence": [
@@ -114,25 +127,12 @@
       "id": "backbone",
       "label": "",
       "box": [
-        880.0,
-        250.0,
-        650.0,
-        2210.0
+        451,
+        112,
+        198,
+        1106
       ],
-      "style": "rounded=1;fillColor=#ffffff;strokeColor=#8650b5;dashed=1;dashPattern=8 5;strokeWidth=2;pointerEvents=0;",
-      "kind": "decoration",
-      "status": "inferred"
-    },
-    {
-      "id": "backbone_title",
-      "label": "Language Backbone  ↑",
-      "box": [
-        890.0,
-        260.0,
-        630.0,
-        50.0
-      ],
-      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#8650b5;",
+      "style": "rounded=0;fillColor=none;strokeColor=none;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred"
     },
@@ -140,25 +140,25 @@
       "id": "moe",
       "label": "",
       "box": [
-        1560.0,
-        250.0,
-        1010.0,
-        1030.0
+        655.0,
+        116.0,
+        427.0,
+        545.0
       ],
-      "style": "rounded=1;fillColor=#ffffff;strokeColor=#277dc8;dashed=1;dashPattern=8 5;strokeWidth=2;pointerEvents=0;",
+      "style": "rounded=1;fillColor=#ffffff;strokeColor=#277dc8;dashed=1;dashPattern=8 5;strokeWidth=1;pointerEvents=0;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred"
     },
     {
       "id": "moe_title",
-      "label": "Stable LatentMoE  ↑",
+      "label": "Stable LatentMoE    ↑",
       "box": [
-        1570.0,
-        260.0,
-        990.0,
-        50.0
+        660,
+        121,
+        417,
+        23
       ],
-      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#277dc8;",
+      "style": "rounded=1;html=0;whiteSpace=wrap;fillColor=#095ba7;strokeColor=none;fontColor=#ffffff;fontFamily=Arial;fontSize=15;fontStyle=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred",
       "evidence": [
@@ -172,25 +172,25 @@
       "id": "mla",
       "label": "",
       "box": [
-        1560.0,
-        1310.0,
-        1010.0,
-        1150.0
+        655.0,
+        668.0,
+        427.0,
+        548.0
       ],
-      "style": "rounded=1;fillColor=#ffffff;strokeColor=#ec8a1a;dashed=1;dashPattern=8 5;strokeWidth=2;pointerEvents=0;",
+      "style": "rounded=1;fillColor=#ffffff;strokeColor=#ec8a1a;dashed=1;dashPattern=8 5;strokeWidth=1;pointerEvents=0;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred"
     },
     {
       "id": "mla_title",
-      "label": "Gated MLA — NoPE / no RoPE  ↑",
+      "label": "Gated MLA (NoPE)    ↑",
       "box": [
-        1570.0,
-        1320.0,
-        990.0,
-        50.0
+        660,
+        673,
+        417,
+        23
       ],
-      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#ec8a1a;",
+      "style": "rounded=1;html=0;whiteSpace=wrap;fillColor=#ec6507;strokeColor=none;fontColor=#ffffff;fontFamily=Arial;fontSize=15;fontStyle=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred",
       "evidence": [
@@ -204,25 +204,25 @@
       "id": "vision",
       "label": "",
       "box": [
-        30.0,
-        2490.0,
-        2540.0,
-        760.0
+        5.0,
+        1226.0,
+        1076.0,
+        201.0
       ],
-      "style": "rounded=1;fillColor=#ffffff;strokeColor=#199c98;dashed=1;dashPattern=8 5;strokeWidth=2;pointerEvents=0;",
+      "style": "rounded=1;fillColor=#ffffff;strokeColor=#199c98;dashed=1;dashPattern=8 5;strokeWidth=1;pointerEvents=0;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred"
     },
     {
       "id": "vision_title",
-      "label": "Native vision / multimodal input  ↑",
+      "label": "Native vision: MoonViT-V2    ↑",
       "box": [
-        40.0,
-        2500.0,
-        2520.0,
-        50.0
+        10,
+        1231,
+        1066,
+        23
       ],
-      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#199c98;",
+      "style": "rounded=1;html=0;whiteSpace=wrap;fillColor=#008e91;strokeColor=none;fontColor=#ffffff;fontFamily=Arial;fontSize=15;fontStyle=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred",
       "evidence": [
@@ -234,15 +234,15 @@
     },
     {
       "id": "ar_source",
-      "label": "Stack: embedding + completed block sums\n+ current partial sum",
+      "label": "",
       "box": [
-        75.0,
-        935.0,
-        720.0,
-        75.0
+        30,
+        520,
+        382,
+        1
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
-      "kind": "operation",
+      "style": "shape=rectangle;fillColor=#333333;strokeColor=#333333;",
+      "kind": "decoration",
       "status": "inferred",
       "evidence": [
         {
@@ -253,14 +253,14 @@
     },
     {
       "id": "ar_keys",
-      "label": "RMSNorm(keys)",
+      "label": "RMSNorm(Keys)",
       "box": [
-        80.0,
-        795.0,
-        300.0,
-        65.0
+        85,
+        434,
+        167,
+        47
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -272,14 +272,14 @@
     },
     {
       "id": "ar_query",
-      "label": "Learned pseudo-query w\n(independent parameter)",
+      "label": "Learned pseudo-query\nw\n(independent\nparameter)",
       "box": [
-        440.0,
-        795.0,
-        300.0,
-        65.0
+        282,
+        434,
+        123,
+        64
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -293,12 +293,12 @@
       "id": "ar_logits",
       "label": "Depth logits: wᵀ RMSNorm(K)",
       "box": [
-        80.0,
-        665.0,
-        480.0,
-        65.0
+        106,
+        366,
+        215,
+        40
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -310,14 +310,14 @@
     },
     {
       "id": "ar_softmax",
-      "label": "Softmax over depth",
+      "label": "Softmax over DEPTH",
       "box": [
-        80.0,
-        555.0,
-        480.0,
-        65.0
+        107,
+        302,
+        215,
+        53
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -329,14 +329,14 @@
     },
     {
       "id": "ar_values",
-      "label": "Original values V\n(unchanged)",
+      "label": "Values\n(original)\nunchanged",
       "box": [
-        635.0,
-        540.0,
-        150.0,
-        95.0
+        337,
+        309,
+        89,
+        52
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -350,12 +350,12 @@
       "id": "ar_sum",
       "label": "Weighted sum of original values",
       "box": [
-        95.0,
-        430.0,
-        675.0,
-        65.0
+        78,
+        232,
+        253,
+        53
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -367,14 +367,14 @@
     },
     {
       "id": "ar_out",
-      "label": "Output to next attention / FFN sublayer",
+      "label": "Output to next sublayer",
       "box": [
-        95.0,
-        330.0,
-        675.0,
-        65.0
+        56,
+        179,
+        312,
+        35
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -388,12 +388,12 @@
       "id": "kda_x",
       "label": "Input x [T, 7168]",
       "box": [
-        65.0,
-        2355.0,
-        745.0,
-        65.0
+        137,
+        1174,
+        170,
+        24
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -407,12 +407,12 @@
       "id": "kda_q_linear",
       "label": "Linear Wq",
       "box": [
-        80.0,
-        2240.0,
-        105.0,
-        62.0
+        18,
+        1075,
+        60,
+        43
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -426,12 +426,12 @@
       "id": "kda_q_conv",
       "label": "ShortConv",
       "box": [
-        80.0,
-        2130.0,
-        105.0,
-        62.0
+        18,
+        1023,
+        60,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -443,14 +443,14 @@
     },
     {
       "id": "kda_q_swish",
-      "label": "Swish / SiLU",
+      "label": "Swish /\nSiLU",
       "box": [
-        80.0,
-        2020.0,
-        105.0,
-        62.0
+        18,
+        970,
+        60,
+        35
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -464,12 +464,12 @@
       "id": "kda_q_l2",
       "label": "L2Norm",
       "box": [
-        80.0,
-        1910.0,
-        105.0,
-        62.0
+        18,
+        931,
+        60,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -483,12 +483,12 @@
       "id": "kda_port_q",
       "label": "Q",
       "box": [
-        80.0,
-        1655.0,
-        105.0,
-        45.0
+        23,
+        892,
+        50,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=23;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -502,12 +502,12 @@
       "id": "kda_k_linear",
       "label": "Linear Wk",
       "box": [
-        205.0,
-        2240.0,
-        105.0,
-        62.0
+        89,
+        1075,
+        60,
+        43
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -521,12 +521,12 @@
       "id": "kda_k_conv",
       "label": "ShortConv",
       "box": [
-        205.0,
-        2130.0,
-        105.0,
-        62.0
+        89,
+        1023,
+        60,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -538,14 +538,14 @@
     },
     {
       "id": "kda_k_swish",
-      "label": "Swish / SiLU",
+      "label": "Swish /\nSiLU",
       "box": [
-        205.0,
-        2020.0,
-        105.0,
-        62.0
+        89,
+        970,
+        60,
+        35
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -559,12 +559,12 @@
       "id": "kda_k_l2",
       "label": "L2Norm",
       "box": [
-        205.0,
-        1910.0,
-        105.0,
-        62.0
+        89,
+        931,
+        60,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -578,12 +578,12 @@
       "id": "kda_port_k",
       "label": "K",
       "box": [
-        205.0,
-        1655.0,
-        105.0,
-        45.0
+        94,
+        892,
+        50,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=23;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -597,12 +597,12 @@
       "id": "kda_v_linear",
       "label": "Linear Wv",
       "box": [
-        330.0,
-        2240.0,
-        105.0,
-        62.0
+        161,
+        1075,
+        60,
+        43
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -616,12 +616,12 @@
       "id": "kda_v_conv",
       "label": "ShortConv",
       "box": [
-        330.0,
-        2130.0,
-        105.0,
-        62.0
+        161,
+        1023,
+        60,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -633,14 +633,14 @@
     },
     {
       "id": "kda_v_swish",
-      "label": "Swish / SiLU",
+      "label": "Swish /\nSiLU",
       "box": [
-        330.0,
-        2020.0,
-        105.0,
-        62.0
+        161,
+        970,
+        60,
+        35
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -654,12 +654,12 @@
       "id": "kda_port_v",
       "label": "V",
       "box": [
-        330.0,
-        1655.0,
-        105.0,
-        45.0
+        166,
+        892,
+        50,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=23;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -673,12 +673,12 @@
       "id": "kda_alpha_down",
       "label": "Linear Wα↓",
       "box": [
-        455.0,
-        2240.0,
-        140.0,
-        62.0
+        235,
+        1110,
+        92,
+        24
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -692,12 +692,12 @@
       "id": "kda_alpha_up",
       "label": "Linear Wα↑",
       "box": [
-        455.0,
-        2145.0,
-        140.0,
-        62.0
+        235,
+        1063,
+        92,
+        24
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -709,14 +709,14 @@
     },
     {
       "id": "kda_alpha_bias",
-      "label": "z = · + bα",
+      "label": "+ bα = z",
       "box": [
-        455.0,
-        2050.0,
-        140.0,
-        62.0
+        235,
+        1024,
+        92,
+        24
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -730,12 +730,12 @@
       "id": "kda_alpha_scale",
       "label": "× exp(A)",
       "box": [
-        455.0,
-        1955.0,
-        140.0,
-        62.0
+        235,
+        994,
+        92,
+        24
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -749,12 +749,12 @@
       "id": "kda_alpha_sigmoid",
       "label": "g = −5 sigmoid(·)",
       "box": [
-        455.0,
-        1860.0,
-        140.0,
-        62.0
+        235,
+        963,
+        92,
+        24
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -768,12 +768,12 @@
       "id": "kda_alpha_exp",
       "label": "α = exp(g)",
       "box": [
-        455.0,
-        1765.0,
-        140.0,
-        62.0
+        235,
+        933,
+        92,
+        24
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -787,12 +787,12 @@
       "id": "kda_port_alpha",
       "label": "α",
       "box": [
-        455.0,
-        1655.0,
-        140.0,
-        45.0
+        253,
+        892,
+        50,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=23;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -804,14 +804,14 @@
     },
     {
       "id": "kda_beta_linear",
-      "label": "Linear Wβ",
+      "label": "Linear\nWβ",
       "box": [
-        610.0,
-        2240.0,
-        105.0,
-        62.0
+        350,
+        1075,
+        50,
+        43
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -825,12 +825,12 @@
       "id": "kda_beta_sigmoid",
       "label": "Sigmoid",
       "box": [
-        610.0,
-        2020.0,
-        105.0,
-        62.0
+        350,
+        1023,
+        50,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -844,12 +844,12 @@
       "id": "kda_port_beta",
       "label": "β",
       "box": [
-        610.0,
-        1655.0,
-        105.0,
-        45.0
+        350,
+        892,
+        50,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=23;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=11;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -863,12 +863,12 @@
       "id": "kda_core",
       "label": "Kimi Delta Attention / recurrent state update\nSₜ = (I − βₜ kₜ kₜᵀ) Diag(αₜ) Sₜ₋₁ + βₜ kₜ vₜᵀ\noₜ = Sₜᵀ qₜ",
       "box": [
-        60.0,
-        1510.0,
-        665.0,
-        115.0
+        20,
+        810,
+        344,
+        67
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -882,12 +882,12 @@
       "id": "kda_norm",
       "label": "Head-wise RMSNorm",
       "box": [
-        105.0,
-        1400.0,
-        560.0,
-        60.0
+        114,
+        772,
+        204,
+        25
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -901,12 +901,12 @@
       "id": "kda_product",
       "label": "×",
       "box": [
-        355.0,
-        1305.0,
-        65.0,
-        65.0
+        197,
+        730,
+        29,
+        29
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=28;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;shape=ellipse;aspect=fixed;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;shape=ellipse;aspect=fixed;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -918,14 +918,14 @@
     },
     {
       "id": "kda_gate_linear",
-      "label": "Full-rank\nLinear Wg",
+      "label": "Linear Wg",
       "box": [
-        730.0,
-        2050.0,
-        100.0,
-        85.0
+        373,
+        832,
+        64,
+        30
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -939,12 +939,12 @@
       "id": "kda_gate_sigmoid",
       "label": "Sigmoid",
       "box": [
-        730.0,
-        1390.0,
-        100.0,
-        60.0
+        374,
+        789,
+        63,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -958,12 +958,12 @@
       "id": "kda_wo",
       "label": "Linear Wo → output y [T, 7168]",
       "box": [
-        95.0,
-        1190.0,
-        585.0,
-        65.0
+        111,
+        691,
+        202,
+        27
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -975,14 +975,14 @@
     },
     {
       "id": "lm_fused",
-      "label": "Fused sequence (text + visual tokens)",
+      "label": "Fused sequence (text + visual\ntokens)",
       "box": [
-        920.0,
-        2340.0,
-        570.0,
-        65.0
+        461,
+        1069,
+        180,
+        33
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -994,14 +994,14 @@
     },
     {
       "id": "lm_repeat",
-      "label": "23 × [3 KDA + FFN, then 1 Gated MLA + FFN]\n= 92 attention layers",
+      "label": "23 × [3 KDA + FFN, then 1\nGated MLA + FFN]\n= 92 attention layers",
       "box": [
-        920.0,
-        830.0,
-        570.0,
-        100.0
+        466,
+        418,
+        170,
+        58
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1015,12 +1015,12 @@
       "id": "lm_final",
       "label": "Final Gated MLA + FFN\n= 1 attention layer",
       "box": [
-        920.0,
-        660.0,
-        570.0,
-        90.0
+        466,
+        331,
+        170,
+        48
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1032,14 +1032,14 @@
     },
     {
       "id": "lm_norm",
-      "label": "Final depth aggregation / normalization",
+      "label": "Final depth aggregation /\nnormalization",
       "box": [
-        920.0,
-        530.0,
-        570.0,
-        65.0
+        466,
+        221,
+        167,
+        58
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1053,12 +1053,12 @@
       "id": "lm_head",
       "label": "LM head",
       "box": [
-        980.0,
-        430.0,
-        450.0,
-        65.0
+        466,
+        165,
+        167,
+        43
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1072,12 +1072,12 @@
       "id": "lm_out",
       "label": "Output tokens",
       "box": [
-        980.0,
-        330.0,
-        450.0,
-        65.0
+        466,
+        113,
+        167,
+        36
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1091,12 +1091,12 @@
       "id": "lm_counts",
       "label": "69 KDA + 24 Gated MLA = 93\n92 MoE FFNs + 1 dense FFN\nDense FFN location not mapped",
       "box": [
-        930.0,
-        970.0,
-        550.0,
-        110.0
+        466,
+        482,
+        170,
+        60
       ],
-      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=23;fontColor=#24344b;",
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;html=0;fontFamily=Arial;fontSize=8;",
       "kind": "decoration",
       "status": "inferred",
       "evidence": [
@@ -1108,14 +1108,14 @@
     },
     {
       "id": "k_title",
-      "label": "Representative KDA layer",
+      "label": "KDA + FFN layer (×69)",
       "box": [
-        935.0,
-        1720.0,
-        540.0,
-        35.0
+        468,
+        580,
+        170,
+        18
       ],
-      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=23;fontColor=#24344b;",
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=9;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred"
     },
@@ -1123,12 +1123,12 @@
       "id": "k_ar1",
       "label": "Block AttnRes",
       "box": [
-        965.0,
-        2240.0,
-        480.0,
-        48.0
+        477,
+        780,
+        155,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
@@ -1136,12 +1136,12 @@
       "id": "k_norm1",
       "label": "RMSNorm",
       "box": [
-        965.0,
-        2175.0,
-        480.0,
-        48.0
+        477,
+        750,
+        155,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
@@ -1149,12 +1149,12 @@
       "id": "k_attn",
       "label": "KDA recurrent attention",
       "box": [
-        965.0,
-        2110.0,
-        480.0,
-        48.0
+        477,
+        720,
+        155,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
@@ -1162,12 +1162,12 @@
       "id": "k_ar2",
       "label": "Block AttnRes / partial update",
       "box": [
-        965.0,
-        2045.0,
-        480.0,
-        48.0
+        477,
+        690,
+        155,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
@@ -1175,12 +1175,12 @@
       "id": "k_norm2",
       "label": "RMSNorm",
       "box": [
-        965.0,
-        1980.0,
-        480.0,
-        48.0
+        477,
+        660,
+        155,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
@@ -1188,12 +1188,12 @@
       "id": "k_ffn",
       "label": "FFN (MoE or dense)",
       "box": [
-        965.0,
-        1915.0,
-        480.0,
-        48.0
+        477,
+        630,
+        155,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
@@ -1201,25 +1201,25 @@
       "id": "k_out",
       "label": "Depth / partial-state update",
       "box": [
-        965.0,
-        1850.0,
-        480.0,
-        48.0
+        477,
+        600,
+        155,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
     {
       "id": "m_title",
-      "label": "Representative Gated MLA layer",
+      "label": "Gated MLA + FFN (×24)",
       "box": [
-        935.0,
-        1110.0,
-        540.0,
-        35.0
+        468,
+        835,
+        170,
+        18
       ],
-      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=23;fontColor=#24344b;",
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=9;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred"
     },
@@ -1227,12 +1227,12 @@
       "id": "m_ar1",
       "label": "Block AttnRes",
       "box": [
-        965.0,
-        1630.0,
-        480.0,
-        48.0
+        477,
+        1015,
+        155,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
@@ -1240,12 +1240,12 @@
       "id": "m_norm1",
       "label": "RMSNorm",
       "box": [
-        965.0,
-        1565.0,
-        480.0,
-        48.0
+        477,
+        985,
+        155,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
@@ -1253,12 +1253,12 @@
       "id": "m_attn",
       "label": "Gated MLA (NoPE)",
       "box": [
-        965.0,
-        1500.0,
-        480.0,
-        48.0
+        477,
+        955,
+        155,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
@@ -1266,12 +1266,12 @@
       "id": "m_ar2",
       "label": "Block AttnRes / partial update",
       "box": [
-        965.0,
-        1435.0,
-        480.0,
-        48.0
+        477,
+        925,
+        155,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
@@ -1279,12 +1279,12 @@
       "id": "m_norm2",
       "label": "RMSNorm",
       "box": [
-        965.0,
-        1370.0,
-        480.0,
-        48.0
+        477,
+        895,
+        155,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
@@ -1292,12 +1292,12 @@
       "id": "m_ffn",
       "label": "FFN (MoE or dense)",
       "box": [
-        965.0,
-        1305.0,
-        480.0,
-        48.0
+        477,
+        865,
+        155,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
@@ -1305,25 +1305,25 @@
       "id": "m_out",
       "label": "Depth / partial-state update",
       "box": [
-        965.0,
-        1240.0,
-        480.0,
-        48.0
+        477,
+        835,
+        155,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
     {
       "id": "moe_x",
-      "label": "Input x [T, 7168]",
+      "label": "x [T, 7168]",
       "box": [
-        1600.0,
-        1170.0,
-        930.0,
-        65.0
+        688,
+        572,
+        359,
+        22
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1337,12 +1337,12 @@
       "id": "moe_shared",
       "label": "2 shared experts\n7168 → 7168",
       "box": [
-        1590.0,
-        590.0,
-        200.0,
-        90.0
+        661,
+        278,
+        92,
+        42
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1356,12 +1356,12 @@
       "id": "moe_down",
       "label": "Linear down\n7168 → 3584",
       "box": [
-        1835.0,
-        1040.0,
-        230.0,
-        75.0
+        742,
+        457,
+        110,
+        36
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -1373,14 +1373,14 @@
     },
     {
       "id": "moe_bank",
-      "label": "896 routed experts\nSelect 16 per token\nFFN intermediate 3072",
+      "label": "896 experts, activate 16\nFFN: SiTU-GLU, width 3072",
       "box": [
-        1835.0,
-        875.0,
-        230.0,
-        110.0
+        724,
+        386,
+        128,
+        50
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -1392,14 +1392,14 @@
     },
     {
       "id": "moe_weighted",
-      "label": "Router-weighted sum",
+      "label": "Weighted sum",
       "box": [
-        1835.0,
-        765.0,
-        230.0,
-        65.0
+        752,
+        333,
+        107,
+        40
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1413,12 +1413,12 @@
       "id": "moe_norm",
       "label": "RMSNorm (3584)",
       "box": [
-        1835.0,
-        660.0,
-        230.0,
-        65.0
+        752,
+        296,
+        107,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -1432,12 +1432,12 @@
       "id": "moe_up",
       "label": "Linear up\n3584 → 7168",
       "box": [
-        1835.0,
-        550.0,
-        230.0,
-        75.0
+        756,
+        252,
+        99,
+        31
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -1449,14 +1449,14 @@
     },
     {
       "id": "moe_router",
-      "label": "Router: score\nQuantile Balancing\nTop-16",
+      "label": "Router\nscore / QB /\nTop-16",
       "box": [
-        2110.0,
-        1020.0,
-        190.0,
-        110.0
+        836,
+        504,
+        94,
+        52
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1470,12 +1470,12 @@
       "id": "moe_sum",
       "label": "+",
       "box": [
-        1915.0,
-        430.0,
-        65.0,
-        65.0
+        774,
+        219,
+        27,
+        27
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;shape=ellipse;aspect=fixed;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;shape=ellipse;aspect=fixed;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1487,14 +1487,14 @@
     },
     {
       "id": "moe_y",
-      "label": "Output y [T, 7168]",
+      "label": "y [T, 7168]",
       "box": [
-        1770.0,
-        330.0,
-        380.0,
-        65.0
+        731,
+        185,
+        121,
+        24
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1506,14 +1506,14 @@
     },
     {
       "id": "ex_x",
-      "label": "Expert input\n3584 routed / 7168 shared",
+      "label": "Expert input\n3584 or 7168",
       "box": [
-        2320.0,
-        1120.0,
-        220.0,
-        85.0
+        945,
+        520,
+        122,
+        29
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1525,14 +1525,14 @@
     },
     {
       "id": "ex_gate",
-      "label": "Linear Wgate\na = Wgate x",
+      "label": "Linear\nWgate\n(· → 3072)",
       "box": [
-        2310.0,
-        950.0,
-        105.0,
-        90.0
+        945,
+        457,
+        60,
+        40
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1544,14 +1544,14 @@
     },
     {
       "id": "ex_up",
-      "label": "Linear Wup\nb = Wup x",
+      "label": "Linear Wup\n(· → 3072)",
       "box": [
-        2430.0,
-        950.0,
-        105.0,
-        90.0
+        1009,
+        457,
+        60,
+        40
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1563,14 +1563,14 @@
     },
     {
       "id": "ex_capgate",
-      "label": "4 tanh(a/4)\n× sigmoid(a)",
+      "label": "4\ntanh(a/4)\n×\nsigmoid(a)",
       "box": [
-        2310.0,
-        790.0,
-        105.0,
-        100.0
+        945,
+        359,
+        60,
+        62
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1582,14 +1582,14 @@
     },
     {
       "id": "ex_capup",
-      "label": "25 tanh(b/25)",
+      "label": "25\ntanh(b/25)",
       "box": [
-        2430.0,
-        790.0,
-        105.0,
-        100.0
+        1010,
+        359,
+        60,
+        62
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1603,12 +1603,12 @@
       "id": "ex_mul",
       "label": "×",
       "box": [
-        2390.0,
-        670.0,
-        60.0,
-        60.0
+        981,
+        333,
+        26,
+        26
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=28;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;shape=ellipse;aspect=fixed;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;shape=ellipse;aspect=fixed;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1622,12 +1622,12 @@
       "id": "ex_down",
       "label": "Linear Wdown\n3072 → expert width",
       "box": [
-        2310.0,
-        520.0,
-        230.0,
-        90.0
+        944,
+        276,
+        125,
+        43
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1641,12 +1641,12 @@
       "id": "ex_y",
       "label": "Expert output",
       "box": [
-        2310.0,
-        395.0,
-        230.0,
-        60.0
+        944,
+        224,
+        125,
+        38
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1658,14 +1658,14 @@
     },
     {
       "id": "mla_x",
-      "label": "Input x [T, 7168]",
+      "label": "x [T, 7168]",
       "box": [
-        1610.0,
-        2355.0,
-        900.0,
-        65.0
+        774,
+        1159,
+        126,
+        25
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1677,14 +1677,14 @@
     },
     {
       "id": "mla_q",
-      "label": "Query projection Wq",
+      "label": "Linear Wq",
       "box": [
-        1610.0,
-        2180.0,
-        230.0,
-        75.0
+        682,
+        1067,
+        86,
+        45
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1696,14 +1696,14 @@
     },
     {
       "id": "mla_compress",
-      "label": "KV compression: x → c",
+      "label": "Linear KV compression: x → c",
       "box": [
-        1870.0,
-        2180.0,
-        350.0,
-        75.0
+        786,
+        1067,
+        206,
+        39
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1715,14 +1715,14 @@
     },
     {
       "id": "mla_cache",
-      "label": "Compressed latent KV cache c",
+      "label": "Latent cache c\n(compressed KV, persistent)",
       "box": [
-        1870.0,
-        2050.0,
-        350.0,
-        75.0
+        773,
+        1015,
+        201,
+        39
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1734,14 +1734,14 @@
     },
     {
       "id": "mla_reconstruct",
-      "label": "Learned up projection / split K,V",
+      "label": "Learned up projection\nSplit K,V",
       "box": [
-        1870.0,
-        1920.0,
-        350.0,
-        75.0
+        807,
+        940,
+        127,
+        59
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1755,12 +1755,12 @@
       "id": "mla_port_q",
       "label": "Q",
       "box": [
-        1690.0,
-        1805.0,
-        80.0,
-        50.0
+        702,
+        896,
+        52,
+        25
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1774,12 +1774,12 @@
       "id": "mla_port_k",
       "label": "K",
       "box": [
-        1900.0,
-        1805.0,
-        80.0,
-        50.0
+        805,
+        896,
+        52,
+        25
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1793,12 +1793,12 @@
       "id": "mla_port_v",
       "label": "V",
       "box": [
-        2100.0,
-        1805.0,
-        80.0,
-        50.0
+        899,
+        896,
+        52,
+        25
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1810,14 +1810,14 @@
     },
     {
       "id": "mla_attention",
-      "label": "Global causal attention — NoPE",
+      "label": "Global causal attention (NoPE)",
       "box": [
-        1615.0,
-        1660.0,
-        700.0,
-        90.0
+        683,
+        840,
+        287,
+        33
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=23;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -1829,14 +1829,14 @@
     },
     {
       "id": "mla_gate",
-      "label": "Full-rank Linear Wg",
+      "label": "Linear Wg",
       "box": [
-        2315.0,
-        2150.0,
-        225.0,
-        75.0
+        987,
+        861,
+        83,
+        30
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1850,12 +1850,12 @@
       "id": "mla_sigmoid",
       "label": "Sigmoid",
       "box": [
-        2330.0,
-        1640.0,
-        190.0,
-        65.0
+        995,
+        816,
+        72,
+        24
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1869,12 +1869,12 @@
       "id": "mla_mul",
       "label": "×",
       "box": [
-        1925.0,
-        1550.0,
-        65.0,
-        65.0
+        846,
+        790,
+        28,
+        28
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;shape=ellipse;aspect=fixed;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;shape=ellipse;aspect=fixed;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1886,14 +1886,14 @@
     },
     {
       "id": "mla_wo",
-      "label": "Linear Wo → output y [T, 7168]",
+      "label": "Linear Wo → y [T, 7168]",
       "box": [
-        1680.0,
-        1420.0,
-        575.0,
-        65.0
+        753,
+        760,
+        210,
+        25
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1905,14 +1905,14 @@
     },
     {
       "id": "mla_note",
-      "label": "No RoPE. Exact projection ranks / head dimensions pending configuration.",
+      "label": "Conceptual unabsorbed view; exact projection ranks pending config.",
       "box": [
-        1600.0,
-        2300.0,
-        930.0,
-        40.0
+        665,
+        704,
+        405,
+        28
       ],
-      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=18;fontColor=#24344b;",
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=10;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred",
       "evidence": [
@@ -1926,12 +1926,12 @@
       "id": "vision_input",
       "label": "Images / video",
       "box": [
-        80.0,
-        3150.0,
-        300.0,
-        55.0
+        20,
+        1383,
+        112,
+        37
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=10;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1945,12 +1945,12 @@
       "id": "vision_processor",
       "label": "ImageProcessor",
       "box": [
-        80.0,
-        3060.0,
-        300.0,
-        55.0
+        20,
+        1340,
+        112,
+        31
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1962,14 +1962,14 @@
     },
     {
       "id": "vision_patch",
-      "label": "Patch embedding (patch 14)",
+      "label": "Patch embedding\n(patch 14)",
       "box": [
-        80.0,
-        2970.0,
-        300.0,
-        55.0
+        20,
+        1302,
+        112,
+        30
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1981,15 +1981,15 @@
     },
     {
       "id": "vision_encoder",
-      "label": "MoonViT-V2: 27 layers / 401M / 12 heads\nRMSNorm / spatial + temporal attention / FFN\nBias-free linear and attention projections",
+      "label": "27 × MoonViT-V2 encoder",
       "box": [
-        80.0,
-        2775.0,
-        650.0,
-        130.0
+        174,
+        1342,
+        230,
+        78
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
-      "kind": "operation",
+      "style": "rounded=1;fillColor=none;strokeColor=none;verticalAlign=top;html=0;fontFamily=Arial;fontSize=8;arcSize=8;absoluteArcSize=1;spacing=2;",
+      "kind": "decoration",
       "status": "inferred",
       "evidence": [
         {
@@ -2000,14 +2000,14 @@
     },
     {
       "id": "vision_pool",
-      "label": "Temporal pooling + 2 × 2 pixel shuffle\n4× fewer spatial tokens",
+      "label": "Temporal pooling\n+ 2 × 2 pixel shuffle",
       "box": [
-        80.0,
-        2640.0,
-        650.0,
-        85.0
+        213,
+        1312,
+        191,
+        29
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2019,14 +2019,14 @@
     },
     {
       "id": "vision_projector",
-      "label": "Lightweight MLP projector → visual embeddings",
+      "label": "MLP projector",
       "box": [
-        790.0,
-        2640.0,
-        700.0,
-        70.0
+        242,
+        1288,
+        163,
+        19
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2040,12 +2040,12 @@
       "id": "text_input",
       "label": "Text",
       "box": [
-        850.0,
-        3150.0,
-        400.0,
-        55.0
+        550,
+        1380,
+        83,
+        26
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#738195;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
@@ -2053,38 +2053,38 @@
       "id": "text_tokenizer",
       "label": "Tokenizer",
       "box": [
-        850.0,
-        3050.0,
-        400.0,
-        55.0
+        550,
+        1354,
+        83,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#738195;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
     {
       "id": "text_embedding",
-      "label": "Text embedding [Ttext, 7168]",
+      "label": "Text embedding\n[Ttext, 7168]",
       "box": [
-        850.0,
-        2940.0,
-        400.0,
-        65.0
+        550,
+        1328,
+        83,
+        23
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#738195;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=9;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred"
     },
     {
       "id": "vision_merge",
-      "label": "Merge text + visual embeddings",
+      "label": "+",
       "box": [
-        850.0,
-        2820.0,
-        590.0,
-        70.0
+        568,
+        1295,
+        28,
+        28
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "ellipse;shape=ellipse;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#333333;fontFamily=Arial;fontSize=16;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2096,66 +2096,66 @@
     },
     {
       "id": "vitattn0",
-      "label": "Input x",
+      "label": "Input\nx",
       "box": [
-        1600.0,
-        3130.0,
-        400.0,
-        75.0
+        709,
+        1282,
+        30,
+        43
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "unverified"
     },
     {
       "id": "vitattn1",
-      "label": "Linear QKV (bias-free)",
+      "label": "Linear QKV\n(bias-free)",
       "box": [
-        1600.0,
-        2995.0,
-        400.0,
-        75.0
+        750,
+        1282,
+        75,
+        43
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "unverified"
     },
     {
       "id": "vitattn2",
-      "label": "Spatial / temporal attention",
+      "label": "Spatial /\ntemporal\nattention",
       "box": [
-        1600.0,
-        2860.0,
-        400.0,
-        75.0
+        838,
+        1282,
+        75,
+        43
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "unverified"
     },
     {
       "id": "vitattn3",
-      "label": "Linear Wo → output",
+      "label": "Linear Wo →\noutput",
       "box": [
-        1600.0,
-        2725.0,
-        400.0,
-        75.0
+        972,
+        1282,
+        77,
+        43
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "unverified"
     },
     {
       "id": "vitffn0",
-      "label": "Input x",
+      "label": "Input\nx",
       "box": [
-        2090.0,
-        3130.0,
-        400.0,
-        75.0
+        709,
+        1361,
+        30,
+        43
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "unverified"
     },
@@ -2163,51 +2163,51 @@
       "id": "vitffn1",
       "label": "Linear up",
       "box": [
-        2090.0,
-        2995.0,
-        400.0,
-        75.0
+        750,
+        1361,
+        75,
+        43
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "unverified"
     },
     {
       "id": "vitffn2",
-      "label": "GELU (schematic)",
+      "label": "GELU\n(schematic)",
       "box": [
-        2090.0,
-        2860.0,
-        400.0,
-        75.0
+        838,
+        1361,
+        75,
+        43
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "unverified"
     },
     {
       "id": "vitffn3",
-      "label": "Linear down → output",
+      "label": "Linear down →\noutput",
       "box": [
-        2090.0,
-        2725.0,
-        400.0,
-        75.0
+        972,
+        1361,
+        77,
+        43
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=8;align=center;verticalAlign=middle;spacing=5;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "operation",
       "status": "unverified"
     },
     {
       "id": "vision_caveat",
-      "label": "Vision inset is schematic; exact projector / FFN configuration not weight verified.",
+      "label": "Vision FFN / projector internals not weight verified.",
       "box": [
-        1550.0,
-        2580.0,
-        950.0,
-        55.0
+        694,
+        1410,
+        377,
+        14
       ],
-      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=18;fontColor=#24344b;",
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=7;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=2;",
       "kind": "decoration",
       "status": "inferred",
       "evidence": [
@@ -2218,35 +2218,426 @@
       ]
     },
     {
-      "id": "mtp",
-      "label": "Auxiliary: 1 MTP layer reported separately; not added to the 93-layer main backbone.",
+      "id": "sources",
+      "label": "Source: MoonshotAI/Kimi-K3 report §§2.1–2.4, Table 1 · 3cb39df · Config / weights not verified",
       "box": [
-        50.0,
-        3290.0,
-        2500.0,
-        65.0
+        10,
+        1429,
+        1066,
+        17
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#738195;fontColor=#152337;fontFamily=Arial;fontSize=24;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
-      "kind": "operation",
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=7;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=2;",
+      "kind": "decoration",
       "status": "inferred"
     },
     {
-      "id": "sources",
-      "label": "Source: MoonshotAI/Kimi-K3 technical report §§2.1–2.4 / Table 1 · commit 3cb39df\nReport-based conceptual topology. HF config / weight index not verified; exact ranks and dense-layer location pending.",
+      "id": "k_input",
+      "label": "xₗ",
       "box": [
-        50.0,
-        3380.0,
-        2500.0,
-        85.0
+        477,
+        810,
+        155,
+        18
       ],
-      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontColor=#24344b;",
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=9;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;"
+    },
+    {
+      "id": "m_input",
+      "label": "xₗ",
+      "box": [
+        477,
+        1045,
+        155,
+        18
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=9;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;"
+    },
+    {
+      "id": "representative_label",
+      "label": "Representative layer detail\n(explanatory insets)",
+      "box": [
+        466,
+        548,
+        170,
+        27
+      ],
+      "status": "inferred",
       "kind": "decoration",
-      "status": "inferred"
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;html=0;fontFamily=Arial;fontSize=9;"
+    },
+    {
+      "id": "output_gate_note",
+      "label": "Output gate\n(separate from\nfive KDA\ninputs)",
+      "box": [
+        361,
+        696,
+        81,
+        52
+      ],
+      "status": "inferred",
+      "kind": "decoration",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=9;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;"
+    },
+    {
+      "id": "expert_heading",
+      "label": "Expert FFN\n(SiTU-GLU)",
+      "box": [
+        930,
+        193,
+        143,
+        27
+      ],
+      "status": "inferred",
+      "kind": "decoration",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=11;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;"
+    },
+    {
+      "id": "moe_notes",
+      "label": "Shared experts bypass latent down/up.\nRouted experts operate in 3584-dimensional space.",
+      "box": [
+        672,
+        607,
+        396,
+        35
+      ],
+      "status": "inferred",
+      "kind": "decoration",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=9;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;"
+    },
+    {
+      "id": "vision_out",
+      "label": "Visual embedding [Tvis, 7168]",
+      "box": [
+        188,
+        1257,
+        254,
+        26
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontFamily=Arial;fontSize=10;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 (schematic reconstruction; exact implementation unverified)"
+        }
+      ]
+    },
+    {
+      "id": "vision_enc_norm1",
+      "label": "RMSNorm",
+      "box": [
+        210,
+        1407,
+        169,
+        11
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontSize=6.5;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 (schematic reconstruction; exact implementation unverified)"
+        }
+      ]
+    },
+    {
+      "id": "vision_enc_attn",
+      "label": "Spatial / temporal attention",
+      "box": [
+        210,
+        1393,
+        169,
+        11
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontSize=6.5;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 (schematic reconstruction; exact implementation unverified)"
+        }
+      ]
+    },
+    {
+      "id": "vision_enc_add1",
+      "label": "Residual add",
+      "box": [
+        210,
+        1380,
+        169,
+        11
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontSize=6.5;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 (schematic reconstruction; exact implementation unverified)"
+        }
+      ]
+    },
+    {
+      "id": "vision_enc_norm2",
+      "label": "RMSNorm",
+      "box": [
+        210,
+        1367,
+        169,
+        11
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontSize=6.5;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 (schematic reconstruction; exact implementation unverified)"
+        }
+      ]
+    },
+    {
+      "id": "vision_enc_ffn",
+      "label": "FFN (schematic)",
+      "box": [
+        210,
+        1354,
+        169,
+        11
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontSize=6.5;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 (schematic reconstruction; exact implementation unverified)"
+        }
+      ]
+    },
+    {
+      "id": "vision_enc_add2",
+      "label": "Residual add",
+      "box": [
+        210,
+        1342,
+        169,
+        11
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontSize=6.5;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 (schematic reconstruction; exact implementation unverified)"
+        }
+      ]
+    },
+    {
+      "id": "vision_fused_detail",
+      "label": "Fused sequence\n(text + visual tokens)",
+      "box": [
+        495,
+        1257,
+        180,
+        34
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=10;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 (schematic reconstruction; exact implementation unverified)"
+        }
+      ]
+    },
+    {
+      "id": "mini_merge",
+      "label": "+",
+      "box": [
+        538,
+        1106,
+        25,
+        25
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=15;fontColor=#111111;shape=ellipse;arcSize=8;absoluteArcSize=1;spacing=2;"
+    },
+    {
+      "id": "mini_text",
+      "label": "Text",
+      "box": [
+        480,
+        1209,
+        46,
+        18
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=7;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;"
+    },
+    {
+      "id": "mini_tokenizer",
+      "label": "Tokenizer",
+      "box": [
+        468,
+        1186,
+        69,
+        18
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=7;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;"
+    },
+    {
+      "id": "mini_embed",
+      "label": "Embedding",
+      "box": [
+        468,
+        1165,
+        69,
+        18
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=7;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;"
+    },
+    {
+      "id": "mini_textvec",
+      "label": "Text embedding",
+      "box": [
+        460,
+        1136,
+        83,
+        27
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=7;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;"
+    },
+    {
+      "id": "mini_images",
+      "label": "Images / video",
+      "box": [
+        550,
+        1209,
+        89,
+        18
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=7;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;"
+    },
+    {
+      "id": "mini_pool",
+      "label": "Temporal pool / pixel\nshuffle",
+      "box": [
+        550,
+        1186,
+        89,
+        18
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=7;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;"
+    },
+    {
+      "id": "mini_projector",
+      "label": "MLP projector",
+      "box": [
+        558,
+        1165,
+        81,
+        18
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=7;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;"
+    },
+    {
+      "id": "mini_visvec",
+      "label": "Visual embedding",
+      "box": [
+        552,
+        1136,
+        88,
+        27
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=7;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=2;"
+    },
+    {
+      "id": "ar_embedding",
+      "label": "Embedding",
+      "box": [
+        30,
+        537,
+        110,
+        48
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.2, equation 10"
+        }
+      ],
+      "style": "rounded=1;arcSize=8;absoluteArcSize=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=10;spacing=2;"
+    },
+    {
+      "id": "ar_blocks",
+      "label": "Completed\nblock sums",
+      "box": [
+        150,
+        537,
+        120,
+        48
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.2, equation 10"
+        }
+      ],
+      "style": "rounded=1;arcSize=8;absoluteArcSize=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=10;spacing=2;"
+    },
+    {
+      "id": "ar_partial",
+      "label": "Current\npartial sum",
+      "box": [
+        285,
+        537,
+        120,
+        48
+      ],
+      "status": "inferred",
+      "kind": "operation",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.2, equation 10"
+        }
+      ],
+      "style": "rounded=1;arcSize=8;absoluteArcSize=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=10;spacing=2;"
     }
   ],
   "edges": [
     {
-      "id": "edge_25",
+      "id": "connection_0",
       "source": "ar_source",
       "target": "ar_keys",
       "label": "",
@@ -2258,7 +2649,7 @@
       ]
     },
     {
-      "id": "edge_26",
+      "id": "connection_1",
       "source": "ar_keys",
       "target": "ar_logits",
       "label": "",
@@ -2270,7 +2661,7 @@
       ]
     },
     {
-      "id": "edge_27",
+      "id": "connection_2",
       "source": "ar_logits",
       "target": "ar_softmax",
       "label": "",
@@ -2282,7 +2673,7 @@
       ]
     },
     {
-      "id": "edge_28",
+      "id": "connection_3",
       "source": "ar_softmax",
       "target": "ar_sum",
       "label": "",
@@ -2294,7 +2685,7 @@
       ]
     },
     {
-      "id": "edge_29",
+      "id": "connection_4",
       "source": "ar_sum",
       "target": "ar_out",
       "label": "",
@@ -2306,7 +2697,7 @@
       ]
     },
     {
-      "id": "edge_30",
+      "id": "connection_5",
       "source": "ar_query",
       "target": "ar_logits",
       "label": "",
@@ -2318,19 +2709,33 @@
       ]
     },
     {
-      "id": "edge_31",
+      "id": "connection_6",
       "source": "ar_source",
       "target": "ar_values",
       "label": "",
       "ports": [
-        0.9,
-        0.0,
+        0.95,
+        0,
         0.5,
-        1.0
+        1
+      ],
+      "points": [
+        [
+          431,
+          520
+        ],
+        [
+          431,
+          375
+        ],
+        [
+          381.5,
+          375
+        ]
       ]
     },
     {
-      "id": "edge_32",
+      "id": "connection_7",
       "source": "ar_values",
       "target": "ar_sum",
       "label": "",
@@ -2342,19 +2747,29 @@
       ]
     },
     {
-      "id": "edge_35",
+      "id": "connection_8",
       "source": "kda_x",
       "target": "kda_q_linear",
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
+        1
+      ],
+      "points": [
+        [
+          222,
+          1160
+        ],
+        [
+          48.0,
+          1160
+        ]
       ]
     },
     {
-      "id": "edge_37",
+      "id": "connection_9",
       "source": "kda_q_linear",
       "target": "kda_q_conv",
       "label": "",
@@ -2366,7 +2781,7 @@
       ]
     },
     {
-      "id": "edge_39",
+      "id": "connection_10",
       "source": "kda_q_conv",
       "target": "kda_q_swish",
       "label": "",
@@ -2378,7 +2793,7 @@
       ]
     },
     {
-      "id": "edge_41",
+      "id": "connection_11",
       "source": "kda_q_swish",
       "target": "kda_q_l2",
       "label": "",
@@ -2390,7 +2805,7 @@
       ]
     },
     {
-      "id": "edge_43",
+      "id": "connection_12",
       "source": "kda_q_l2",
       "target": "kda_port_q",
       "label": "",
@@ -2402,19 +2817,29 @@
       ]
     },
     {
-      "id": "edge_45",
+      "id": "connection_13",
       "source": "kda_x",
       "target": "kda_k_linear",
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
+        1
+      ],
+      "points": [
+        [
+          222,
+          1160
+        ],
+        [
+          119.0,
+          1160
+        ]
       ]
     },
     {
-      "id": "edge_47",
+      "id": "connection_14",
       "source": "kda_k_linear",
       "target": "kda_k_conv",
       "label": "",
@@ -2426,7 +2851,7 @@
       ]
     },
     {
-      "id": "edge_49",
+      "id": "connection_15",
       "source": "kda_k_conv",
       "target": "kda_k_swish",
       "label": "",
@@ -2438,7 +2863,7 @@
       ]
     },
     {
-      "id": "edge_51",
+      "id": "connection_16",
       "source": "kda_k_swish",
       "target": "kda_k_l2",
       "label": "",
@@ -2450,7 +2875,7 @@
       ]
     },
     {
-      "id": "edge_53",
+      "id": "connection_17",
       "source": "kda_k_l2",
       "target": "kda_port_k",
       "label": "",
@@ -2462,19 +2887,29 @@
       ]
     },
     {
-      "id": "edge_55",
+      "id": "connection_18",
       "source": "kda_x",
       "target": "kda_v_linear",
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
+        1
+      ],
+      "points": [
+        [
+          222,
+          1160
+        ],
+        [
+          191.0,
+          1160
+        ]
       ]
     },
     {
-      "id": "edge_57",
+      "id": "connection_19",
       "source": "kda_v_linear",
       "target": "kda_v_conv",
       "label": "",
@@ -2486,7 +2921,7 @@
       ]
     },
     {
-      "id": "edge_59",
+      "id": "connection_20",
       "source": "kda_v_conv",
       "target": "kda_v_swish",
       "label": "",
@@ -2498,7 +2933,7 @@
       ]
     },
     {
-      "id": "edge_61",
+      "id": "connection_21",
       "source": "kda_v_swish",
       "target": "kda_port_v",
       "label": "",
@@ -2510,19 +2945,29 @@
       ]
     },
     {
-      "id": "edge_63",
+      "id": "connection_22",
       "source": "kda_x",
       "target": "kda_alpha_down",
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
+        1
+      ],
+      "points": [
+        [
+          222,
+          1160
+        ],
+        [
+          281.0,
+          1160
+        ]
       ]
     },
     {
-      "id": "edge_65",
+      "id": "connection_23",
       "source": "kda_alpha_down",
       "target": "kda_alpha_up",
       "label": "",
@@ -2534,7 +2979,7 @@
       ]
     },
     {
-      "id": "edge_67",
+      "id": "connection_24",
       "source": "kda_alpha_up",
       "target": "kda_alpha_bias",
       "label": "",
@@ -2546,7 +2991,7 @@
       ]
     },
     {
-      "id": "edge_69",
+      "id": "connection_25",
       "source": "kda_alpha_bias",
       "target": "kda_alpha_scale",
       "label": "",
@@ -2558,7 +3003,7 @@
       ]
     },
     {
-      "id": "edge_71",
+      "id": "connection_26",
       "source": "kda_alpha_scale",
       "target": "kda_alpha_sigmoid",
       "label": "",
@@ -2570,7 +3015,7 @@
       ]
     },
     {
-      "id": "edge_73",
+      "id": "connection_27",
       "source": "kda_alpha_sigmoid",
       "target": "kda_alpha_exp",
       "label": "",
@@ -2582,7 +3027,7 @@
       ]
     },
     {
-      "id": "edge_75",
+      "id": "connection_28",
       "source": "kda_alpha_exp",
       "target": "kda_port_alpha",
       "label": "",
@@ -2594,19 +3039,29 @@
       ]
     },
     {
-      "id": "edge_77",
+      "id": "connection_29",
       "source": "kda_x",
       "target": "kda_beta_linear",
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
+        1
+      ],
+      "points": [
+        [
+          222,
+          1160
+        ],
+        [
+          375.0,
+          1160
+        ]
       ]
     },
     {
-      "id": "edge_79",
+      "id": "connection_30",
       "source": "kda_beta_linear",
       "target": "kda_beta_sigmoid",
       "label": "",
@@ -2618,7 +3073,7 @@
       ]
     },
     {
-      "id": "edge_81",
+      "id": "connection_31",
       "source": "kda_beta_sigmoid",
       "target": "kda_port_beta",
       "label": "",
@@ -2630,67 +3085,67 @@
       ]
     },
     {
-      "id": "edge_83",
+      "id": "connection_32",
       "source": "kda_port_q",
       "target": "kda_core",
       "label": "",
       "ports": [
         0.5,
-        0.0,
-        0.10902255639097744,
-        1.0
+        0,
+        0.08139534883720931,
+        1
       ]
     },
     {
-      "id": "edge_84",
+      "id": "connection_33",
       "source": "kda_port_k",
       "target": "kda_core",
       "label": "",
       "ports": [
         0.5,
-        0.0,
-        0.29699248120300753,
-        1.0
+        0,
+        0.2877906976744186,
+        1
       ]
     },
     {
-      "id": "edge_85",
+      "id": "connection_34",
       "source": "kda_port_v",
       "target": "kda_core",
       "label": "",
       "ports": [
         0.5,
-        0.0,
-        0.4849624060150376,
-        1.0
+        0,
+        0.49709302325581395,
+        1
       ]
     },
     {
-      "id": "edge_86",
+      "id": "connection_35",
       "source": "kda_port_alpha",
       "target": "kda_core",
       "label": "",
       "ports": [
         0.5,
-        0.0,
-        0.6992481203007519,
-        1.0
+        0,
+        0.75,
+        1
       ]
     },
     {
-      "id": "edge_87",
+      "id": "connection_36",
       "source": "kda_port_beta",
       "target": "kda_core",
       "label": "",
       "ports": [
         0.5,
-        0.0,
-        0.9060150375939849,
-        1.0
+        0,
+        0.97,
+        1
       ]
     },
     {
-      "id": "edge_93",
+      "id": "connection_37",
       "source": "kda_core",
       "target": "kda_norm",
       "label": "",
@@ -2702,7 +3157,7 @@
       ]
     },
     {
-      "id": "edge_94",
+      "id": "connection_38",
       "source": "kda_norm",
       "target": "kda_product",
       "label": "",
@@ -2714,7 +3169,7 @@
       ]
     },
     {
-      "id": "edge_95",
+      "id": "connection_39",
       "source": "kda_product",
       "target": "kda_wo",
       "label": "",
@@ -2726,19 +3181,29 @@
       ]
     },
     {
-      "id": "edge_96",
+      "id": "connection_40",
       "source": "kda_x",
       "target": "kda_gate_linear",
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
+        1
+      ],
+      "points": [
+        [
+          222,
+          1160
+        ],
+        [
+          405.0,
+          1160
+        ]
       ]
     },
     {
-      "id": "edge_97",
+      "id": "connection_41",
       "source": "kda_gate_linear",
       "target": "kda_gate_sigmoid",
       "label": "",
@@ -2750,7 +3215,7 @@
       ]
     },
     {
-      "id": "edge_98",
+      "id": "connection_42",
       "source": "kda_gate_sigmoid",
       "target": "kda_product",
       "label": "output gate",
@@ -2762,7 +3227,7 @@
       ]
     },
     {
-      "id": "edge_105",
+      "id": "connection_43",
       "source": "lm_repeat",
       "target": "lm_final",
       "label": "",
@@ -2774,7 +3239,7 @@
       ]
     },
     {
-      "id": "edge_106",
+      "id": "connection_44",
       "source": "lm_final",
       "target": "lm_norm",
       "label": "",
@@ -2786,7 +3251,7 @@
       ]
     },
     {
-      "id": "edge_107",
+      "id": "connection_45",
       "source": "lm_norm",
       "target": "lm_head",
       "label": "",
@@ -2798,7 +3263,7 @@
       ]
     },
     {
-      "id": "edge_108",
+      "id": "connection_46",
       "source": "lm_head",
       "target": "lm_out",
       "label": "",
@@ -2810,19 +3275,7 @@
       ]
     },
     {
-      "id": "edge_112",
-      "source": "lm_fused",
-      "target": "k_ar1",
-      "label": "",
-      "ports": [
-        0.5,
-        0.0,
-        0.5,
-        1.0
-      ]
-    },
-    {
-      "id": "edge_114",
+      "id": "connection_47",
       "source": "k_ar1",
       "target": "k_norm1",
       "label": "",
@@ -2834,7 +3287,7 @@
       ]
     },
     {
-      "id": "edge_116",
+      "id": "connection_48",
       "source": "k_norm1",
       "target": "k_attn",
       "label": "",
@@ -2846,7 +3299,7 @@
       ]
     },
     {
-      "id": "edge_118",
+      "id": "connection_49",
       "source": "k_attn",
       "target": "k_ar2",
       "label": "",
@@ -2858,7 +3311,7 @@
       ]
     },
     {
-      "id": "edge_120",
+      "id": "connection_50",
       "source": "k_ar2",
       "target": "k_norm2",
       "label": "",
@@ -2870,7 +3323,7 @@
       ]
     },
     {
-      "id": "edge_122",
+      "id": "connection_51",
       "source": "k_norm2",
       "target": "k_ffn",
       "label": "",
@@ -2882,7 +3335,7 @@
       ]
     },
     {
-      "id": "edge_124",
+      "id": "connection_52",
       "source": "k_ffn",
       "target": "k_out",
       "label": "",
@@ -2894,19 +3347,7 @@
       ]
     },
     {
-      "id": "edge_127",
-      "source": "k_out",
-      "target": "m_ar1",
-      "label": "",
-      "ports": [
-        0.5,
-        0.0,
-        0.5,
-        1.0
-      ]
-    },
-    {
-      "id": "edge_129",
+      "id": "connection_53",
       "source": "m_ar1",
       "target": "m_norm1",
       "label": "",
@@ -2918,7 +3359,7 @@
       ]
     },
     {
-      "id": "edge_131",
+      "id": "connection_54",
       "source": "m_norm1",
       "target": "m_attn",
       "label": "",
@@ -2930,7 +3371,7 @@
       ]
     },
     {
-      "id": "edge_133",
+      "id": "connection_55",
       "source": "m_attn",
       "target": "m_ar2",
       "label": "",
@@ -2942,7 +3383,7 @@
       ]
     },
     {
-      "id": "edge_135",
+      "id": "connection_56",
       "source": "m_ar2",
       "target": "m_norm2",
       "label": "",
@@ -2954,7 +3395,7 @@
       ]
     },
     {
-      "id": "edge_137",
+      "id": "connection_57",
       "source": "m_norm2",
       "target": "m_ffn",
       "label": "",
@@ -2966,7 +3407,7 @@
       ]
     },
     {
-      "id": "edge_139",
+      "id": "connection_58",
       "source": "m_ffn",
       "target": "m_out",
       "label": "",
@@ -2978,19 +3419,7 @@
       ]
     },
     {
-      "id": "edge_140",
-      "source": "m_out",
-      "target": "lm_repeat",
-      "label": "",
-      "ports": [
-        0.5,
-        0.0,
-        0.5,
-        1.0
-      ]
-    },
-    {
-      "id": "edge_151",
+      "id": "connection_59",
       "source": "moe_x",
       "target": "moe_down",
       "label": "",
@@ -3002,7 +3431,7 @@
       ]
     },
     {
-      "id": "edge_152",
+      "id": "connection_60",
       "source": "moe_down",
       "target": "moe_bank",
       "label": "",
@@ -3014,7 +3443,7 @@
       ]
     },
     {
-      "id": "edge_153",
+      "id": "connection_61",
       "source": "moe_bank",
       "target": "moe_weighted",
       "label": "",
@@ -3026,7 +3455,7 @@
       ]
     },
     {
-      "id": "edge_154",
+      "id": "connection_62",
       "source": "moe_weighted",
       "target": "moe_norm",
       "label": "",
@@ -3038,7 +3467,7 @@
       ]
     },
     {
-      "id": "edge_155",
+      "id": "connection_63",
       "source": "moe_norm",
       "target": "moe_up",
       "label": "",
@@ -3050,7 +3479,7 @@
       ]
     },
     {
-      "id": "edge_156",
+      "id": "connection_64",
       "source": "moe_up",
       "target": "moe_sum",
       "label": "",
@@ -3062,7 +3491,7 @@
       ]
     },
     {
-      "id": "edge_157",
+      "id": "connection_65",
       "source": "moe_sum",
       "target": "moe_y",
       "label": "",
@@ -3074,7 +3503,7 @@
       ]
     },
     {
-      "id": "edge_158",
+      "id": "connection_66",
       "source": "moe_x",
       "target": "moe_shared",
       "label": "",
@@ -3086,7 +3515,7 @@
       ]
     },
     {
-      "id": "edge_159",
+      "id": "connection_67",
       "source": "moe_shared",
       "target": "moe_sum",
       "label": "",
@@ -3098,7 +3527,7 @@
       ]
     },
     {
-      "id": "edge_160",
+      "id": "connection_68",
       "source": "moe_x",
       "target": "moe_router",
       "label": "",
@@ -3110,7 +3539,7 @@
       ]
     },
     {
-      "id": "edge_161",
+      "id": "connection_69",
       "source": "moe_router",
       "target": "moe_bank",
       "label": "selection",
@@ -3122,7 +3551,7 @@
       ]
     },
     {
-      "id": "edge_162",
+      "id": "connection_70",
       "source": "moe_router",
       "target": "moe_weighted",
       "label": "weights",
@@ -3134,7 +3563,7 @@
       ]
     },
     {
-      "id": "edge_171",
+      "id": "connection_71",
       "source": "ex_x",
       "target": "ex_gate",
       "label": "",
@@ -3146,7 +3575,7 @@
       ]
     },
     {
-      "id": "edge_172",
+      "id": "connection_72",
       "source": "ex_gate",
       "target": "ex_capgate",
       "label": "",
@@ -3158,19 +3587,19 @@
       ]
     },
     {
-      "id": "edge_173",
+      "id": "connection_73",
       "source": "ex_capgate",
       "target": "ex_mul",
       "label": "",
       "ports": [
         0.5,
-        0.0,
-        0.5,
-        1.0
+        0,
+        0,
+        0.5
       ]
     },
     {
-      "id": "edge_174",
+      "id": "connection_74",
       "source": "ex_mul",
       "target": "ex_down",
       "label": "",
@@ -3182,7 +3611,7 @@
       ]
     },
     {
-      "id": "edge_175",
+      "id": "connection_75",
       "source": "ex_down",
       "target": "ex_y",
       "label": "",
@@ -3194,7 +3623,7 @@
       ]
     },
     {
-      "id": "edge_176",
+      "id": "connection_76",
       "source": "ex_x",
       "target": "ex_up",
       "label": "",
@@ -3206,7 +3635,7 @@
       ]
     },
     {
-      "id": "edge_177",
+      "id": "connection_77",
       "source": "ex_up",
       "target": "ex_capup",
       "label": "",
@@ -3218,31 +3647,41 @@
       ]
     },
     {
-      "id": "edge_178",
+      "id": "connection_78",
       "source": "ex_capup",
       "target": "ex_mul",
       "label": "",
       "ports": [
         0.5,
-        0.0,
-        0.5,
-        1.0
+        0,
+        1,
+        0.5
       ]
     },
     {
-      "id": "edge_192",
+      "id": "connection_79",
       "source": "mla_x",
       "target": "mla_q",
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
+        1
+      ],
+      "points": [
+        [
+          837,
+          1140
+        ],
+        [
+          725.0,
+          1140
+        ]
       ]
     },
     {
-      "id": "edge_193",
+      "id": "connection_80",
       "source": "mla_q",
       "target": "mla_port_q",
       "label": "",
@@ -3254,7 +3693,7 @@
       ]
     },
     {
-      "id": "edge_194",
+      "id": "connection_81",
       "source": "mla_port_q",
       "target": "mla_attention",
       "label": "",
@@ -3266,7 +3705,7 @@
       ]
     },
     {
-      "id": "edge_195",
+      "id": "connection_82",
       "source": "mla_attention",
       "target": "mla_mul",
       "label": "",
@@ -3278,7 +3717,7 @@
       ]
     },
     {
-      "id": "edge_196",
+      "id": "connection_83",
       "source": "mla_mul",
       "target": "mla_wo",
       "label": "",
@@ -3290,19 +3729,29 @@
       ]
     },
     {
-      "id": "edge_197",
+      "id": "connection_84",
       "source": "mla_x",
       "target": "mla_compress",
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
+        1
+      ],
+      "points": [
+        [
+          837,
+          1140
+        ],
+        [
+          889.0,
+          1140
+        ]
       ]
     },
     {
-      "id": "edge_198",
+      "id": "connection_85",
       "source": "mla_compress",
       "target": "mla_cache",
       "label": "",
@@ -3314,7 +3763,7 @@
       ]
     },
     {
-      "id": "edge_199",
+      "id": "connection_86",
       "source": "mla_cache",
       "target": "mla_reconstruct",
       "label": "",
@@ -3326,7 +3775,7 @@
       ]
     },
     {
-      "id": "edge_200",
+      "id": "connection_87",
       "source": "mla_reconstruct",
       "target": "mla_port_k",
       "label": "",
@@ -3338,7 +3787,7 @@
       ]
     },
     {
-      "id": "edge_201",
+      "id": "connection_88",
       "source": "mla_reconstruct",
       "target": "mla_port_v",
       "label": "",
@@ -3350,7 +3799,7 @@
       ]
     },
     {
-      "id": "edge_202",
+      "id": "connection_89",
       "source": "mla_port_k",
       "target": "mla_attention",
       "label": "",
@@ -3362,7 +3811,7 @@
       ]
     },
     {
-      "id": "edge_203",
+      "id": "connection_90",
       "source": "mla_port_v",
       "target": "mla_attention",
       "label": "",
@@ -3374,19 +3823,29 @@
       ]
     },
     {
-      "id": "edge_204",
+      "id": "connection_91",
       "source": "mla_x",
       "target": "mla_gate",
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
+        1
+      ],
+      "points": [
+        [
+          837,
+          1140
+        ],
+        [
+          1028.5,
+          1140
+        ]
       ]
     },
     {
-      "id": "edge_205",
+      "id": "connection_92",
       "source": "mla_gate",
       "target": "mla_sigmoid",
       "label": "",
@@ -3398,19 +3857,25 @@
       ]
     },
     {
-      "id": "edge_206",
+      "id": "connection_93",
       "source": "mla_sigmoid",
       "target": "mla_mul",
       "label": "",
       "ports": [
         0.5,
-        0.0,
-        1.0,
+        0,
+        1,
         0.5
+      ],
+      "points": [
+        [
+          1031,
+          804
+        ]
       ]
     },
     {
-      "id": "edge_214",
+      "id": "connection_94",
       "source": "vision_input",
       "target": "vision_processor",
       "label": "",
@@ -3422,7 +3887,7 @@
       ]
     },
     {
-      "id": "edge_215",
+      "id": "connection_95",
       "source": "vision_processor",
       "target": "vision_patch",
       "label": "",
@@ -3434,31 +3899,7 @@
       ]
     },
     {
-      "id": "edge_216",
-      "source": "vision_patch",
-      "target": "vision_encoder",
-      "label": "",
-      "ports": [
-        0.5,
-        0.0,
-        0.5,
-        1.0
-      ]
-    },
-    {
-      "id": "edge_217",
-      "source": "vision_encoder",
-      "target": "vision_pool",
-      "label": "",
-      "ports": [
-        0.5,
-        0.0,
-        0.5,
-        1.0
-      ]
-    },
-    {
-      "id": "edge_218",
+      "id": "connection_96",
       "source": "vision_pool",
       "target": "vision_projector",
       "label": "",
@@ -3470,7 +3911,7 @@
       ]
     },
     {
-      "id": "edge_223",
+      "id": "connection_97",
       "source": "text_input",
       "target": "text_tokenizer",
       "label": "",
@@ -3482,7 +3923,7 @@
       ]
     },
     {
-      "id": "edge_224",
+      "id": "connection_98",
       "source": "text_tokenizer",
       "target": "text_embedding",
       "label": "",
@@ -3494,7 +3935,7 @@
       ]
     },
     {
-      "id": "edge_225",
+      "id": "connection_99",
       "source": "text_embedding",
       "target": "vision_merge",
       "label": "",
@@ -3506,126 +3947,302 @@
       ]
     },
     {
-      "id": "edge_226",
-      "source": "vision_projector",
-      "target": "vision_merge",
-      "label": "visual tokens",
-      "ports": [
-        1.0,
-        0.5,
-        1.0,
-        0.5
-      ],
-      "points": [
-        [
-          1510.0,
-          2675.0
-        ],
-        [
-          1510.0,
-          2855.0
-        ]
-      ]
-    },
-    {
-      "id": "edge_227",
-      "source": "vision_merge",
-      "target": "lm_fused",
-      "label": "fused sequence",
-      "ports": [
-        0.5,
-        0.0,
-        0.5,
-        1.0
-      ],
-      "points": [
-        [
-          1135.0,
-          2610.0
-        ],
-        [
-          1205.0,
-          2610.0
-        ]
-      ]
-    },
-    {
-      "id": "edge_230",
+      "id": "connection_100",
       "source": "vitattn0",
       "target": "vitattn1",
       "label": "",
       "ports": [
+        1,
         0.5,
-        0.0,
-        0.5,
-        1.0
+        0,
+        0.5
       ]
     },
     {
-      "id": "edge_232",
+      "id": "connection_101",
       "source": "vitattn1",
       "target": "vitattn2",
       "label": "",
       "ports": [
+        1,
         0.5,
-        0.0,
-        0.5,
-        1.0
+        0,
+        0.5
       ]
     },
     {
-      "id": "edge_234",
+      "id": "connection_102",
       "source": "vitattn2",
       "target": "vitattn3",
       "label": "",
       "ports": [
+        1,
         0.5,
-        0.0,
-        0.5,
-        1.0
+        0,
+        0.5
       ]
     },
     {
-      "id": "edge_237",
+      "id": "connection_103",
       "source": "vitffn0",
       "target": "vitffn1",
       "label": "",
       "ports": [
+        1,
         0.5,
-        0.0,
-        0.5,
-        1.0
+        0,
+        0.5
       ]
     },
     {
-      "id": "edge_239",
+      "id": "connection_104",
       "source": "vitffn1",
       "target": "vitffn2",
       "label": "",
       "ports": [
+        1,
         0.5,
-        0.0,
-        0.5,
-        1.0
+        0,
+        0.5
       ]
     },
     {
-      "id": "edge_241",
+      "id": "connection_105",
       "source": "vitffn2",
       "target": "vitffn3",
       "label": "",
       "ports": [
+        1,
         0.5,
-        0.0,
-        0.5,
-        1.0
+        0,
+        0.5
       ]
+    },
+    {
+      "id": "connection_106",
+      "source": "k_input",
+      "target": "k_ar1",
+      "label": ""
+    },
+    {
+      "id": "connection_107",
+      "source": "m_input",
+      "target": "m_ar1",
+      "label": ""
+    },
+    {
+      "id": "connection_108",
+      "source": "lm_fused",
+      "target": "lm_repeat",
+      "label": "",
+      "ports": [
+        0,
+        0.5,
+        0,
+        0.5
+      ],
+      "points": [
+        [
+          451,
+          1085.5
+        ],
+        [
+          451,
+          447
+        ]
+      ]
+    },
+    {
+      "id": "connection_109",
+      "source": "vision_enc_norm1",
+      "target": "vision_enc_attn",
+      "label": ""
+    },
+    {
+      "id": "connection_110",
+      "source": "vision_enc_attn",
+      "target": "vision_enc_add1",
+      "label": ""
+    },
+    {
+      "id": "connection_111",
+      "source": "vision_enc_add1",
+      "target": "vision_enc_norm2",
+      "label": ""
+    },
+    {
+      "id": "connection_112",
+      "source": "vision_enc_norm2",
+      "target": "vision_enc_ffn",
+      "label": ""
+    },
+    {
+      "id": "connection_113",
+      "source": "vision_enc_ffn",
+      "target": "vision_enc_add2",
+      "label": ""
+    },
+    {
+      "id": "connection_114",
+      "source": "vision_patch",
+      "target": "vision_enc_norm1",
+      "label": "",
+      "ports": [
+        1,
+        0.5,
+        0,
+        0.5
+      ]
+    },
+    {
+      "id": "connection_115",
+      "source": "vision_enc_add2",
+      "target": "vision_pool",
+      "label": ""
+    },
+    {
+      "id": "connection_116",
+      "source": "vision_projector",
+      "target": "vision_out",
+      "label": ""
+    },
+    {
+      "id": "connection_117",
+      "source": "vision_out",
+      "target": "vision_merge",
+      "label": "",
+      "ports": [
+        1,
+        0.5,
+        0,
+        0.5
+      ]
+    },
+    {
+      "id": "connection_118",
+      "source": "vision_merge",
+      "target": "vision_fused_detail",
+      "label": ""
+    },
+    {
+      "id": "connection_119",
+      "source": "mini_text",
+      "target": "mini_tokenizer",
+      "label": ""
+    },
+    {
+      "id": "connection_120",
+      "source": "mini_tokenizer",
+      "target": "mini_embed",
+      "label": ""
+    },
+    {
+      "id": "connection_121",
+      "source": "mini_embed",
+      "target": "mini_textvec",
+      "label": ""
+    },
+    {
+      "id": "connection_122",
+      "source": "mini_textvec",
+      "target": "mini_merge",
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0,
+        0.5
+      ],
+      "points": [
+        [
+          501.5,
+          1118.5
+        ]
+      ]
+    },
+    {
+      "id": "connection_123",
+      "source": "mini_merge",
+      "target": "lm_fused",
+      "label": ""
+    },
+    {
+      "id": "connection_124",
+      "source": "mini_images",
+      "target": "mini_pool",
+      "label": ""
+    },
+    {
+      "id": "connection_125",
+      "source": "mini_pool",
+      "target": "mini_projector",
+      "label": ""
+    },
+    {
+      "id": "connection_126",
+      "source": "mini_projector",
+      "target": "mini_visvec",
+      "label": ""
+    },
+    {
+      "id": "connection_127",
+      "source": "mini_visvec",
+      "target": "mini_merge",
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          596,
+          1118.5
+        ]
+      ]
+    },
+    {
+      "source": "ar_embedding",
+      "target": "ar_source",
+      "ports": [
+        0.5,
+        0,
+        0.14397905759162305,
+        1
+      ],
+      "id": "connection_128"
+    },
+    {
+      "source": "ar_blocks",
+      "target": "ar_source",
+      "ports": [
+        0.5,
+        0,
+        0.4712041884816754,
+        1
+      ],
+      "id": "connection_129"
+    },
+    {
+      "source": "ar_partial",
+      "target": "ar_source",
+      "ports": [
+        0.5,
+        0,
+        0.824607329842932,
+        1
+      ],
+      "id": "connection_130"
     }
   ],
   "limitations": [
     "Hugging Face config and weight index were not accessible during preparation.",
     "Exact projection ranks, dense FFN layer location and vision FFN internals are not weight-verified.",
     "Evidence status describes each conceptual node; inferred layout/decomposition is not an executable forward graph.",
-    "No model forward pass or full-weight parameter recount was performed."
+    "No model forward pass or full-weight parameter recount was performed.",
+    "Native reconstruction follows the selected image layout, labels and readable branches. It is not pixel-lossless raster-to-vector recovery.",
+    "Original generative PNG is archived; authoritative paired PNG is rendered by mxGraph directly from this draw.io.",
+    "Representative-layer details are explanatory insets, not additional serial layers in the backbone."
   ]
 }

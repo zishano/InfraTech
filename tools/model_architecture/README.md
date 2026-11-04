@@ -1,6 +1,6 @@
 # 可复用的开源模型架构图工作流
 
-把模型资料、证据、结构描述和绘图分开保存。使用 Python 3.10+ 标准库，无额外依赖；不运行远端模型代码，不下载完整权重，不要求绘图 API key。
+把模型资料、证据、结构描述和绘图分开保存。资料收集、提取及 draw.io/SVG 使用 Python 3.10+ 标准库；正式 PNG 导出另需 Playwright、Chromium 和固定版本 mxGraph。不运行远端模型代码，不下载完整权重，不要求绘图 API key。
 
 ## 已支持的自动化
 
@@ -9,7 +9,8 @@
 3. `extract`：从 config 提取嵌套作用域中的参数、JSON Pointer 和来源；保留同名/冲突字段。从权重索引提取张量名数量、模块前缀、分片数量。
 4. `draft`：生成明确标注“不完整”的参数摘要与结构审阅骨架。
 5. **人工/AI 审阅源码与报告，补全 graph JSON。** 这一环节不能用 config 字段或权重名代替；五路 KDA、输出门、MoE 路由都是此次实际遇到的例子。
-6. `validate` / `render`：检查证据、几何及连接引用，输出同一 graph 驱动的 `.drawio`、`.svg`、证据报告和图像生成提示词。
+6. `validate` / `render`：检查证据、几何及连接引用，输出 `.drawio`、`.svg` 和证据报告。
+7. **正式 PNG 只从 draw.io XML 导出**：使用 `export-png`，保存来源/图片 SHA-256、节点数、连线数及渲染版本，再用 `verify-png` 检查配对。禁止独立生成正式 PNG 的计算结构。
 
 **不会声称仅输入模型名就能无误地恢复任意模型完整计算图。** 配置声明、报告结构、实际 `forward()`、部署框架的融合实现可能不同；渲染器不负责替你裁决差异。
 
@@ -51,7 +52,7 @@ python tools/model_architecture/model_architecture.py render \
 - `architecture.drawio`：标准未压缩 XML，原生节点和连线，可编辑；可尝试从飞书 draw.io 导入入口导入，尚未做飞书客户端自动化验证。
 - `architecture.svg`：矢量结构图，由同一份 graph 生成；使用简单文字换行和正交连线，不承诺像素级还原设计预览。
 - `evidence.md`：节点证据状态、定位信息、来源和限制。
-- `image_prompt.txt`：可交给图像生成工具，配合 SVG 和参考图片制作美观 preview；脚本自身不调用图像服务。**图像稿必须逐项与 graph 核对，不作为反向恢复可编辑结构的来源。**
+- `image_prompt.txt`：现在只保留“正式 PNG 必须从 draw.io 导出”的提示；不再指示图像工具独立生成架构图。旧版生成式图片只能作为单独标注的风格/人工重建参考。
 
 ## Kimi-K3 可直接复现示例
 
@@ -61,7 +62,7 @@ python tools/model_architecture/model_architecture.py render \
   --out /workspace/kimi-k3-reproduced
 ```
 
-示例由已有 v2 draw.io 的 130 个节点和 113 条边整理而来，保留 KDA 五输入及独立输出门、Block AttnRes、潜空间 MoE、NoPE MLA 和视觉分支。证据基于已读取的固定提交技术报告；HF config/权重索引未读，精确投影维度、dense 层位置、视觉 FFN 细节仍待确认。示例不是新完成的权重核验结果。
+示例现按原 preview PNG 的模块位置和可读分支重建为原生图元，保留 KDA 五输入及独立输出门、Block AttnRes、潜空间 MoE、NoPE MLA 和视觉分支。代表性层展开为独立说明框，不再错误串入主干。原生成式 PNG 单独存档；重建不是像素无损恢复。证据基于已读取的固定提交技术报告；HF config/权重索引未读，精确投影维度、dense 层位置、视觉 FFN 细节仍待确认。示例不是新完成的权重核验结果。
 
 无需联网的参数提取演示（合成测试配置，不是实际模型）：
 
@@ -85,3 +86,31 @@ python -m unittest discover -s tools/model_architecture/tests -v
 ```
 
 覆盖嵌套 config、字段冲突、来源哈希变更、索引与形状的区别、下载失败、路径/完整权重下载拒绝、悬空连线、证据缺失及可编辑产物输出。进一步扩展模型时，优先增加该模型真实资料的脱敏小样例和拓扑不变量测试。
+
+## 正式 PNG 导出：draw.io 是结构源文件
+
+一次性安装渲染依赖（TLS 和 npm 完整性校验保持开启）：
+
+```bash
+python -m pip install -r tools/model_architecture/requirements-render.txt
+npm install --prefix /workspace/.cache/model-architecture-renderer \
+  --ignore-scripts --no-audit --no-fund mxgraph@4.2.2
+```
+
+需要一个可用 Chromium。当前环境使用 `/usr/bin/chromium`；其他机器可通过 `--browser` 指定其可执行文件，或先使用 Playwright 支持的浏览器安装方式。`--mxgraph` 可指定 npm 包的 `javascript/src` 目录。
+
+```bash
+python tools/model_architecture/model_architecture.py export-png \
+  /workspace/new-model/output/architecture.drawio \
+  --out /workspace/new-model/output/architecture.png --scale 3
+python tools/model_architecture/model_architecture.py verify-png \
+  /workspace/new-model/output/architecture.drawio \
+  /workspace/new-model/output/architecture.png \
+  /workspace/new-model/output/architecture.export.json
+```
+
+导出时由 mxGraph 4.2.2 在 Chromium 中**直接解码 draw.io XML**，并检查解码后的节点数与边数。渲染不访问远端图片/字体，不允许用整张图片节点替代架构图。PNG 后缀对应的 `.export.json` 保存两份文件的哈希，任一文件导出后被单独修改，配对检查就会失败。哈希验证检测文件漂移，不证明公式、分支或模型事实正确。
+
+支持原生未压缩 XML 的第一个页面；不支持压缩页、以图片替代图元的文件或任意 diagrams.net 插件。简单图元的显示由 mxGraph 决定；飞书和 diagrams.net 的字体/主题可能略有不同，未宣称与旧生成式位图逐像素相同。
+
+**以后每次更新：改 draw.io → export-png → verify-png → 结构/视觉审阅 → 提交并推送用户指定分支。** 若选择通过 graph JSON 重建 draw.io，应先把 draw.io 中的人工修改同步回 JSON，避免重生成时丢失。

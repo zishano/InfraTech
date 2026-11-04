@@ -2,16 +2,31 @@
 
 此目录保留可编辑 SVG 和生成脚本，不覆盖上一级已有 JPG。图的布局沿用“主干 + 周边模块展开 + 底部视觉分支”的组织方式。
 
-## 文件
+## 当前交付（同一 draw.io 直接导出）
 
-- `kimi_k3_design_preview_v2.drawio`：按 v2 模块结构重建的原生可编辑图，使用标准、未压缩的 draw.io XML，供飞书白板的 draw.io 导入入口使用；包含五路 KDA、独立输出门、MoE、MLA、AttnRes 和视觉分支。已检查 XML 与节点引用，未在实际飞书客户端验证导入。布局为原生节点重排，并非 PNG 的逐像素复刻。
-- `draw_architecture_drawio.py`：生成上述 `.drawio` 的 Python 标准库脚本。
-- `kimi_k3_design_preview.png`：当前视觉设计稿；v2 按用户要求细化 KDA 五路输入，并统一从下向上的数据流。对应说明见 `PREVIEW_V2_NOTES.md`。
-- `kimi_k3_design_preview_v1.png`：保留的第一版视觉设计稿。
-- `kimi_k3_design_preview_v2.png`：第二版视觉设计稿的独立文件。
-- `kimi_k3_architecture.svg`：第一版可编辑文字与矢量模块，尚未同步 v2 细节；本次审阅以设计预览 v2 为准。
-- `draw_architecture.py`：仅依赖 Python 标准库的 SVG 生成脚本。运行 `python draw_architecture.py` 可重建。
-- `kimi_k3_architecture.png`：SVG 的高清导出（若已生成）。
+- `kimi_k3_design_preview_v2.drawio`：按原 PNG 模块位置、可读文字和分支人工重建的原生可编辑图。没有将整张 PNG 嵌入冒充转换。重建不等于像素无损恢复。
+- `kimi_k3_design_preview_v2.png`：由上述 XML 经 mxGraph / Chromium 直接渲染的 3× PNG。与 draw.io 同一份结构，不再独立由图像模型生成。
+- `kimi_k3_design_preview_v2.export.json`：源 XML / PNG 哈希、渲染库版本、节点和边计数。
+- `kimi_k3_design_preview.png`：当前配对 PNG 的相同内容，另有对应 `.export.json`。
+- `kimi_k3_design_preview_v2.imagegen_reference.png`：保留的旧生成式 v2 图；仅用于人工重建对照，不是当前可编辑源的像素级副本。
+- `kimi_k3_design_preview_v1.png`：第一版生成式设计稿，仅历史参考。
+- `draw_architecture_drawio.py`：从 `tools/model_architecture/examples/kimi_k3.graph.json` 生成当前 XML。注意：直接编辑 XML 后应同步 JSON，再调用此脚本，否则会覆盖 XML 中的人工修改。
+- `kimi_k3_architecture.svg` / `kimi_k3_architecture.png` / `draw_architecture.py`：早期简化草图，保留历史；不作为当前 preview v2 的配对文件。
+
+重建和验证（仓库根目录）：
+
+```bash
+python models/kimi_k_3/architecture_study/draw_architecture_drawio.py
+python tools/model_architecture/model_architecture.py export-png \
+  models/kimi_k_3/architecture_study/kimi_k3_design_preview_v2.drawio \
+  --out models/kimi_k_3/architecture_study/kimi_k3_design_preview_v2.png --scale 3
+python tools/model_architecture/model_architecture.py verify-png \
+  models/kimi_k_3/architecture_study/kimi_k3_design_preview_v2.drawio \
+  models/kimi_k_3/architecture_study/kimi_k3_design_preview_v2.png \
+  models/kimi_k_3/architecture_study/kimi_k3_design_preview_v2.export.json
+```
+
+首次导出所需的 Playwright、Chromium 和固定版本 mxGraph 安装方法见通用工具 README。已核对原生图元和 XML 导出，飞书客户端导入效果仍未实际验证。
 
 ## 实际核对过的来源
 
@@ -42,4 +57,4 @@
 
 网络配置草稿已新增 `huggingface.co` 与 `api.github.com`；草稿保存不等于当前实例网络立即生效。
 
-SVG 是用于结构审阅的可编辑交付；另外生成的图像设计稿应以本 SVG 和本说明的事实为准。此试作未运行模型推理，未校验完整权重，也未修改原 README 或原架构 JPG。
+当前以配对的 draw.io 为可编辑结构源、PNG 为其直接渲染结果；旧 SVG 和生成式图像仅供历史对照。此试作未运行模型推理，未校验完整权重，也未修改原 README 或原架构 JPG。
