@@ -164,4 +164,5 @@ def apply(g,kind='overview'):
             side=h*sy
             n['box']=[x+(w-side)/2,y*sy,side,side]
             n['style']+='shape=ellipse;perimeter=ellipsePerimeter;fontSize=22;fontStyle=1;'
-    return g
+    from deepseek_visual_layout import polish
+    return polish(g,kind)

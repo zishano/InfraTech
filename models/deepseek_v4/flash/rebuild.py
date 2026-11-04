@@ -17,7 +17,7 @@ def rebuild():
         notes.extend(['## '+name,''])
         for node in graph['nodes']:
             if not node.get('description'):continue
-            notes.extend(['### '+node['id']+' — '+node['label'].replace('\n',' / '),'',node['description'],''])
+            notes.extend([('### '+node['id']+' — '+node['label'].replace('\n',' / ')).rstrip(),'',node['description'],''])
             for item in node.get('evidence',[]):
                 notes.extend(['- ['+item['locator']+']('+graph['sources'][item['source']]+')',''])
     (folder/'operator_notes.md').write_text('\n'.join(notes)+'\n')

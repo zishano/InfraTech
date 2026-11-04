@@ -221,7 +221,7 @@ Updated streams
 
 - [hc_split_sinkhorn_kernel, lines 372–425](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/inference/kernel.py)
 
-### hc_note — pre / post / comb ← X
+### hc_note —
 
 Residual uses comb transpose; all coefficients are computed from X.
 
@@ -550,7 +550,7 @@ Use conjugate rotation at query position
 
 - [Official config.json at checkpoint 60d8d707; see checked-in official_config.json](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### attn_oa — Linear (O down) / 8 × [4096→1024]
+### attn_oa — Linear (O down)
 
 Grouped O_a: 8 groups
 Per-group 4096 → 1024
@@ -559,7 +559,7 @@ Per-group 4096 → 1024
 
 - [Official config.json at checkpoint 60d8d707; see checked-in official_config.json](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### attn_ob — Linear (O up) / 8192→4096
+### attn_ob — Linear (O up)
 
 Flatten 8 × 1024 → O_b → 4096
 
@@ -1881,7 +1881,7 @@ Indexer owns separate [B,8,256] buffers
 
 - [Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### state_prefill — Prefill → Buffer remainder
+### state_prefill — Prefill → keep partial window
 
 PREFILL (start_pos=0)
 cutoff=T−T%4; completed=floor(T/4)
@@ -1892,7 +1892,7 @@ Keep last complete raw window; read its Ca half later
 
 - [Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### state_decode — Update → Emit every 4 tokens
+### state_decode — Decode → emit every 4 tokens
 
 DECODE (position p)
 Write raw KV / gate at slot 4+(p%4)
@@ -1903,7 +1903,7 @@ Write cache slot floor(p/4); RoPE pos=p+1−4
 
 - [Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### state_window1 — prev Ca [4,512]
+### state_window1 — Previous raw window [4,1024]
 
 Compressed j=1 (emitted after token7)
 VALUES: [Ca0 Ca1 Ca2 Ca3 | Cb4 Cb5 Cb6 Cb7]
@@ -1914,7 +1914,7 @@ Softmax8 PER CHANNEL; output RoPE position4
 
 - [Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### state_window2 — cur Cb [4,512]
+### state_window2 — Current raw window [4,1024]
 
 Compressed j=2 (emitted after token11)
 VALUES: [Ca4 Ca5 Ca6 Ca7 | Cb8 Cb9 Cb10 Cb11]
@@ -1925,7 +1925,7 @@ First j=0: missing previous half has value0 / gate−infinity
 
 - [Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### state_move — prev ← current (on stride boundary)
+### state_move — Cat (previous Ca, current Cb)
 
 On a completed decode stride: copy current raw window into previous-window state. Read Ca from previous slots and Cb from current slots.
 A partial stride does NOT create a new compressed entry. Existing entries remain readable; Indexer top-k does not delete them.
@@ -2640,7 +2640,7 @@ No indexer state or indexer KV bank
 
 - [Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### state_prefill — Prefill → Buffer remainder
+### state_prefill — Prefill → keep partial window
 
 PREFILL (start_pos=0)
 cutoff=T−T%128; completed=floor(T/128)
@@ -2651,7 +2651,7 @@ Keep only current incomplete 128-token window
 
 - [Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### state_decode — Update → Emit every 128 tokens
+### state_decode — Decode → emit every 128 tokens
 
 DECODE (position p)
 Write raw KV / gate at slot p%128
@@ -2662,7 +2662,7 @@ Write cache slot floor(p/128); RoPE pos=p+1−128
 
 - [Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### state_window1 — Tokens 0…127 → KV₀
+### state_window1 — Window j: tokens 0…127
 
 Compressed j=0
 Tokens0…127 → one512-dim vector
@@ -2673,7 +2673,7 @@ Emission p=127; RoPE position0; stored at compressed slot0
 
 - [Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### state_window2 — Tokens 128…255 → KV₁
+### state_window2 — Window j+1: tokens 128…255
 
 Compressed j=1
 Tokens128…255 → a DIFFERENT512-dim vector
@@ -2684,7 +2684,7 @@ Emission p=255; RoPE position128; stored at compressed slot1
 
 - [Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### state_move — Append one KV every 128 tokens
+### state_move — Separate 128-token windows
 
 Before boundary p=127/255/…: update partial-window state only. At boundary: compress128 slots and append one KV entry.
 All earlier completed entries remain in cache and are indexed causally. No learned retrieval network and no top-512 cap.

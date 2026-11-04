@@ -138,3 +138,5 @@ python tools/model_architecture/model_architecture.py verify-png \
 大图跨面板的数据通过 `port_bindings` 元数据及可见 A / I / Qr 同名端口关联，分别代表完整压缩 KV、压缩位置索引和归一化低秩 query；端口不是额外网络层。模型专用测试检查端点存在、值旁路、CSA 独立 Indexer、HCA 无 Indexer、窗口实例及总图详细页与独立 XML 一致。通用新模型仍需审阅官方 forward 的真实分支，再配置布局，不能只替换模型名称和参数。
 
 `examples/deepseek_operator_style.py` 是当前 DeepSeek 的算子展示层：参考已有 JPG 的模块配色、虚线边框和算子符号，显示短标签，完整注释保留在 `description`。两个构造器均调用它，rebuild 同步生成详细说明文档；PNG 仍从原生 XML 导出。
+
+`examples/deepseek_visual_layout.py` 负责紧凑布局：短算子块、模块色描边、少量重点强调，以及原生张量格状态示意。它保留原节点描述和计算边，仅重排几何和分支走线；两个模型专用构造器统一使用该展示层。

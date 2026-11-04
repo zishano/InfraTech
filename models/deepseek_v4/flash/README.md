@@ -4,12 +4,12 @@
 
 ## 图示风格
 
-参考上级目录 `deepseek_v4_architecture.jpg`：紫蓝主干／压缩器、橙色 CSA、青绿 HCA、绿色 Indexer、红色 KV 缓存，使用虚线模块边框和彩色算子块，自下而上排列。图内保留关键算子及必要维度，不放段落说明；详细语义和证据移至 [operator_notes.md](operator_notes.md)，并保留在 graph JSON 的 `description` 和 draw.io 节点 tooltip 中。参考图中的 Pro 参数没有套用到本 Flash 图。
+参考上级目录 `deepseek_v4_architecture.jpg`：紫蓝主干／压缩器、橙色 CSA、青绿 HCA、绿色 Indexer、红色 KV 缓存，使用虚线模块边框，自下而上排列。算子按内容宽度收紧，以浅色底和模块色描边区分；仅关键算子使用实色强调。CSA 状态用原生张量格展示 Ca/Cb 选择与拼接，HCA 展示无重叠窗口，decode 用槽位序列表达更新和输出节奏。图内保留关键算子及必要维度，不放段落说明；详细语义和证据移至 [operator_notes.md](operator_notes.md)，并保留在 graph JSON 的 `description` 和 draw.io 节点 tooltip 中。参考图中的 Pro 参数没有套用到本 Flash 图。
 
 ## 配对交付
 
-- **[CSA 详细图](deepseek_v4_flash_csa.png)** / [可编辑 draw.io](deepseek_v4_flash_csa.drawio)：97 个图元、80 条连接。
-- **[HCA 详细图](deepseek_v4_flash_hca.png)** / [可编辑 draw.io](deepseek_v4_flash_hca.drawio)：89 个图元、68 条连接。
+- **[CSA 详细图](deepseek_v4_flash_csa.png)** / [可编辑 draw.io](deepseek_v4_flash_csa.drawio)：140 个图元（含原生张量示意）、80 条计算连接及 2 条状态示意线。
+- **[HCA 详细图](deepseek_v4_flash_hca.png)** / [可编辑 draw.io](deepseek_v4_flash_hca.drawio)：121 个图元（含原生张量示意）、68 条连接。
 - [PNG 总览图](deepseek_v4_flash.png)：从同名 draw.io XML 直接通过 mxGraph 4.2.2 / Chromium 导出。
 - [原生可编辑 draw.io](deepseek_v4_flash.drawio)：含 Overview / CSA detail / HCA detail 三页；首页 128 个图元、112 条连接。两张详细页与独立 draw.io 的模型 XML 完全一致，无整图位图节点。
 - [布局检查](deepseek_v4_flash.layout.json)、[配对记录](deepseek_v4_flash.export.json)：文字边界、留白、正交性、穿框和文件哈希。
@@ -78,7 +78,7 @@ python tools/model_architecture/examples/build_deepseek_v4_attention_detail.py
 python models/deepseek_v4/flash/rebuild.py
 python tools/model_architecture/model_architecture.py export-png \
   models/deepseek_v4/flash/deepseek_v4_flash.drawio \
-  --out models/deepseek_v4/flash/deepseek_v4_flash.png --scale 1.5
+  --out models/deepseek_v4/flash/deepseek_v4_flash.png --scale 2
 python tools/model_architecture/model_architecture.py verify-png \
   models/deepseek_v4/flash/deepseek_v4_flash.drawio \
   models/deepseek_v4/flash/deepseek_v4_flash.png \
