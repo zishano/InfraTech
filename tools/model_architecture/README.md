@@ -114,3 +114,9 @@ python tools/model_architecture/model_architecture.py verify-png \
 支持原生未压缩 XML 的第一个页面；不支持压缩页、以图片替代图元的文件或任意 diagrams.net 插件。简单图元的显示由 mxGraph 决定；飞书和 diagrams.net 的字体/主题可能略有不同，未宣称与旧生成式位图逐像素相同。
 
 **以后每次更新：改 draw.io → export-png → verify-png → 结构/视觉审阅 → 提交并推送用户指定分支。** 若选择通过 graph JSON 重建 draw.io，应先把 draw.io 中的人工修改同步回 JSON，避免重生成时丢失。
+
+## 导出前的版式检查
+
+`export-png` 现在会测量实际渲染的文字边界和连线，并在以下情况拒绝导出：文字超出节点、文字到边界的最小留白少于 2 个原生坐标单位、正交连线出现斜向错位线段，或连线穿过无关运算节点。诊断保存在 PNG 同名 `.layout.json`；配对 manifest 包含其哈希，`verify-png` 也会校验它。
+
+容器背景、标题、图例等应在 graph JSON 中标记 `kind: "decoration"`，生成器自动写入 `architectureDecoration=1` 样式，避免将合法背景容器误判为运算节点。导入外部原生 XML 时也需标记这类非运算背景。布局检查不能证明架构语义正确，也不保证其他客户端的字体渲染完全相同。

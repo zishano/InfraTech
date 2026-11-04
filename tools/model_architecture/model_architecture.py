@@ -188,6 +188,8 @@ def drawio(g, path):
     r=ET.SubElement(m,'root'); ET.SubElement(r,'mxCell',id='0'); ET.SubElement(r,'mxCell',id='1',parent='0')
     for n in g['nodes']:
         style=n.get('style',DEFAULT_STYLE)
+        if n.get('kind') == 'decoration':
+            style+='architectureDecoration=1;'
         if n.get('status') == 'unverified' and n.get('kind') != 'decoration':
             style+='dashed=1;'
         c=ET.SubElement(r,'mxCell',id=n['id'],value=n['label'],style=style,vertex='1',parent='1')

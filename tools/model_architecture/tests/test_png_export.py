@@ -54,4 +54,43 @@ class ExportTests(unittest.TestCase):
             _,nv,ne=a.inspect_drawio(xml)
             self.assertEqual((m['vertices'],m['edges']),(nv,ne))
 
+    def test_measured_layout_failures_are_rejected(self):
+        clean=dict(text_overflow=[],tight_text=[],nonorthogonal_segments=[],edge_node_crossings=[])
+        a.validate_layout(clean)
+        for key in clean:
+            broken=dict(clean);broken[key]=[dict(id='bad-node-or-edge')]
+            with self.assertRaisesRegex(ValueError,key):a.validate_layout(broken)
+        with self.assertRaisesRegex(ValueError,'Missing'):a.validate_layout({})
+
+    def test_branch_centers_and_explicit_ports_stay_aligned(self):
+        g=json.loads((BASE/'examples/kimi_k3.graph.json').read_text())
+        nodes={n['id']:n for n in g['nodes']}
+        def center(key):
+            x,y,w,h=nodes[key]['box'];return x+w/2
+        for group in [
+            ['kda_alpha_down','kda_alpha_up','kda_alpha_bias','kda_alpha_scale','kda_alpha_sigmoid','kda_alpha_exp','kda_port_alpha'],
+            ['kda_beta_linear','kda_beta_sigmoid','kda_port_beta'],
+            ['kda_norm','kda_product','kda_wo'],
+            ['mla_compress','mla_cache','mla_reconstruct'],
+            ['mla_gate','mla_sigmoid'],
+            ['mla_mul','mla_wo'],
+            ['moe_down','moe_bank','moe_weighted','moe_norm','moe_up','moe_sum','moe_y'],
+            ['mini_images','mini_pool','mini_projector','mini_visvec']]:
+            self.assertEqual(len({round(center(k),4) for k in group}),1,group)
+        for edge in g['edges']:
+            if edge['target']=='kda_core' and edge['source'].startswith('kda_port_') or edge['target']=='mla_attention' and edge['source'].startswith('mla_port_'):
+                src=nodes[edge['source']]['box'];dst=nodes[edge['target']]['box']
+                self.assertAlmostEqual(src[0]+src[2]*edge['ports'][0],dst[0]+dst[2]*edge['ports'][2])
+        # Native fonts must stay readable without relying on 6.5px imported text.
+        import re
+        for n in g['nodes']:
+            match=re.search(r'fontSize=([\d.]+)',n.get('style',''))
+            if match and n['label']:self.assertGreaterEqual(float(match.group(1)),13,n['id'])
+
+    def test_published_layout_report_has_no_overflow_or_diagonal(self):
+        p=REPO/'models/kimi_k_3/architecture_study'
+        report=json.loads((p/'kimi_k3_design_preview_v2.layout.json').read_text())
+        a.validate_layout(report)
+        self.assertEqual(len(report['routes']),131)
+
 if __name__=='__main__':unittest.main()

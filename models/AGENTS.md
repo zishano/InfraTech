@@ -6,3 +6,5 @@
 - 使用 `tools/model_architecture/model_architecture.py export-png` 从 XML 导出，并保存 `.export.json`；交付前运行 `verify-png`。导出记录验证文件配对，不能替代架构语义核对。
 - 修改 draw.io 后重新导出 PNG，不可单独修补正式 PNG。图像生成只允许用于单独命名的非正式风格参考，不得覆盖配对产物。
 - 当前工具仅测试标准未压缩 draw.io / mxGraph XML，飞书客户端的导入效果不能在未实际验证时声称已通过。
+
+- 正式导出必须通过实测布局检查：文字不越界且有安全留白，连线为对齐的正交线段，不穿过无关运算节点。保留 `.layout.json` 并纳入配对校验。

@@ -11,6 +11,16 @@ def digest(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def validate_layout(layout):
+    """Reject measured text overflow/tight padding and unintended diagonal edges."""
+    for key in ('text_overflow', 'tight_text', 'nonorthogonal_segments', 'edge_node_crossings'):
+        if not isinstance(layout.get(key), list):
+            raise ValueError(f'Missing or invalid layout measurements: {key}')
+        if layout.get(key):
+            names=', '.join(item['id'] for item in layout[key][:8])
+            raise ValueError(f'Layout check failed ({key}): {names}')
+
+
 def inspect_drawio(path):
     data=Path(path).read_bytes()
     if len(data)>32*1024*1024 or b'<!DOCTYPE' in data or b'<!ENTITY' in data:
@@ -36,6 +46,13 @@ def verify(drawio_path,png_path,manifest_path):
     if m.get('version')!=1:raise ValueError('Unsupported export manifest')
     if m['drawio_sha256']!=digest(drawio_path):raise ValueError('draw.io changed after PNG export')
     if m['png_sha256']!=digest(png_path):raise ValueError('PNG changed after export')
+    if m.get('layout_file'):
+        if Path(m['layout_file']).name != m['layout_file']:raise ValueError('Invalid layout report filename')
+        layout_path=Path(manifest_path).parent/m['layout_file']
+        if digest(layout_path)!=m['layout_sha256']:raise ValueError('Layout report changed after export')
+        layout=json.loads(layout_path.read_text())
+        if layout['drawio_sha256']!=m['drawio_sha256']:raise ValueError('Layout report belongs to a different XML')
+        validate_layout(layout)
     return m
 
 
@@ -94,6 +111,48 @@ def export(drawio_path,png_path,*,mxgraph,scale=2,browser='/usr/bin/chromium'):
                 if errors or result!=dict(vertices=vertices,edges=edges):
                     raise ValueError('mxGraph render failed or lost nodes/edges')
                 page.evaluate('document.fonts.ready')
+                layout=page.evaluate('''()=>{
+                    const graph=window.renderedGraph, overflow=[], tight=[], routes=[], boxes=[];
+                    const base=document.getElementById('graph').getBoundingClientRect();
+                    for(const cell of Object.values(graph.getModel().cells)){
+                        const state=graph.view.getState(cell);
+                        if(!state)continue;
+                        if(cell.vertex && Number(state.style.architectureDecoration)!==1)boxes.push({id:cell.id,x:state.x,y:state.y,width:state.width,height:state.height});
+                        if(cell.vertex && state.text && state.text.node && cell.value){
+                            const b=state.text.node.getBoundingClientRect();
+                            const r={x:b.x-base.x,y:b.y-base.y,width:b.width,height:b.height};
+                            const excess=Math.max(state.x-r.x,state.y-r.y,r.x+r.width-state.x-state.width,r.y+r.height-state.y-state.height);
+                            if(excess>1.5)overflow.push({id:cell.id,text:cell.value,box:{x:state.x,y:state.y,width:state.width,height:state.height},textBox:r,excess});
+                            const margin=Math.min(r.x-state.x,r.y-state.y,state.x+state.width-r.x-r.width,state.y+state.height-r.y-r.height);
+                            if(margin<2)tight.push({id:cell.id,margin,text:cell.value,box:{x:state.x,y:state.y,width:state.width,height:state.height},textBox:r});
+                        }
+                        if(cell.edge && state.absolutePoints){
+                            const points=state.absolutePoints.filter(Boolean).map(p=>[p.x,p.y]);
+                            routes.push({id:cell.id,source:cell.source.id,target:cell.target.id,points});
+                        }
+                    }
+                    const nonorthogonal=[];
+                    for(const route of routes)for(let i=1;i<route.points.length;i++){
+                        const a=route.points[i-1],b=route.points[i];
+                        if(Math.abs(a[0]-b[0])>0.05 && Math.abs(a[1]-b[1])>0.05)
+                            nonorthogonal.push({id:route.id,source:route.source,target:route.target,segment:[a,b]});
+                    }
+                    const crossings=[];
+                    for(const route of routes)for(let i=1;i<route.points.length;i++){
+                        const a=route.points[i-1],b=route.points[i];
+                        for(const box of boxes){
+                            if(box.id===route.source || box.id===route.target)continue;
+                            const left=box.x+1,right=box.x+box.width-1,top=box.y+1,bottom=box.y+box.height-1;
+                            const vertical=Math.abs(a[0]-b[0])<0.05 && left<a[0] && a[0]<right && Math.max(Math.min(a[1],b[1]),top)<Math.min(Math.max(a[1],b[1]),bottom);
+                            const horizontal=Math.abs(a[1]-b[1])<0.05 && top<a[1] && a[1]<bottom && Math.max(Math.min(a[0],b[0]),left)<Math.min(Math.max(a[0],b[0]),right);
+                            if(vertical || horizontal)crossings.push({id:route.id,source:route.source,target:route.target,crossed_node:box.id});
+                        }
+                    }
+                    return {text_overflow:overflow,tight_text:tight,nonorthogonal_segments:nonorthogonal,edge_node_crossings:crossings,routes};
+                }''')
+                layout['drawio_sha256']=digest(drawio_path)
+                png_path.with_suffix('.layout.json').write_text(json.dumps(layout,ensure_ascii=False,indent=2)+'\n')
+                validate_layout(layout)
                 page.locator('#graph').screenshot(path=str(png_path))
             finally:b.close()
     finally:
@@ -103,6 +162,9 @@ def export(drawio_path,png_path,*,mxgraph,scale=2,browser='/usr/bin/chromium'):
                   drawio_sha256=digest(drawio_path),png_sha256=digest(png_path),
                   renderer='mxGraph 4.2.2 / Chromium',browser_version=browser_version,scale=scale,width=width,height=height,
                   vertices=vertices,edges=edges)
+    manifest.update(layout_file=png_path.with_suffix('.layout.json').name,
+                    layout_sha256=digest(png_path.with_suffix('.layout.json')),
+                    layout_check={'text_overflow':0,'tight_text':0,'nonorthogonal_segments':0,'edge_node_crossings':0})
     target=png_path.with_suffix('.export.json')
     target.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     verify(drawio_path,png_path,target)

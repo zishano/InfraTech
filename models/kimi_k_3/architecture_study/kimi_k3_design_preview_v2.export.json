@@ -2,13 +2,21 @@
   "version": 1,
   "drawio_file": "kimi_k3_design_preview_v2.drawio",
   "png_file": "kimi_k3_design_preview_v2.png",
-  "drawio_sha256": "c2fadfe88ac35f6f5e08e915cdf86fedc2b8294dd8032d9ca75736d48cb58426",
-  "png_sha256": "019ea31f14a32dfede580ab8532afa780ff9bd95f6182c6183ea1e9eda8d29b0",
+  "drawio_sha256": "1692d895232886c11912ff8db6492b1bc30977ba47afd7548d03fedfe08bb519",
+  "png_sha256": "918897f1be26d07e98a02deff0bc76d92c5dd62e7dc75312dc15102d7fc16d9d",
   "renderer": "mxGraph 4.2.2 / Chromium",
   "browser_version": "155.0.8059.79",
-  "scale": 3.0,
-  "width": 1086,
-  "height": 1448,
+  "scale": 1.5,
+  "width": 2172,
+  "height": 2896,
   "vertices": 155,
-  "edges": 131
+  "edges": 131,
+  "layout_file": "kimi_k3_design_preview_v2.layout.json",
+  "layout_sha256": "45ef67d67ee78667c4ed5c9d62aa8b7fc929698b69ad303ccbda160d96d13558",
+  "layout_check": {
+    "text_overflow": 0,
+    "tight_text": 0,
+    "nonorthogonal_segments": 0,
+    "edge_node_crossings": 0
+  }
 }

@@ -5,7 +5,7 @@
 ## 当前交付（同一 draw.io 直接导出）
 
 - `kimi_k3_design_preview_v2.drawio`：按原 PNG 模块位置、可读文字和分支人工重建的原生可编辑图。没有将整张 PNG 嵌入冒充转换。重建不等于像素无损恢复。
-- `kimi_k3_design_preview_v2.png`：由上述 XML 经 mxGraph / Chromium 直接渲染的 3× PNG。与 draw.io 同一份结构，不再独立由图像模型生成。
+- `kimi_k3_design_preview_v2.png`：由上述 XML 经 mxGraph / Chromium 直接渲染的 PNG（原生画布 2172×2896，1.5× 导出为 3258×4344）。与 draw.io 同一份结构，不再独立由图像模型生成。
 - `kimi_k3_design_preview_v2.export.json`：源 XML / PNG 哈希、渲染库版本、节点和边计数。
 - `kimi_k3_design_preview.png`：当前配对 PNG 的相同内容，另有对应 `.export.json`。
 - `kimi_k3_design_preview_v2.imagegen_reference.png`：保留的旧生成式 v2 图；仅用于人工重建对照，不是当前可编辑源的像素级副本。
@@ -19,7 +19,7 @@
 python models/kimi_k_3/architecture_study/draw_architecture_drawio.py
 python tools/model_architecture/model_architecture.py export-png \
   models/kimi_k_3/architecture_study/kimi_k3_design_preview_v2.drawio \
-  --out models/kimi_k_3/architecture_study/kimi_k3_design_preview_v2.png --scale 3
+  --out models/kimi_k_3/architecture_study/kimi_k3_design_preview_v2.png --scale 1.5
 python tools/model_architecture/model_architecture.py verify-png \
   models/kimi_k_3/architecture_study/kimi_k3_design_preview_v2.drawio \
   models/kimi_k_3/architecture_study/kimi_k3_design_preview_v2.png \
@@ -58,3 +58,9 @@ python tools/model_architecture/model_architecture.py verify-png \
 网络配置草稿已新增 `huggingface.co` 与 `api.github.com`；草稿保存不等于当前实例网络立即生效。
 
 当前以配对的 draw.io 为可编辑结构源、PNG 为其直接渲染结果；旧 SVG 和生成式图像仅供历史对照。此试作未运行模型推理，未校验完整权重，也未修改原 README 或原架构 JPG。
+
+## 文字与连线修复
+
+原生画布和字号统一放大，输入支路、输出门、KV 路径、专家 FFN 和底部流程的中心线及锚点已对齐。调整了紧贴边界的文字及邻接节点留白；MoE 和视觉分支绕线不再穿过无关节点。
+
+`kimi_k3_design_preview_v2.layout.json` 记录 mxGraph 实测文字边界及连线路径。当前导出检查要求文字不越界、至少 2 个原生坐标单位的留白、连线无斜向错位线段、连线不穿过无关运算节点；布局报告哈希同时纳入 `.export.json`。验证的是当前 mxGraph/Chromium 渲染，未代替飞书客户端导入测试。
