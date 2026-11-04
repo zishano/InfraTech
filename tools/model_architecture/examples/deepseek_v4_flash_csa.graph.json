@@ -1,0 +1,2912 @@
+{
+  "version": 1,
+  "title": "DeepSeek-V4-Flash | CSA detailed computation",
+  "width": 4000,
+  "height": 5700,
+  "sources": {
+    "model": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/inference/model.py",
+    "kernel": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/inference/kernel.py",
+    "config": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json"
+  },
+  "nodes": [
+    {
+      "id": "title",
+      "label": "DeepSeek-V4-Flash | CSA — computation, cache and addressing",
+      "box": [
+        40,
+        15,
+        3920,
+        100
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=48;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#f3f6fa;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "source",
+      "label": "OFFICIAL CHECKPOINT 60d8d707 | model.py + kernel.py + config.json | bottom-up computation",
+      "box": [
+        40,
+        125,
+        3920,
+        80
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#f3f6fa;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "facts",
+      "label": "CSA: 21 layers (2,4,…,42) · stride 4 · effective window 8 · index heads64 × dim128 · top-k≤512",
+      "box": [
+        40,
+        225,
+        3920,
+        90
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=29;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json /compress_ratios; Attention.__init__ 436–482"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "ports",
+      "label": "Named ports A / I / Qr are tensor aliases across panels, not extra computation or copies. B=batch, T=prefill chunk, p=decode position, Nc=completed compressed windows.",
+      "box": [
+        40,
+        330,
+        3920,
+        90
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#f3f6fa;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "compressor",
+      "label": "",
+      "box": [
+        30,
+        450,
+        1250,
+        3960
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;fillColor=#ffffff;dashed=1;"
+    },
+    {
+      "id": "compressor_title",
+      "label": "1. MAIN KV COMPRESSOR — values and gates are separate",
+      "box": [
+        45,
+        465,
+        1220,
+        75
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=30;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;"
+    },
+    {
+      "id": "middle",
+      "label": "",
+      "box": [
+        1320,
+        450,
+        1250,
+        3960
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;fillColor=#ffffff;dashed=1;"
+    },
+    {
+      "id": "middle_title",
+      "label": "2. LIGHTNING INDEXER — three independent learned paths",
+      "box": [
+        1335,
+        465,
+        1220,
+        75
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=30;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;"
+    },
+    {
+      "id": "attention",
+      "label": "",
+      "box": [
+        2610,
+        450,
+        1360,
+        3960
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;fillColor=#ffffff;dashed=1;"
+    },
+    {
+      "id": "attention_title",
+      "label": "3. SHARED K=V ATTENTION — window + compressed history",
+      "box": [
+        2625,
+        465,
+        1330,
+        75
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=30;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;"
+    },
+    {
+      "id": "comp_h",
+      "label": "Hidden states h [B,T,4096]",
+      "box": [
+        70,
+        4230,
+        1130,
+        110
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_fp32",
+      "label": "Cast hidden states to FP32\nProjection / window score arithmetic stays FP32",
+      "box": [
+        70,
+        4050,
+        1130,
+        110
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_wkv",
+      "label": "Linear Wkv: 4096 → 1024\nC = h Wkv",
+      "box": [
+        70,
+        3860,
+        500,
+        120
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_wgate",
+      "label": "Linear Wgate: 4096 → 1024\nZ = h Wgate",
+      "box": [
+        700,
+        3860,
+        500,
+        120
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_split",
+      "label": "Reshape [B,N,4,1024] → Ca / Cb\nCa = first512; Cb = last512",
+      "box": [
+        70,
+        3640,
+        500,
+        160
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_ape",
+      "label": "Add learned APE / position bias\nshape [4,1024]\nPrefill: slot in window; decode: p\n% 4",
+      "box": [
+        700,
+        3640,
+        500,
+        160
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_gate_split",
+      "label": "Split biased gate channels Za / Zb\nSame Ca/Cb feature layout as KV",
+      "box": [
+        700,
+        3430,
+        500,
+        150
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_value_window",
+      "label": "VALUE WINDOW: [Ca_(j-1), Cb_j]\n[B,N,8,512], stride4, effective\nwidth8\nFirst window: missing Ca values =\n0",
+      "box": [
+        70,
+        3230,
+        500,
+        190
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_gate_window",
+      "label": "GATE WINDOW: [Za_(j-1), Zb_j]\n[B,N,8,512]\nMissing first-window gates =\n-infinity",
+      "box": [
+        700,
+        3200,
+        500,
+        190
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_softmax",
+      "label": "FP32 softmax over 8 TOKEN slots\nIndependently for each of 512\nchannels\nP = softmax(Z_window, dim=tokens)",
+      "box": [
+        700,
+        2980,
+        500,
+        160
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_mul",
+      "label": "Elementwise product: P ⊙ C_window\nShape [B,N,8,512]\nKV values bypass softmax",
+      "box": [
+        70,
+        2760,
+        1130,
+        150
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_sum",
+      "label": "Sum over 8 token slots\nc_j[d] = sum_s P[j,s,d] × C[j,s,d]\nResult [B,N,512] — NOT pooling across channels",
+      "box": [
+        70,
+        2550,
+        1130,
+        150
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_complete",
+      "label": "Emit only a completed 4-token stride\nPrefill: cutoff=T−(T%4); decode: (p+1)%4==0\nOtherwise return None; keep buffered state",
+      "box": [
+        70,
+        2350,
+        1130,
+        145
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_norm",
+      "label": "Cast pooled vector back to input dtype\nLearned RMSNorm over 512 channels",
+      "box": [
+        70,
+        2160,
+        1130,
+        120
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_nope",
+      "label": "Content 448 dims\nFP8 QAT simulation, block64\nSimulated values remain BF16",
+      "box": [
+        70,
+        1940,
+        500,
+        155
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_rope",
+      "label": "Trailing 64 dims: partial RoPE\nPrefill position=4j\nDecode position=p+1−4\nRoPE values remain BF16",
+      "box": [
+        700,
+        1940,
+        500,
+        155
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_concat",
+      "label": "Reassemble content448 | RoPE64\nOne shared KV vector [512] per complete stride",
+      "box": [
+        70,
+        1740,
+        1130,
+        130
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_write",
+      "label": "Write compressed KV cache\nPrefill: slots 0…floor(T/4)−1\nDecode: slot floor(p/4)",
+      "box": [
+        70,
+        1530,
+        1130,
+        145
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_bank",
+      "label": "Cache capacity [B,floor(max_seq_len/4),512]\nLogical valid entries Nc=floor(end_pos/4)\nNo query-specific pruning or top-k is stored here",
+      "box": [
+        70,
+        1300,
+        1130,
+        160
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_alias",
+      "label": "Storage aliases Attention.kv_cache[:,128:]\nCompressed entries are appended after the window region\nNo copied top-k-only KV cache",
+      "box": [
+        70,
+        1080,
+        1130,
+        145
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward lines 490–500; Compressor.kv_cache write 369–375"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "port_A",
+      "label": "PORT A → right panel\nALL valid compressed KV vectors (K=V)\nShape [B,Nc,512]",
+      "box": [
+        70,
+        820,
+        1130,
+        170
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=30;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "comp_note",
+      "label": "Main compressor rotate=False. Indexer uses its OWN smaller compressor with\nrotate=True (CSA only).",
+      "box": [
+        70,
+        590,
+        1130,
+        150
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=25;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#f3f6fa;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "idx_q_input",
+      "label": "PORT Qr: normalized\nq_residual\n[B,T,1024], same as\nattention rank-normalized\nquery",
+      "box": [
+        1360,
+        4230,
+        330,
+        140
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_h",
+      "label": "Hidden states h [B,T,4096]\nSupplies key compressor AND scoring weights",
+      "box": [
+        1750,
+        4230,
+        720,
+        140
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=25;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_q_proj",
+      "label": "Wq_b: 1024 → 64×128",
+      "box": [
+        1360,
+        4020,
+        330,
+        130
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_q_heads",
+      "label": "Reshape [B,T,64,128]\nTP: split query heads",
+      "box": [
+        1360,
+        3810,
+        330,
+        145
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_q_rope",
+      "label": "Partial RoPE on\nlast64\nAt CURRENT query\nposition t",
+      "box": [
+        1360,
+        3600,
+        330,
+        145
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_q_hadamard",
+      "label": "Hadamard rotation\nScale 1/sqrt(128)",
+      "box": [
+        1360,
+        3390,
+        330,
+        145
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_q_fp4",
+      "label": "FP4 QAT simulation\nblock32, in-place\nTensor remains BF16",
+      "box": [
+        1360,
+        3170,
+        330,
+        160
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_q_ready",
+      "label": "Index query Q_I\n[B,T,64,128]",
+      "box": [
+        1360,
+        2970,
+        330,
+        130
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_kv_proj",
+      "label": "Wkv_I\n4096 → 256",
+      "box": [
+        1750,
+        4020,
+        150,
+        130
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_gate_proj",
+      "label": "Wgate_I\n4096 → 256",
+      "box": [
+        1930,
+        4020,
+        150,
+        130
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_w_proj",
+      "label": "W_weights: 4096 → 64\nOne score weight per\nhead",
+      "box": [
+        2140,
+        4020,
+        330,
+        130
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_kv_split",
+      "label": "Split Ca/Cb\n128 + 128",
+      "box": [
+        1750,
+        3810,
+        150,
+        145
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_gate_ape",
+      "label": "Gate + APE\n[4,256]\nSplit Za/Zb",
+      "box": [
+        1930,
+        3810,
+        150,
+        145
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_window",
+      "label": "Independent\noverlapping windows\n[prev Ca4 | current\nCb4]\nKV / gates [B,N,8,128]",
+      "box": [
+        1750,
+        3580,
+        330,
+        175
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_softmax",
+      "label": "Gate-only FP32 softmax\nAcross 8 slots per\nchannel",
+      "box": [
+        1750,
+        3380,
+        330,
+        145
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_pool",
+      "label": "KV bypass × gate\nprobabilities\nSum8 → [B,N,128]",
+      "box": [
+        1750,
+        3170,
+        330,
+        155
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_norm",
+      "label": "Learned RMSNorm128",
+      "box": [
+        1750,
+        2970,
+        330,
+        115
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_key_rope",
+      "label": "Partial RoPE64\nAt compressed position\n4j",
+      "box": [
+        1750,
+        2780,
+        330,
+        130
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_key_hadamard",
+      "label": "Hadamard rotation\nSame orthogonal basis\nas Q_I",
+      "box": [
+        1750,
+        2590,
+        330,
+        145
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_key_fp4",
+      "label": "FP4 QAT simulation,\nblock32\nTensor remains BF16",
+      "box": [
+        1750,
+        2390,
+        330,
+        145
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_key_cache",
+      "label": "Independent index KV\ncache\n[B,Nc,128]\nOwn previous-Ca /\npartial state",
+      "box": [
+        1750,
+        2180,
+        330,
+        155
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_w_scale",
+      "label": "Scale head weights\n128^-0.5 × 64^-0.5\nThese weights are NOT\na softmax",
+      "box": [
+        2140,
+        3810,
+        330,
+        175
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_w_ready",
+      "label": "Per-query head\nweights w\n[B,T,64]",
+      "box": [
+        2140,
+        3590,
+        330,
+        130
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_dot",
+      "label": "einsum: Q_I · K_I_cache\nRaw scores [B,T,64,Nc]",
+      "box": [
+        1390,
+        1920,
+        1080,
+        150
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=29;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_relu",
+      "label": "ReLU of per-head similarities",
+      "box": [
+        1390,
+        1720,
+        1080,
+        110
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=29;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_head_sum",
+      "label": "Multiply by learned head weights, then sum heads\nS[b,t,j] = sum_h w[b,t,h] × ReLU(dot[b,t,h,j])",
+      "box": [
+        1390,
+        1510,
+        1080,
+        150
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_tp",
+      "label": "If TP > 1: all_reduce index scores\nScores [B,T,Nc] across all 64 global heads",
+      "box": [
+        1390,
+        1320,
+        1080,
+        120
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_causal",
+      "label": "Prefill: j >= floor((t+1)/4) → -infinity\nDecode: score only cache prefix j < floor((p+1)/4)",
+      "box": [
+        1390,
+        1120,
+        1080,
+        145
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "idx_topk",
+      "label": "Top-k with k=min(512,Nc)\nPer-query ranking; may include masked -infinity entries\nNOT a cache truncation operation",
+      "box": [
+        1390,
+        910,
+        1080,
+        160
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "port_I",
+      "label": "PORT I → right panel\nPrefill: invalid future j → -1, valid j → j+T\nDecode: j → j+128\nSelected compressed positions; integer tensor",
+      "box": [
+        1390,
+        650,
+        1080,
+        200
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=29;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_h",
+      "label": "Hidden states h [B,T,4096]",
+      "box": [
+        2650,
+        4230,
+        1260,
+        110
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=29;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_qa",
+      "label": "Linear Wq_a: 4096 → 1024",
+      "box": [
+        2650,
+        4050,
+        540,
+        110
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_qrank",
+      "label": "Learned RMSNorm1024 → PORT Qr",
+      "box": [
+        2650,
+        3860,
+        540,
+        120
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_qb",
+      "label": "Wq_b: 1024 → 64 × 512\nReshape to heads [B,T,64,512]",
+      "box": [
+        2650,
+        3660,
+        540,
+        140
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_qhead",
+      "label": "Unweighted RMSNorm per 512-dim\nhead",
+      "box": [
+        2650,
+        3460,
+        540,
+        120
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_qrope",
+      "label": "RoPE on trailing64 at query t\nContent448 untouched\nCompressed layer: theta160000 /\nYaRN16",
+      "box": [
+        2650,
+        3250,
+        540,
+        150
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_qready",
+      "label": "Q [B,T,64,512]",
+      "box": [
+        2650,
+        3060,
+        540,
+        110
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_wkv",
+      "label": "Linear Wkv: 4096 → 512",
+      "box": [
+        3370,
+        4050,
+        540,
+        110
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_kvnorm",
+      "label": "Learned RMSNorm512",
+      "box": [
+        3370,
+        3860,
+        540,
+        120
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_kvrope",
+      "label": "Partial RoPE64 at token position t",
+      "box": [
+        3370,
+        3660,
+        540,
+        130
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_kvquant",
+      "label": "FP8 simulation on content448,\nblock64\nRoPE64 stays BF16; shared K=V\ntensor",
+      "box": [
+        3370,
+        3450,
+        540,
+        150
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_ring",
+      "label": "Window ring cache [B,128,512]\nDecode write slot p%128\nPrefill: store last128 tokens in\nring order",
+      "box": [
+        3370,
+        3240,
+        540,
+        150
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_positions",
+      "label": "Position inputs: T, start_pos=p,\nwindow=128\nThis path computes addresses, not\nKV values",
+      "box": [
+        2670,
+        2870,
+        540,
+        155
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=25;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "get_window_topk_idxs, model.py lines 254–265"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_win_indices",
+      "label": "get_window_topk_idxs\nPrefill: causal local window, future\n→ -1\nDecode: ring order from p%128\nWarmup slots not yet valid → -1",
+      "box": [
+        2670,
+        2670,
+        540,
+        165
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "get_window_topk_idxs, model.py lines 254–265"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_I",
+      "label": "PORT I from middle panel\nPer-query selected compressed\nindices",
+      "box": [
+        2670,
+        2470,
+        540,
+        145
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=25;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_A",
+      "label": "PORT A from main compressor\nAll compressed KV [B,Nc,512]",
+      "box": [
+        2670,
+        2330,
+        540,
+        115
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=25;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_bank",
+      "label": "Physical KV bank (K=V)\nPrefill: cat current KV[T] and complete compressed KV[Nc]\nDecode: [ring128 | compressed cache]; compressor aliases right slice",
+      "box": [
+        2650,
+        2110,
+        1260,
+        170
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_indices",
+      "label": "Concatenate [local-window indices | port I]\nPrefill offset=T; decode compressed offset=128\nConvert to int32; -1 stays invalid",
+      "box": [
+        2670,
+        1870,
+        1240,
+        165
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_gather",
+      "label": "sparse_attn kernel: tiles of 64 index entries\nIf idx!=-1: gather shared kv[idx] (both K and V)\nQ·K / sqrt(512), FP32 score accumulators\nIf idx==-1: zero KV and -infinity score",
+      "box": [
+        2730,
+        1550,
+        1100,
+        190
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "kernel",
+          "locator": "sparse_attn_kernel, official kernel.py lines 277–367"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_softmax",
+      "label": "Online stable softmax: update running max and sum\nDenominator = sum_j exp(score_j-max) + exp(sink_h-max)\nThe sink changes normalization ONLY; it has no value vector",
+      "box": [
+        2730,
+        1300,
+        1100,
+        190
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "kernel",
+          "locator": "sparse_attn_kernel, official kernel.py lines 277–367"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_sink",
+      "label": "Learned\nsink_h\nOne per\nQ head",
+      "box": [
+        3850,
+        1300,
+        100,
+        190
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "kernel",
+          "locator": "sparse_attn_kernel, official kernel.py lines 277–367"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_values",
+      "label": "Numerator: sum_j exp(score_j-max) × kv[idx_j]\nDivide by denominator; FP32 accumulator → BF16 output\nResult [B,T,64,512]",
+      "box": [
+        2730,
+        1090,
+        1100,
+        150
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "kernel",
+          "locator": "sparse_attn_kernel, official kernel.py lines 277–367"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_inverse",
+      "label": "Conjugate RoPE (inverse=True) on output trailing64\nAt the CURRENT query position; content448 unchanged",
+      "box": [
+        2730,
+        900,
+        1100,
+        130
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_oa",
+      "label": "Group 64×512 heads into 8 groups\nW_o_a: per-group 4096 → 1024 (einsum)",
+      "box": [
+        2730,
+        740,
+        1100,
+        110
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.forward, model.py lines 484–543; get_window_topk_idxs/get_compress_topk_idxs, 254–276"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_ob",
+      "label": "Flatten 8×1024 → W_o_b → 4096\nTP output all-reduce when needed",
+      "box": [
+        2730,
+        600,
+        1100,
+        100
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "RowParallelLinear.forward 173–179; Attention.forward 533–543"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "attn_output",
+      "label": "OUTPUT: attention hidden states [B,T,4096]",
+      "box": [
+        2670,
+        535,
+        1240,
+        60
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#f3f6fa;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "states",
+      "label": "",
+      "box": [
+        30,
+        4470,
+        3940,
+        1050
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;fillColor=#ffffff;dashed=1;"
+    },
+    {
+      "id": "states_title",
+      "label": "PREFILL / DECODE STATE + WINDOW LAYOUT — temporal state, not an extra network layer",
+      "box": [
+        45,
+        4485,
+        3910,
+        75
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=30;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;"
+    },
+    {
+      "id": "state_shapes",
+      "label": "MAIN runtime buffers (not checkpoint)\nkv_state / score_state: [B,8,1024]\nKV init=0; gate init=-infinity\nIndexer owns separate [B,8,256] buffers",
+      "box": [
+        70,
+        4600,
+        1170,
+        220
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "state_prefill",
+      "label": "PREFILL (start_pos=0)\ncutoff=T−T%4; completed=floor(T/4)\nKeep incomplete suffix for decode\nKeep last complete raw window; read its Ca half later",
+      "box": [
+        1370,
+        4600,
+        1170,
+        220
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "state_decode",
+      "label": "DECODE (position p)\nWrite raw KV / gate at slot 4+(p%4)\nEmit only if (p+1)%4==0\nWrite cache slot floor(p/4); RoPE pos=p+1−4",
+      "box": [
+        2660,
+        4600,
+        1250,
+        220
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "state_window1",
+      "label": "Compressed j=1 (emitted after token7)\nVALUES: [Ca0 Ca1 Ca2 Ca3 | Cb4 Cb5 Cb6 Cb7]\nGATES:  [Za0 Za1 Za2 Za3 | Zb4 Zb5 Zb6 Zb7] + per-slot APE\nSoftmax8 PER CHANNEL; output RoPE position4",
+      "box": [
+        70,
+        4880,
+        1820,
+        240
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=29;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.overlap_transform, lines 307–314; forward"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "state_window2",
+      "label": "Compressed j=2 (emitted after token11)\nVALUES: [Ca4 Ca5 Ca6 Ca7 | Cb8 Cb9 Cb10 Cb11]\nSame token can supply Cb to j and Ca to j+1\nFirst j=0: missing previous half has value0 / gate−infinity",
+      "box": [
+        2010,
+        4880,
+        1900,
+        240
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=29;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "state_move",
+      "label": "On a completed decode stride: copy current raw window into previous-window state. Read Ca from previous slots and Cb from current slots.\nA partial stride does NOT create a new compressed entry. Existing entries remain readable; Indexer top-k does not delete them.",
+      "box": [
+        70,
+        5200,
+        3840,
+        200
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=29;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/overlap_transform/forward, official model.py lines 279–377"
+        },
+        {
+          "source": "config",
+          "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "footer",
+      "label": "Source: official deepseek-ai/DeepSeek-V4-Flash @ 60d8d707 | model.py Compressor / Indexer / Attention; kernel.py sparse_attn\nDetailed static source transcription; no full weights, tensor headers or GPU inference executed. Native draw.io is the PNG source.",
+      "box": [
+        50,
+        5560,
+        3900,
+        110
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#f3f6fa;fillColor=none;strokeColor=none;"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_0",
+      "source": "comp_h",
+      "target": "comp_fp32"
+    },
+    {
+      "id": "edge_1",
+      "source": "comp_fp32",
+      "target": "comp_wkv",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "points": [
+        [
+          635.0,
+          4010
+        ],
+        [
+          320.0,
+          4010
+        ]
+      ]
+    },
+    {
+      "id": "edge_2",
+      "source": "comp_fp32",
+      "target": "comp_wgate",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "points": [
+        [
+          635.0,
+          4010
+        ],
+        [
+          950.0,
+          4010
+        ]
+      ]
+    },
+    {
+      "id": "edge_3",
+      "source": "comp_wkv",
+      "target": "comp_split"
+    },
+    {
+      "id": "edge_4",
+      "source": "comp_split",
+      "target": "comp_value_window"
+    },
+    {
+      "id": "edge_5",
+      "source": "comp_wgate",
+      "target": "comp_ape"
+    },
+    {
+      "id": "edge_6",
+      "source": "comp_ape",
+      "target": "comp_gate_split"
+    },
+    {
+      "id": "edge_7",
+      "source": "comp_gate_split",
+      "target": "comp_gate_window"
+    },
+    {
+      "id": "edge_8",
+      "source": "comp_gate_window",
+      "target": "comp_softmax"
+    },
+    {
+      "id": "edge_9",
+      "source": "comp_value_window",
+      "target": "comp_mul",
+      "ports": [
+        0.5,
+        0,
+        0.22123893805309736,
+        1
+      ]
+    },
+    {
+      "id": "edge_10",
+      "source": "comp_softmax",
+      "target": "comp_mul",
+      "ports": [
+        0.5,
+        0,
+        0.7787610619469026,
+        1
+      ]
+    },
+    {
+      "id": "edge_11",
+      "source": "comp_mul",
+      "target": "comp_sum"
+    },
+    {
+      "id": "edge_12",
+      "source": "comp_sum",
+      "target": "comp_complete"
+    },
+    {
+      "id": "edge_13",
+      "source": "comp_complete",
+      "target": "comp_norm"
+    },
+    {
+      "id": "edge_14",
+      "source": "comp_norm",
+      "target": "comp_nope",
+      "ports": [
+        0.22123893805309736,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "edge_15",
+      "source": "comp_norm",
+      "target": "comp_rope",
+      "ports": [
+        0.7787610619469026,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "edge_16",
+      "source": "comp_nope",
+      "target": "comp_concat",
+      "ports": [
+        0.5,
+        0,
+        0.22123893805309736,
+        1
+      ]
+    },
+    {
+      "id": "edge_17",
+      "source": "comp_rope",
+      "target": "comp_concat",
+      "ports": [
+        0.5,
+        0,
+        0.7787610619469026,
+        1
+      ]
+    },
+    {
+      "id": "edge_18",
+      "source": "comp_concat",
+      "target": "comp_write"
+    },
+    {
+      "id": "edge_19",
+      "source": "comp_write",
+      "target": "comp_bank"
+    },
+    {
+      "id": "edge_20",
+      "source": "comp_bank",
+      "target": "comp_alias"
+    },
+    {
+      "id": "edge_21",
+      "source": "comp_alias",
+      "target": "port_A"
+    },
+    {
+      "id": "edge_22",
+      "source": "idx_q_input",
+      "target": "idx_q_proj"
+    },
+    {
+      "id": "edge_23",
+      "source": "idx_q_proj",
+      "target": "idx_q_heads"
+    },
+    {
+      "id": "edge_24",
+      "source": "idx_q_heads",
+      "target": "idx_q_rope"
+    },
+    {
+      "id": "edge_25",
+      "source": "idx_q_rope",
+      "target": "idx_q_hadamard"
+    },
+    {
+      "id": "edge_26",
+      "source": "idx_q_hadamard",
+      "target": "idx_q_fp4"
+    },
+    {
+      "id": "edge_27",
+      "source": "idx_q_fp4",
+      "target": "idx_q_ready"
+    },
+    {
+      "id": "edge_28",
+      "source": "idx_h",
+      "target": "idx_kv_proj",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "points": [
+        [
+          2110.0,
+          4190
+        ],
+        [
+          1825.0,
+          4190
+        ]
+      ]
+    },
+    {
+      "id": "edge_29",
+      "source": "idx_h",
+      "target": "idx_gate_proj",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "points": [
+        [
+          2110.0,
+          4190
+        ],
+        [
+          2005.0,
+          4190
+        ]
+      ]
+    },
+    {
+      "id": "edge_30",
+      "source": "idx_h",
+      "target": "idx_w_proj",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "points": [
+        [
+          2110.0,
+          4190
+        ],
+        [
+          2305.0,
+          4190
+        ]
+      ]
+    },
+    {
+      "id": "edge_31",
+      "source": "idx_kv_proj",
+      "target": "idx_kv_split"
+    },
+    {
+      "id": "edge_32",
+      "source": "idx_gate_proj",
+      "target": "idx_gate_ape"
+    },
+    {
+      "id": "edge_33",
+      "source": "idx_kv_split",
+      "target": "idx_window",
+      "ports": [
+        0.5,
+        0,
+        0.23,
+        1
+      ]
+    },
+    {
+      "id": "edge_34",
+      "source": "idx_gate_ape",
+      "target": "idx_window",
+      "ports": [
+        0.5,
+        0,
+        0.77,
+        1
+      ]
+    },
+    {
+      "id": "edge_35",
+      "source": "idx_window",
+      "target": "idx_softmax"
+    },
+    {
+      "id": "edge_36",
+      "source": "idx_softmax",
+      "target": "idx_pool"
+    },
+    {
+      "id": "edge_37",
+      "source": "idx_pool",
+      "target": "idx_norm"
+    },
+    {
+      "id": "edge_38",
+      "source": "idx_norm",
+      "target": "idx_key_rope"
+    },
+    {
+      "id": "edge_39",
+      "source": "idx_key_rope",
+      "target": "idx_key_hadamard"
+    },
+    {
+      "id": "edge_40",
+      "source": "idx_key_hadamard",
+      "target": "idx_key_fp4"
+    },
+    {
+      "id": "edge_41",
+      "source": "idx_key_fp4",
+      "target": "idx_key_cache"
+    },
+    {
+      "id": "edge_42",
+      "source": "idx_window",
+      "target": "idx_pool",
+      "ports": [
+        1,
+        0.5,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          2100,
+          3667.5
+        ],
+        [
+          2100,
+          3247.5
+        ]
+      ]
+    },
+    {
+      "id": "edge_43",
+      "source": "idx_w_proj",
+      "target": "idx_w_scale"
+    },
+    {
+      "id": "edge_44",
+      "source": "idx_w_scale",
+      "target": "idx_w_ready"
+    },
+    {
+      "id": "edge_45",
+      "source": "idx_q_ready",
+      "target": "idx_dot",
+      "ports": [
+        0.5,
+        0,
+        0.125,
+        1
+      ]
+    },
+    {
+      "id": "edge_46",
+      "source": "idx_key_cache",
+      "target": "idx_dot",
+      "ports": [
+        0.5,
+        0,
+        0.4861111111111111,
+        1
+      ]
+    },
+    {
+      "id": "edge_47",
+      "source": "idx_dot",
+      "target": "idx_relu"
+    },
+    {
+      "id": "edge_48",
+      "source": "idx_relu",
+      "target": "idx_head_sum"
+    },
+    {
+      "id": "edge_49",
+      "source": "idx_w_ready",
+      "target": "idx_head_sum",
+      "ports": [
+        1,
+        0.5,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          2530,
+          3655
+        ],
+        [
+          2530,
+          1585
+        ]
+      ]
+    },
+    {
+      "id": "edge_50",
+      "source": "idx_head_sum",
+      "target": "idx_tp"
+    },
+    {
+      "id": "edge_51",
+      "source": "idx_tp",
+      "target": "idx_causal"
+    },
+    {
+      "id": "edge_52",
+      "source": "idx_causal",
+      "target": "idx_topk"
+    },
+    {
+      "id": "edge_53",
+      "source": "idx_topk",
+      "target": "port_I"
+    },
+    {
+      "id": "edge_54",
+      "source": "attn_h",
+      "target": "attn_qa",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "points": [
+        [
+          3280,
+          4200
+        ],
+        [
+          2920,
+          4200
+        ]
+      ]
+    },
+    {
+      "id": "edge_55",
+      "source": "attn_qa",
+      "target": "attn_qrank"
+    },
+    {
+      "id": "edge_56",
+      "source": "attn_qrank",
+      "target": "attn_qb"
+    },
+    {
+      "id": "edge_57",
+      "source": "attn_qb",
+      "target": "attn_qhead"
+    },
+    {
+      "id": "edge_58",
+      "source": "attn_qhead",
+      "target": "attn_qrope"
+    },
+    {
+      "id": "edge_59",
+      "source": "attn_qrope",
+      "target": "attn_qready"
+    },
+    {
+      "id": "edge_60",
+      "source": "attn_h",
+      "target": "attn_wkv",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "points": [
+        [
+          3280.0,
+          4200
+        ],
+        [
+          3640.0,
+          4200
+        ]
+      ]
+    },
+    {
+      "id": "edge_61",
+      "source": "attn_wkv",
+      "target": "attn_kvnorm"
+    },
+    {
+      "id": "edge_62",
+      "source": "attn_kvnorm",
+      "target": "attn_kvrope"
+    },
+    {
+      "id": "edge_63",
+      "source": "attn_kvrope",
+      "target": "attn_kvquant"
+    },
+    {
+      "id": "edge_64",
+      "source": "attn_kvquant",
+      "target": "attn_ring"
+    },
+    {
+      "id": "edge_65",
+      "source": "attn_positions",
+      "target": "attn_win_indices"
+    },
+    {
+      "id": "edge_66",
+      "source": "attn_win_indices",
+      "target": "attn_indices",
+      "ports": [
+        0,
+        0.5,
+        0.21774193548387097,
+        1
+      ],
+      "points": [
+        [
+          2600,
+          2752.5
+        ],
+        [
+          2600,
+          2070
+        ],
+        [
+          2940,
+          2070
+        ]
+      ]
+    },
+    {
+      "id": "edge_67",
+      "source": "attn_I",
+      "target": "attn_indices",
+      "ports": [
+        0,
+        0.5,
+        0.5080645161290323,
+        1
+      ],
+      "points": [
+        [
+          2620,
+          2542.5
+        ],
+        [
+          2620,
+          2075
+        ],
+        [
+          3300,
+          2075
+        ]
+      ]
+    },
+    {
+      "id": "edge_68",
+      "source": "attn_A",
+      "target": "attn_bank",
+      "ports": [
+        0.5,
+        0,
+        0.23015873015873015,
+        1
+      ]
+    },
+    {
+      "id": "edge_69",
+      "source": "attn_ring",
+      "target": "attn_bank",
+      "ports": [
+        0.5,
+        0,
+        0.7857142857142857,
+        1
+      ]
+    },
+    {
+      "id": "edge_70",
+      "source": "attn_qready",
+      "target": "attn_gather",
+      "ports": [
+        0,
+        0.5,
+        0,
+        0.5
+      ],
+      "points": [
+        [
+          2580,
+          3115
+        ],
+        [
+          2580,
+          1645
+        ]
+      ]
+    },
+    {
+      "id": "edge_71",
+      "source": "attn_indices",
+      "target": "attn_gather",
+      "ports": [
+        0.25,
+        0,
+        0.22727272727272727,
+        1
+      ]
+    },
+    {
+      "id": "edge_72",
+      "source": "attn_bank",
+      "target": "attn_gather",
+      "ports": [
+        1,
+        0.5,
+        0.8363636363636363,
+        1
+      ],
+      "points": [
+        [
+          3930,
+          2195
+        ],
+        [
+          3930,
+          1795
+        ],
+        [
+          3650,
+          1795
+        ]
+      ]
+    },
+    {
+      "id": "edge_73",
+      "source": "attn_gather",
+      "target": "attn_softmax"
+    },
+    {
+      "id": "edge_74",
+      "source": "attn_softmax",
+      "target": "attn_values"
+    },
+    {
+      "id": "edge_75",
+      "source": "attn_values",
+      "target": "attn_inverse"
+    },
+    {
+      "id": "edge_76",
+      "source": "attn_inverse",
+      "target": "attn_oa"
+    },
+    {
+      "id": "edge_77",
+      "source": "attn_oa",
+      "target": "attn_ob"
+    },
+    {
+      "id": "edge_78",
+      "source": "attn_sink",
+      "target": "attn_softmax",
+      "ports": [
+        0,
+        0.5,
+        1,
+        0.5
+      ]
+    },
+    {
+      "id": "edge_79",
+      "source": "attn_gather",
+      "target": "attn_values",
+      "ports": [
+        1,
+        0.8,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          3960,
+          1702
+        ],
+        [
+          3960,
+          1165
+        ]
+      ]
+    }
+  ],
+  "limitations": [
+    "Static official-source transcription; no GPU model execution or numerical equivalence test.",
+    "Tensor shapes are global/unsharded; TP splits heads and performs a scoring all-reduce when world_size > 1.",
+    "Matching named ports denote the same tensor/storage; they do not imply copies or additional model layers.",
+    "QAT simulation in this reference retains BF16 tensors; diagrams do not assert a physically packed FP4/FP8 KV cache."
+  ],
+  "compression_ratio": 4,
+  "main_compressor_state_shape": [
+    "B",
+    8,
+    1024
+  ],
+  "indexer_state_shape": [
+    "B",
+    8,
+    256
+  ],
+  "indexer_key_shape": [
+    "B",
+    "Nc",
+    128
+  ],
+  "port_bindings": {
+    "A": {
+      "source": "port_A",
+      "target": "attn_A",
+      "shape": [
+        "B",
+        "Nc",
+        512
+      ]
+    },
+    "I": {
+      "source": "port_I",
+      "target": "attn_I",
+      "shape": [
+        "B",
+        "T",
+        "Kcomp"
+      ],
+      "dtype": "integer indices, not KV"
+    },
+    "Qr": {
+      "source": "attn_qrank",
+      "target": "idx_q_input",
+      "shape": [
+        "B",
+        "T",
+        1024
+      ]
+    }
+  },
+  "window_examples": [
+    {
+      "j": 1,
+      "ca_tokens": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cb_tokens": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "rope_position": 4
+    },
+    {
+      "j": 2,
+      "ca_tokens": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "cb_tokens": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "rope_position": 8
+    }
+  ]
+}

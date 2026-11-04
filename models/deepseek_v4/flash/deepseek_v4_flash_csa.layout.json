@@ -1,0 +1,1349 @@
+{
+  "text_overflow": [],
+  "tight_text": [],
+  "nonorthogonal_segments": [],
+  "edge_node_crossings": [],
+  "routes": [
+    {
+      "id": "edge_0",
+      "source": "comp_h",
+      "target": "comp_fp32",
+      "points": [
+        [
+          635,
+          4230
+        ],
+        [
+          635,
+          4160
+        ]
+      ]
+    },
+    {
+      "id": "edge_1",
+      "source": "comp_fp32",
+      "target": "comp_wkv",
+      "points": [
+        [
+          635,
+          4050
+        ],
+        [
+          635,
+          4010
+        ],
+        [
+          320,
+          4010
+        ],
+        [
+          320,
+          3980
+        ]
+      ]
+    },
+    {
+      "id": "edge_2",
+      "source": "comp_fp32",
+      "target": "comp_wgate",
+      "points": [
+        [
+          635,
+          4050
+        ],
+        [
+          635,
+          4010
+        ],
+        [
+          950,
+          4010
+        ],
+        [
+          950,
+          3980
+        ]
+      ]
+    },
+    {
+      "id": "edge_3",
+      "source": "comp_wkv",
+      "target": "comp_split",
+      "points": [
+        [
+          320,
+          3860
+        ],
+        [
+          320,
+          3800
+        ]
+      ]
+    },
+    {
+      "id": "edge_4",
+      "source": "comp_split",
+      "target": "comp_value_window",
+      "points": [
+        [
+          320,
+          3640
+        ],
+        [
+          320,
+          3420
+        ]
+      ]
+    },
+    {
+      "id": "edge_5",
+      "source": "comp_wgate",
+      "target": "comp_ape",
+      "points": [
+        [
+          950,
+          3860
+        ],
+        [
+          950,
+          3800
+        ]
+      ]
+    },
+    {
+      "id": "edge_6",
+      "source": "comp_ape",
+      "target": "comp_gate_split",
+      "points": [
+        [
+          950,
+          3640
+        ],
+        [
+          950,
+          3580
+        ]
+      ]
+    },
+    {
+      "id": "edge_7",
+      "source": "comp_gate_split",
+      "target": "comp_gate_window",
+      "points": [
+        [
+          950,
+          3430
+        ],
+        [
+          950,
+          3390
+        ]
+      ]
+    },
+    {
+      "id": "edge_8",
+      "source": "comp_gate_window",
+      "target": "comp_softmax",
+      "points": [
+        [
+          950,
+          3200
+        ],
+        [
+          950,
+          3140
+        ]
+      ]
+    },
+    {
+      "id": "edge_9",
+      "source": "comp_value_window",
+      "target": "comp_mul",
+      "points": [
+        [
+          320,
+          3230
+        ],
+        [
+          319.9999999999998,
+          2910
+        ]
+      ]
+    },
+    {
+      "id": "edge_10",
+      "source": "comp_softmax",
+      "target": "comp_mul",
+      "points": [
+        [
+          950,
+          2980
+        ],
+        [
+          949.9999999999999,
+          2910
+        ]
+      ]
+    },
+    {
+      "id": "edge_11",
+      "source": "comp_mul",
+      "target": "comp_sum",
+      "points": [
+        [
+          635,
+          2760
+        ],
+        [
+          635,
+          2700
+        ]
+      ]
+    },
+    {
+      "id": "edge_12",
+      "source": "comp_sum",
+      "target": "comp_complete",
+      "points": [
+        [
+          635,
+          2550
+        ],
+        [
+          635,
+          2495
+        ]
+      ]
+    },
+    {
+      "id": "edge_13",
+      "source": "comp_complete",
+      "target": "comp_norm",
+      "points": [
+        [
+          635,
+          2350
+        ],
+        [
+          635,
+          2280
+        ]
+      ]
+    },
+    {
+      "id": "edge_14",
+      "source": "comp_norm",
+      "target": "comp_nope",
+      "points": [
+        [
+          320.0000000000005,
+          2160
+        ],
+        [
+          320,
+          2095
+        ]
+      ]
+    },
+    {
+      "id": "edge_15",
+      "source": "comp_norm",
+      "target": "comp_rope",
+      "points": [
+        [
+          949.9999999999999,
+          2160
+        ],
+        [
+          950,
+          2095
+        ]
+      ]
+    },
+    {
+      "id": "edge_16",
+      "source": "comp_nope",
+      "target": "comp_concat",
+      "points": [
+        [
+          320,
+          1940
+        ],
+        [
+          319.99999999999966,
+          1870
+        ]
+      ]
+    },
+    {
+      "id": "edge_17",
+      "source": "comp_rope",
+      "target": "comp_concat",
+      "points": [
+        [
+          950,
+          1940
+        ],
+        [
+          950,
+          1870
+        ]
+      ]
+    },
+    {
+      "id": "edge_18",
+      "source": "comp_concat",
+      "target": "comp_write",
+      "points": [
+        [
+          635,
+          1740
+        ],
+        [
+          635,
+          1675
+        ]
+      ]
+    },
+    {
+      "id": "edge_19",
+      "source": "comp_write",
+      "target": "comp_bank",
+      "points": [
+        [
+          635,
+          1530
+        ],
+        [
+          635,
+          1460
+        ]
+      ]
+    },
+    {
+      "id": "edge_20",
+      "source": "comp_bank",
+      "target": "comp_alias",
+      "points": [
+        [
+          635,
+          1300
+        ],
+        [
+          635,
+          1225
+        ]
+      ]
+    },
+    {
+      "id": "edge_21",
+      "source": "comp_alias",
+      "target": "port_A",
+      "points": [
+        [
+          635,
+          1080
+        ],
+        [
+          635,
+          990
+        ]
+      ]
+    },
+    {
+      "id": "edge_22",
+      "source": "idx_q_input",
+      "target": "idx_q_proj",
+      "points": [
+        [
+          1525,
+          4230
+        ],
+        [
+          1525,
+          4150
+        ]
+      ]
+    },
+    {
+      "id": "edge_23",
+      "source": "idx_q_proj",
+      "target": "idx_q_heads",
+      "points": [
+        [
+          1525,
+          4020
+        ],
+        [
+          1525,
+          3955
+        ]
+      ]
+    },
+    {
+      "id": "edge_24",
+      "source": "idx_q_heads",
+      "target": "idx_q_rope",
+      "points": [
+        [
+          1525,
+          3810
+        ],
+        [
+          1525,
+          3745
+        ]
+      ]
+    },
+    {
+      "id": "edge_25",
+      "source": "idx_q_rope",
+      "target": "idx_q_hadamard",
+      "points": [
+        [
+          1525,
+          3600
+        ],
+        [
+          1525,
+          3535
+        ]
+      ]
+    },
+    {
+      "id": "edge_26",
+      "source": "idx_q_hadamard",
+      "target": "idx_q_fp4",
+      "points": [
+        [
+          1525,
+          3390
+        ],
+        [
+          1525,
+          3330
+        ]
+      ]
+    },
+    {
+      "id": "edge_27",
+      "source": "idx_q_fp4",
+      "target": "idx_q_ready",
+      "points": [
+        [
+          1525,
+          3170
+        ],
+        [
+          1525,
+          3100
+        ]
+      ]
+    },
+    {
+      "id": "edge_28",
+      "source": "idx_h",
+      "target": "idx_kv_proj",
+      "points": [
+        [
+          2110,
+          4230
+        ],
+        [
+          2110,
+          4190
+        ],
+        [
+          1825,
+          4190
+        ],
+        [
+          1825,
+          4150
+        ]
+      ]
+    },
+    {
+      "id": "edge_29",
+      "source": "idx_h",
+      "target": "idx_gate_proj",
+      "points": [
+        [
+          2110,
+          4230
+        ],
+        [
+          2110,
+          4190
+        ],
+        [
+          2005,
+          4190
+        ],
+        [
+          2005,
+          4150
+        ]
+      ]
+    },
+    {
+      "id": "edge_30",
+      "source": "idx_h",
+      "target": "idx_w_proj",
+      "points": [
+        [
+          2110,
+          4230
+        ],
+        [
+          2110,
+          4190
+        ],
+        [
+          2305,
+          4190
+        ],
+        [
+          2305,
+          4150
+        ]
+      ]
+    },
+    {
+      "id": "edge_31",
+      "source": "idx_kv_proj",
+      "target": "idx_kv_split",
+      "points": [
+        [
+          1825,
+          4020
+        ],
+        [
+          1825,
+          3955
+        ]
+      ]
+    },
+    {
+      "id": "edge_32",
+      "source": "idx_gate_proj",
+      "target": "idx_gate_ape",
+      "points": [
+        [
+          2005,
+          4020
+        ],
+        [
+          2005,
+          3955
+        ]
+      ]
+    },
+    {
+      "id": "edge_33",
+      "source": "idx_kv_split",
+      "target": "idx_window",
+      "points": [
+        [
+          1825,
+          3810
+        ],
+        [
+          1825,
+          3782.5
+        ],
+        [
+          1825.9,
+          3782.5
+        ],
+        [
+          1825.9,
+          3755
+        ]
+      ]
+    },
+    {
+      "id": "edge_34",
+      "source": "idx_gate_ape",
+      "target": "idx_window",
+      "points": [
+        [
+          2005,
+          3810
+        ],
+        [
+          2005,
+          3782.5
+        ],
+        [
+          2004.1,
+          3782.5
+        ],
+        [
+          2004.1,
+          3755
+        ]
+      ]
+    },
+    {
+      "id": "edge_35",
+      "source": "idx_window",
+      "target": "idx_softmax",
+      "points": [
+        [
+          1915,
+          3580
+        ],
+        [
+          1915,
+          3525
+        ]
+      ]
+    },
+    {
+      "id": "edge_36",
+      "source": "idx_softmax",
+      "target": "idx_pool",
+      "points": [
+        [
+          1915,
+          3380
+        ],
+        [
+          1915,
+          3325
+        ]
+      ]
+    },
+    {
+      "id": "edge_37",
+      "source": "idx_pool",
+      "target": "idx_norm",
+      "points": [
+        [
+          1915,
+          3170
+        ],
+        [
+          1915,
+          3085
+        ]
+      ]
+    },
+    {
+      "id": "edge_38",
+      "source": "idx_norm",
+      "target": "idx_key_rope",
+      "points": [
+        [
+          1915,
+          2970
+        ],
+        [
+          1915,
+          2910
+        ]
+      ]
+    },
+    {
+      "id": "edge_39",
+      "source": "idx_key_rope",
+      "target": "idx_key_hadamard",
+      "points": [
+        [
+          1915,
+          2780
+        ],
+        [
+          1915,
+          2735
+        ]
+      ]
+    },
+    {
+      "id": "edge_40",
+      "source": "idx_key_hadamard",
+      "target": "idx_key_fp4",
+      "points": [
+        [
+          1915,
+          2590
+        ],
+        [
+          1915,
+          2535
+        ]
+      ]
+    },
+    {
+      "id": "edge_41",
+      "source": "idx_key_fp4",
+      "target": "idx_key_cache",
+      "points": [
+        [
+          1915,
+          2390
+        ],
+        [
+          1915,
+          2335
+        ]
+      ]
+    },
+    {
+      "id": "edge_42",
+      "source": "idx_window",
+      "target": "idx_pool",
+      "points": [
+        [
+          2080,
+          3667.5
+        ],
+        [
+          2100,
+          3667.5
+        ],
+        [
+          2100,
+          3247.5
+        ],
+        [
+          2080,
+          3247.5
+        ]
+      ]
+    },
+    {
+      "id": "edge_43",
+      "source": "idx_w_proj",
+      "target": "idx_w_scale",
+      "points": [
+        [
+          2305,
+          4020
+        ],
+        [
+          2305,
+          3985
+        ]
+      ]
+    },
+    {
+      "id": "edge_44",
+      "source": "idx_w_scale",
+      "target": "idx_w_ready",
+      "points": [
+        [
+          2305,
+          3810
+        ],
+        [
+          2305,
+          3720
+        ]
+      ]
+    },
+    {
+      "id": "edge_45",
+      "source": "idx_q_ready",
+      "target": "idx_dot",
+      "points": [
+        [
+          1525,
+          2970
+        ],
+        [
+          1525,
+          2070
+        ]
+      ]
+    },
+    {
+      "id": "edge_46",
+      "source": "idx_key_cache",
+      "target": "idx_dot",
+      "points": [
+        [
+          1915,
+          2180
+        ],
+        [
+          1915,
+          2070
+        ]
+      ]
+    },
+    {
+      "id": "edge_47",
+      "source": "idx_dot",
+      "target": "idx_relu",
+      "points": [
+        [
+          1930,
+          1920
+        ],
+        [
+          1930,
+          1830
+        ]
+      ]
+    },
+    {
+      "id": "edge_48",
+      "source": "idx_relu",
+      "target": "idx_head_sum",
+      "points": [
+        [
+          1930,
+          1720
+        ],
+        [
+          1930,
+          1660
+        ]
+      ]
+    },
+    {
+      "id": "edge_49",
+      "source": "idx_w_ready",
+      "target": "idx_head_sum",
+      "points": [
+        [
+          2470,
+          3655
+        ],
+        [
+          2530,
+          3655
+        ],
+        [
+          2530,
+          1585
+        ],
+        [
+          2470,
+          1585
+        ]
+      ]
+    },
+    {
+      "id": "edge_50",
+      "source": "idx_head_sum",
+      "target": "idx_tp",
+      "points": [
+        [
+          1930,
+          1510
+        ],
+        [
+          1930,
+          1440
+        ]
+      ]
+    },
+    {
+      "id": "edge_51",
+      "source": "idx_tp",
+      "target": "idx_causal",
+      "points": [
+        [
+          1930,
+          1320
+        ],
+        [
+          1930,
+          1265
+        ]
+      ]
+    },
+    {
+      "id": "edge_52",
+      "source": "idx_causal",
+      "target": "idx_topk",
+      "points": [
+        [
+          1930,
+          1120
+        ],
+        [
+          1930,
+          1070
+        ]
+      ]
+    },
+    {
+      "id": "edge_53",
+      "source": "idx_topk",
+      "target": "port_I",
+      "points": [
+        [
+          1930,
+          910
+        ],
+        [
+          1930,
+          850
+        ]
+      ]
+    },
+    {
+      "id": "edge_54",
+      "source": "attn_h",
+      "target": "attn_qa",
+      "points": [
+        [
+          3280,
+          4230
+        ],
+        [
+          3280,
+          4200
+        ],
+        [
+          2920,
+          4200
+        ],
+        [
+          2920,
+          4160
+        ]
+      ]
+    },
+    {
+      "id": "edge_55",
+      "source": "attn_qa",
+      "target": "attn_qrank",
+      "points": [
+        [
+          2920,
+          4050
+        ],
+        [
+          2920,
+          3980
+        ]
+      ]
+    },
+    {
+      "id": "edge_56",
+      "source": "attn_qrank",
+      "target": "attn_qb",
+      "points": [
+        [
+          2920,
+          3860
+        ],
+        [
+          2920,
+          3800
+        ]
+      ]
+    },
+    {
+      "id": "edge_57",
+      "source": "attn_qb",
+      "target": "attn_qhead",
+      "points": [
+        [
+          2920,
+          3660
+        ],
+        [
+          2920,
+          3580
+        ]
+      ]
+    },
+    {
+      "id": "edge_58",
+      "source": "attn_qhead",
+      "target": "attn_qrope",
+      "points": [
+        [
+          2920,
+          3460
+        ],
+        [
+          2920,
+          3400
+        ]
+      ]
+    },
+    {
+      "id": "edge_59",
+      "source": "attn_qrope",
+      "target": "attn_qready",
+      "points": [
+        [
+          2920,
+          3250
+        ],
+        [
+          2920,
+          3170
+        ]
+      ]
+    },
+    {
+      "id": "edge_60",
+      "source": "attn_h",
+      "target": "attn_wkv",
+      "points": [
+        [
+          3280,
+          4230
+        ],
+        [
+          3280,
+          4200
+        ],
+        [
+          3640,
+          4200
+        ],
+        [
+          3640,
+          4160
+        ]
+      ]
+    },
+    {
+      "id": "edge_61",
+      "source": "attn_wkv",
+      "target": "attn_kvnorm",
+      "points": [
+        [
+          3640,
+          4050
+        ],
+        [
+          3640,
+          3980
+        ]
+      ]
+    },
+    {
+      "id": "edge_62",
+      "source": "attn_kvnorm",
+      "target": "attn_kvrope",
+      "points": [
+        [
+          3640,
+          3860
+        ],
+        [
+          3640,
+          3790
+        ]
+      ]
+    },
+    {
+      "id": "edge_63",
+      "source": "attn_kvrope",
+      "target": "attn_kvquant",
+      "points": [
+        [
+          3640,
+          3660
+        ],
+        [
+          3640,
+          3600
+        ]
+      ]
+    },
+    {
+      "id": "edge_64",
+      "source": "attn_kvquant",
+      "target": "attn_ring",
+      "points": [
+        [
+          3640,
+          3450
+        ],
+        [
+          3640,
+          3390
+        ]
+      ]
+    },
+    {
+      "id": "edge_65",
+      "source": "attn_positions",
+      "target": "attn_win_indices",
+      "points": [
+        [
+          2940,
+          2870
+        ],
+        [
+          2940,
+          2835
+        ]
+      ]
+    },
+    {
+      "id": "edge_66",
+      "source": "attn_win_indices",
+      "target": "attn_indices",
+      "points": [
+        [
+          2670,
+          2752.5
+        ],
+        [
+          2600,
+          2752.5
+        ],
+        [
+          2600,
+          2070
+        ],
+        [
+          2940,
+          2070
+        ],
+        [
+          2940,
+          2035
+        ]
+      ]
+    },
+    {
+      "id": "edge_67",
+      "source": "attn_I",
+      "target": "attn_indices",
+      "points": [
+        [
+          2670,
+          2542.5
+        ],
+        [
+          2620,
+          2542.5
+        ],
+        [
+          2620,
+          2075
+        ],
+        [
+          3300,
+          2075
+        ],
+        [
+          3300,
+          2035
+        ]
+      ]
+    },
+    {
+      "id": "edge_68",
+      "source": "attn_A",
+      "target": "attn_bank",
+      "points": [
+        [
+          2940,
+          2330
+        ],
+        [
+          2940,
+          2280
+        ]
+      ]
+    },
+    {
+      "id": "edge_69",
+      "source": "attn_ring",
+      "target": "attn_bank",
+      "points": [
+        [
+          3640,
+          3240
+        ],
+        [
+          3640,
+          2280
+        ]
+      ]
+    },
+    {
+      "id": "edge_70",
+      "source": "attn_qready",
+      "target": "attn_gather",
+      "points": [
+        [
+          2650,
+          3115
+        ],
+        [
+          2580,
+          3115
+        ],
+        [
+          2580,
+          1645
+        ],
+        [
+          2730,
+          1645
+        ]
+      ]
+    },
+    {
+      "id": "edge_71",
+      "source": "attn_indices",
+      "target": "attn_gather",
+      "points": [
+        [
+          2979.9999999999995,
+          1870
+        ],
+        [
+          2980,
+          1740
+        ]
+      ]
+    },
+    {
+      "id": "edge_72",
+      "source": "attn_bank",
+      "target": "attn_gather",
+      "points": [
+        [
+          3910,
+          2195
+        ],
+        [
+          3930,
+          2195
+        ],
+        [
+          3930,
+          1795
+        ],
+        [
+          3650,
+          1795
+        ],
+        [
+          3650,
+          1740
+        ]
+      ]
+    },
+    {
+      "id": "edge_73",
+      "source": "attn_gather",
+      "target": "attn_softmax",
+      "points": [
+        [
+          3280,
+          1550
+        ],
+        [
+          3280,
+          1490
+        ]
+      ]
+    },
+    {
+      "id": "edge_74",
+      "source": "attn_softmax",
+      "target": "attn_values",
+      "points": [
+        [
+          3280,
+          1300
+        ],
+        [
+          3280,
+          1240
+        ]
+      ]
+    },
+    {
+      "id": "edge_75",
+      "source": "attn_values",
+      "target": "attn_inverse",
+      "points": [
+        [
+          3280,
+          1090
+        ],
+        [
+          3280,
+          1030
+        ]
+      ]
+    },
+    {
+      "id": "edge_76",
+      "source": "attn_inverse",
+      "target": "attn_oa",
+      "points": [
+        [
+          3280,
+          900
+        ],
+        [
+          3280,
+          850
+        ]
+      ]
+    },
+    {
+      "id": "edge_77",
+      "source": "attn_oa",
+      "target": "attn_ob",
+      "points": [
+        [
+          3280,
+          740
+        ],
+        [
+          3280,
+          700
+        ]
+      ]
+    },
+    {
+      "id": "edge_78",
+      "source": "attn_sink",
+      "target": "attn_softmax",
+      "points": [
+        [
+          3850,
+          1395
+        ],
+        [
+          3830,
+          1395
+        ]
+      ]
+    },
+    {
+      "id": "edge_79",
+      "source": "attn_gather",
+      "target": "attn_values",
+      "points": [
+        [
+          3830,
+          1702
+        ],
+        [
+          3960,
+          1702
+        ],
+        [
+          3960,
+          1165
+        ],
+        [
+          3830,
+          1165
+        ]
+      ]
+    }
+  ],
+  "drawio_sha256": "108ee870f9b75a1edc1a0e3306648cd1d2726fa5a491384b2c46e04250a20405"
+}

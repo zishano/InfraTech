@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "drawio_file": "deepseek_v4_flash_hca.drawio",
+  "png_file": "deepseek_v4_flash_hca.png",
+  "drawio_sha256": "c59a7f66bec085f9166fab790f1546ea1cc306ffaf54187b26c3ff2fcc1788e8",
+  "png_sha256": "98145e47f9c5e7ec0b0e9f6a5a75623e47d5cceba0581abd40161b518706206e",
+  "renderer": "mxGraph 4.2.2 / Chromium",
+  "browser_version": "155.0.8059.79",
+  "scale": 1.5,
+  "width": 4000,
+  "height": 5700,
+  "vertices": 89,
+  "edges": 68,
+  "layout_file": "deepseek_v4_flash_hca.layout.json",
+  "layout_sha256": "6125890b5a6786e2ec0a5f5cb5b9912eb138ad199445cc7eddad931bf16de291",
+  "layout_check": {
+    "text_overflow": 0,
+    "tight_text": 0,
+    "nonorthogonal_segments": 0,
+    "edge_node_crossings": 0
+  }
+}

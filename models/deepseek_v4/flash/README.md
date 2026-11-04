@@ -4,8 +4,10 @@
 
 ## 配对交付
 
-- [PNG 架构图](deepseek_v4_flash.png)：从同名 draw.io XML 直接通过 mxGraph 4.2.2 / Chromium 导出。
-- [原生可编辑 draw.io](deepseek_v4_flash.drawio)：128 个原生图元、112 条连接，无整图位图节点。
+- **[CSA 详细图](deepseek_v4_flash_csa.png)** / [可编辑 draw.io](deepseek_v4_flash_csa.drawio)：97 个图元、80 条连接。
+- **[HCA 详细图](deepseek_v4_flash_hca.png)** / [可编辑 draw.io](deepseek_v4_flash_hca.drawio)：89 个图元、68 条连接。
+- [PNG 总览图](deepseek_v4_flash.png)：从同名 draw.io XML 直接通过 mxGraph 4.2.2 / Chromium 导出。
+- [原生可编辑 draw.io](deepseek_v4_flash.drawio)：含 Overview / CSA detail / HCA detail 三页；首页 128 个图元、112 条连接。两张详细页与独立 draw.io 的模型 XML 完全一致，无整图位图节点。
 - [布局检查](deepseek_v4_flash.layout.json)、[配对记录](deepseek_v4_flash.export.json)：文字边界、留白、正交性、穿框和文件哈希。
 - [官方 checkpoint 配置快照](official_config.json)、[官方推理配置快照](official_inference_config.json)。
 - [逐层与权重索引核对摘要](checkpoint_summary.json)、[逐节点证据](evidence.md)。
@@ -39,6 +41,17 @@
 
 官方 `Attention` 类的注释沿用 MLA 名称；图中按实际 `forward` 绘制共享 K=V 的单 KV 头路径，不添加旧式 KV-up/reconstruction 分支。
 
+## CSA / HCA 详细页
+
+两页均自下而上，左侧为主 KV 压缩器，中间为索引生成，右侧为共享 K=V 注意力；底部另列 prefill / decode 状态与窗口实例。A、I、Qr 是跨面板的同名张量端口，表示数据引用，避免长连线混淆。
+
+- **CSA**：Wkv / Wgate 分支、APE、Ca/Cb 通道拆分、前窗 Ca + 当前窗 Cb 的 8 槽重叠窗口、逐通道 gate softmax、KV 值旁路、加权求和、RMSNorm、RoPE / FP8 模拟、缓存写入。独立 Indexer 展开 Q、128 维压缩 key、head-weight 三条路径，以及 Hadamard、FP4 模拟、ReLU、跨头求和、TP 汇总、因果 mask 和 top-k。
+- **HCA**：128 槽无重叠压缩；不经过 learned Indexer，按位置公式列出全部已完成压缩条目。单独展示 prefill 的未来位置屏蔽、decode 的有效前缀和索引偏移。
+- **共同注意力**：Q 低秩路径、局部共享 KV、128 环形缓存、局部／压缩索引合并、稀疏 gather、sink 只进入分母、在线 softmax、值加权、逆 RoPE 与分组输出投影。
+- **缓存语义**：CSA top-k≤512 只限制当前查询读取的压缩位置，缓存仍保留全部完成条目；HCA 没有 top-512 截断。参考实现的量化为模拟，不表示缓存物理打包为 FP4 / FP8。
+
+每张详细图均提供同名 `.layout.json` 和 `.export.json`。节点的官方来源定位保存在 graph JSON 及原生 XML 中。
+
 ## 权重索引交叉核对
 
 已读取 **69,187 个 tensor 名称与 46 个 shard 的映射**。索引实际使用 `layers.<id>.*` 和 `mtp.0.*` 前缀，不是先前猜测的 `model.layers.*`。
@@ -56,6 +69,7 @@ python tools/model_architecture/model_architecture.py extract \
   /workspace/deepseek-v4-flash-sources --out /workspace/deepseek-v4-flash-facts.json
 
 # 已审阅图数据 → 原生 XML → PNG；不独立生成另一张结构图。
+python tools/model_architecture/examples/build_deepseek_v4_attention_detail.py
 python models/deepseek_v4/flash/rebuild.py
 python tools/model_architecture/model_architecture.py export-png \
   models/deepseek_v4/flash/deepseek_v4_flash.drawio \
@@ -66,7 +80,9 @@ python tools/model_architecture/model_architecture.py verify-png \
   models/deepseek_v4/flash/deepseek_v4_flash.export.json
 ```
 
-图数据位于 `tools/model_architecture/examples/deepseek_v4_flash.graph.json`；同目录 `build_deepseek_v4_flash.py` 读取已提交的官方配置快照并构造布局。直接改 XML 后应先同步需要保留的修改，再重生成，避免覆盖。渲染依赖安装见通用工具 README。
+CSA/HCA 同样执行上述 export-png / verify-png 命令，将文件名换成 `deepseek_v4_flash_csa` / `deepseek_v4_flash_hca`。
+
+详细图构造器为 `tools/model_architecture/examples/build_deepseek_v4_attention_detail.py`，输出同目录的 CSA/HCA graph JSON；rebuild.py 生成独立文件并组装总图三页。总览图数据位于 `tools/model_architecture/examples/deepseek_v4_flash.graph.json`；同目录 `build_deepseek_v4_flash.py` 读取已提交的官方配置快照并构造布局。直接改 XML 后应先同步需要保留的修改，再重生成，避免覆盖。渲染依赖安装见通用工具 README。
 
 ## 信息源与边界
 

@@ -130,3 +130,9 @@ python tools/model_architecture/model_architecture.py verify-png \
 ### Hugging Face 缓存重定向
 
 初始资料 URL 仍要求公开 HTTPS 且不带查询参数或内嵌凭据。响应可能正常跳转到 `api/resolve-cache/...?...etag...`；收集器现在验证重定向的 HTTPS 目标并接受这种响应，但保存最终 URL 时剥离全部查询参数，避免将签名或凭据记录到 inventory。文件 SHA-256 和 resolved_revision 仍保留。不会关闭 TLS、绕过代理或放宽完整权重下载限制。
+
+### DeepSeek CSA / HCA 详细页
+
+`examples/build_deepseek_v4_attention_detail.py` 将固定官方提交的 Compressor、Indexer、Attention、sparse_attn 分拆为原生算子，生成 CSA/HCA graph JSON。`models/deepseek_v4/flash/rebuild.py` 同时构建独立详细 draw.io 和三页总图；独立详细 PNG 必须从对应 XML 使用 `export-png` 导出。总图 PNG 导出首页，详细页各有独立 PNG 和配对检查记录。
+
+大图跨面板的数据通过 `port_bindings` 元数据及可见 A / I / Qr 同名端口关联，分别代表完整压缩 KV、压缩位置索引和归一化低秩 query；端口不是额外网络层。模型专用测试检查端点存在、值旁路、CSA 独立 Indexer、HCA 无 Indexer、窗口实例及总图详细页与独立 XML 一致。通用新模型仍需审阅官方 forward 的真实分支，再配置布局，不能只替换模型名称和参数。
