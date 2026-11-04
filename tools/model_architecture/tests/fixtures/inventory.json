@@ -1,0 +1,21 @@
+{
+  "model": "fixture/test-only",
+  "sources": [
+    {
+      "id": "config",
+      "kind": "config",
+      "status": "downloaded",
+      "path": "config.json",
+      "sha256": "e0731099c1cbda14f029714e566e22ef9bf5dce3e90c9450b9c21012ff89936e",
+      "url": "https://example.org/config.json"
+    },
+    {
+      "id": "index",
+      "kind": "weight_index",
+      "status": "downloaded",
+      "path": "index.json",
+      "sha256": "462e1df52e5c2960beba30b9b719d3f7cb6cf90ad0a77607f3455ce0f1ef670f",
+      "url": "https://example.org/index.json"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "model": "moonshotai/Kimi-K3",
+  "revision": "main",
+  "sources": [
+    {
+      "id": "config",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3/resolve/main/config.json",
+      "kind": "config",
+      "required": true
+    },
+    {
+      "id": "model_card",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3/resolve/main/README.md",
+      "kind": "documentation",
+      "required": false
+    },
+    {
+      "id": "weight_index",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3/resolve/main/model.safetensors.index.json",
+      "kind": "weight_index",
+      "required": false
+    },
+    {
+      "id": "github_readme",
+      "url": "https://raw.githubusercontent.com/MoonshotAI/Kimi-K3/main/README.md",
+      "kind": "documentation",
+      "required": false
+    }
+  ]
+}

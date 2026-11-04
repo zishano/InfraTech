@@ -1,0 +1,3631 @@
+{
+  "version": 1,
+  "title": "Kimi K3 — Detailed v2 (report-reviewed graph)",
+  "width": 2600,
+  "height": 3500,
+  "sources": {
+    "report": "https://github.com/MoonshotAI/Kimi-K3/blob/3cb39dfd32e51c3328e2e4b4af21341247d06c43/k3_tech_report.pdf"
+  },
+  "nodes": [
+    {
+      "id": "title",
+      "label": "Kimi K3 — Architecture Study / Detailed v2",
+      "box": [
+        30.0,
+        20.0,
+        2540.0,
+        70.0
+      ],
+      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=42;fontColor=#24344b;",
+      "kind": "decoration",
+      "status": "inferred"
+    },
+    {
+      "id": "subtitle",
+      "label": "Bottom-up computational flow · editable diagrams.net / draw.io source",
+      "box": [
+        30.0,
+        95.0,
+        2540.0,
+        45.0
+      ],
+      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=25;fontColor=#24344b;",
+      "kind": "decoration",
+      "status": "inferred"
+    },
+    {
+      "id": "params",
+      "label": "2.78T total · 104.2B active · 93 layers · hidden 7168 · 96 heads · 1M context",
+      "box": [
+        50.0,
+        155.0,
+        2500.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=27;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1 and Table 1 (schedule and counts; exact dense FFN location unmapped)"
+        }
+      ]
+    },
+    {
+      "id": "attnres",
+      "label": "",
+      "box": [
+        30.0,
+        250.0,
+        820.0,
+        800.0
+      ],
+      "style": "rounded=1;fillColor=#ffffff;strokeColor=#8650b5;dashed=1;dashPattern=8 5;strokeWidth=2;pointerEvents=0;",
+      "kind": "decoration",
+      "status": "inferred"
+    },
+    {
+      "id": "attnres_title",
+      "label": "Block Attention Residuals  ↑",
+      "box": [
+        40.0,
+        260.0,
+        800.0,
+        50.0
+      ],
+      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#8650b5;",
+      "kind": "decoration",
+      "status": "inferred"
+    },
+    {
+      "id": "kda",
+      "label": "",
+      "box": [
+        30.0,
+        1080.0,
+        820.0,
+        1380.0
+      ],
+      "style": "rounded=1;fillColor=#ffffff;strokeColor=#659c33;dashed=1;dashPattern=8 5;strokeWidth=2;pointerEvents=0;",
+      "kind": "decoration",
+      "status": "inferred"
+    },
+    {
+      "id": "kda_title",
+      "label": "Kimi Delta Attention — five inputs + separate output gate  ↑",
+      "box": [
+        40.0,
+        1090.0,
+        800.0,
+        50.0
+      ],
+      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#659c33;",
+      "kind": "decoration",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "backbone",
+      "label": "",
+      "box": [
+        880.0,
+        250.0,
+        650.0,
+        2210.0
+      ],
+      "style": "rounded=1;fillColor=#ffffff;strokeColor=#8650b5;dashed=1;dashPattern=8 5;strokeWidth=2;pointerEvents=0;",
+      "kind": "decoration",
+      "status": "inferred"
+    },
+    {
+      "id": "backbone_title",
+      "label": "Language Backbone  ↑",
+      "box": [
+        890.0,
+        260.0,
+        630.0,
+        50.0
+      ],
+      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#8650b5;",
+      "kind": "decoration",
+      "status": "inferred"
+    },
+    {
+      "id": "moe",
+      "label": "",
+      "box": [
+        1560.0,
+        250.0,
+        1010.0,
+        1030.0
+      ],
+      "style": "rounded=1;fillColor=#ffffff;strokeColor=#277dc8;dashed=1;dashPattern=8 5;strokeWidth=2;pointerEvents=0;",
+      "kind": "decoration",
+      "status": "inferred"
+    },
+    {
+      "id": "moe_title",
+      "label": "Stable LatentMoE  ↑",
+      "box": [
+        1570.0,
+        260.0,
+        990.0,
+        50.0
+      ],
+      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#277dc8;",
+      "kind": "decoration",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "mla",
+      "label": "",
+      "box": [
+        1560.0,
+        1310.0,
+        1010.0,
+        1150.0
+      ],
+      "style": "rounded=1;fillColor=#ffffff;strokeColor=#ec8a1a;dashed=1;dashPattern=8 5;strokeWidth=2;pointerEvents=0;",
+      "kind": "decoration",
+      "status": "inferred"
+    },
+    {
+      "id": "mla_title",
+      "label": "Gated MLA — NoPE / no RoPE  ↑",
+      "box": [
+        1570.0,
+        1320.0,
+        990.0,
+        50.0
+      ],
+      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#ec8a1a;",
+      "kind": "decoration",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.2, equation 7 (unabsorbed conceptual view)"
+        }
+      ]
+    },
+    {
+      "id": "vision",
+      "label": "",
+      "box": [
+        30.0,
+        2490.0,
+        2540.0,
+        760.0
+      ],
+      "style": "rounded=1;fillColor=#ffffff;strokeColor=#199c98;dashed=1;dashPattern=8 5;strokeWidth=2;pointerEvents=0;",
+      "kind": "decoration",
+      "status": "inferred"
+    },
+    {
+      "id": "vision_title",
+      "label": "Native vision / multimodal input  ↑",
+      "box": [
+        40.0,
+        2500.0,
+        2520.0,
+        50.0
+      ],
+      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=26;fontColor=#199c98;",
+      "kind": "decoration",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 and Table 1 (vision path; exact FFN implementation not verified)"
+        }
+      ]
+    },
+    {
+      "id": "ar_source",
+      "label": "Stack: embedding + completed block sums\n+ current partial sum",
+      "box": [
+        75.0,
+        935.0,
+        720.0,
+        75.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.2, equations 8–10 (block-level attention residuals)"
+        }
+      ]
+    },
+    {
+      "id": "ar_keys",
+      "label": "RMSNorm(keys)",
+      "box": [
+        80.0,
+        795.0,
+        300.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.2, equations 8–10 (block-level attention residuals)"
+        }
+      ]
+    },
+    {
+      "id": "ar_query",
+      "label": "Learned pseudo-query w\n(independent parameter)",
+      "box": [
+        440.0,
+        795.0,
+        300.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.2, equations 8–10 (block-level attention residuals)"
+        }
+      ]
+    },
+    {
+      "id": "ar_logits",
+      "label": "Depth logits: wᵀ RMSNorm(K)",
+      "box": [
+        80.0,
+        665.0,
+        480.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.2, equations 8–10 (block-level attention residuals)"
+        }
+      ]
+    },
+    {
+      "id": "ar_softmax",
+      "label": "Softmax over depth",
+      "box": [
+        80.0,
+        555.0,
+        480.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.2, equations 8–10 (block-level attention residuals)"
+        }
+      ]
+    },
+    {
+      "id": "ar_values",
+      "label": "Original values V\n(unchanged)",
+      "box": [
+        635.0,
+        540.0,
+        150.0,
+        95.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.2, equations 8–10 (block-level attention residuals)"
+        }
+      ]
+    },
+    {
+      "id": "ar_sum",
+      "label": "Weighted sum of original values",
+      "box": [
+        95.0,
+        430.0,
+        675.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.2, equations 8–10 (block-level attention residuals)"
+        }
+      ]
+    },
+    {
+      "id": "ar_out",
+      "label": "Output to next attention / FFN sublayer",
+      "box": [
+        95.0,
+        330.0,
+        675.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.2, equations 8–10 (block-level attention residuals)"
+        }
+      ]
+    },
+    {
+      "id": "kda_x",
+      "label": "Input x [T, 7168]",
+      "box": [
+        65.0,
+        2355.0,
+        745.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_q_linear",
+      "label": "Linear Wq",
+      "box": [
+        80.0,
+        2240.0,
+        105.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_q_conv",
+      "label": "ShortConv",
+      "box": [
+        80.0,
+        2130.0,
+        105.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_q_swish",
+      "label": "Swish / SiLU",
+      "box": [
+        80.0,
+        2020.0,
+        105.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_q_l2",
+      "label": "L2Norm",
+      "box": [
+        80.0,
+        1910.0,
+        105.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_port_q",
+      "label": "Q",
+      "box": [
+        80.0,
+        1655.0,
+        105.0,
+        45.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=23;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_k_linear",
+      "label": "Linear Wk",
+      "box": [
+        205.0,
+        2240.0,
+        105.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_k_conv",
+      "label": "ShortConv",
+      "box": [
+        205.0,
+        2130.0,
+        105.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_k_swish",
+      "label": "Swish / SiLU",
+      "box": [
+        205.0,
+        2020.0,
+        105.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_k_l2",
+      "label": "L2Norm",
+      "box": [
+        205.0,
+        1910.0,
+        105.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_port_k",
+      "label": "K",
+      "box": [
+        205.0,
+        1655.0,
+        105.0,
+        45.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=23;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_v_linear",
+      "label": "Linear Wv",
+      "box": [
+        330.0,
+        2240.0,
+        105.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_v_conv",
+      "label": "ShortConv",
+      "box": [
+        330.0,
+        2130.0,
+        105.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_v_swish",
+      "label": "Swish / SiLU",
+      "box": [
+        330.0,
+        2020.0,
+        105.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_port_v",
+      "label": "V",
+      "box": [
+        330.0,
+        1655.0,
+        105.0,
+        45.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=23;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_alpha_down",
+      "label": "Linear Wα↓",
+      "box": [
+        455.0,
+        2240.0,
+        140.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_alpha_up",
+      "label": "Linear Wα↑",
+      "box": [
+        455.0,
+        2145.0,
+        140.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_alpha_bias",
+      "label": "z = · + bα",
+      "box": [
+        455.0,
+        2050.0,
+        140.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_alpha_scale",
+      "label": "× exp(A)",
+      "box": [
+        455.0,
+        1955.0,
+        140.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_alpha_sigmoid",
+      "label": "g = −5 sigmoid(·)",
+      "box": [
+        455.0,
+        1860.0,
+        140.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_alpha_exp",
+      "label": "α = exp(g)",
+      "box": [
+        455.0,
+        1765.0,
+        140.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_port_alpha",
+      "label": "α",
+      "box": [
+        455.0,
+        1655.0,
+        140.0,
+        45.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=23;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_beta_linear",
+      "label": "Linear Wβ",
+      "box": [
+        610.0,
+        2240.0,
+        105.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_beta_sigmoid",
+      "label": "Sigmoid",
+      "box": [
+        610.0,
+        2020.0,
+        105.0,
+        62.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_port_beta",
+      "label": "β",
+      "box": [
+        610.0,
+        1655.0,
+        105.0,
+        45.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=23;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_core",
+      "label": "Kimi Delta Attention / recurrent state update\nSₜ = (I − βₜ kₜ kₜᵀ) Diag(αₜ) Sₜ₋₁ + βₜ kₜ vₜᵀ\noₜ = Sₜᵀ qₜ",
+      "box": [
+        60.0,
+        1510.0,
+        665.0,
+        115.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_norm",
+      "label": "Head-wise RMSNorm",
+      "box": [
+        105.0,
+        1400.0,
+        560.0,
+        60.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_product",
+      "label": "×",
+      "box": [
+        355.0,
+        1305.0,
+        65.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=28;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;shape=ellipse;aspect=fixed;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_gate_linear",
+      "label": "Full-rank\nLinear Wg",
+      "box": [
+        730.0,
+        2050.0,
+        100.0,
+        85.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_gate_sigmoid",
+      "label": "Sigmoid",
+      "box": [
+        730.0,
+        1390.0,
+        100.0,
+        60.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "kda_wo",
+      "label": "Linear Wo → output y [T, 7168]",
+      "box": [
+        95.0,
+        1190.0,
+        585.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.1, equations 1, 2, 5, 6 (conceptual factorization; ranks not verified)"
+        }
+      ]
+    },
+    {
+      "id": "lm_fused",
+      "label": "Fused sequence (text + visual tokens)",
+      "box": [
+        920.0,
+        2340.0,
+        570.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1 and Table 1 (schedule and counts; exact dense FFN location unmapped)"
+        }
+      ]
+    },
+    {
+      "id": "lm_repeat",
+      "label": "23 × [3 KDA + FFN, then 1 Gated MLA + FFN]\n= 92 attention layers",
+      "box": [
+        920.0,
+        830.0,
+        570.0,
+        100.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1 and Table 1 (schedule and counts; exact dense FFN location unmapped)"
+        }
+      ]
+    },
+    {
+      "id": "lm_final",
+      "label": "Final Gated MLA + FFN\n= 1 attention layer",
+      "box": [
+        920.0,
+        660.0,
+        570.0,
+        90.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1 and Table 1 (schedule and counts; exact dense FFN location unmapped)"
+        }
+      ]
+    },
+    {
+      "id": "lm_norm",
+      "label": "Final depth aggregation / normalization",
+      "box": [
+        920.0,
+        530.0,
+        570.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1 and Table 1 (schedule and counts; exact dense FFN location unmapped)"
+        }
+      ]
+    },
+    {
+      "id": "lm_head",
+      "label": "LM head",
+      "box": [
+        980.0,
+        430.0,
+        450.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1 and Table 1 (schedule and counts; exact dense FFN location unmapped)"
+        }
+      ]
+    },
+    {
+      "id": "lm_out",
+      "label": "Output tokens",
+      "box": [
+        980.0,
+        330.0,
+        450.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#8650b5;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1 and Table 1 (schedule and counts; exact dense FFN location unmapped)"
+        }
+      ]
+    },
+    {
+      "id": "lm_counts",
+      "label": "69 KDA + 24 Gated MLA = 93\n92 MoE FFNs + 1 dense FFN\nDense FFN location not mapped",
+      "box": [
+        930.0,
+        970.0,
+        550.0,
+        110.0
+      ],
+      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=23;fontColor=#24344b;",
+      "kind": "decoration",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1 and Table 1 (schedule and counts; exact dense FFN location unmapped)"
+        }
+      ]
+    },
+    {
+      "id": "k_title",
+      "label": "Representative KDA layer",
+      "box": [
+        935.0,
+        1720.0,
+        540.0,
+        35.0
+      ],
+      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=23;fontColor=#24344b;",
+      "kind": "decoration",
+      "status": "inferred"
+    },
+    {
+      "id": "k_ar1",
+      "label": "Block AttnRes",
+      "box": [
+        965.0,
+        2240.0,
+        480.0,
+        48.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "k_norm1",
+      "label": "RMSNorm",
+      "box": [
+        965.0,
+        2175.0,
+        480.0,
+        48.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "k_attn",
+      "label": "KDA recurrent attention",
+      "box": [
+        965.0,
+        2110.0,
+        480.0,
+        48.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "k_ar2",
+      "label": "Block AttnRes / partial update",
+      "box": [
+        965.0,
+        2045.0,
+        480.0,
+        48.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "k_norm2",
+      "label": "RMSNorm",
+      "box": [
+        965.0,
+        1980.0,
+        480.0,
+        48.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "k_ffn",
+      "label": "FFN (MoE or dense)",
+      "box": [
+        965.0,
+        1915.0,
+        480.0,
+        48.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "k_out",
+      "label": "Depth / partial-state update",
+      "box": [
+        965.0,
+        1850.0,
+        480.0,
+        48.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#659c33;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "m_title",
+      "label": "Representative Gated MLA layer",
+      "box": [
+        935.0,
+        1110.0,
+        540.0,
+        35.0
+      ],
+      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=23;fontColor=#24344b;",
+      "kind": "decoration",
+      "status": "inferred"
+    },
+    {
+      "id": "m_ar1",
+      "label": "Block AttnRes",
+      "box": [
+        965.0,
+        1630.0,
+        480.0,
+        48.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "m_norm1",
+      "label": "RMSNorm",
+      "box": [
+        965.0,
+        1565.0,
+        480.0,
+        48.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "m_attn",
+      "label": "Gated MLA (NoPE)",
+      "box": [
+        965.0,
+        1500.0,
+        480.0,
+        48.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "m_ar2",
+      "label": "Block AttnRes / partial update",
+      "box": [
+        965.0,
+        1435.0,
+        480.0,
+        48.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "m_norm2",
+      "label": "RMSNorm",
+      "box": [
+        965.0,
+        1370.0,
+        480.0,
+        48.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "m_ffn",
+      "label": "FFN (MoE or dense)",
+      "box": [
+        965.0,
+        1305.0,
+        480.0,
+        48.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "m_out",
+      "label": "Depth / partial-state update",
+      "box": [
+        965.0,
+        1240.0,
+        480.0,
+        48.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "moe_x",
+      "label": "Input x [T, 7168]",
+      "box": [
+        1600.0,
+        1170.0,
+        930.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "moe_shared",
+      "label": "2 shared experts\n7168 → 7168",
+      "box": [
+        1590.0,
+        590.0,
+        200.0,
+        90.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "moe_down",
+      "label": "Linear down\n7168 → 3584",
+      "box": [
+        1835.0,
+        1040.0,
+        230.0,
+        75.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "moe_bank",
+      "label": "896 routed experts\nSelect 16 per token\nFFN intermediate 3072",
+      "box": [
+        1835.0,
+        875.0,
+        230.0,
+        110.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "moe_weighted",
+      "label": "Router-weighted sum",
+      "box": [
+        1835.0,
+        765.0,
+        230.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "moe_norm",
+      "label": "RMSNorm (3584)",
+      "box": [
+        1835.0,
+        660.0,
+        230.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "moe_up",
+      "label": "Linear up\n3584 → 7168",
+      "box": [
+        1835.0,
+        550.0,
+        230.0,
+        75.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "moe_router",
+      "label": "Router: score\nQuantile Balancing\nTop-16",
+      "box": [
+        2110.0,
+        1020.0,
+        190.0,
+        110.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "moe_sum",
+      "label": "+",
+      "box": [
+        1915.0,
+        430.0,
+        65.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;shape=ellipse;aspect=fixed;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "moe_y",
+      "label": "Output y [T, 7168]",
+      "box": [
+        1770.0,
+        330.0,
+        380.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "ex_x",
+      "label": "Expert input\n3584 routed / 7168 shared",
+      "box": [
+        2320.0,
+        1120.0,
+        220.0,
+        85.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "ex_gate",
+      "label": "Linear Wgate\na = Wgate x",
+      "box": [
+        2310.0,
+        950.0,
+        105.0,
+        90.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "ex_up",
+      "label": "Linear Wup\nb = Wup x",
+      "box": [
+        2430.0,
+        950.0,
+        105.0,
+        90.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "ex_capgate",
+      "label": "4 tanh(a/4)\n× sigmoid(a)",
+      "box": [
+        2310.0,
+        790.0,
+        105.0,
+        100.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "ex_capup",
+      "label": "25 tanh(b/25)",
+      "box": [
+        2430.0,
+        790.0,
+        105.0,
+        100.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "ex_mul",
+      "label": "×",
+      "box": [
+        2390.0,
+        670.0,
+        60.0,
+        60.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=28;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;shape=ellipse;aspect=fixed;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "ex_down",
+      "label": "Linear Wdown\n3072 → expert width",
+      "box": [
+        2310.0,
+        520.0,
+        230.0,
+        90.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=17;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "ex_y",
+      "label": "Expert output",
+      "box": [
+        2310.0,
+        395.0,
+        230.0,
+        60.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#277dc8;fontColor=#152337;fontFamily=Arial;fontSize=19;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.3, equations 11–12; Table 1"
+        }
+      ]
+    },
+    {
+      "id": "mla_x",
+      "label": "Input x [T, 7168]",
+      "box": [
+        1610.0,
+        2355.0,
+        900.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.2, equation 7 (unabsorbed conceptual view)"
+        }
+      ]
+    },
+    {
+      "id": "mla_q",
+      "label": "Query projection Wq",
+      "box": [
+        1610.0,
+        2180.0,
+        230.0,
+        75.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.2, equation 7 (unabsorbed conceptual view)"
+        }
+      ]
+    },
+    {
+      "id": "mla_compress",
+      "label": "KV compression: x → c",
+      "box": [
+        1870.0,
+        2180.0,
+        350.0,
+        75.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.2, equation 7 (unabsorbed conceptual view)"
+        }
+      ]
+    },
+    {
+      "id": "mla_cache",
+      "label": "Compressed latent KV cache c",
+      "box": [
+        1870.0,
+        2050.0,
+        350.0,
+        75.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.2, equation 7 (unabsorbed conceptual view)"
+        }
+      ]
+    },
+    {
+      "id": "mla_reconstruct",
+      "label": "Learned up projection / split K,V",
+      "box": [
+        1870.0,
+        1920.0,
+        350.0,
+        75.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.2, equation 7 (unabsorbed conceptual view)"
+        }
+      ]
+    },
+    {
+      "id": "mla_port_q",
+      "label": "Q",
+      "box": [
+        1690.0,
+        1805.0,
+        80.0,
+        50.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.2, equation 7 (unabsorbed conceptual view)"
+        }
+      ]
+    },
+    {
+      "id": "mla_port_k",
+      "label": "K",
+      "box": [
+        1900.0,
+        1805.0,
+        80.0,
+        50.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.2, equation 7 (unabsorbed conceptual view)"
+        }
+      ]
+    },
+    {
+      "id": "mla_port_v",
+      "label": "V",
+      "box": [
+        2100.0,
+        1805.0,
+        80.0,
+        50.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.2, equation 7 (unabsorbed conceptual view)"
+        }
+      ]
+    },
+    {
+      "id": "mla_attention",
+      "label": "Global causal attention — NoPE",
+      "box": [
+        1615.0,
+        1660.0,
+        700.0,
+        90.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=23;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.2, equation 7 (unabsorbed conceptual view)"
+        }
+      ]
+    },
+    {
+      "id": "mla_gate",
+      "label": "Full-rank Linear Wg",
+      "box": [
+        2315.0,
+        2150.0,
+        225.0,
+        75.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.2, equation 7 (unabsorbed conceptual view)"
+        }
+      ]
+    },
+    {
+      "id": "mla_sigmoid",
+      "label": "Sigmoid",
+      "box": [
+        2330.0,
+        1640.0,
+        190.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.2, equation 7 (unabsorbed conceptual view)"
+        }
+      ]
+    },
+    {
+      "id": "mla_mul",
+      "label": "×",
+      "box": [
+        1925.0,
+        1550.0,
+        65.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=30;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;shape=ellipse;aspect=fixed;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.2, equation 7 (unabsorbed conceptual view)"
+        }
+      ]
+    },
+    {
+      "id": "mla_wo",
+      "label": "Linear Wo → output y [T, 7168]",
+      "box": [
+        1680.0,
+        1420.0,
+        575.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#ec8a1a;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.2, equation 7 (unabsorbed conceptual view)"
+        }
+      ]
+    },
+    {
+      "id": "mla_note",
+      "label": "No RoPE. Exact projection ranks / head dimensions pending configuration.",
+      "box": [
+        1600.0,
+        2300.0,
+        930.0,
+        40.0
+      ],
+      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=18;fontColor=#24344b;",
+      "kind": "decoration",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.1.2, equation 7 (unabsorbed conceptual view)"
+        }
+      ]
+    },
+    {
+      "id": "vision_input",
+      "label": "Images / video",
+      "box": [
+        80.0,
+        3150.0,
+        300.0,
+        55.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 and Table 1 (vision path; exact FFN implementation not verified)"
+        }
+      ]
+    },
+    {
+      "id": "vision_processor",
+      "label": "ImageProcessor",
+      "box": [
+        80.0,
+        3060.0,
+        300.0,
+        55.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 and Table 1 (vision path; exact FFN implementation not verified)"
+        }
+      ]
+    },
+    {
+      "id": "vision_patch",
+      "label": "Patch embedding (patch 14)",
+      "box": [
+        80.0,
+        2970.0,
+        300.0,
+        55.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 and Table 1 (vision path; exact FFN implementation not verified)"
+        }
+      ]
+    },
+    {
+      "id": "vision_encoder",
+      "label": "MoonViT-V2: 27 layers / 401M / 12 heads\nRMSNorm / spatial + temporal attention / FFN\nBias-free linear and attention projections",
+      "box": [
+        80.0,
+        2775.0,
+        650.0,
+        130.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 and Table 1 (vision path; exact FFN implementation not verified)"
+        }
+      ]
+    },
+    {
+      "id": "vision_pool",
+      "label": "Temporal pooling + 2 × 2 pixel shuffle\n4× fewer spatial tokens",
+      "box": [
+        80.0,
+        2640.0,
+        650.0,
+        85.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 and Table 1 (vision path; exact FFN implementation not verified)"
+        }
+      ]
+    },
+    {
+      "id": "vision_projector",
+      "label": "Lightweight MLP projector → visual embeddings",
+      "box": [
+        790.0,
+        2640.0,
+        700.0,
+        70.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 and Table 1 (vision path; exact FFN implementation not verified)"
+        }
+      ]
+    },
+    {
+      "id": "text_input",
+      "label": "Text",
+      "box": [
+        850.0,
+        3150.0,
+        400.0,
+        55.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#738195;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "text_tokenizer",
+      "label": "Tokenizer",
+      "box": [
+        850.0,
+        3050.0,
+        400.0,
+        55.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#738195;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "text_embedding",
+      "label": "Text embedding [Ttext, 7168]",
+      "box": [
+        850.0,
+        2940.0,
+        400.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#738195;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "vision_merge",
+      "label": "Merge text + visual embeddings",
+      "box": [
+        850.0,
+        2820.0,
+        590.0,
+        70.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 and Table 1 (vision path; exact FFN implementation not verified)"
+        }
+      ]
+    },
+    {
+      "id": "vitattn0",
+      "label": "Input x",
+      "box": [
+        1600.0,
+        3130.0,
+        400.0,
+        75.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "unverified"
+    },
+    {
+      "id": "vitattn1",
+      "label": "Linear QKV (bias-free)",
+      "box": [
+        1600.0,
+        2995.0,
+        400.0,
+        75.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "unverified"
+    },
+    {
+      "id": "vitattn2",
+      "label": "Spatial / temporal attention",
+      "box": [
+        1600.0,
+        2860.0,
+        400.0,
+        75.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "unverified"
+    },
+    {
+      "id": "vitattn3",
+      "label": "Linear Wo → output",
+      "box": [
+        1600.0,
+        2725.0,
+        400.0,
+        75.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "unverified"
+    },
+    {
+      "id": "vitffn0",
+      "label": "Input x",
+      "box": [
+        2090.0,
+        3130.0,
+        400.0,
+        75.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "unverified"
+    },
+    {
+      "id": "vitffn1",
+      "label": "Linear up",
+      "box": [
+        2090.0,
+        2995.0,
+        400.0,
+        75.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "unverified"
+    },
+    {
+      "id": "vitffn2",
+      "label": "GELU (schematic)",
+      "box": [
+        2090.0,
+        2860.0,
+        400.0,
+        75.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "unverified"
+    },
+    {
+      "id": "vitffn3",
+      "label": "Linear down → output",
+      "box": [
+        2090.0,
+        2725.0,
+        400.0,
+        75.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#199c98;fontColor=#152337;fontFamily=Arial;fontSize=20;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "unverified"
+    },
+    {
+      "id": "vision_caveat",
+      "label": "Vision inset is schematic; exact projector / FFN configuration not weight verified.",
+      "box": [
+        1550.0,
+        2580.0,
+        950.0,
+        55.0
+      ],
+      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=18;fontColor=#24344b;",
+      "kind": "decoration",
+      "status": "inferred",
+      "evidence": [
+        {
+          "source": "report",
+          "locator": "§2.4 and Table 1 (vision path; exact FFN implementation not verified)"
+        }
+      ]
+    },
+    {
+      "id": "mtp",
+      "label": "Auxiliary: 1 MTP layer reported separately; not added to the 93-layer main backbone.",
+      "box": [
+        50.0,
+        3290.0,
+        2500.0,
+        65.0
+      ],
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#738195;fontColor=#152337;fontFamily=Arial;fontSize=24;align=center;verticalAlign=middle;spacing=5;strokeWidth=1.5;",
+      "kind": "operation",
+      "status": "inferred"
+    },
+    {
+      "id": "sources",
+      "label": "Source: MoonshotAI/Kimi-K3 technical report §§2.1–2.4 / Table 1 · commit 3cb39df\nReport-based conceptual topology. HF config / weight index not verified; exact ranks and dense-layer location pending.",
+      "box": [
+        50.0,
+        3380.0,
+        2500.0,
+        85.0
+      ],
+      "style": "text;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=21;fontColor=#24344b;",
+      "kind": "decoration",
+      "status": "inferred"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_25",
+      "source": "ar_source",
+      "target": "ar_keys",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_26",
+      "source": "ar_keys",
+      "target": "ar_logits",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_27",
+      "source": "ar_logits",
+      "target": "ar_softmax",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_28",
+      "source": "ar_softmax",
+      "target": "ar_sum",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_29",
+      "source": "ar_sum",
+      "target": "ar_out",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_30",
+      "source": "ar_query",
+      "target": "ar_logits",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.9,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_31",
+      "source": "ar_source",
+      "target": "ar_values",
+      "label": "",
+      "ports": [
+        0.9,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_32",
+      "source": "ar_values",
+      "target": "ar_sum",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        1.0,
+        0.5
+      ]
+    },
+    {
+      "id": "edge_35",
+      "source": "kda_x",
+      "target": "kda_q_linear",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_37",
+      "source": "kda_q_linear",
+      "target": "kda_q_conv",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_39",
+      "source": "kda_q_conv",
+      "target": "kda_q_swish",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_41",
+      "source": "kda_q_swish",
+      "target": "kda_q_l2",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_43",
+      "source": "kda_q_l2",
+      "target": "kda_port_q",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_45",
+      "source": "kda_x",
+      "target": "kda_k_linear",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_47",
+      "source": "kda_k_linear",
+      "target": "kda_k_conv",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_49",
+      "source": "kda_k_conv",
+      "target": "kda_k_swish",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_51",
+      "source": "kda_k_swish",
+      "target": "kda_k_l2",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_53",
+      "source": "kda_k_l2",
+      "target": "kda_port_k",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_55",
+      "source": "kda_x",
+      "target": "kda_v_linear",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_57",
+      "source": "kda_v_linear",
+      "target": "kda_v_conv",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_59",
+      "source": "kda_v_conv",
+      "target": "kda_v_swish",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_61",
+      "source": "kda_v_swish",
+      "target": "kda_port_v",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_63",
+      "source": "kda_x",
+      "target": "kda_alpha_down",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_65",
+      "source": "kda_alpha_down",
+      "target": "kda_alpha_up",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_67",
+      "source": "kda_alpha_up",
+      "target": "kda_alpha_bias",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_69",
+      "source": "kda_alpha_bias",
+      "target": "kda_alpha_scale",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_71",
+      "source": "kda_alpha_scale",
+      "target": "kda_alpha_sigmoid",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_73",
+      "source": "kda_alpha_sigmoid",
+      "target": "kda_alpha_exp",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_75",
+      "source": "kda_alpha_exp",
+      "target": "kda_port_alpha",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_77",
+      "source": "kda_x",
+      "target": "kda_beta_linear",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_79",
+      "source": "kda_beta_linear",
+      "target": "kda_beta_sigmoid",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_81",
+      "source": "kda_beta_sigmoid",
+      "target": "kda_port_beta",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_83",
+      "source": "kda_port_q",
+      "target": "kda_core",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.10902255639097744,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_84",
+      "source": "kda_port_k",
+      "target": "kda_core",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.29699248120300753,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_85",
+      "source": "kda_port_v",
+      "target": "kda_core",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.4849624060150376,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_86",
+      "source": "kda_port_alpha",
+      "target": "kda_core",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.6992481203007519,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_87",
+      "source": "kda_port_beta",
+      "target": "kda_core",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.9060150375939849,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_93",
+      "source": "kda_core",
+      "target": "kda_norm",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_94",
+      "source": "kda_norm",
+      "target": "kda_product",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_95",
+      "source": "kda_product",
+      "target": "kda_wo",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_96",
+      "source": "kda_x",
+      "target": "kda_gate_linear",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_97",
+      "source": "kda_gate_linear",
+      "target": "kda_gate_sigmoid",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_98",
+      "source": "kda_gate_sigmoid",
+      "target": "kda_product",
+      "label": "output gate",
+      "ports": [
+        0.5,
+        0.0,
+        1.0,
+        0.5
+      ]
+    },
+    {
+      "id": "edge_105",
+      "source": "lm_repeat",
+      "target": "lm_final",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_106",
+      "source": "lm_final",
+      "target": "lm_norm",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_107",
+      "source": "lm_norm",
+      "target": "lm_head",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_108",
+      "source": "lm_head",
+      "target": "lm_out",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_112",
+      "source": "lm_fused",
+      "target": "k_ar1",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_114",
+      "source": "k_ar1",
+      "target": "k_norm1",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_116",
+      "source": "k_norm1",
+      "target": "k_attn",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_118",
+      "source": "k_attn",
+      "target": "k_ar2",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_120",
+      "source": "k_ar2",
+      "target": "k_norm2",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_122",
+      "source": "k_norm2",
+      "target": "k_ffn",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_124",
+      "source": "k_ffn",
+      "target": "k_out",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_127",
+      "source": "k_out",
+      "target": "m_ar1",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_129",
+      "source": "m_ar1",
+      "target": "m_norm1",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_131",
+      "source": "m_norm1",
+      "target": "m_attn",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_133",
+      "source": "m_attn",
+      "target": "m_ar2",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_135",
+      "source": "m_ar2",
+      "target": "m_norm2",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_137",
+      "source": "m_norm2",
+      "target": "m_ffn",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_139",
+      "source": "m_ffn",
+      "target": "m_out",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_140",
+      "source": "m_out",
+      "target": "lm_repeat",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_151",
+      "source": "moe_x",
+      "target": "moe_down",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_152",
+      "source": "moe_down",
+      "target": "moe_bank",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_153",
+      "source": "moe_bank",
+      "target": "moe_weighted",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_154",
+      "source": "moe_weighted",
+      "target": "moe_norm",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_155",
+      "source": "moe_norm",
+      "target": "moe_up",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_156",
+      "source": "moe_up",
+      "target": "moe_sum",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_157",
+      "source": "moe_sum",
+      "target": "moe_y",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_158",
+      "source": "moe_x",
+      "target": "moe_shared",
+      "label": "",
+      "ports": [
+        0.07,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_159",
+      "source": "moe_shared",
+      "target": "moe_sum",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "id": "edge_160",
+      "source": "moe_x",
+      "target": "moe_router",
+      "label": "",
+      "ports": [
+        0.65,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_161",
+      "source": "moe_router",
+      "target": "moe_bank",
+      "label": "selection",
+      "ports": [
+        0.0,
+        0.25,
+        1.0,
+        0.5
+      ]
+    },
+    {
+      "id": "edge_162",
+      "source": "moe_router",
+      "target": "moe_weighted",
+      "label": "weights",
+      "ports": [
+        0.5,
+        0.0,
+        1.0,
+        0.5
+      ]
+    },
+    {
+      "id": "edge_171",
+      "source": "ex_x",
+      "target": "ex_gate",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_172",
+      "source": "ex_gate",
+      "target": "ex_capgate",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_173",
+      "source": "ex_capgate",
+      "target": "ex_mul",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_174",
+      "source": "ex_mul",
+      "target": "ex_down",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_175",
+      "source": "ex_down",
+      "target": "ex_y",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_176",
+      "source": "ex_x",
+      "target": "ex_up",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_177",
+      "source": "ex_up",
+      "target": "ex_capup",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_178",
+      "source": "ex_capup",
+      "target": "ex_mul",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_192",
+      "source": "mla_x",
+      "target": "mla_q",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_193",
+      "source": "mla_q",
+      "target": "mla_port_q",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_194",
+      "source": "mla_port_q",
+      "target": "mla_attention",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_195",
+      "source": "mla_attention",
+      "target": "mla_mul",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_196",
+      "source": "mla_mul",
+      "target": "mla_wo",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_197",
+      "source": "mla_x",
+      "target": "mla_compress",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_198",
+      "source": "mla_compress",
+      "target": "mla_cache",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_199",
+      "source": "mla_cache",
+      "target": "mla_reconstruct",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_200",
+      "source": "mla_reconstruct",
+      "target": "mla_port_k",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_201",
+      "source": "mla_reconstruct",
+      "target": "mla_port_v",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_202",
+      "source": "mla_port_k",
+      "target": "mla_attention",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_203",
+      "source": "mla_port_v",
+      "target": "mla_attention",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.8,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_204",
+      "source": "mla_x",
+      "target": "mla_gate",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_205",
+      "source": "mla_gate",
+      "target": "mla_sigmoid",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_206",
+      "source": "mla_sigmoid",
+      "target": "mla_mul",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        1.0,
+        0.5
+      ]
+    },
+    {
+      "id": "edge_214",
+      "source": "vision_input",
+      "target": "vision_processor",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_215",
+      "source": "vision_processor",
+      "target": "vision_patch",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_216",
+      "source": "vision_patch",
+      "target": "vision_encoder",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_217",
+      "source": "vision_encoder",
+      "target": "vision_pool",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_218",
+      "source": "vision_pool",
+      "target": "vision_projector",
+      "label": "",
+      "ports": [
+        1.0,
+        0.5,
+        0.0,
+        0.5
+      ]
+    },
+    {
+      "id": "edge_223",
+      "source": "text_input",
+      "target": "text_tokenizer",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_224",
+      "source": "text_tokenizer",
+      "target": "text_embedding",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_225",
+      "source": "text_embedding",
+      "target": "vision_merge",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_226",
+      "source": "vision_projector",
+      "target": "vision_merge",
+      "label": "visual tokens",
+      "ports": [
+        1.0,
+        0.5,
+        1.0,
+        0.5
+      ],
+      "points": [
+        [
+          1510.0,
+          2675.0
+        ],
+        [
+          1510.0,
+          2855.0
+        ]
+      ]
+    },
+    {
+      "id": "edge_227",
+      "source": "vision_merge",
+      "target": "lm_fused",
+      "label": "fused sequence",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ],
+      "points": [
+        [
+          1135.0,
+          2610.0
+        ],
+        [
+          1205.0,
+          2610.0
+        ]
+      ]
+    },
+    {
+      "id": "edge_230",
+      "source": "vitattn0",
+      "target": "vitattn1",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_232",
+      "source": "vitattn1",
+      "target": "vitattn2",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_234",
+      "source": "vitattn2",
+      "target": "vitattn3",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_237",
+      "source": "vitffn0",
+      "target": "vitffn1",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_239",
+      "source": "vitffn1",
+      "target": "vitffn2",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    },
+    {
+      "id": "edge_241",
+      "source": "vitffn2",
+      "target": "vitffn3",
+      "label": "",
+      "ports": [
+        0.5,
+        0.0,
+        0.5,
+        1.0
+      ]
+    }
+  ],
+  "limitations": [
+    "Hugging Face config and weight index were not accessible during preparation.",
+    "Exact projection ranks, dense FFN layer location and vision FFN internals are not weight-verified.",
+    "Evidence status describes each conceptual node; inferred layout/decomposition is not an executable forward graph.",
+    "No model forward pass or full-weight parameter recount was performed."
+  ]
+}

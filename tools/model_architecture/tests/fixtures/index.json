@@ -1,0 +1,10 @@
+{
+  "metadata": {
+    "total_size": 1234
+  },
+  "weight_map": {
+    "model.layers.0.q_proj.weight": "model-01.safetensors",
+    "model.layers.0.k_proj.weight": "model-01.safetensors",
+    "model.layers.1.q_proj.weight": "model-02.safetensors"
+  }
+}
