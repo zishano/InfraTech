@@ -1844,7 +1844,7 @@ At the CURRENT query position; content448 unchanged
 
 - [Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### attn_oa — Linear (O down) / 8 groups × (4096→1024)
+### attn_oa — Linear (O down)
 
 Group 64×512 heads into 8 groups
 W_o_a: per-group 4096 → 1024 (einsum)
@@ -1853,7 +1853,7 @@ W_o_a: per-group 4096 → 1024 (einsum)
 
 - [Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### attn_ob — Linear (O up) / 8192→4096
+### attn_ob — Linear (O up)
 
 Flatten 8×1024 → W_o_b → 4096
 TP output all-reduce when needed
@@ -1862,7 +1862,7 @@ TP output all-reduce when needed
 
 - [Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### attn_output — h′ [4096]
+### attn_output —
 
 OUTPUT: attention hidden states [B,T,4096]
 
@@ -2603,7 +2603,7 @@ At the CURRENT query position; content448 unchanged
 
 - [Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### attn_oa — Linear (O down) / 8 groups × (4096→1024)
+### attn_oa — Linear (O down)
 
 Group 64×512 heads into 8 groups
 W_o_a: per-group 4096 → 1024 (einsum)
@@ -2612,7 +2612,7 @@ W_o_a: per-group 4096 → 1024 (einsum)
 
 - [Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### attn_ob — Linear (O up) / 8192→4096
+### attn_ob — Linear (O up)
 
 Flatten 8×1024 → W_o_b → 4096
 TP output all-reduce when needed
@@ -2621,7 +2621,7 @@ TP output all-reduce when needed
 
 - [Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json)
 
-### attn_output — h′ [4096]
+### attn_output —
 
 OUTPUT: attention hidden states [B,T,4096]
 

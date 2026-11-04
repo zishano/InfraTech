@@ -86,7 +86,8 @@ def polish(g,kind):
             e['points']=[[sx,bus],[tx,bus]]
     if kind!='overview':tensor_inset(g,kind,nodes)
     g['presentation']['style']='compact operator chains; restrained module accents; tensor/state insets; bottom-up'
-    return g
+    from deepseek_page_reflow import reflow
+    return reflow(g,kind)
 
 
 def tensor_inset(g,kind,nodes):

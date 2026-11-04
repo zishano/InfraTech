@@ -140,3 +140,5 @@ python tools/model_architecture/model_architecture.py verify-png \
 `examples/deepseek_operator_style.py` 是当前 DeepSeek 的算子展示层：参考已有 JPG 的模块配色、虚线边框和算子符号，显示短标签，完整注释保留在 `description`。两个构造器均调用它，rebuild 同步生成详细说明文档；PNG 仍从原生 XML 导出。
 
 `examples/deepseek_visual_layout.py` 负责紧凑布局：短算子块、模块色描边、少量重点强调，以及原生张量格状态示意。它保留原节点描述和计算边，仅重排几何和分支走线；两个模型专用构造器统一使用该展示层。
+
+`examples/deepseek_page_reflow.py` 负责页面编排：总览主干居中、mHC/MoE 在左、注意力/压缩器在右；详细页将注意力放在压缩器和索引器之间，并统一标题、模块间隔及底部状态区。重排后须再次运行严格导出及节点避让测试。

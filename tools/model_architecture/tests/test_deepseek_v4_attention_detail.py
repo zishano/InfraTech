@@ -65,6 +65,15 @@ class AttentionDetailTests(unittest.TestCase):
             cells={c.get('id'):c for c in root.iter('mxCell')}
             self.assertEqual(cells['comp_bank'].get('tooltip'),next(n['description'] for n in graph['nodes'] if n['id']=='comp_bank'))
 
+    def test_modules_have_separate_lanes_and_attention_is_central(self):
+        for kind in ['csa','hca']:
+            graph=self.graph(kind);nodes={n['id']:n for n in graph['nodes']}
+            left=nodes['compressor']['box'];center=nodes['attention']['box'];right=nodes['middle']['box']
+            self.assertLess(left[0]+left[2],center[0])
+            self.assertLess(center[0]+center[2],right[0])
+            self.assertLess(left[1]+left[3],nodes['states']['box'][1])
+            self.assertGreater(graph['width'],graph['height'])
+
     def test_every_detail_png_matches_native_xml_and_master_page(self):
         folder=REPO/'models/deepseek_v4/flash'
         master=ET.parse(folder/'deepseek_v4_flash.drawio').getroot().findall('diagram')

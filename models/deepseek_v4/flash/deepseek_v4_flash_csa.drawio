@@ -1,429 +1,429 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mxfile host="app.diagrams.net" type="device">
   <diagram id="architecture" name="DeepSeek-V4-Flash | CSA detailed computation">
-    <mxGraphModel grid="1" gridSize="10" page="1" pageScale="1" pageWidth="2400" pageHeight="2052">
+    <mxGraphModel grid="1" gridSize="10" page="1" pageScale="1" pageWidth="1920" pageHeight="1440">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="title" value="DeepSeek-V4-Flash — CSA" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#536bd9;fontStyle=1;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;fontColor=#18273e;architectureDecoration=1;" vertex="1" parent="1" tooltip="DeepSeek-V4-Flash | CSA — computation, cache and addressing">
-          <mxGeometry as="geometry" x="24.0" y="5.4" width="2352.0" height="36.0" />
+        <mxCell id="title" value="DeepSeek-V4-Flash — CSA" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#536bd9;fontStyle=1;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;fontColor=#18273e;align=left;architectureDecoration=1;" vertex="1" parent="1" tooltip="DeepSeek-V4-Flash | CSA — computation, cache and addressing">
+          <mxGeometry as="geometry" x="32" y="14" width="1400" height="38" />
         </mxCell>
-        <mxCell id="source" value="hidden 4096 · heads 64 · head dim 512 · window 128" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=12;fontColor=#64748b;fontStyle=0;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="OFFICIAL CHECKPOINT 60d8d707 | model.py + kernel.py + config.json | bottom-up computation">
-          <mxGeometry as="geometry" x="24.0" y="45.0" width="2352.0" height="28.8" />
+        <mxCell id="source" value="hidden 4096 · heads 64 · head dim 512 · window 128" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=12;fontColor=#64748b;fontStyle=0;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;align=left;architectureDecoration=1;" vertex="1" parent="1" tooltip="OFFICIAL CHECKPOINT 60d8d707 | model.py + kernel.py + config.json | bottom-up computation">
+          <mxGeometry as="geometry" x="32" y="58" width="1400" height="25" />
         </mxCell>
-        <mxCell id="facts" value="CSA · stride 4 · window 8 · index dim 128 · top-k ≤512" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#64748b;align=center;verticalAlign=middle;spacing=3;fillColor=none;strokeColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="CSA: 21 layers (2,4,…,42) · stride 4 · effective window 8 · index heads64 × dim128 · top-k≤512">
-          <mxGeometry as="geometry" x="24.0" y="81.0" width="2352.0" height="32.4" />
+        <mxCell id="facts" value="CSA · stride 4 · window 8 · index dim 128 · top-k ≤512" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=14;fontColor=#64748b;align=center;verticalAlign=middle;spacing=3;fillColor=none;strokeColor=none;align=left;architectureDecoration=1;" vertex="1" parent="1" tooltip="CSA: 21 layers (2,4,…,42) · stride 4 · effective window 8 · index heads64 × dim128 · top-k≤512">
+          <mxGeometry as="geometry" x="32" y="86" width="1400" height="25" />
         </mxCell>
-        <mxCell id="ports" value="A: compressed KV     I: compressed indices     Qr: normalized low-rank query" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=12;fontColor=#64748b;fontStyle=0;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="Named ports A / I / Qr are tensor aliases across panels, not extra computation or copies. B=batch, T=prefill chunk, p=decode position, Nc=completed compressed windows.">
-          <mxGeometry as="geometry" x="24.0" y="118.8" width="2352.0" height="32.4" />
+        <mxCell id="ports" value="A: compressed KV     I: compressed indices     Qr: normalized low-rank query" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=12;fontColor=#64748b;fontStyle=0;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;align=left;architectureDecoration=1;" vertex="1" parent="1" tooltip="Named ports A / I / Qr are tensor aliases across panels, not extra computation or copies. B=batch, T=prefill chunk, p=decode position, Nc=completed compressed windows.">
+          <mxGeometry as="geometry" x="32" y="111" width="1840" height="20" />
         </mxCell>
         <mxCell id="compressor" value="" style="rounded=1;arcSize=18;absoluteArcSize=1;fillColor=none;strokeColor=#cbd5e1;strokeWidth=1;dashed=1;dashPattern=5 4;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="18.0" y="162.0" width="750.0" height="1425.6" />
+          <mxGeometry as="geometry" x="14.4" y="130.0" width="600.0" height="912.4" />
         </mxCell>
-        <mxCell id="compressor_title" value="Compressor" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#536bd9;fontStyle=1;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="1. MAIN KV COMPRESSOR — values and gates are separate">
-          <mxGeometry as="geometry" x="27.0" y="167.4" width="732.0" height="27.0" />
+        <mxCell id="compressor_title" value="Compressor" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#536bd9;fontStyle=1;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;align=left;spacingLeft=14;architectureDecoration=1;" vertex="1" parent="1" tooltip="1. MAIN KV COMPRESSOR — values and gates are separate">
+          <mxGeometry as="geometry" x="21.6" y="130.2" width="585.6" height="24" />
         </mxCell>
         <mxCell id="middle" value="" style="rounded=1;arcSize=18;absoluteArcSize=1;fillColor=none;strokeColor=#cbd5e1;strokeWidth=1;dashed=1;dashPattern=5 4;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="792.0" y="162.0" width="750.0" height="1425.6" />
+          <mxGeometry as="geometry" x="1297.6" y="130.0" width="600.0" height="912.4" />
         </mxCell>
-        <mxCell id="middle_title" value="Indexer" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#63962e;fontStyle=1;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="2. LIGHTNING INDEXER — three independent learned paths">
-          <mxGeometry as="geometry" x="801.0" y="167.4" width="732.0" height="27.0" />
+        <mxCell id="middle_title" value="Indexer" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#63962e;fontStyle=1;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;align=left;spacingLeft=14;architectureDecoration=1;" vertex="1" parent="1" tooltip="2. LIGHTNING INDEXER — three independent learned paths">
+          <mxGeometry as="geometry" x="1304.8" y="130.2" width="585.6" height="24" />
         </mxCell>
         <mxCell id="attention" value="" style="rounded=1;arcSize=18;absoluteArcSize=1;fillColor=none;strokeColor=#cbd5e1;strokeWidth=1;dashed=1;dashPattern=5 4;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1566.0" y="162.0" width="816.0" height="1425.6" />
+          <mxGeometry as="geometry" x="632.8" y="130.0" width="652.8" height="912.4" />
         </mxCell>
-        <mxCell id="attention_title" value="Attention (MQA)" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#ce8220;fontStyle=1;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="3. SHARED K=V ATTENTION — window + compressed history">
-          <mxGeometry as="geometry" x="1575.0" y="167.4" width="798.0" height="27.0" />
+        <mxCell id="attention_title" value="Attention (MQA)" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#ce8220;fontStyle=1;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;align=left;spacingLeft=14;architectureDecoration=1;" vertex="1" parent="1" tooltip="3. SHARED K=V ATTENTION — window + compressed history">
+          <mxGeometry as="geometry" x="640.0" y="130.2" width="638.4" height="24" />
         </mxCell>
-        <mxCell id="comp_h" value="h [4096]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="Hidden states h [B,T,4096]">
-          <mxGeometry as="geometry" x="334.0" y="1526.6" width="94" height="32" />
+        <mxCell id="comp_h" value="h [4096]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="Hidden states h [B,T,4096]">
+          <mxGeometry as="geometry" x="263.8" y="998.6" width="82" height="30" />
         </mxCell>
-        <mxCell id="comp_fp32" value="Cast FP32" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="Cast hidden states to FP32&#10;Projection / window score arithmetic stays FP32">
-          <mxGeometry as="geometry" x="330.0" y="1461.8" width="102" height="32" />
+        <mxCell id="comp_fp32" value="Cast FP32" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="Cast hidden states to FP32&#10;Projection / window score arithmetic stays FP32">
+          <mxGeometry as="geometry" x="259.8" y="957.1" width="90" height="30" />
         </mxCell>
-        <mxCell id="comp_wkv" value="Linear (KV proj)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="Linear Wkv: 4096 → 1024&#10;C = h Wkv">
-          <mxGeometry as="geometry" x="112.0" y="1395.2" width="160" height="32" />
+        <mxCell id="comp_wkv" value="Linear (KV proj)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="Linear Wkv: 4096 → 1024&#10;C = h Wkv">
+          <mxGeometry as="geometry" x="82.6" y="914.5" width="142" height="30" />
         </mxCell>
-        <mxCell id="comp_wgate" value="Linear (Gate proj)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="Linear Wgate: 4096 → 1024&#10;Z = h Wgate">
-          <mxGeometry as="geometry" x="482.0" y="1395.2" width="176" height="32" />
+        <mxCell id="comp_wgate" value="Linear (Gate proj)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="Linear Wgate: 4096 → 1024&#10;Z = h Wgate">
+          <mxGeometry as="geometry" x="378.0" y="914.5" width="156" height="30" />
         </mxCell>
-        <mxCell id="comp_split" value="Split (Ca / Cb)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="Reshape [B,N,4,1024] → Ca / Cb&#10;Ca = first512; Cb = last512">
-          <mxGeometry as="geometry" x="116.0" y="1323.2" width="152" height="32" />
+        <mxCell id="comp_split" value="Split (Ca / Cb)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="Reshape [B,N,4,1024] → Ca / Cb&#10;Ca = first512; Cb = last512">
+          <mxGeometry as="geometry" x="86.6" y="868.4" width="134" height="30" />
         </mxCell>
-        <mxCell id="comp_ape" value="+ APE" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="Add learned APE / position bias&#10;shape [4,1024]&#10;Prefill: slot in window; decode: p&#10;% 4">
-          <mxGeometry as="geometry" x="524.0" y="1323.2" width="92" height="32" />
+        <mxCell id="comp_ape" value="+ APE" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="Add learned APE / position bias&#10;shape [4,1024]&#10;Prefill: slot in window; decode: p&#10;% 4">
+          <mxGeometry as="geometry" x="417.0" y="868.4" width="78" height="30" />
         </mxCell>
-        <mxCell id="comp_gate_split" value="Split (Za / Zb)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="Split biased gate channels Za / Zb&#10;Same Ca/Cb feature layout as KV">
-          <mxGeometry as="geometry" x="494.0" y="1245.8" width="152" height="32" />
+        <mxCell id="comp_gate_split" value="Split (Za / Zb)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="Split biased gate channels Za / Zb&#10;Same Ca/Cb feature layout as KV">
+          <mxGeometry as="geometry" x="389.0" y="818.9" width="134" height="30" />
         </mxCell>
-        <mxCell id="comp_value_window" value="Cat (prev Ca, cur Cb)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="VALUE WINDOW: [Ca_(j-1), Cb_j]&#10;[B,N,8,512], stride4, effective&#10;width8&#10;First window: missing Ca values =&#10;0">
-          <mxGeometry as="geometry" x="91.0" y="1181.0" width="202" height="32" />
+        <mxCell id="comp_value_window" value="Cat (prev Ca, cur Cb)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="VALUE WINDOW: [Ca_(j-1), Cb_j]&#10;[B,N,8,512], stride4, effective&#10;width8&#10;First window: missing Ca values =&#10;0">
+          <mxGeometry as="geometry" x="63.6" y="777.4" width="180" height="30" />
         </mxCell>
-        <mxCell id="comp_gate_window" value="Cat (prev Za, cur Zb)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="GATE WINDOW: [Za_(j-1), Zb_j]&#10;[B,N,8,512]&#10;Missing first-window gates =&#10;-infinity">
-          <mxGeometry as="geometry" x="469.0" y="1170.2" width="202" height="32" />
+        <mxCell id="comp_gate_window" value="Cat (prev Za, cur Zb)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="GATE WINDOW: [Za_(j-1), Zb_j]&#10;[B,N,8,512]&#10;Missing first-window gates =&#10;-infinity">
+          <mxGeometry as="geometry" x="366.0" y="770.5" width="180" height="30" />
         </mxCell>
-        <mxCell id="comp_softmax" value="Softmax (tokens)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="FP32 softmax over 8 TOKEN slots&#10;Independently for each of 512&#10;channels&#10;P = softmax(Z_window, dim=tokens)">
-          <mxGeometry as="geometry" x="490.0" y="1085.6" width="160" height="32" />
+        <mxCell id="comp_softmax" value="Softmax (tokens)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="FP32 softmax over 8 TOKEN slots&#10;Independently for each of 512&#10;channels&#10;P = softmax(Z_window, dim=tokens)">
+          <mxGeometry as="geometry" x="385.0" y="716.3" width="142" height="30" />
         </mxCell>
-        <mxCell id="comp_mul" value="×" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;shape=ellipse;perimeter=ellipsePerimeter;fontSize=18;fontStyle=1;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="Elementwise product: P ⊙ C_window&#10;Shape [B,N,8,512]&#10;KV values bypass softmax">
-          <mxGeometry as="geometry" x="366.0" y="1005.6" width="30" height="30" />
+        <mxCell id="comp_mul" value="×" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;shape=ellipse;perimeter=ellipsePerimeter;fontSize=13;fontStyle=1;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="Elementwise product: P ⊙ C_window&#10;Shape [B,N,8,512]&#10;KV values bypass softmax">
+          <mxGeometry as="geometry" x="290.8" y="665.5" width="28" height="28" />
         </mxCell>
-        <mxCell id="comp_sum" value="Sum (tokens)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fillColor=#536bd9;fontColor=#ffffff;fontStyle=1;" vertex="1" parent="1" tooltip="Sum over 8 token slots&#10;c_j[d] = sum_s P[j,s,d] × C[j,s,d]&#10;Result [B,N,512] — NOT pooling across channels">
-          <mxGeometry as="geometry" x="317.0" y="929.0" width="128" height="32" />
+        <mxCell id="comp_sum" value="Sum (tokens)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fillColor=#536bd9;fontColor=#ffffff;fontStyle=1;fontSize=13;" vertex="1" parent="1" tooltip="Sum over 8 token slots&#10;c_j[d] = sum_s P[j,s,d] × C[j,s,d]&#10;Result [B,N,512] — NOT pooling across channels">
+          <mxGeometry as="geometry" x="248.8" y="616.1" width="112" height="30" />
         </mxCell>
-        <mxCell id="comp_complete" value="Stride boundary" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="Emit only a completed 4-token stride&#10;Prefill: cutoff=T−(T%4); decode: (p+1)%4==0&#10;Otherwise return None; keep buffered state">
-          <mxGeometry as="geometry" x="305.0" y="856.1" width="152" height="32" />
+        <mxCell id="comp_complete" value="Stride boundary" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="Emit only a completed 4-token stride&#10;Prefill: cutoff=T−(T%4); decode: (p+1)%4==0&#10;Otherwise return None; keep buffered state">
+          <mxGeometry as="geometry" x="237.8" y="569.5" width="134" height="30" />
         </mxCell>
-        <mxCell id="comp_norm" value="RMSNorm" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="Cast pooled vector back to input dtype&#10;Learned RMSNorm over 512 channels">
-          <mxGeometry as="geometry" x="335.0" y="783.2" width="92" height="32" />
+        <mxCell id="comp_norm" value="RMSNorm" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="Cast pooled vector back to input dtype&#10;Learned RMSNorm over 512 channels">
+          <mxGeometry as="geometry" x="265.8" y="522.8" width="78" height="30" />
         </mxCell>
-        <mxCell id="comp_nope" value="Quant (FP8 sim)&#10;content 448" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="Content 448 dims&#10;FP8 QAT simulation, block64&#10;Simulated values remain BF16">
-          <mxGeometry as="geometry" x="116.0" y="702.3" width="152" height="48" />
+        <mxCell id="comp_nope" value="Quant (FP8 sim)&#10;content 448" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="Content 448 dims&#10;FP8 QAT simulation, block64&#10;Simulated values remain BF16">
+          <mxGeometry as="geometry" x="86.6" y="470.2" width="134" height="42" />
         </mxCell>
-        <mxCell id="comp_rope" value="RoPE₆₄" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="Trailing 64 dims: partial RoPE&#10;Prefill position=4j&#10;Decode position=p+1−4&#10;RoPE values remain BF16">
-          <mxGeometry as="geometry" x="524.0" y="710.3" width="92" height="32" />
+        <mxCell id="comp_rope" value="RoPE₆₄" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="Trailing 64 dims: partial RoPE&#10;Prefill position=4j&#10;Decode position=p+1−4&#10;RoPE values remain BF16">
+          <mxGeometry as="geometry" x="417.0" y="476.2" width="78" height="30" />
         </mxCell>
-        <mxCell id="comp_concat" value="Concat" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="Reassemble content448 | RoPE64&#10;One shared KV vector [512] per complete stride">
-          <mxGeometry as="geometry" x="335.0" y="633.8" width="92" height="32" />
+        <mxCell id="comp_concat" value="Concat" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="Reassemble content448 | RoPE64&#10;One shared KV vector [512] per complete stride">
+          <mxGeometry as="geometry" x="265.8" y="427.2" width="78" height="30" />
         </mxCell>
-        <mxCell id="comp_write" value="Cache Write" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="Write compressed KV cache&#10;Prefill: slots 0…floor(T/4)−1&#10;Decode: slot floor(p/4)">
-          <mxGeometry as="geometry" x="322.0" y="560.9" width="118" height="32" />
+        <mxCell id="comp_write" value="Cache Write" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="Write compressed KV cache&#10;Prefill: slots 0…floor(T/4)−1&#10;Decode: slot floor(p/4)">
+          <mxGeometry as="geometry" x="252.8" y="380.5" width="104" height="30" />
         </mxCell>
-        <mxCell id="comp_bank" value="KV cache (compress)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#cd545d;strokeWidth=1.2;fillColor=#fff1f2;" vertex="1" parent="1" tooltip="Cache capacity [B,floor(max_seq_len/4),512]&#10;Logical valid entries Nc=floor(end_pos/4)&#10;No query-specific pruning or top-k is stored here">
-          <mxGeometry as="geometry" x="289.0" y="480.8" width="184" height="32" />
+        <mxCell id="comp_bank" value="KV cache (compress)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#cd545d;strokeWidth=1.2;fillColor=#fff1f2;fontSize=13;" vertex="1" parent="1" tooltip="Cache capacity [B,floor(max_seq_len/4),512]&#10;Logical valid entries Nc=floor(end_pos/4)&#10;No query-specific pruning or top-k is stored here">
+          <mxGeometry as="geometry" x="222.8" y="329.3" width="164" height="30" />
         </mxCell>
-        <mxCell id="comp_alias" value="View [:,128:]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;" vertex="1" parent="1" tooltip="Storage aliases Attention.kv_cache[:,128:]&#10;Compressed entries are appended after the window region&#10;No copied top-k-only KV cache">
-          <mxGeometry as="geometry" x="313.0" y="398.9" width="136" height="32" />
+        <mxCell id="comp_alias" value="View [:,128:]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;fontSize=13;" vertex="1" parent="1" tooltip="Storage aliases Attention.kv_cache[:,128:]&#10;Compressed entries are appended after the window region&#10;No copied top-k-only KV cache">
+          <mxGeometry as="geometry" x="244.8" y="276.9" width="120" height="30" />
         </mxCell>
-        <mxCell id="port_A" value="A: KV [Nc,512]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;dashed=1;dashPattern=3 3;" vertex="1" parent="1" tooltip="PORT A → right panel&#10;ALL valid compressed KV vectors (K=V)&#10;Shape [B,Nc,512]">
-          <mxGeometry as="geometry" x="309.0" y="309.8" width="144" height="32" />
+        <mxCell id="port_A" value="A: KV [Nc,512]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#536bd9;strokeWidth=1.2;fillColor=#f1f4ff;dashed=1;dashPattern=3 3;fontSize=13;" vertex="1" parent="1" tooltip="PORT A → right panel&#10;ALL valid compressed KV vectors (K=V)&#10;Shape [B,Nc,512]">
+          <mxGeometry as="geometry" x="240.8" y="219.8" width="128" height="30" />
         </mxCell>
         <mxCell id="comp_note" value="KV / Gate are independent projections" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=12;fontColor=#64748b;fontStyle=0;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="Main compressor rotate=False. Indexer uses its OWN smaller compressor with&#10;rotate=True (CSA only).">
-          <mxGeometry as="geometry" x="42.0" y="212.4" width="678.0" height="54.0" />
+          <mxGeometry as="geometry" x="33.6" y="162.3" width="542.4" height="34.6" />
         </mxCell>
-        <mxCell id="idx_q_input" value="Qr [1024]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;dashed=1;dashPattern=3 3;" vertex="1" parent="1" tooltip="PORT Qr: normalized&#10;q_residual&#10;[B,T,1024], same as&#10;attention rank-normalized&#10;query">
-          <mxGeometry as="geometry" x="864.0" y="1532.0" width="102" height="32" />
+        <mxCell id="idx_q_input" value="Qr [1024]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;dashed=1;dashPattern=3 3;fontSize=13;" vertex="1" parent="1" tooltip="PORT Qr: normalized&#10;q_residual&#10;[B,T,1024], same as&#10;attention rank-normalized&#10;query">
+          <mxGeometry as="geometry" x="1351.0" y="1002.0" width="90" height="30" />
         </mxCell>
-        <mxCell id="idx_h" value="h [4096]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Hidden states h [B,T,4096]&#10;Supplies key compressor AND scoring weights">
-          <mxGeometry as="geometry" x="1219.0" y="1532.0" width="94" height="32" />
+        <mxCell id="idx_h" value="h [4096]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Hidden states h [B,T,4096]&#10;Supplies key compressor AND scoring weights">
+          <mxGeometry as="geometry" x="1635.8" y="1002.0" width="82" height="30" />
         </mxCell>
-        <mxCell id="idx_q_proj" value="Linear (Q up)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Wq_b: 1024 → 64×128">
-          <mxGeometry as="geometry" x="847.0" y="1454.6" width="136" height="32" />
+        <mxCell id="idx_q_proj" value="Linear (Q up)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Wq_b: 1024 → 64×128">
+          <mxGeometry as="geometry" x="1336.0" y="952.5" width="120" height="30" />
         </mxCell>
-        <mxCell id="idx_q_heads" value="Reshape&#10;[64,128]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Reshape [B,T,64,128]&#10;TP: split query heads">
-          <mxGeometry as="geometry" x="868.0" y="1373.7" width="94" height="48" />
+        <mxCell id="idx_q_heads" value="Reshape&#10;[64,128]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Reshape [B,T,64,128]&#10;TP: split query heads">
+          <mxGeometry as="geometry" x="1355.0" y="899.8" width="82" height="42" />
         </mxCell>
-        <mxCell id="idx_q_rope" value="RoPE₆₄" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Partial RoPE on&#10;last64&#10;At CURRENT query&#10;position t">
-          <mxGeometry as="geometry" x="869.0" y="1306.1" width="92" height="32" />
+        <mxCell id="idx_q_rope" value="RoPE₆₄" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Partial RoPE on&#10;last64&#10;At CURRENT query&#10;position t">
+          <mxGeometry as="geometry" x="1357.0" y="857.5" width="78" height="30" />
         </mxCell>
-        <mxCell id="idx_q_hadamard" value="Rotate (Hadamard)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Hadamard rotation&#10;Scale 1/sqrt(128)">
-          <mxGeometry as="geometry" x="831.0" y="1230.5" width="168" height="32" />
+        <mxCell id="idx_q_hadamard" value="Rotate (Hadamard)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Hadamard rotation&#10;Scale 1/sqrt(128)">
+          <mxGeometry as="geometry" x="1321.0" y="809.1" width="150" height="30" />
         </mxCell>
-        <mxCell id="idx_q_fp4" value="Quant (FP4 sim)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="FP4 QAT simulation&#10;block32, in-place&#10;Tensor remains BF16">
-          <mxGeometry as="geometry" x="839.0" y="1154.0" width="152" height="32" />
+        <mxCell id="idx_q_fp4" value="Quant (FP4 sim)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="FP4 QAT simulation&#10;block32, in-place&#10;Tensor remains BF16">
+          <mxGeometry as="geometry" x="1329.0" y="760.1" width="134" height="30" />
         </mxCell>
-        <mxCell id="idx_q_ready" value="Qᵢ [64,128]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Index query Q_I&#10;[B,T,64,128]">
-          <mxGeometry as="geometry" x="856.0" y="1076.6" width="118" height="32" />
+        <mxCell id="idx_q_ready" value="Qᵢ [64,128]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Index query Q_I&#10;[B,T,64,128]">
+          <mxGeometry as="geometry" x="1344.0" y="710.6" width="104" height="30" />
         </mxCell>
-        <mxCell id="idx_kv_proj" value="Linear&#10;(KV)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Wkv_I&#10;4096 → 256">
-          <mxGeometry as="geometry" x="1050.0" y="1446.6" width="90" height="48" />
+        <mxCell id="idx_kv_proj" value="Linear&#10;(KV)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Wkv_I&#10;4096 → 256">
+          <mxGeometry as="geometry" x="1501.0" y="946.5" width="78" height="42" />
         </mxCell>
-        <mxCell id="idx_gate_proj" value="Linear&#10;(Gate)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Wgate_I&#10;4096 → 256">
-          <mxGeometry as="geometry" x="1158.0" y="1446.6" width="90" height="48" />
+        <mxCell id="idx_gate_proj" value="Linear&#10;(Gate)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Wgate_I&#10;4096 → 256">
+          <mxGeometry as="geometry" x="1587.4" y="946.5" width="78" height="42" />
         </mxCell>
-        <mxCell id="idx_w_proj" value="Linear (weights)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="W_weights: 4096 → 64&#10;One score weight per&#10;head">
-          <mxGeometry as="geometry" x="1303.0" y="1454.6" width="160" height="32" />
+        <mxCell id="idx_w_proj" value="Linear (weights)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="W_weights: 4096 → 64&#10;One score weight per&#10;head">
+          <mxGeometry as="geometry" x="1699.4" y="952.5" width="142" height="30" />
         </mxCell>
-        <mxCell id="idx_kv_split" value="Split&#10;Ca / Cb" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Split Ca/Cb&#10;128 + 128">
-          <mxGeometry as="geometry" x="1050.0" y="1373.7" width="90" height="48" />
+        <mxCell id="idx_kv_split" value="Split&#10;Ca / Cb" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Split Ca/Cb&#10;128 + 128">
+          <mxGeometry as="geometry" x="1501.0" y="899.8" width="78" height="42" />
         </mxCell>
-        <mxCell id="idx_gate_ape" value="+ APE&#10;Split Za / Zb" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=10;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Gate + APE&#10;[4,256]&#10;Split Za/Zb">
-          <mxGeometry as="geometry" x="1158.0" y="1373.7" width="90" height="48" />
+        <mxCell id="idx_gate_ape" value="+ APE&#10;Split Za / Zb" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=10;" vertex="1" parent="1" tooltip="Gate + APE&#10;[4,256]&#10;Split Za/Zb">
+          <mxGeometry as="geometry" x="1581.4" y="899.8" width="90" height="42" />
         </mxCell>
-        <mxCell id="idx_window" value="Cat (prev, current)&#10;8 × 128" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Independent&#10;overlapping windows&#10;[prev Ca4 | current&#10;Cb4]&#10;KV / gates [B,N,8,128]">
-          <mxGeometry as="geometry" x="1057.0" y="1296.3" width="184" height="48" />
+        <mxCell id="idx_window" value="Cat (prev, current)&#10;8 × 128" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Independent&#10;overlapping windows&#10;[prev Ca4 | current&#10;Cb4]&#10;KV / gates [B,N,8,128]">
+          <mxGeometry as="geometry" x="1501.2" y="850.3" width="164" height="42" />
         </mxCell>
-        <mxCell id="idx_softmax" value="Softmax (tokens)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Gate-only FP32 softmax&#10;Across 8 slots per&#10;channel">
-          <mxGeometry as="geometry" x="1069.0" y="1226.9" width="160" height="32" />
+        <mxCell id="idx_softmax" value="Softmax (tokens)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Gate-only FP32 softmax&#10;Across 8 slots per&#10;channel">
+          <mxGeometry as="geometry" x="1512.2" y="806.8" width="142" height="30" />
         </mxCell>
-        <mxCell id="idx_pool" value="× → Sum" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="KV bypass × gate&#10;probabilities&#10;Sum8 → [B,N,128]">
-          <mxGeometry as="geometry" x="1103.0" y="1153.1" width="92" height="32" />
+        <mxCell id="idx_pool" value="× → Sum" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="KV bypass × gate&#10;probabilities&#10;Sum8 → [B,N,128]">
+          <mxGeometry as="geometry" x="1544.2" y="759.5" width="78" height="30" />
         </mxCell>
-        <mxCell id="idx_norm" value="RMSNorm" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Learned RMSNorm128">
-          <mxGeometry as="geometry" x="1103.0" y="1073.9" width="92" height="32" />
+        <mxCell id="idx_norm" value="RMSNorm" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Learned RMSNorm128">
+          <mxGeometry as="geometry" x="1544.2" y="708.9" width="78" height="30" />
         </mxCell>
-        <mxCell id="idx_key_rope" value="RoPE₆₄" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Partial RoPE64&#10;At compressed position&#10;4j">
-          <mxGeometry as="geometry" x="1103.0" y="1008.2" width="92" height="32" />
+        <mxCell id="idx_key_rope" value="RoPE₆₄" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Partial RoPE64&#10;At compressed position&#10;4j">
+          <mxGeometry as="geometry" x="1544.2" y="666.8" width="78" height="30" />
         </mxCell>
-        <mxCell id="idx_key_hadamard" value="Rotate (Hadamard)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Hadamard rotation&#10;Same orthogonal basis&#10;as Q_I">
-          <mxGeometry as="geometry" x="1065.0" y="942.5" width="168" height="32" />
+        <mxCell id="idx_key_hadamard" value="Rotate (Hadamard)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Hadamard rotation&#10;Same orthogonal basis&#10;as Q_I">
+          <mxGeometry as="geometry" x="1508.2" y="624.8" width="150" height="30" />
         </mxCell>
-        <mxCell id="idx_key_fp4" value="Quant (FP4 sim)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="FP4 QAT simulation,&#10;block32&#10;Tensor remains BF16">
-          <mxGeometry as="geometry" x="1073.0" y="870.5" width="152" height="32" />
+        <mxCell id="idx_key_fp4" value="Quant (FP4 sim)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="FP4 QAT simulation,&#10;block32&#10;Tensor remains BF16">
+          <mxGeometry as="geometry" x="1516.2" y="578.7" width="134" height="30" />
         </mxCell>
-        <mxCell id="idx_key_cache" value="KV cache (index)&#10;[Nc,128]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#cd545d;strokeWidth=1.2;fillColor=#fff1f2;" vertex="1" parent="1" tooltip="Independent index KV&#10;cache&#10;[B,Nc,128]&#10;Own previous-Ca /&#10;partial state">
-          <mxGeometry as="geometry" x="1069.0" y="788.7" width="160" height="48" />
+        <mxCell id="idx_key_cache" value="KV cache (index)&#10;[Nc,128]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#cd545d;strokeWidth=1.2;fillColor=#fff1f2;fontSize=13;" vertex="1" parent="1" tooltip="Independent index KV&#10;cache&#10;[B,Nc,128]&#10;Own previous-Ca /&#10;partial state">
+          <mxGeometry as="geometry" x="1512.2" y="525.4" width="142" height="42" />
         </mxCell>
-        <mxCell id="idx_w_scale" value="Scale&#10;128⁻½ × 64⁻½" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Scale head weights&#10;128^-0.5 × 64^-0.5&#10;These weights are NOT&#10;a softmax">
-          <mxGeometry as="geometry" x="1319.0" y="1379.1" width="128" height="48" />
+        <mxCell id="idx_w_scale" value="Scale&#10;128⁻½ × 64⁻½" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Scale head weights&#10;128^-0.5 × 64^-0.5&#10;These weights are NOT&#10;a softmax">
+          <mxGeometry as="geometry" x="1714.4" y="903.3" width="112" height="42" />
         </mxCell>
-        <mxCell id="idx_w_ready" value="weights [64]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Per-query head&#10;weights w&#10;[B,T,64]">
-          <mxGeometry as="geometry" x="1319.0" y="1299.8" width="128" height="32" />
+        <mxCell id="idx_w_ready" value="weights [64]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Per-query head&#10;weights w&#10;[B,T,64]">
+          <mxGeometry as="geometry" x="1714.4" y="853.4" width="112" height="30" />
         </mxCell>
-        <mxCell id="idx_dot" value="Matmul (Qᵢ, Kᵢᵀ)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="einsum: Q_I · K_I_cache&#10;Raw scores [B,T,64,Nc]">
-          <mxGeometry as="geometry" x="1078.0" y="702.2" width="160" height="32" />
+        <mxCell id="idx_dot" value="Matmul (Qᵢ, Kᵢᵀ)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="einsum: Q_I · K_I_cache&#10;Raw scores [B,T,64,Nc]">
+          <mxGeometry as="geometry" x="1519.4" y="471.0" width="142" height="30" />
         </mxCell>
-        <mxCell id="idx_relu" value="ReLU" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="ReLU of per-head similarities">
-          <mxGeometry as="geometry" x="1112.0" y="623.0" width="92" height="32" />
+        <mxCell id="idx_relu" value="ReLU" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="ReLU of per-head similarities">
+          <mxGeometry as="geometry" x="1551.4" y="420.3" width="78" height="30" />
         </mxCell>
-        <mxCell id="idx_head_sum" value="Scale → Sum (heads)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Multiply by learned head weights, then sum heads&#10;S[b,t,j] = sum_h w[b,t,h] × ReLU(dot[b,t,h,j])">
-          <mxGeometry as="geometry" x="1066.0" y="554.6" width="184" height="32" />
+        <mxCell id="idx_head_sum" value="Scale → Sum (heads)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Multiply by learned head weights, then sum heads&#10;S[b,t,j] = sum_h w[b,t,h] × ReLU(dot[b,t,h,j])">
+          <mxGeometry as="geometry" x="1508.4" y="376.5" width="164" height="30" />
         </mxCell>
-        <mxCell id="idx_tp" value="AllReduce (TP)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="If TP &gt; 1: all_reduce index scores&#10;Scores [B,T,Nc] across all 64 global heads">
-          <mxGeometry as="geometry" x="1086.0" y="480.8" width="144" height="32" />
+        <mxCell id="idx_tp" value="AllReduce (TP)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="If TP &gt; 1: all_reduce index scores&#10;Scores [B,T,Nc] across all 64 global heads">
+          <mxGeometry as="geometry" x="1526.4" y="329.3" width="128" height="30" />
         </mxCell>
-        <mxCell id="idx_causal" value="Causal Mask" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;" vertex="1" parent="1" tooltip="Prefill: j &gt;= floor((t+1)/4) → -infinity&#10;Decode: score only cache prefix j &lt; floor((p+1)/4)">
-          <mxGeometry as="geometry" x="1099.0" y="413.3" width="118" height="32" />
+        <mxCell id="idx_causal" value="Causal Mask" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fontSize=13;" vertex="1" parent="1" tooltip="Prefill: j &gt;= floor((t+1)/4) → -infinity&#10;Decode: score only cache prefix j &lt; floor((p+1)/4)">
+          <mxGeometry as="geometry" x="1538.4" y="286.1" width="104" height="30" />
         </mxCell>
-        <mxCell id="idx_topk" value="TopK (≤512)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fillColor=#63962e;fontColor=#ffffff;fontStyle=1;" vertex="1" parent="1" tooltip="Top-k with k=min(512,Nc)&#10;Per-query ranking; may include masked -infinity entries&#10;NOT a cache truncation operation">
-          <mxGeometry as="geometry" x="1099.0" y="340.4" width="118" height="32" />
+        <mxCell id="idx_topk" value="TopK (≤512)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;fillColor=#63962e;fontColor=#ffffff;fontStyle=1;fontSize=13;" vertex="1" parent="1" tooltip="Top-k with k=min(512,Nc)&#10;Per-query ranking; may include masked -infinity entries&#10;NOT a cache truncation operation">
+          <mxGeometry as="geometry" x="1538.4" y="239.4" width="104" height="30" />
         </mxCell>
-        <mxCell id="port_I" value="I: compressed indices" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;dashed=1;dashPattern=3 3;" vertex="1" parent="1" tooltip="PORT I → right panel&#10;Prefill: invalid future j → -1, valid j → j+T&#10;Decode: j → j+128&#10;Selected compressed positions; integer tensor">
-          <mxGeometry as="geometry" x="1057.0" y="254.0" width="202" height="32" />
+        <mxCell id="port_I" value="I: compressed indices" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#63962e;strokeWidth=1.2;fillColor=#f4f8ed;dashed=1;dashPattern=3 3;fontSize=13;" vertex="1" parent="1" tooltip="PORT I → right panel&#10;Prefill: invalid future j → -1, valid j → j+T&#10;Decode: j → j+128&#10;Selected compressed positions; integer tensor">
+          <mxGeometry as="geometry" x="1500.4" y="184.1" width="180" height="30" />
         </mxCell>
-        <mxCell id="attn_h" value="h [4096]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Hidden states h [B,T,4096]">
-          <mxGeometry as="geometry" x="1921.0" y="1526.6" width="94" height="32" />
+        <mxCell id="attn_h" value="h [4096]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Hidden states h [B,T,4096]">
+          <mxGeometry as="geometry" x="913.4000000000001" y="998.6" width="82" height="30" />
         </mxCell>
-        <mxCell id="attn_qa" value="Linear (Q down)&#10;4096→1024" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Linear Wq_a: 4096 → 1024">
-          <mxGeometry as="geometry" x="1676.0" y="1453.8" width="152" height="48" />
+        <mxCell id="attn_qa" value="Linear (Q down)&#10;4096→1024" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Linear Wq_a: 4096 → 1024">
+          <mxGeometry as="geometry" x="714.5999999999999" y="951.1" width="134" height="42" />
         </mxCell>
-        <mxCell id="attn_qrank" value="RMSNorm → Qr" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Learned RMSNorm1024 → PORT Qr">
-          <mxGeometry as="geometry" x="1688.0" y="1395.2" width="128" height="32" />
+        <mxCell id="attn_qrank" value="RMSNorm → Qr" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Learned RMSNorm1024 → PORT Qr">
+          <mxGeometry as="geometry" x="725.5999999999999" y="914.5" width="112" height="30" />
         </mxCell>
-        <mxCell id="attn_qb" value="Linear (Q up)&#10;1024→64×512" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Wq_b: 1024 → 64 × 512&#10;Reshape to heads [B,T,64,512]">
-          <mxGeometry as="geometry" x="1684.0" y="1318.8" width="136" height="48" />
+        <mxCell id="attn_qb" value="Linear (Q up)&#10;1024→64×512" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Wq_b: 1024 → 64 × 512&#10;Reshape to heads [B,T,64,512]">
+          <mxGeometry as="geometry" x="721.5999999999999" y="864.7" width="120" height="42" />
         </mxCell>
-        <mxCell id="attn_qhead" value="Q head Norm" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Unweighted RMSNorm per 512-dim&#10;head">
-          <mxGeometry as="geometry" x="1693.0" y="1251.2" width="118" height="32" />
+        <mxCell id="attn_qhead" value="Q head Norm" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Unweighted RMSNorm per 512-dim&#10;head">
+          <mxGeometry as="geometry" x="729.5999999999999" y="822.3" width="104" height="30" />
         </mxCell>
-        <mxCell id="attn_qrope" value="RoPE₆₄" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="RoPE on trailing64 at query t&#10;Content448 untouched&#10;Compressed layer: theta160000 /&#10;YaRN16">
-          <mxGeometry as="geometry" x="1706.0" y="1181.0" width="92" height="32" />
+        <mxCell id="attn_qrope" value="RoPE₆₄" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="RoPE on trailing64 at query t&#10;Content448 untouched&#10;Compressed layer: theta160000 /&#10;YaRN16">
+          <mxGeometry as="geometry" x="742.5999999999999" y="777.4" width="78" height="30" />
         </mxCell>
-        <mxCell id="attn_qready" value="Q [64,512]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Q [B,T,64,512]">
-          <mxGeometry as="geometry" x="1697.0" y="1105.4" width="110" height="32" />
+        <mxCell id="attn_qready" value="Q [64,512]" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Q [B,T,64,512]">
+          <mxGeometry as="geometry" x="733.5999999999999" y="729.0" width="96" height="30" />
         </mxCell>
-        <mxCell id="attn_wkv" value="Linear (KV down)&#10;4096→512" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Linear Wkv: 4096 → 512">
-          <mxGeometry as="geometry" x="2104.0" y="1453.8" width="160" height="48" />
+        <mxCell id="attn_wkv" value="Linear (KV down)&#10;4096→512" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Linear Wkv: 4096 → 512">
+          <mxGeometry as="geometry" x="1056.2" y="951.1" width="142" height="42" />
         </mxCell>
-        <mxCell id="attn_kvnorm" value="RMSNorm" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Learned RMSNorm512">
-          <mxGeometry as="geometry" x="2138.0" y="1395.2" width="92" height="32" />
+        <mxCell id="attn_kvnorm" value="RMSNorm" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Learned RMSNorm512">
+          <mxGeometry as="geometry" x="1088.2" y="914.5" width="78" height="30" />
         </mxCell>
-        <mxCell id="attn_kvrope" value="RoPE₆₄" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Partial RoPE64 at token position t">
-          <mxGeometry as="geometry" x="2138.0" y="1325.0" width="92" height="32" />
+        <mxCell id="attn_kvrope" value="RoPE₆₄" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Partial RoPE64 at token position t">
+          <mxGeometry as="geometry" x="1088.2" y="869.6" width="78" height="30" />
         </mxCell>
-        <mxCell id="attn_kvquant" value="Quant (FP8 sim)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="FP8 simulation on content448,&#10;block64&#10;RoPE64 stays BF16; shared K=V&#10;tensor">
-          <mxGeometry as="geometry" x="2108.0" y="1253.0" width="152" height="32" />
+        <mxCell id="attn_kvquant" value="Quant (FP8 sim)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="FP8 simulation on content448,&#10;block64&#10;RoPE64 stays BF16; shared K=V&#10;tensor">
+          <mxGeometry as="geometry" x="1060.2" y="823.5" width="134" height="30" />
         </mxCell>
-        <mxCell id="attn_ring" value="KV cache (window)&#10;128 × 512" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#cd545d;strokeWidth=1.2;fillColor=#fff1f2;" vertex="1" parent="1" tooltip="Window ring cache [B,128,512]&#10;Decode write slot p%128&#10;Prefill: store last128 tokens in&#10;ring order">
-          <mxGeometry as="geometry" x="2100.0" y="1169.4" width="168" height="48" />
+        <mxCell id="attn_ring" value="KV cache (window)&#10;128 × 512" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#cd545d;strokeWidth=1.2;fillColor=#fff1f2;fontSize=13;" vertex="1" parent="1" tooltip="Window ring cache [B,128,512]&#10;Decode write slot p%128&#10;Prefill: store last128 tokens in&#10;ring order">
+          <mxGeometry as="geometry" x="1052.2" y="769.1" width="150" height="42" />
         </mxCell>
-        <mxCell id="attn_positions" value="Position (t / p)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Position inputs: T, start_pos=p,&#10;window=128&#10;This path computes addresses, not&#10;KV values">
-          <mxGeometry as="geometry" x="1684.0" y="1045.1" width="160" height="32" />
+        <mxCell id="attn_positions" value="Position (t / p)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Position inputs: T, start_pos=p,&#10;window=128&#10;This path computes addresses, not&#10;KV values">
+          <mxGeometry as="geometry" x="720.2" y="690.4" width="142" height="30" />
         </mxCell>
-        <mxCell id="attn_win_indices" value="Window indices (128)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="get_window_topk_idxs&#10;Prefill: causal local window, future&#10;→ -1&#10;Decode: ring order from p%128&#10;Warmup slots not yet valid → -1">
-          <mxGeometry as="geometry" x="1668.0" y="974.9" width="192" height="32" />
+        <mxCell id="attn_win_indices" value="Window indices (128)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="get_window_topk_idxs&#10;Prefill: causal local window, future&#10;→ -1&#10;Decode: ring order from p%128&#10;Warmup slots not yet valid → -1">
+          <mxGeometry as="geometry" x="705.2" y="645.5" width="172" height="30" />
         </mxCell>
-        <mxCell id="attn_I" value="I: compressed indices" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;dashed=1;dashPattern=3 3;" vertex="1" parent="1" tooltip="PORT I from middle panel&#10;Per-query selected compressed&#10;indices">
-          <mxGeometry as="geometry" x="1663.0" y="899.3" width="202" height="32" />
+        <mxCell id="attn_I" value="I: compressed indices" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;dashed=1;dashPattern=3 3;fontSize=13;" vertex="1" parent="1" tooltip="PORT I from middle panel&#10;Per-query selected compressed&#10;indices">
+          <mxGeometry as="geometry" x="701.2" y="597.1" width="180" height="30" />
         </mxCell>
-        <mxCell id="attn_A" value="A: compressed KV" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;dashed=1;dashPattern=3 3;" vertex="1" parent="1" tooltip="PORT A from main compressor&#10;All compressed KV [B,Nc,512]">
-          <mxGeometry as="geometry" x="1684.0" y="843.5" width="160" height="32" />
+        <mxCell id="attn_A" value="A: compressed KV" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;dashed=1;dashPattern=3 3;fontSize=13;" vertex="1" parent="1" tooltip="PORT A from main compressor&#10;All compressed KV [B,Nc,512]">
+          <mxGeometry as="geometry" x="720.2" y="561.4" width="142" height="30" />
         </mxCell>
-        <mxCell id="attn_bank" value="Concat (window KV, compressed KV)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Physical KV bank (K=V)&#10;Prefill: cat current KV[T] and complete compressed KV[Nc]&#10;Decode: [ring128 | compressed cache]; compressor aliases right slice">
-          <mxGeometry as="geometry" x="1818.0" y="774.2" width="300" height="32" />
+        <mxCell id="attn_bank" value="Concat (window KV, compressed KV)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Physical KV bank (K=V)&#10;Prefill: cat current KV[T] and complete compressed KV[Nc]&#10;Decode: [ring128 | compressed cache]; compressor aliases right slice">
+          <mxGeometry as="geometry" x="819.4000000000001" y="517.0" width="270" height="30" />
         </mxCell>
-        <mxCell id="attn_indices" value="Concat (window indices, I)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Concatenate [local-window indices | port I]&#10;Prefill offset=T; decode compressed offset=128&#10;Convert to int32; -1 stays invalid">
-          <mxGeometry as="geometry" x="1853.0" y="686.9" width="242" height="32" />
+        <mxCell id="attn_indices" value="Concat (window indices, I)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Concatenate [local-window indices | port I]&#10;Prefill offset=T; decode compressed offset=128&#10;Convert to int32; -1 stays invalid">
+          <mxGeometry as="geometry" x="851.2" y="461.2" width="216" height="30" />
         </mxCell>
-        <mxCell id="attn_gather" value="Gather (KV) → QKᵀ / √512" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fillColor=#ce8220;fontColor=#ffffff;fontStyle=1;" vertex="1" parent="1" tooltip="sparse_attn kernel: tiles of 64 index entries&#10;If idx!=-1: gather shared kv[idx] (both K and V)&#10;Q·K / sqrt(512), FP32 score accumulators&#10;If idx==-1: zero KV and -infinity score">
-          <mxGeometry as="geometry" x="1855.0" y="576.2" width="226" height="32" />
+        <mxCell id="attn_gather" value="Gather (KV) → QKᵀ / √512" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fillColor=#ce8220;fontColor=#ffffff;fontStyle=1;fontSize=13;" vertex="1" parent="1" tooltip="sparse_attn kernel: tiles of 64 index entries&#10;If idx!=-1: gather shared kv[idx] (both K and V)&#10;Q·K / sqrt(512), FP32 score accumulators&#10;If idx==-1: zero KV and -infinity score">
+          <mxGeometry as="geometry" x="853.4000000000001" y="390.3" width="202" height="30" />
         </mxCell>
-        <mxCell id="attn_softmax" value="Softmax (+ sink)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Online stable softmax: update running max and sum&#10;Denominator = sum_j exp(score_j-max) + exp(sink_h-max)&#10;The sink changes normalization ONLY; it has no value vector">
-          <mxGeometry as="geometry" x="1888.0" y="486.2" width="160" height="32" />
+        <mxCell id="attn_softmax" value="Softmax (+ sink)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Online stable softmax: update running max and sum&#10;Denominator = sum_j exp(score_j-max) + exp(sink_h-max)&#10;The sink changes normalization ONLY; it has no value vector">
+          <mxGeometry as="geometry" x="883.4000000000001" y="332.7" width="142" height="30" />
         </mxCell>
-        <mxCell id="attn_sink" value="sink" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Learned&#10;sink_h&#10;One per&#10;Q head">
-          <mxGeometry as="geometry" x="2310.0" y="486.2" width="60" height="32" />
+        <mxCell id="attn_sink" value="sink" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Learned&#10;sink_h&#10;One per&#10;Q head">
+          <mxGeometry as="geometry" x="1140" y="332.7" width="64" height="30" />
         </mxCell>
-        <mxCell id="attn_values" value="Matmul (P, V)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Numerator: sum_j exp(score_j-max) × kv[idx_j]&#10;Divide by denominator; FP32 accumulator → BF16 output&#10;Result [B,T,64,512]">
-          <mxGeometry as="geometry" x="1900.0" y="403.4" width="136" height="32" />
+        <mxCell id="attn_values" value="Matmul (P, V)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Numerator: sum_j exp(score_j-max) × kv[idx_j]&#10;Divide by denominator; FP32 accumulator → BF16 output&#10;Result [B,T,64,512]">
+          <mxGeometry as="geometry" x="894.4000000000001" y="279.7" width="120" height="30" />
         </mxCell>
-        <mxCell id="attn_inverse" value="RoPE (inverse)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Conjugate RoPE (inverse=True) on output trailing64&#10;At the CURRENT query position; content448 unchanged">
-          <mxGeometry as="geometry" x="1896.0" y="331.4" width="144" height="32" />
+        <mxCell id="attn_inverse" value="RoPE (inverse)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Conjugate RoPE (inverse=True) on output trailing64&#10;At the CURRENT query position; content448 unchanged">
+          <mxGeometry as="geometry" x="890.4000000000001" y="233.7" width="128" height="30" />
         </mxCell>
-        <mxCell id="attn_oa" value="Linear (O down)&#10;8 groups × (4096→1024)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Group 64×512 heads into 8 groups&#10;W_o_a: per-group 4096 → 1024 (einsum)">
-          <mxGeometry as="geometry" x="1863.0" y="262.2" width="210" height="48" />
+        <mxCell id="attn_oa" value="Linear (O down)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Group 64×512 heads into 8 groups&#10;W_o_a: per-group 4096 → 1024 (einsum)">
+          <mxGeometry as="geometry" x="887.4000000000001" y="194.5" width="134" height="30" />
         </mxCell>
-        <mxCell id="attn_ob" value="Linear (O up)&#10;8192→4096" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;" vertex="1" parent="1" tooltip="Flatten 8×1024 → W_o_b → 4096&#10;TP output all-reduce when needed">
-          <mxGeometry as="geometry" x="1900.0" y="210.0" width="136" height="48" />
+        <mxCell id="attn_ob" value="Linear (O up)" style="rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=13;fontColor=#203148;align=center;verticalAlign=middle;spacing=5;strokeColor=#ce8220;strokeWidth=1.2;fillColor=#fff7e9;fontSize=13;" vertex="1" parent="1" tooltip="Flatten 8×1024 → W_o_b → 4096&#10;TP output all-reduce when needed">
+          <mxGeometry as="geometry" x="894.4000000000001" y="155.1" width="120" height="30" />
         </mxCell>
-        <mxCell id="attn_output" value="h′ [4096]" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=10;fontColor=#64748b;fontStyle=0;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="OUTPUT: attention hidden states [B,T,4096]">
-          <mxGeometry as="geometry" x="1602.0" y="192.6" width="744.0" height="21.6" />
+        <mxCell id="attn_output" value="" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=10;fontColor=#64748b;fontStyle=0;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="OUTPUT: attention hidden states [B,T,4096]">
+          <mxGeometry as="geometry" x="661.5999999999999" y="144.5" width="595.2" height="24" />
         </mxCell>
         <mxCell id="states" value="" style="rounded=1;arcSize=18;absoluteArcSize=1;fillColor=none;strokeColor=#cbd5e1;strokeWidth=1;dashed=1;dashPattern=5 4;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="18.0" y="1609.2" width="2364.0" height="378.0" />
+          <mxGeometry as="geometry" x="14.4" y="1090.2" width="1891.2" height="283.5" />
         </mxCell>
         <mxCell id="states_title" value="kv_state / score_state" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#536bd9;fontStyle=1;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="PREFILL / DECODE STATE + WINDOW LAYOUT — temporal state, not an extra network layer">
-          <mxGeometry as="geometry" x="27.0" y="1614.6" width="2346.0" height="27.0" />
+          <mxGeometry as="geometry" x="21.6" y="1092.3" width="1876.8" height="24" />
         </mxCell>
         <mxCell id="state_shapes" value="kv_state / score_state&#10;[8,1024]" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#536580;align=center;verticalAlign=middle;spacing=3;fillColor=none;strokeColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="MAIN runtime buffers (not checkpoint)&#10;kv_state / score_state: [B,8,1024]&#10;KV init=0; gate init=-infinity&#10;Indexer owns separate [B,8,256] buffers">
-          <mxGeometry as="geometry" x="60" y="1670" width="350" height="48" />
+          <mxGeometry as="geometry" x="48.0" y="1132.8" width="280.0" height="42" />
         </mxCell>
         <mxCell id="state_prefill" value="Prefill → keep partial window" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#536580;align=center;verticalAlign=middle;spacing=3;fillColor=none;strokeColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="PREFILL (start_pos=0)&#10;cutoff=T−T%4; completed=floor(T/4)&#10;Keep incomplete suffix for decode&#10;Keep last complete raw window; read its Ca half later">
-          <mxGeometry as="geometry" x="60" y="1850" width="350" height="34" />
+          <mxGeometry as="geometry" x="48.0" y="1270.8" width="280.0" height="25.5" />
         </mxCell>
         <mxCell id="state_decode" value="Decode → emit every 4 tokens" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#536580;align=center;verticalAlign=middle;spacing=3;fillColor=none;strokeColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="DECODE (position p)&#10;Write raw KV / gate at slot 4+(p%4)&#10;Emit only if (p+1)%4==0&#10;Write cache slot floor(p/4); RoPE pos=p+1−4">
-          <mxGeometry as="geometry" x="1790" y="1670" width="490" height="34" />
+          <mxGeometry as="geometry" x="1432.0" y="1135.8" width="392.0" height="25.5" />
         </mxCell>
         <mxCell id="state_window1" value="Previous raw window [4,1024]" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#536580;align=center;verticalAlign=middle;spacing=3;fillColor=none;strokeColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="Compressed j=1 (emitted after token7)&#10;VALUES: [Ca0 Ca1 Ca2 Ca3 | Cb4 Cb5 Cb6 Cb7]&#10;GATES:  [Za0 Za1 Za2 Za3 | Zb4 Zb5 Zb6 Zb7] + per-slot APE&#10;Softmax8 PER CHANNEL; output RoPE position4">
-          <mxGeometry as="geometry" x="610" y="1665" width="410" height="34" />
+          <mxGeometry as="geometry" x="488.0" y="1132.0" width="328.0" height="25.5" />
         </mxCell>
         <mxCell id="state_window2" value="Current raw window [4,1024]" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#536580;align=center;verticalAlign=middle;spacing=3;fillColor=none;strokeColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="Compressed j=2 (emitted after token11)&#10;VALUES: [Ca4 Ca5 Ca6 Ca7 | Cb8 Cb9 Cb10 Cb11]&#10;Same token can supply Cb to j and Ca to j+1&#10;First j=0: missing previous half has value0 / gate−infinity">
-          <mxGeometry as="geometry" x="1110" y="1665" width="410" height="34" />
+          <mxGeometry as="geometry" x="888.0" y="1132.0" width="328.0" height="25.5" />
         </mxCell>
         <mxCell id="state_move" value="Cat (previous Ca, current Cb)" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#536580;align=center;verticalAlign=middle;spacing=3;fillColor=none;strokeColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="On a completed decode stride: copy current raw window into previous-window state. Read Ca from previous slots and Cb from current slots.&#10;A partial stride does NOT create a new compressed entry. Existing entries remain readable; Indexer top-k does not delete them.">
-          <mxGeometry as="geometry" x="820" y="1910" width="500" height="34" />
+          <mxGeometry as="geometry" x="656.0" y="1315.8" width="400.0" height="25.5" />
         </mxCell>
         <mxCell id="footer" value="Official Flash @ 60d8d707 · FP4 / FP8 = simulation · source details: operator_notes.md" style="rounded=0;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=12;fontColor=#64748b;fontStyle=0;align=center;verticalAlign=middle;spacing=2;strokeColor=none;fillColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="Source: official deepseek-ai/DeepSeek-V4-Flash @ 60d8d707 | model.py Compressor / Indexer / Attention; kernel.py sparse_attn&#10;Detailed static source transcription; no full weights, tensor headers or GPU inference executed. Native draw.io is the PNG source.">
-          <mxGeometry as="geometry" x="30.0" y="2001.6" width="2340.0" height="39.6" />
+          <mxGeometry as="geometry" x="24.0" y="1384.4" width="1872.0" height="29.7" />
         </mxCell>
         <mxCell id="buffer_cell_0" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#e3e9ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="105" y="1750" width="26" height="28" />
+          <mxGeometry as="geometry" x="84.0" y="1195.8" width="20.8" height="21.0" />
         </mxCell>
         <mxCell id="buffer_cell_1" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#e3e9ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="135" y="1750" width="26" height="28" />
+          <mxGeometry as="geometry" x="108.0" y="1195.8" width="20.8" height="21.0" />
         </mxCell>
         <mxCell id="buffer_cell_2" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#e3e9ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="165" y="1750" width="26" height="28" />
+          <mxGeometry as="geometry" x="132.0" y="1195.8" width="20.8" height="21.0" />
         </mxCell>
         <mxCell id="buffer_cell_3" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#e3e9ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="195" y="1750" width="26" height="28" />
+          <mxGeometry as="geometry" x="156.0" y="1195.8" width="20.8" height="21.0" />
         </mxCell>
         <mxCell id="buffer_cell_4" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#e3e9ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="225" y="1750" width="26" height="28" />
+          <mxGeometry as="geometry" x="180.0" y="1195.8" width="20.8" height="21.0" />
         </mxCell>
         <mxCell id="buffer_cell_5" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#e3e9ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="255" y="1750" width="26" height="28" />
+          <mxGeometry as="geometry" x="204.0" y="1195.8" width="20.8" height="21.0" />
         </mxCell>
         <mxCell id="buffer_cell_6" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#e3e9ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="285" y="1750" width="26" height="28" />
+          <mxGeometry as="geometry" x="228.0" y="1195.8" width="20.8" height="21.0" />
         </mxCell>
         <mxCell id="buffer_cell_7" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#e3e9ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="315" y="1750" width="26" height="28" />
+          <mxGeometry as="geometry" x="252.0" y="1195.8" width="20.8" height="21.0" />
         </mxCell>
         <mxCell id="decode_cell_0" value="0" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#eef2ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1820" y="1750" width="85" height="40" />
+          <mxGeometry as="geometry" x="1456.0" y="1195.8" width="68.0" height="30.0" />
         </mxCell>
         <mxCell id="decode_cell_1" value="1" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#eef2ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1925" y="1750" width="85" height="40" />
+          <mxGeometry as="geometry" x="1540.0" y="1195.8" width="68.0" height="30.0" />
         </mxCell>
         <mxCell id="decode_cell_2" value="2" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#eef2ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="2030" y="1750" width="85" height="40" />
+          <mxGeometry as="geometry" x="1624.0" y="1195.8" width="68.0" height="30.0" />
         </mxCell>
         <mxCell id="decode_cell_3" value="3" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#e6f3e3;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="2135" y="1750" width="85" height="40" />
+          <mxGeometry as="geometry" x="1708.0" y="1195.8" width="68.0" height="30.0" />
         </mxCell>
         <mxCell id="decode_caption" value="update → update → update → emit" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=none;strokeColor=none;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1810" y="1820" width="440" height="40" />
+          <mxGeometry as="geometry" x="1448.0" y="1248.2" width="352.0" height="30.0" />
         </mxCell>
         <mxCell id="previous_0_0" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#dce4ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="700" y="1720" width="40" height="32" />
+          <mxGeometry as="geometry" x="560.0" y="1173.2" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="previous_0_1" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#dce4ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="745" y="1720" width="40" height="32" />
+          <mxGeometry as="geometry" x="596.0" y="1173.2" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="previous_0_2" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#dce4ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="790" y="1720" width="40" height="32" />
+          <mxGeometry as="geometry" x="632.0" y="1173.2" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="previous_0_3" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#dce4ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="835" y="1720" width="40" height="32" />
+          <mxGeometry as="geometry" x="668.0" y="1173.2" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="previous_1_0" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#f5f7fa;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="700" y="1758" width="40" height="32" />
+          <mxGeometry as="geometry" x="560.0" y="1201.8" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="previous_1_1" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#f5f7fa;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="745" y="1758" width="40" height="32" />
+          <mxGeometry as="geometry" x="596.0" y="1201.8" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="previous_1_2" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#f5f7fa;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="790" y="1758" width="40" height="32" />
+          <mxGeometry as="geometry" x="632.0" y="1201.8" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="previous_1_3" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#f5f7fa;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="835" y="1758" width="40" height="32" />
+          <mxGeometry as="geometry" x="668.0" y="1201.8" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="previous_ca" value="Ca" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=none;strokeColor=none;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="635" y="1720" width="58" height="32" />
+          <mxGeometry as="geometry" x="508.0" y="1173.2" width="46.4" height="24.0" />
         </mxCell>
         <mxCell id="previous_cb" value="Cb" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=none;strokeColor=none;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="635" y="1758" width="58" height="32" />
+          <mxGeometry as="geometry" x="508.0" y="1201.8" width="46.4" height="24.0" />
         </mxCell>
         <mxCell id="current_0_0" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#f5f7fa;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1200" y="1720" width="40" height="32" />
+          <mxGeometry as="geometry" x="960.0" y="1173.2" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="current_0_1" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#f5f7fa;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1245" y="1720" width="40" height="32" />
+          <mxGeometry as="geometry" x="996.0" y="1173.2" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="current_0_2" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#f5f7fa;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1290" y="1720" width="40" height="32" />
+          <mxGeometry as="geometry" x="1032.0" y="1173.2" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="current_0_3" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#f5f7fa;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1335" y="1720" width="40" height="32" />
+          <mxGeometry as="geometry" x="1068.0" y="1173.2" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="current_1_0" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#f6dce1;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1200" y="1758" width="40" height="32" />
+          <mxGeometry as="geometry" x="960.0" y="1201.8" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="current_1_1" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#f6dce1;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1245" y="1758" width="40" height="32" />
+          <mxGeometry as="geometry" x="996.0" y="1201.8" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="current_1_2" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#f6dce1;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1290" y="1758" width="40" height="32" />
+          <mxGeometry as="geometry" x="1032.0" y="1201.8" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="current_1_3" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#f6dce1;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1335" y="1758" width="40" height="32" />
+          <mxGeometry as="geometry" x="1068.0" y="1201.8" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="current_ca" value="Ca" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=none;strokeColor=none;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1135" y="1720" width="58" height="32" />
+          <mxGeometry as="geometry" x="908.0" y="1173.2" width="46.4" height="24.0" />
         </mxCell>
         <mxCell id="current_cb" value="Cb" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=none;strokeColor=none;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1135" y="1758" width="58" height="32" />
+          <mxGeometry as="geometry" x="908.0" y="1201.8" width="46.4" height="24.0" />
         </mxCell>
         <mxCell id="cat_cell_0" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#dce4ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="870" y="1850" width="40" height="32" />
+          <mxGeometry as="geometry" x="696.0" y="1270.8" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="cat_cell_1" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#dce4ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="915" y="1850" width="40" height="32" />
+          <mxGeometry as="geometry" x="732.0" y="1270.8" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="cat_cell_2" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#dce4ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="960" y="1850" width="40" height="32" />
+          <mxGeometry as="geometry" x="768.0" y="1270.8" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="cat_cell_3" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#dce4ff;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1005" y="1850" width="40" height="32" />
+          <mxGeometry as="geometry" x="804.0" y="1270.8" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="cat_cell_4" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#f6dce1;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1050" y="1850" width="40" height="32" />
+          <mxGeometry as="geometry" x="840.0" y="1270.8" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="cat_cell_5" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#f6dce1;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1095" y="1850" width="40" height="32" />
+          <mxGeometry as="geometry" x="876.0" y="1270.8" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="cat_cell_6" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#f6dce1;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1140" y="1850" width="40" height="32" />
+          <mxGeometry as="geometry" x="912.0" y="1270.8" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="cat_cell_7" value="" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=#f6dce1;strokeColor=#8d9cbb;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1185" y="1850" width="40" height="32" />
+          <mxGeometry as="geometry" x="948.0" y="1270.8" width="32.0" height="24.0" />
         </mxCell>
         <mxCell id="previous_connector" value="select Ca" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=none;strokeColor=none;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="750" y="1810" width="100" height="20" />
+          <mxGeometry as="geometry" x="600.0" y="1236.3" width="80.0" height="24" />
         </mxCell>
         <mxCell id="current_connector" value="select Cb" style="rounded=0;html=0;fontFamily=Arial;fontSize=12;fontColor=#43536b;align=center;verticalAlign=middle;spacing=2;fillColor=none;strokeColor=none;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1230" y="1810" width="100" height="20" />
+          <mxGeometry as="geometry" x="984.0" y="1236.3" width="80.0" height="24" />
         </mxCell>
         <mxCell id="edge_0" source="comp_h" target="comp_fp32" value="" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
           <mxGeometry as="geometry" relative="1" />
@@ -431,16 +431,16 @@
         <mxCell id="edge_1" source="comp_fp32" target="comp_wkv" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="381.0" y="1443.6" />
-              <mxPoint x="192.0" y="1443.6" />
+              <mxPoint x="304.8" y="950.2" />
+              <mxPoint x="153.6" y="950.2" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="edge_2" source="comp_fp32" target="comp_wgate" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="381.0" y="1443.6" />
-              <mxPoint x="570.0" y="1443.6" />
+              <mxPoint x="304.8" y="950.2" />
+              <mxPoint x="456.0" y="950.2" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -522,24 +522,24 @@
         <mxCell id="edge_28" source="idx_h" target="idx_kv_proj" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1266.0" y="1508.4" />
-              <mxPoint x="1095.0" y="1508.4" />
+              <mxPoint x="1676.8" y="991.7" />
+              <mxPoint x="1540.0" y="991.7" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="edge_29" source="idx_h" target="idx_gate_proj" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1266.0" y="1508.4" />
-              <mxPoint x="1203.0" y="1508.4" />
+              <mxPoint x="1676.8" y="991.7" />
+              <mxPoint x="1626.4" y="991.7" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="edge_30" source="idx_h" target="idx_w_proj" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1266.0" y="1508.4" />
-              <mxPoint x="1383.0" y="1508.4" />
+              <mxPoint x="1676.8" y="991.7" />
+              <mxPoint x="1770.4" y="991.7" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -579,8 +579,8 @@
         <mxCell id="edge_42" source="idx_window" target="idx_pool" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=1;entryY=0.5;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1260.0" y="1320.3" />
-              <mxPoint x="1260.0" y="1169.1" />
+              <mxPoint x="1672.0" y="871.3" />
+              <mxPoint x="1672.0" y="774.5" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -593,8 +593,8 @@
         <mxCell id="edge_45" source="idx_q_ready" target="idx_dot" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="915.0" y="750.2" />
-              <mxPoint x="1158.0" y="750.2" />
+              <mxPoint x="1396.0" y="506.4" />
+              <mxPoint x="1590.4" y="506.4" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -610,8 +610,8 @@
         <mxCell id="edge_49" source="idx_w_ready" target="idx_head_sum" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=1;entryY=0.5;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1518.0" y="1315.8" />
-              <mxPoint x="1518.0" y="570.6" />
+              <mxPoint x="1878.4" y="868.4" />
+              <mxPoint x="1878.4" y="391.5" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -630,8 +630,8 @@
         <mxCell id="edge_54" source="attn_h" target="attn_qa" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1968.0" y="1512.0" />
-              <mxPoint x="1752.0" y="1512.0" />
+              <mxPoint x="954.4000000000001" y="994.0" />
+              <mxPoint x="781.5999999999999" y="994.0" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -653,8 +653,8 @@
         <mxCell id="edge_60" source="attn_h" target="attn_wkv" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1968.0" y="1512.0" />
-              <mxPoint x="2184.0" y="1512.0" />
+              <mxPoint x="954.4000000000001" y="994.0" />
+              <mxPoint x="1127.2" y="994.0" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -676,18 +676,18 @@
         <mxCell id="edge_66" source="attn_win_indices" target="attn_indices" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=0.21774193548387097;entryY=1;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1560.0" y="990.9" />
-              <mxPoint x="1560.0" y="745.2" />
-              <mxPoint x="1764.0" y="745.2" />
+              <mxPoint x="628.0" y="660.5" />
+              <mxPoint x="628.0" y="503.2" />
+              <mxPoint x="791.2" y="503.2" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="edge_67" source="attn_I" target="attn_indices" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=0.5080645161290323;entryY=1;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1572.0" y="915.3" />
-              <mxPoint x="1572.0" y="747.0" />
-              <mxPoint x="1980.0" y="747.0" />
+              <mxPoint x="637.5999999999999" y="612.1" />
+              <mxPoint x="637.5999999999999" y="504.4" />
+              <mxPoint x="964.0" y="504.4" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -700,8 +700,8 @@
         <mxCell id="edge_70" source="attn_qready" target="attn_gather" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=0;entryY=0.5;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1548.0" y="1121.4" />
-              <mxPoint x="1548.0" y="592.2" />
+              <mxPoint x="618.4000000000001" y="744.0" />
+              <mxPoint x="618.4000000000001" y="405.3" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -711,9 +711,9 @@
         <mxCell id="edge_72" source="attn_bank" target="attn_gather" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.8363636363636363;entryY=1;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="2358.0" y="790.2" />
-              <mxPoint x="2358.0" y="646.2" />
-              <mxPoint x="2190.0" y="646.2" />
+              <mxPoint x="1266.4" y="532.0" />
+              <mxPoint x="1266.4" y="439.9" />
+              <mxPoint x="1132.0" y="439.9" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -738,26 +738,26 @@
         <mxCell id="edge_79" source="attn_gather" target="attn_values" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=1;exitY=0.8;entryX=1;entryY=0.5;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="2376.0" y="612.72" />
-              <mxPoint x="2376.0" y="419.4" />
+              <mxPoint x="1280.8" y="418.5" />
+              <mxPoint x="1280.8" y="294.7" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="state_select_ca" source="previous_0_3" target="cat_cell_1" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0.5;entryY=0;dashed=1;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="930" y="1736" />
-              <mxPoint x="930" y="1825" />
-              <mxPoint x="935" y="1825" />
+              <mxPoint x="744.0" y="1185.2" />
+              <mxPoint x="744.0" y="1252.0" />
+              <mxPoint x="748.0" y="1252.0" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="state_select_cb" source="current_1_0" target="cat_cell_6" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=0.5;entryY=0;dashed=1;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1170" y="1774" />
-              <mxPoint x="1170" y="1825" />
-              <mxPoint x="1160" y="1825" />
+              <mxPoint x="936.0" y="1213.8" />
+              <mxPoint x="936.0" y="1252.0" />
+              <mxPoint x="928.0" y="1252.0" />
             </Array>
           </mxGeometry>
         </mxCell>

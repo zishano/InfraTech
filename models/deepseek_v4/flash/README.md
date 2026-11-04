@@ -47,7 +47,7 @@
 
 ## CSA / HCA 详细页
 
-两页均自下而上，左侧为主 KV 压缩器，中间为索引生成，右侧为共享 K=V 注意力；底部另列 prefill / decode 状态与窗口实例。A、I、Qr 是跨面板的同名张量端口，表示数据引用，避免长连线混淆。
+两页均自下而上，按“左侧压缩器 → 中间共享 K=V 注意力 ← 右侧索引器／索引生成”排列；底部独立放置 prefill / decode 状态与窗口实例。详细页为 1920×1440 的横向版面，模块间留独立通道，算子间距按分支收紧。总图以主干居中，左侧放 mHC / MoE，右侧放注意力 / 压缩器，使相关展开模块相邻。A、I、Qr 是跨面板的同名张量端口，表示数据引用，避免长连线混淆。
 
 - **CSA**：Wkv / Wgate 分支、APE、Ca/Cb 通道拆分、前窗 Ca + 当前窗 Cb 的 8 槽重叠窗口、逐通道 gate softmax、KV 值旁路、加权求和、RMSNorm、RoPE / FP8 模拟、缓存写入。独立 Indexer 展开 Q、128 维压缩 key、head-weight 三条路径，以及 Hadamard、FP4 模拟、ReLU、跨头求和、TP 汇总、因果 mask 和 top-k。
 - **HCA**：128 槽无重叠压缩；不经过 learned Indexer，按位置公式列出全部已完成压缩条目。单独展示 prefill 的未来位置屏蔽、decode 的有效前缀和索引偏移。
