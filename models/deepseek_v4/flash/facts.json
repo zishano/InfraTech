@@ -1,0 +1,358 @@
+{
+  "version": 1,
+  "model": "deepseek-ai/DeepSeek-V4-Flash",
+  "facts": [
+    {
+      "name": "model_type",
+      "value": "deepseek_v4",
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/model_type",
+        "locator": "DeepseekV4Config.model_type, line 99"
+      }
+    },
+    {
+      "name": "vocab_size",
+      "value": 129280,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/vocab_size",
+        "locator": "DeepseekV4Config.vocab_size, line 128"
+      }
+    },
+    {
+      "name": "hidden_size",
+      "value": 4096,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/hidden_size",
+        "locator": "DeepseekV4Config.hidden_size, line 129"
+      }
+    },
+    {
+      "name": "moe_intermediate",
+      "value": 2048,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/moe_intermediate_size",
+        "locator": "DeepseekV4Config.moe_intermediate_size, line 130"
+      }
+    },
+    {
+      "name": "layers",
+      "value": 43,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/num_hidden_layers",
+        "locator": "DeepseekV4Config.num_hidden_layers, line 131"
+      }
+    },
+    {
+      "name": "attention_heads",
+      "value": 64,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/num_attention_heads",
+        "locator": "DeepseekV4Config.num_attention_heads, line 132"
+      }
+    },
+    {
+      "name": "kv_heads",
+      "value": 1,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/num_key_value_heads",
+        "locator": "DeepseekV4Config.num_key_value_heads, line 133"
+      }
+    },
+    {
+      "name": "head_dim",
+      "value": 512,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/head_dim",
+        "locator": "DeepseekV4Config.head_dim, line 134"
+      }
+    },
+    {
+      "name": "q_lora_rank",
+      "value": 1024,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/q_lora_rank",
+        "locator": "DeepseekV4Config.q_lora_rank, line 135"
+      }
+    },
+    {
+      "name": "active_experts",
+      "value": 6,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/num_experts_per_tok",
+        "locator": "DeepseekV4Config.num_experts_per_tok, line 137"
+      }
+    },
+    {
+      "name": "routed_experts",
+      "value": 256,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/n_routed_experts",
+        "locator": "DeepseekV4Config.n_routed_experts, line 138"
+      }
+    },
+    {
+      "name": "shared_experts",
+      "value": 1,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/n_shared_experts",
+        "locator": "DeepseekV4Config.n_shared_experts, line 139"
+      }
+    },
+    {
+      "name": "router_scoring",
+      "value": "sqrtsoftplus",
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/scoring_func",
+        "locator": "DeepseekV4Config.scoring_func, line 140"
+      }
+    },
+    {
+      "name": "context_config_limit",
+      "value": 1048576,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/max_position_embeddings",
+        "locator": "DeepseekV4Config.max_position_embeddings, line 143"
+      }
+    },
+    {
+      "name": "layer_types",
+      "value": null,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/layer_types",
+        "locator": "DeepseekV4Config.layer_types, line 146"
+      }
+    },
+    {
+      "name": "compress_rates",
+      "value": null,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/compress_rates",
+        "locator": "DeepseekV4Config.compress_rates, line 147"
+      }
+    },
+    {
+      "name": "default_compress_rates",
+      "value": {
+        "compressed_sparse_attention": 4,
+        "heavily_compressed_attention": 128
+      },
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/default_compress_rates",
+        "locator": "DeepseekV4Config.default_compress_rates, line 148"
+      }
+    },
+    {
+      "name": "hc_streams",
+      "value": 4,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/hc_mult",
+        "locator": "DeepseekV4Config.hc_mult, line 150"
+      }
+    },
+    {
+      "name": "sinkhorn_iterations",
+      "value": 20,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/hc_sinkhorn_iters",
+        "locator": "DeepseekV4Config.hc_sinkhorn_iters, line 151"
+      }
+    },
+    {
+      "name": "mlp_layer_types",
+      "value": null,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/mlp_layer_types",
+        "locator": "DeepseekV4Config.mlp_layer_types, line 153"
+      }
+    },
+    {
+      "name": "default_hash_layers",
+      "value": 3,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/default_num_hash_layers",
+        "locator": "DeepseekV4Config.default_num_hash_layers, line 154"
+      }
+    },
+    {
+      "name": "swiglu_limit",
+      "value": 10.0,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/swiglu_limit",
+        "locator": "DeepseekV4Config.swiglu_limit, line 155"
+      }
+    },
+    {
+      "name": "sliding_window",
+      "value": 128,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/sliding_window",
+        "locator": "DeepseekV4Config.sliding_window, line 156"
+      }
+    },
+    {
+      "name": "output_groups",
+      "value": 8,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/o_groups",
+        "locator": "DeepseekV4Config.o_groups, line 157"
+      }
+    },
+    {
+      "name": "output_rank_per_group",
+      "value": 1024,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/o_lora_rank",
+        "locator": "DeepseekV4Config.o_lora_rank, line 158"
+      }
+    },
+    {
+      "name": "index_heads",
+      "value": 64,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/index_n_heads",
+        "locator": "DeepseekV4Config.index_n_heads, line 159"
+      }
+    },
+    {
+      "name": "index_head_dim",
+      "value": 128,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/index_head_dim",
+        "locator": "DeepseekV4Config.index_head_dim, line 160"
+      }
+    },
+    {
+      "name": "index_topk",
+      "value": 512,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/index_topk",
+        "locator": "DeepseekV4Config.index_topk, line 161"
+      }
+    }
+  ],
+  "weight_indexes": [],
+  "sources": {
+    "transformers_config": "https://raw.githubusercontent.com/huggingface/transformers/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/configuration_deepseek_v4.py",
+    "transformers_model": "https://raw.githubusercontent.com/huggingface/transformers/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/modeling_deepseek_v4.py",
+    "transformers_modular": "https://raw.githubusercontent.com/huggingface/transformers/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/modular_deepseek_v4.py"
+  },
+  "limitations": [
+    "Config declarations do not prove forward-pass connectivity.",
+    "Python class defaults are not checkpoint values; initialization methods are not executed.",
+    "Context config limit is not independently validated usable context.",
+    "Conflicting aliases are retained, never silently overwritten.",
+    "Attention gates, positional encoding, residual paths and expert routing require source/report review."
+  ]
+}

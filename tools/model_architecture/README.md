@@ -24,7 +24,7 @@ python tools/model_architecture/model_architecture.py init org/NewModel \
   --out /workspace/new-model/sources.json
 ```
 
-审阅 `sources.json`：将 `main` 改为已核对的 HF revision / GitHub commit；添加模型的 `configuration_*.py`、`modeling_*.py`、processor、报告等具体文件链接。GitHub raw 形式为 `https://raw.githubusercontent.com/owner/repo/COMMIT/path`。来源种类使用 `config`、`weight_index`、`documentation` 或 `implementation`。报告 PDF 可以收集后用 `pdftotext` 阅读。不要将 `.py` 下载后直接 import 或启用 `trust_remote_code`。
+审阅 `sources.json`：将 `main` 改为已核对的 HF revision / GitHub commit；添加模型的 `configuration_*.py`、`modeling_*.py`、processor、报告等具体文件链接。GitHub raw 形式为 `https://raw.githubusercontent.com/owner/repo/COMMIT/path`。来源种类使用 `config`、`weight_index`、`documentation`、`implementation` 或 `configuration_code`。后者只用 AST 读取 Python 配置类的字面量默认值，不执行 import、类体、函数调用或 `__post_init__`；提取结果标注为 source class default，不能冒充 checkpoint 配置。报告 PDF 可以收集后用 `pdftotext` 阅读。不要将 `.py` 下载后直接 import 或启用 `trust_remote_code`。
 
 首次发现路径可从 HF 模型文件列表、config 的 `auto_map` 和 `architectures` 入手，再查看 Transformers 或官方仓库对应模型目录。路径发现和源码语义分析目前由使用者/AI 执行，不是此脚本的自动搜索能力。不要把相似模型的实现冒充为目标模型实现。
 
@@ -120,3 +120,9 @@ python tools/model_architecture/model_architecture.py verify-png \
 `export-png` 现在会测量实际渲染的文字边界和连线，并在以下情况拒绝导出：文字超出节点、文字到边界的最小留白少于 2 个原生坐标单位、正交连线出现斜向错位线段，或连线穿过无关运算节点。诊断保存在 PNG 同名 `.layout.json`；配对 manifest 包含其哈希，`verify-png` 也会校验它。
 
 容器背景、标题、图例等应在 graph JSON 中标记 `kind: "decoration"`，生成器自动写入 `architectureDecoration=1` 样式，避免将合法背景容器误判为运算节点。导入外部原生 XML 时也需标记这类非运算背景。布局检查不能证明架构语义正确，也不保证其他客户端的字体渲染完全相同。
+
+## 第二个模型测试：DeepSeek-V4-Flash
+
+见 [源码核对版交付](../../models/deepseek_v4/flash/README.md) 和 `examples/deepseek_v4_flash.graph.json`。新增 `configuration_code` 收集类型可在 checkpoint config 暂不可读时提取框架配置类默认值；每项保存声明行号和 `source_class_default_not_checkpoint` 标签。不会运行初始化逻辑或自动推断逐层排布。
+
+此次成功收集固定提交的 Transformers 配置／模型／modular 源码，提取 28 项类默认值，生成含 mHC、MQA、CSA/HCA、Indexer 和 MoE 分支的配对图。目标 HF config 与权重索引仍未读取，尤其不把代码中的 Pro fallback 排布套到 Flash。

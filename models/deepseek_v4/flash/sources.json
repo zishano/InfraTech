@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "model": "deepseek-ai/DeepSeek-V4-Flash",
+  "revision": "f2754311602414ed561cdf8ed9d852390f514404",
+  "sources": [
+    {
+      "id": "transformers_config",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/configuration_deepseek_v4.py",
+      "kind": "configuration_code",
+      "required": true
+    },
+    {
+      "id": "transformers_model",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/modeling_deepseek_v4.py",
+      "kind": "implementation",
+      "required": true
+    },
+    {
+      "id": "transformers_modular",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/modular_deepseek_v4.py",
+      "kind": "implementation",
+      "required": true
+    },
+    {
+      "id": "config",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/resolve/main/config.json",
+      "kind": "config",
+      "required": true
+    },
+    {
+      "id": "model_card",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/resolve/main/README.md",
+      "kind": "documentation",
+      "required": false
+    },
+    {
+      "id": "weight_index",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/resolve/main/model.safetensors.index.json",
+      "kind": "weight_index",
+      "required": false
+    }
+  ]
+}

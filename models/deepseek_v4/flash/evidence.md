@@ -1,0 +1,294 @@
+# DeepSeek-V4-Flash — Transformers implementation study
+
+This is a reviewed conceptual graph, not an executed model trace.
+
+- **defaults** [verified]: DEFAULTS: 43 layers · hidden 4096 · 64 Q heads / 1 KV head · head dim 512 · 256 experts, top-6 + 1 shared · mHC streams 4
+  - model: DeepseekV4Config defaults / DeepseekV4Attention / DeepseekV4SparseMoeBlock
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hc_x** [verified]: X: four streams [B,T,4,4096]
+  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hc_flat** [verified]: Flatten streams → unweighted / RMSNorm
+  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hc_linear** [verified]: Linear fn: 16384 → 24 coefficients / Scale + bias; split pre / post / / comb
+  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hc_pre** [verified]: pre = / sigmoid(·) / + eps
+  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hc_post** [verified]: post = 2 / sigmoid(·)
+  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hc_comb** [verified]: comb / logits / [4 × 4]
+  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hc_soft** [verified]: Row softmax / + eps
+  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hc_sink** [verified]: Sinkhorn: 20 / iterations / Doubly / stochastic comb
+  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hc_collapse** [verified]: Collapse input streams / h = sum(pre_i × X_i)
+  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hc_norm** [verified]: RMSNorm of h
+  - model: DeepseekV4DecoderLayer.forward, lines 1175–1186
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hc_fun** [verified]: Attention OR MoE FFN / F(h) [B,T,4096]
+  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hc_expand** [verified]: Expand block output / post × F(h)
+  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hc_residual** [verified]: Residual stream mixing / combᵀ × X
+  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hc_sum** [verified]: +
+  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hc_y** [verified]: Updated streams / [B,T,4,4096]
+  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_tokens** [verified]: Input token IDs
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_embed** [verified]: Token embedding [B,T,4096]
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_streams** [verified]: Repeat embedding into 4 streams
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_layer_x** [verified]: Layer input X [B,T,4,4096]
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_attn_pre** [verified]: Attention mHC: pre-collapse; compute post, comb
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_attn_norm** [verified]: RMSNorm [4096]
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_attn_core** [verified]: Layer-selected attention / SWA + (CSA OR HCA); exact schedule unknown
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_attn_mix** [verified]: post × attention output + combᵀ × X
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_ffn_pre** [verified]: FFN mHC: pre-collapse; compute post, comb
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_ffn_norm** [verified]: RMSNorm [4096]
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_ffn** [verified]: Hash-MoE or learned top-k MoE
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_ffn_mix** [verified]: post × FFN output + combᵀ × residual
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_layer_y** [verified]: Layer output streams / Repeat this decoder layer 43× (class default)
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_hyperhead** [verified]: HyperHead: learned sigmoid-weighted / collapse 4 streams → one hidden state
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_norm** [verified]: Final RMSNorm [4096]
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_head** [verified]: LM head: 4096 → vocabulary 129280
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **main_output** [verified]: Next-token logits
+  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_x** [verified]: h [B,T,4096]
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_qa** [verified]: Q Linear 4096 → 1024
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_qan** [verified]: RMSNorm → q_residual
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_qb** [verified]: Q up: 1024 → 64 × 512
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_qn** [verified]: Per-head unweighted / RMSNorm
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_qrope** [verified]: Partial RoPE: / trailing 64 dims
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_kv** [verified]: KV Linear: 4096 → 512
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_kvn** [verified]: RMSNorm [512]
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_kvrope** [verified]: Partial RoPE (64 / dims)
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_local** [verified]: Sliding cache: window 128 / K and V are the SAME / tensor
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_compressor** [verified]: Layer-selected CSA / (4) OR HCA (128) / None for sliding-only
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_entries** [verified]: Compressed historical / entries / Single shared KV head
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_mask** [verified]: CSA: causal + top-512 / mask / HCA: causal mask; no / indexer
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_concat** [verified]: Concatenate local KV and compressed history / Per-query mask; K = V
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_core** [verified]: Scaled dot-product attention / Softmax over KV logits + learnable sink / Discard sink probability; multiply shared V
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_sink** [verified]: Learned / sink / per Q / head
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_inverse** [verified]: Inverse partial RoPE on attention output / Use conjugate rotation at query position
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_oa** [verified]: Grouped O_a: 8 groups / Per-group 4096 → 1024
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_ob** [verified]: Flatten 8 × 1024 → O_b → 4096
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **attn_y** [verified]: Attention output [B,T,4096]
+  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **csa_x** [verified]: Hidden states h [4096]
+  - model: DeepseekV4CSACompressor.forward, lines 620–700
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **csa_kv** [verified]: Linear KV: / 4096 → 2 × 512
+  - model: DeepseekV4CSACompressor.forward, lines 620–700
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **csa_gate** [verified]: Linear gates: / 4096 → 2 × 512
+  - model: DeepseekV4CSACompressor.forward, lines 620–700
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **csa_window** [verified]: Overlap Ca / Cb: effective width / 8, stride 4 / Buffer previous Ca across calls
+  - model: DeepseekV4CSACompressor.forward, lines 620–700
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **csa_bias** [verified]: GATE PATH: + position bias / FP32 softmax within compression / window
+  - model: DeepseekV4CSACompressor.forward, lines 620–700
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **csa_sum** [verified]: Weighted sum of projected KV / One vector [512] per completed / window
+  - model: DeepseekV4CSACompressor.forward, lines 620–700
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **csa_norm** [verified]: RMSNorm [512]
+  - model: DeepseekV4CSACompressor.forward, lines 620–700
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **csa_rope** [verified]: Partial RoPE at window position / Append to compressed KV cache
+  - model: DeepseekV4CSACompressor.forward, lines 620–700
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **csa_out** [verified]: Lightning Indexer → top-512 / validity mask / Only chosen entries are visible / to each query
+  - model: DeepseekV4CSACompressor.forward, lines 620–700
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hca_x** [verified]: Hidden states h [4096]
+  - model: DeepseekV4HCACompressor.forward, lines 391–440
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hca_kv** [verified]: Linear KV: / 4096 → 512
+  - model: DeepseekV4HCACompressor.forward, lines 391–440
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hca_gate** [verified]: Linear gates: / 4096 → 512
+  - model: DeepseekV4HCACompressor.forward, lines 391–440
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hca_window** [verified]: Non-overlapping 128-token / windows / Buffer partial window across / calls
+  - model: DeepseekV4HCACompressor.forward, lines 391–440
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hca_bias** [verified]: GATE PATH: + position bias / FP32 softmax within compression / window
+  - model: DeepseekV4HCACompressor.forward, lines 391–440
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hca_sum** [verified]: Weighted sum of projected KV / One vector [512] per completed / window
+  - model: DeepseekV4HCACompressor.forward, lines 391–440
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hca_norm** [verified]: RMSNorm [512]
+  - model: DeepseekV4HCACompressor.forward, lines 391–440
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hca_rope** [verified]: Partial RoPE at window position / Append to compressed KV cache
+  - model: DeepseekV4HCACompressor.forward, lines 391–440
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **hca_out** [verified]: Causal visibility mask / All completed compressed / entries; NO indexer
+  - model: DeepseekV4HCACompressor.forward, lines 391–440
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **moe_x** [verified]: h [4096] and token IDs (hash route)
+  - model: DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **moe_shared** [verified]: One shared expert / 4096 → 2048 → 4096
+  - model: DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **moe_router** [verified]: Learned score: Linear → sqrtsoftplus / Hash: tid2eid[token IDs] selects / experts / Else: top-6(scores + correction / bias)
+  - model: DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **moe_weights** [verified]: Gather ORIGINAL scores / Normalize selected weights × / 1.5
+  - model: DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **moe_bank** [verified]: 256 routed experts; activate 6 / Input / output width 4096 / Expert intermediate width 2048
+  - model: DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **moe_sum** [verified]: Weighted routed output
+  - model: DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **moe_add** [verified]: +
+  - model: DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **moe_y** [verified]: MoE output [4096]
+  - model: DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **expert_x** [verified]: Expert input x [4096]
+  - model: DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **expert_up** [verified]: Linear W_up / 4096 → 2048 / clip to [-10,10]
+  - model: DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **expert_gate** [verified]: Linear W_gate / 4096 → 2048 / clip MAX at 10 / then SiLU
+  - model: DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **expert_mul** [verified]: Elementwise product / SiLU(clipped gate) × / clipped up
+  - model: DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **expert_down** [verified]: W_down: 2048 → 4096
+  - model: DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **expert_y** [verified]: Expert output [4096]
+  - model: DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **idx_q** [verified]: q_residual [1024]
+  - model: DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **idx_qproj** [verified]: Index Q projection: 64 × 128 / Partial RoPE at query position
+  - model: DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **idx_key** [verified]: h → independent overlapping compressor / Index-head width 128; stride 4
+  - model: DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **idx_kcache** [verified]: Normalized + partial-RoPE compressed keys / Own cache / previous-window Ca state
+  - model: DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **idx_h** [verified]: h [4096] → Linear W_weights / 64 query-head scoring weights
+  - model: DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **idx_score** [verified]: sum_h w_h ReLU(Q_index · K_comp) / Scale: 128^-0.5 × 64^-0.5 / Causal masking before top-k
+  - model: DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **idx_select** [verified]: Top min(512, compressed length) / Mark invalid future entries as -1 / Build per-query CSA mask
+  - model: DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456
+  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+
+## Sources
+
+- model: https://github.com/huggingface/transformers/blob/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/modeling_deepseek_v4.py
+- config: https://github.com/huggingface/transformers/blob/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/configuration_deepseek_v4.py
+
+## Limitations
+
+- Flash-Base class defaults, not downloaded DeepSeek-V4-Flash checkpoint configuration.
+- HF config/model card/weight index blocked by current network policy; no weights or inference tested.
+- Exact layer_types/compress_ratios schedule unknown; the Pro fallback schedule is NOT assigned to Flash.
+- This is the pinned Transformers reference implementation, not an assertion about every serving-engine kernel.
+- No independently verified parameter recount; 284B/13B headline is deliberately omitted.
+- MTP is declared in configuration but not instantiated by this Transformers model.

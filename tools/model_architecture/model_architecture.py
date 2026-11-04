@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Evidence collection and editable architecture diagrams; Python standard library only."""
 import argparse
+import ast
 import collections
 import hashlib
 import json
@@ -97,17 +98,51 @@ FIELDS = {
     'max_position_embeddings': 'context_config_limit', 'layer_types': 'layer_types',
     'architectures': 'architectures', 'model_type': 'model_type',
     'q_lora_rank': 'q_lora_rank', 'kv_lora_rank': 'kv_lora_rank',
+    'hc_mult': 'hc_streams', 'hc_sinkhorn_iters': 'sinkhorn_iterations',
+    'sliding_window': 'sliding_window', 'o_groups': 'output_groups',
+    'o_lora_rank': 'output_rank_per_group', 'index_n_heads': 'index_heads',
+    'index_head_dim': 'index_head_dim', 'index_topk': 'index_topk',
+    'compress_rates': 'compress_rates', 'default_compress_rates': 'default_compress_rates',
+    'mlp_layer_types': 'mlp_layer_types', 'default_num_hash_layers': 'default_hash_layers',
+    'swiglu_limit': 'swiglu_limit', 'scoring_func': 'router_scoring',
 }
+
+def class_defaults(raw, source):
+    """Extract literal class declarations without importing or executing model code."""
+    facts=[]
+    for cls in ast.parse(raw.decode('utf-8')).body:
+        if not isinstance(cls, ast.ClassDef):
+            continue
+        for stmt in cls.body:
+            name=None;value=None
+            if isinstance(stmt,ast.AnnAssign) and isinstance(stmt.target,ast.Name):
+                name=stmt.target.id;value=stmt.value
+            elif isinstance(stmt,ast.Assign) and len(stmt.targets)==1 and isinstance(stmt.targets[0],ast.Name):
+                name=stmt.targets[0].id;value=stmt.value
+            if name not in FIELDS or value is None:
+                continue
+            try:
+                literal=ast.literal_eval(value)
+            except (ValueError,TypeError,SyntaxError):
+                continue
+            facts.append(dict(name=FIELDS[name],value=literal,status='verified',
+                              verification_scope='source_class_default_not_checkpoint',scope='/'+cls.name,
+                              evidence=dict(source=source,pointer=f'/{cls.name}/{name}',
+                                            locator=f'{cls.name}.{name}, line {stmt.lineno}')))
+    return facts
 
 def extract(directory):
     directory = Path(directory); inventory = read(directory / 'inventory.json')
     facts, weights = [], []
     for s in inventory['sources']:
-        if s['status'] != 'downloaded' or s['kind'] not in ('config', 'weight_index'):
+        if s['status'] != 'downloaded' or s['kind'] not in ('config', 'weight_index', 'configuration_code'):
             continue
         path = directory / s['path']; raw = path.read_bytes()
         if hashlib.sha256(raw).hexdigest() != s['sha256']:
             raise ValueError('Source hash mismatch: ' + s['id'])
+        if s['kind']=='configuration_code':
+            facts.extend(class_defaults(raw,s['id']))
+            continue
         obj = json.loads(raw)
         if s['kind'] == 'weight_index':
             mapping = obj.get('weight_map')
@@ -134,6 +169,7 @@ def extract(directory):
     return dict(version=1, model=inventory.get('model'), facts=facts, weight_indexes=weights,
                 sources={s['id']: s.get('final_url', s.get('url', s['id'])) for s in inventory['sources'] if s['status']=='downloaded'},
                 limitations=['Config declarations do not prove forward-pass connectivity.',
+                             'Python class defaults are not checkpoint values; initialization methods are not executed.',
                              'Context config limit is not independently validated usable context.',
                              'Conflicting aliases are retained, never silently overwritten.',
                              'Attention gates, positional encoding, residual paths and expert routing require source/report review.'])
@@ -215,7 +251,8 @@ def draft(facts):
            dict(id='pending',label='Architecture review required\nRead forward() / technical report\nExpand branches, gates, residuals and caches',box=[300,330,600,170],status='unverified'),
            dict(id='output',label='Model outputs — verify task / heads',box=[300,180,600,70],status='unverified')]
     for i,f in enumerate(facts['facts']):
-        nodes.append(dict(id=f'fact_{i}',label=f'{f["scope"]}: {f["name"]} = {json.dumps(f["value"],ensure_ascii=False)}',box=[50,800+i*90,1100,70],status='verified',evidence=[dict(source=f['evidence']['source'],locator=f['evidence']['pointer'])]))
+        suffix=' [SOURCE DEFAULT; checkpoint unverified]' if f.get('verification_scope')=='source_class_default_not_checkpoint' else ''
+        nodes.append(dict(id=f'fact_{i}',label=f'{f["scope"]}: {f["name"]} = {json.dumps(f["value"],ensure_ascii=False)}'+suffix,box=[50,800+i*90,1100,70],status='verified',evidence=[dict(source=f['evidence']['source'],locator=f['evidence'].get('locator',f['evidence']['pointer']))]))
     return dict(version=1,title=(facts.get('model') or 'New model')+' — INCOMPLETE architecture scaffold',width=1200,height=max(1000,850+len(facts['facts'])*90),nodes=nodes,
                 edges=[dict(source='input',target='pending',dashed=True),dict(source='pending',target='output',dashed=True)],sources=facts.get('sources',{}),
                 limitations=['The three placeholder nodes and their edges are unverified, not a generated model architecture.','Config facts retain their nested scopes; review conflicts before replacing placeholders.'])

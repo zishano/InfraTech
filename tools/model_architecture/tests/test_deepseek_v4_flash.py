@@ -1,0 +1,72 @@
+import importlib.util
+import itertools
+import json
+from pathlib import Path
+import unittest
+
+BASE=Path(__file__).resolve().parents[1]
+REPO=BASE.parents[1]
+def load(name):
+ s=importlib.util.spec_from_file_location(name,BASE/(name+'.py'))
+ m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
+a=load('model_architecture');p=load('png_export')
+
+class DeepseekV4WorkflowTests(unittest.TestCase):
+    def test_class_defaults_are_parsed_without_executing_any_code(self):
+        raw=b'''raise RuntimeError("must never execute")
+class Fixture:
+    hidden_size: int = 4096
+    num_hidden_layers: int = 43
+    layer_types = None
+    q_lora_rank = dangerous_function()
+    def __post_init__(self):
+        raise RuntimeError("must never execute")
+'''
+        f=a.class_defaults(raw,'config_code')
+        self.assertEqual({v['name'] for v in f},{'hidden_size','layers','layer_types'})
+        self.assertTrue(all(v['verification_scope']=='source_class_default_not_checkpoint' for v in f))
+        self.assertTrue(all('line ' in v['evidence']['locator'] for v in f))
+        scaffold=a.draft(dict(model='fixture',facts=f,sources={'config_code':'https://example.org/config.py'}))
+        labels=[n['label'] for n in scaffold['nodes'] if n['id'].startswith('fact_')]
+        self.assertTrue(all('SOURCE DEFAULT; checkpoint unverified' in label for label in labels))
+
+    def test_target_checkpoint_failure_and_defaults_remain_distinct(self):
+        folder=REPO/'models/deepseek_v4/flash'
+        facts=a.read(folder/'facts.json')['facts']
+        self.assertTrue(facts)
+        self.assertTrue(all(f['verification_scope']=='source_class_default_not_checkpoint' for f in facts))
+        self.assertEqual(next(f['value'] for f in facts if f['name']=='layers'),43)
+        inventory=a.read(folder/'source_inventory.json')['sources']
+        self.assertEqual(next(s['status'] for s in inventory if s['id']=='config'),'failed')
+        self.assertEqual(next(s['status'] for s in inventory if s['id']=='transformers_config'),'downloaded')
+
+    def test_compressor_value_paths_and_model_specific_branches(self):
+        g=a.read(BASE/'examples/deepseek_v4_flash.graph.json');a.validate(g)
+        nodes={n['id']:n for n in g['nodes']};edges={(e['source'],e['target']) for e in g['edges']}
+        for kind in ['csa','hca']:
+            self.assertIn((kind+'_window',kind+'_sum'),edges)
+            self.assertIn((kind+'_bias',kind+'_sum'),edges)
+        self.assertIn('NO indexer',nodes['hca_out']['label'])
+        self.assertIn('K and V are the SAME',nodes['attn_local']['label'])
+        for k in ['hc_pre','hc_post','hc_sink','hc_residual','attn_inverse','idx_qproj','idx_kcache','idx_score']:
+            self.assertIn(k,nodes)
+        self.assertIn(('expert_x','expert_gate'),edges)
+        self.assertIn(('expert_x','expert_up'),edges)
+        self.assertNotIn(('expert_up','expert_gate'),edges)
+        self.assertIn('Pro fallback',nodes['schedule']['label'])
+        operations=[n for n in nodes.values() if n.get('kind')!='decoration']
+        for left,right in itertools.combinations(operations,2):
+            x,y,w,h=left['box'];xx,yy,ww,hh=right['box']
+            overlap_x=min(x+w,xx+ww)-max(x,xx)
+            overlap_y=min(y+h,yy+hh)-max(y,yy)
+            self.assertFalse(overlap_x>1 and overlap_y>1,(left['id'],right['id']))
+
+    def test_new_model_png_is_a_direct_checked_xml_export(self):
+        folder=REPO/'models/deepseek_v4/flash'
+        m=p.verify(folder/'deepseek_v4_flash.drawio',folder/'deepseek_v4_flash.png',folder/'deepseek_v4_flash.export.json')
+        _,nv,ne=p.inspect_drawio(folder/'deepseek_v4_flash.drawio')
+        self.assertEqual((m['vertices'],m['edges']),(nv,ne))
+        self.assertEqual((nv,ne),(113,100))
+        p.validate_layout(a.read(folder/'deepseek_v4_flash.layout.json'))
+
+if __name__=='__main__':unittest.main()

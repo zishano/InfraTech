@@ -43,3 +43,7 @@ DeepSeek V4是新一代MoE大语言模型系列，核心包含DeepSeek-V4-Pro与
 - [整体介绍](https://mp.weixin.qq.com/s/8bxXqS2R8Fx5-1TLDBiEDg)
 - [Pro模型定义](https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro/blob/main/inference/model.py)
 - [Flash模型定义](https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/main/inference/model.py)
+
+## Flash 可编辑架构流程测试
+
+[DeepSeek-V4-Flash 架构试作](flash/README.md)提供配对 PNG / draw.io、逐节点源码证据及可复现命令。当前为固定提交 Transformers 实现核对版，使用 Flash-Base 类默认值；尚未读取目标 checkpoint 配置和权重索引，未将 Pro 回退排布当作 Flash 排布。

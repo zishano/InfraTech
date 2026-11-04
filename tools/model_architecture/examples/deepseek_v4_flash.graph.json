@@ -1,0 +1,3377 @@
+{
+  "version": 1,
+  "title": "DeepSeek-V4-Flash — Transformers implementation study",
+  "width": 3000,
+  "height": 3900,
+  "sources": {
+    "model": "https://github.com/huggingface/transformers/blob/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/modeling_deepseek_v4.py",
+    "config": "https://github.com/huggingface/transformers/blob/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/configuration_deepseek_v4.py"
+  },
+  "nodes": [
+    {
+      "id": "title",
+      "label": "DeepSeek-V4-Flash | Detailed architecture study",
+      "box": [
+        40,
+        15,
+        2920,
+        80
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=42;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "subtitle",
+      "label": "SOURCE-REVIEWED TRANSFORMERS IMPLEMENTATION · Flash-Base class defaults; checkpoint config not read",
+      "box": [
+        40,
+        100,
+        2920,
+        65
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=25;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "defaults",
+      "label": "DEFAULTS: 43 layers · hidden 4096 · 64 Q heads / 1 KV head · head dim 512 · 256 experts, top-6 + 1 shared · mHC streams 4",
+      "box": [
+        40,
+        175,
+        2920,
+        65
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Config defaults / DeepseekV4Attention / DeepseekV4SparseMoeBlock"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "mhc",
+      "label": "",
+      "box": [
+        30,
+        260,
+        940,
+        1450
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;fillColor=#ffffff;dashed=1;"
+    },
+    {
+      "id": "mhc_heading",
+      "label": "mHC: one attention or FFN wrapper ↑",
+      "box": [
+        42,
+        272,
+        916,
+        62
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;"
+    },
+    {
+      "id": "compress",
+      "label": "",
+      "box": [
+        30,
+        1760,
+        940,
+        1460
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;fillColor=#ffffff;dashed=1;"
+    },
+    {
+      "id": "compress_heading",
+      "label": "Layer-selected compressors: CSA OR HCA ↑",
+      "box": [
+        42,
+        1772,
+        916,
+        62
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;"
+    },
+    {
+      "id": "main",
+      "label": "",
+      "box": [
+        1010,
+        260,
+        850,
+        2960
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;fillColor=#ffffff;dashed=1;"
+    },
+    {
+      "id": "main_heading",
+      "label": "Language backbone / repeat layer ↑",
+      "box": [
+        1022,
+        272,
+        826,
+        62
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;"
+    },
+    {
+      "id": "attention",
+      "label": "",
+      "box": [
+        1900,
+        260,
+        1070,
+        1590
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;fillColor=#ffffff;dashed=1;"
+    },
+    {
+      "id": "attention_heading",
+      "label": "Shared-KV MQA + optional compressed history ↑",
+      "box": [
+        1912,
+        272,
+        1046,
+        62
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;"
+    },
+    {
+      "id": "moe",
+      "label": "",
+      "box": [
+        1900,
+        1900,
+        1070,
+        1320
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;fillColor=#ffffff;dashed=1;"
+    },
+    {
+      "id": "moe_heading",
+      "label": "Hash-MoE / routed MoE + shared expert ↑",
+      "box": [
+        1912,
+        1912,
+        1046,
+        62
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;"
+    },
+    {
+      "id": "indexer",
+      "label": "",
+      "box": [
+        30,
+        3270,
+        2940,
+        500
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;fillColor=#ffffff;dashed=1;"
+    },
+    {
+      "id": "indexer_heading",
+      "label": "CSA Lightning Indexer — separate query, key and scoring-weight paths ↑",
+      "box": [
+        42,
+        3282,
+        2916,
+        62
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;"
+    },
+    {
+      "id": "hc_x",
+      "label": "X: four streams [B,T,4,4096]",
+      "box": [
+        70,
+        1580,
+        850,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hc_flat",
+      "label": "Flatten streams → unweighted\nRMSNorm",
+      "box": [
+        500,
+        1470,
+        400,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hc_linear",
+      "label": "Linear fn: 16384 → 24 coefficients\nScale + bias; split pre / post /\ncomb",
+      "box": [
+        500,
+        1370,
+        400,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hc_pre",
+      "label": "pre =\nsigmoid(·)\n+ eps",
+      "box": [
+        500,
+        1260,
+        120,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hc_post",
+      "label": "post = 2\nsigmoid(·)",
+      "box": [
+        650,
+        1260,
+        120,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hc_comb",
+      "label": "comb\nlogits\n[4 × 4]",
+      "box": [
+        800,
+        1260,
+        120,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hc_soft",
+      "label": "Row softmax\n+ eps",
+      "box": [
+        800,
+        1160,
+        120,
+        70
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hc_sink",
+      "label": "Sinkhorn: 20\niterations\nDoubly\nstochastic comb",
+      "box": [
+        780,
+        1030,
+        160,
+        95
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hc_collapse",
+      "label": "Collapse input streams\nh = sum(pre_i × X_i)",
+      "box": [
+        100,
+        1160,
+        300,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hc_norm",
+      "label": "RMSNorm of h",
+      "box": [
+        100,
+        1040,
+        300,
+        70
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4DecoderLayer.forward, lines 1175–1186"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hc_fun",
+      "label": "Attention OR MoE FFN\nF(h) [B,T,4096]",
+      "box": [
+        100,
+        900,
+        300,
+        100
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hc_expand",
+      "label": "Expand block output\npost × F(h)",
+      "box": [
+        100,
+        730,
+        300,
+        85
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hc_residual",
+      "label": "Residual stream mixing\ncombᵀ × X",
+      "box": [
+        570,
+        730,
+        330,
+        85
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hc_sum",
+      "label": "+",
+      "box": [
+        215,
+        550,
+        70,
+        70
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;shape=ellipse;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hc_y",
+      "label": "Updated streams\n[B,T,4,4096]",
+      "box": [
+        100,
+        400,
+        300,
+        85
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hc_note",
+      "label": "Residual uses comb transpose; all coefficients are computed from X.",
+      "box": [
+        65,
+        1670,
+        850,
+        40
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "main_tokens",
+      "label": "Input token IDs",
+      "box": [
+        1100,
+        3060,
+        670,
+        70
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "main_embed",
+      "label": "Token embedding [B,T,4096]",
+      "box": [
+        1100,
+        2940,
+        670,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "main_streams",
+      "label": "Repeat embedding into 4 streams",
+      "box": [
+        1100,
+        2810,
+        670,
+        85
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "main_layer_x",
+      "label": "Layer input X [B,T,4,4096]",
+      "box": [
+        1100,
+        2600,
+        670,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "main_attn_pre",
+      "label": "Attention mHC: pre-collapse; compute post, comb",
+      "box": [
+        1100,
+        2450,
+        670,
+        90
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "main_attn_norm",
+      "label": "RMSNorm [4096]",
+      "box": [
+        1100,
+        2300,
+        670,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "main_attn_core",
+      "label": "Layer-selected attention\nSWA + (CSA OR HCA); exact schedule unknown",
+      "box": [
+        1100,
+        2130,
+        670,
+        110
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "main_attn_mix",
+      "label": "post × attention output + combᵀ × X",
+      "box": [
+        1100,
+        1980,
+        670,
+        90
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "main_ffn_pre",
+      "label": "FFN mHC: pre-collapse; compute post, comb",
+      "box": [
+        1100,
+        1820,
+        670,
+        90
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "main_ffn_norm",
+      "label": "RMSNorm [4096]",
+      "box": [
+        1100,
+        1670,
+        670,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "main_ffn",
+      "label": "Hash-MoE or learned top-k MoE",
+      "box": [
+        1100,
+        1520,
+        670,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "main_ffn_mix",
+      "label": "post × FFN output + combᵀ × residual",
+      "box": [
+        1100,
+        1360,
+        670,
+        90
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "main_layer_y",
+      "label": "Layer output streams\nRepeat this decoder layer 43× (class default)",
+      "box": [
+        1100,
+        1180,
+        670,
+        100
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "main_hyperhead",
+      "label": "HyperHead: learned sigmoid-weighted\ncollapse 4 streams → one hidden state",
+      "box": [
+        1100,
+        690,
+        670,
+        110
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "main_norm",
+      "label": "Final RMSNorm [4096]",
+      "box": [
+        1100,
+        550,
+        670,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "main_head",
+      "label": "LM head: 4096 → vocabulary 129280",
+      "box": [
+        1100,
+        445,
+        670,
+        70
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "main_output",
+      "label": "Next-token logits",
+      "box": [
+        1100,
+        350,
+        670,
+        60
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "schedule",
+      "label": "IMPORTANT: do not copy Pro fallback layer_types.\nCheckpoint-specific CSA/HCA ordering is unverified.\nMTP: config declares 1; this class does not\ninstantiate it.",
+      "box": [
+        1070,
+        875,
+        730,
+        180
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "attn_x",
+      "label": "h [B,T,4096]",
+      "box": [
+        1940,
+        1720,
+        990,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_qa",
+      "label": "Q Linear 4096 → 1024",
+      "box": [
+        1940,
+        1580,
+        270,
+        70
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_qan",
+      "label": "RMSNorm → q_residual",
+      "box": [
+        1940,
+        1470,
+        270,
+        70
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_qb",
+      "label": "Q up: 1024 → 64 × 512",
+      "box": [
+        1940,
+        1340,
+        270,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_qn",
+      "label": "Per-head unweighted\nRMSNorm",
+      "box": [
+        1940,
+        1210,
+        270,
+        75
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_qrope",
+      "label": "Partial RoPE:\ntrailing 64 dims",
+      "box": [
+        1940,
+        1090,
+        270,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_kv",
+      "label": "KV Linear: 4096 → 512",
+      "box": [
+        2290,
+        1580,
+        270,
+        70
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_kvn",
+      "label": "RMSNorm [512]",
+      "box": [
+        2290,
+        1470,
+        270,
+        70
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_kvrope",
+      "label": "Partial RoPE (64\ndims)",
+      "box": [
+        2290,
+        1340,
+        270,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_local",
+      "label": "Sliding cache: window 128\nK and V are the SAME\ntensor",
+      "box": [
+        2290,
+        1210,
+        270,
+        85
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_compressor",
+      "label": "Layer-selected CSA\n(4) OR HCA (128)\nNone for sliding-only",
+      "box": [
+        2640,
+        1560,
+        270,
+        110
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_entries",
+      "label": "Compressed historical\nentries\nSingle shared KV head",
+      "box": [
+        2640,
+        1410,
+        270,
+        95
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_mask",
+      "label": "CSA: causal + top-512\nmask\nHCA: causal mask; no\nindexer",
+      "box": [
+        2640,
+        1270,
+        270,
+        100
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_concat",
+      "label": "Concatenate local KV and compressed history\nPer-query mask; K = V",
+      "box": [
+        2290,
+        1050,
+        620,
+        100
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_core",
+      "label": "Scaled dot-product attention\nSoftmax over KV logits + learnable sink\nDiscard sink probability; multiply shared V",
+      "box": [
+        2050,
+        850,
+        760,
+        120
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_sink",
+      "label": "Learned\nsink\nper Q\nhead",
+      "box": [
+        2850,
+        850,
+        90,
+        120
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_inverse",
+      "label": "Inverse partial RoPE on attention output\nUse conjugate rotation at query position",
+      "box": [
+        2180,
+        710,
+        500,
+        90
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_oa",
+      "label": "Grouped O_a: 8 groups\nPer-group 4096 → 1024",
+      "box": [
+        2180,
+        560,
+        500,
+        85
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_ob",
+      "label": "Flatten 8 × 1024 → O_b → 4096",
+      "box": [
+        2180,
+        445,
+        500,
+        75
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "attn_y",
+      "label": "Attention output [B,T,4096]",
+      "box": [
+        2180,
+        340,
+        500,
+        65
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "csa_label",
+      "label": "CSA | compression stride 4",
+      "box": [
+        65,
+        1840,
+        400,
+        65
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "csa_x",
+      "label": "Hidden states h [4096]",
+      "box": [
+        65,
+        3090,
+        400,
+        75
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "csa_kv",
+      "label": "Linear KV:\n4096 → 2 × 512",
+      "box": [
+        65,
+        2950,
+        175,
+        95
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "csa_gate",
+      "label": "Linear gates:\n4096 → 2 × 512",
+      "box": [
+        290,
+        2950,
+        175,
+        95
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "csa_window",
+      "label": "Overlap Ca / Cb: effective width\n8, stride 4\nBuffer previous Ca across calls",
+      "box": [
+        65,
+        2770,
+        400,
+        120
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "csa_bias",
+      "label": "GATE PATH: + position bias\nFP32 softmax within compression\nwindow",
+      "box": [
+        65,
+        2580,
+        400,
+        120
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "csa_sum",
+      "label": "Weighted sum of projected KV\nOne vector [512] per completed\nwindow",
+      "box": [
+        65,
+        2410,
+        400,
+        100
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "csa_norm",
+      "label": "RMSNorm [512]",
+      "box": [
+        65,
+        2270,
+        400,
+        75
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "csa_rope",
+      "label": "Partial RoPE at window position\nAppend to compressed KV cache",
+      "box": [
+        65,
+        2100,
+        400,
+        100
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "csa_out",
+      "label": "Lightning Indexer → top-512\nvalidity mask\nOnly chosen entries are visible\nto each query",
+      "box": [
+        65,
+        1915,
+        400,
+        140
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hca_label",
+      "label": "HCA | compression stride 128",
+      "box": [
+        535,
+        1840,
+        400,
+        65
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "hca_x",
+      "label": "Hidden states h [4096]",
+      "box": [
+        535,
+        3090,
+        400,
+        75
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hca_kv",
+      "label": "Linear KV:\n4096 → 512",
+      "box": [
+        535,
+        2950,
+        175,
+        95
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hca_gate",
+      "label": "Linear gates:\n4096 → 512",
+      "box": [
+        760,
+        2950,
+        175,
+        95
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hca_window",
+      "label": "Non-overlapping 128-token\nwindows\nBuffer partial window across\ncalls",
+      "box": [
+        535,
+        2770,
+        400,
+        120
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hca_bias",
+      "label": "GATE PATH: + position bias\nFP32 softmax within compression\nwindow",
+      "box": [
+        535,
+        2580,
+        400,
+        120
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hca_sum",
+      "label": "Weighted sum of projected KV\nOne vector [512] per completed\nwindow",
+      "box": [
+        535,
+        2410,
+        400,
+        100
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hca_norm",
+      "label": "RMSNorm [512]",
+      "box": [
+        535,
+        2270,
+        400,
+        75
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hca_rope",
+      "label": "Partial RoPE at window position\nAppend to compressed KV cache",
+      "box": [
+        535,
+        2100,
+        400,
+        100
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "hca_out",
+      "label": "Causal visibility mask\nAll completed compressed\nentries; NO indexer",
+      "box": [
+        535,
+        1915,
+        400,
+        140
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "moe_x",
+      "label": "h [4096] and token IDs (hash route)",
+      "box": [
+        1940,
+        3080,
+        990,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "moe_shared",
+      "label": "One shared expert\n4096 → 2048 → 4096",
+      "box": [
+        1940,
+        2690,
+        260,
+        100
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "moe_router",
+      "label": "Learned score: Linear → sqrtsoftplus\nHash: tid2eid[token IDs] selects\nexperts\nElse: top-6(scores + correction\nbias)",
+      "box": [
+        2250,
+        2910,
+        360,
+        120
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "moe_weights",
+      "label": "Gather ORIGINAL scores\nNormalize selected weights ×\n1.5",
+      "box": [
+        2250,
+        2740,
+        360,
+        100
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "moe_bank",
+      "label": "256 routed experts; activate 6\nInput / output width 4096\nExpert intermediate width 2048",
+      "box": [
+        2250,
+        2540,
+        360,
+        130
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "moe_sum",
+      "label": "Weighted routed output",
+      "box": [
+        2250,
+        2370,
+        360,
+        95
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "moe_add",
+      "label": "+",
+      "box": [
+        2395,
+        2220,
+        70,
+        70
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=30;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;shape=ellipse;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "moe_y",
+      "label": "MoE output [4096]",
+      "box": [
+        2250,
+        2070,
+        360,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "expert_x",
+      "label": "Expert input x [4096]",
+      "box": [
+        2660,
+        2990,
+        280,
+        70
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "expert_up",
+      "label": "Linear W_up\n4096 → 2048\nclip to [-10,10]",
+      "box": [
+        2660,
+        2850,
+        280,
+        115
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "expert_gate",
+      "label": "Linear W_gate\n4096 → 2048\nclip MAX at 10\nthen SiLU",
+      "box": [
+        2660,
+        2660,
+        280,
+        150
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "expert_mul",
+      "label": "Elementwise product\nSiLU(clipped gate) ×\nclipped up",
+      "box": [
+        2660,
+        2440,
+        280,
+        130
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "expert_down",
+      "label": "W_down: 2048 → 4096",
+      "box": [
+        2660,
+        2260,
+        280,
+        100
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "expert_y",
+      "label": "Expert output [4096]",
+      "box": [
+        2660,
+        2100,
+        280,
+        90
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "moe_note",
+      "label": "Hash routing freezes WHICH experts, not their activation weights.\nDefault hash bootstrap count = 3; actual checkpoint schedule not read.",
+      "box": [
+        1940,
+        1990,
+        990,
+        70
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "idx_q",
+      "label": "q_residual [1024]",
+      "box": [
+        80,
+        3650,
+        480,
+        70
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "idx_qproj",
+      "label": "Index Q projection: 64 × 128\nPartial RoPE at query position",
+      "box": [
+        80,
+        3510,
+        480,
+        100
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "idx_key",
+      "label": "h → independent overlapping compressor\nIndex-head width 128; stride 4",
+      "box": [
+        730,
+        3650,
+        600,
+        90
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "idx_kcache",
+      "label": "Normalized + partial-RoPE compressed keys\nOwn cache / previous-window Ca state",
+      "box": [
+        730,
+        3505,
+        600,
+        100
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "idx_h",
+      "label": "h [4096] → Linear W_weights\n64 query-head scoring weights",
+      "box": [
+        1500,
+        3650,
+        600,
+        90
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "idx_score",
+      "label": "sum_h w_h ReLU(Q_index · K_comp)\nScale: 128^-0.5 × 64^-0.5\nCausal masking before top-k",
+      "box": [
+        1500,
+        3500,
+        600,
+        110
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "idx_select",
+      "label": "Top min(512, compressed length)\nMark invalid future entries as -1\nBuild per-query CSA mask",
+      "box": [
+        2320,
+        3470,
+        580,
+        150
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456"
+        },
+        {
+          "source": "config",
+          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+        }
+      ]
+    },
+    {
+      "id": "idx_note",
+      "label": "CSA only. HCA has no Lightning Indexer. Cache buffer / overlap state persists across prefill and decode.",
+      "box": [
+        65,
+        3350,
+        2860,
+        50
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "footer",
+      "label": "Pinned source: huggingface/transformers @ f275431 · configuration_deepseek_v4.py + modeling_deepseek_v4.py\nClass defaults shown; HF checkpoint config / weight index blocked. Exact layer schedule remains UNVERIFIED. No inference or parameter recount performed.",
+      "box": [
+        40,
+        3790,
+        2920,
+        90
+      ],
+      "kind": "decoration",
+      "status": "inferred",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge_0",
+      "source": "hc_x",
+      "target": "hc_flat",
+      "ports": [
+        0.7411764705882353,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "edge_1",
+      "source": "hc_flat",
+      "target": "hc_linear"
+    },
+    {
+      "id": "edge_2",
+      "source": "hc_linear",
+      "target": "hc_pre",
+      "ports": [
+        0.15,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "edge_3",
+      "source": "hc_linear",
+      "target": "hc_post",
+      "ports": [
+        0.525,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "edge_4",
+      "source": "hc_linear",
+      "target": "hc_comb",
+      "ports": [
+        0.9,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "edge_5",
+      "source": "hc_comb",
+      "target": "hc_soft"
+    },
+    {
+      "id": "edge_6",
+      "source": "hc_soft",
+      "target": "hc_sink"
+    },
+    {
+      "id": "edge_7",
+      "source": "hc_x",
+      "target": "hc_collapse",
+      "ports": [
+        0.21176470588235294,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "edge_8",
+      "source": "hc_pre",
+      "target": "hc_collapse",
+      "ports": [
+        0.5,
+        0,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          560,
+          1200
+        ]
+      ]
+    },
+    {
+      "id": "edge_9",
+      "source": "hc_collapse",
+      "target": "hc_norm"
+    },
+    {
+      "id": "edge_10",
+      "source": "hc_norm",
+      "target": "hc_fun"
+    },
+    {
+      "id": "edge_11",
+      "source": "hc_fun",
+      "target": "hc_expand"
+    },
+    {
+      "id": "edge_12",
+      "source": "hc_expand",
+      "target": "hc_sum"
+    },
+    {
+      "id": "edge_13",
+      "source": "hc_sum",
+      "target": "hc_y"
+    },
+    {
+      "id": "edge_14",
+      "source": "hc_post",
+      "target": "hc_expand",
+      "ports": [
+        0.5,
+        0,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          710,
+          860
+        ],
+        [
+          430,
+          860
+        ],
+        [
+          430,
+          772.5
+        ]
+      ]
+    },
+    {
+      "id": "edge_15",
+      "source": "hc_x",
+      "target": "hc_residual",
+      "ports": [
+        1,
+        0.5,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          950,
+          1620
+        ],
+        [
+          950,
+          772.5
+        ]
+      ]
+    },
+    {
+      "id": "edge_16",
+      "source": "hc_sink",
+      "target": "hc_residual",
+      "ports": [
+        0.5,
+        0,
+        0.8787878787878788,
+        1
+      ]
+    },
+    {
+      "id": "edge_17",
+      "source": "hc_residual",
+      "target": "hc_sum",
+      "ports": [
+        0.5,
+        0,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          735,
+          650
+        ],
+        [
+          320,
+          650
+        ],
+        [
+          320,
+          585
+        ]
+      ]
+    },
+    {
+      "id": "edge_18",
+      "source": "main_tokens",
+      "target": "main_embed"
+    },
+    {
+      "id": "edge_19",
+      "source": "main_embed",
+      "target": "main_streams"
+    },
+    {
+      "id": "edge_20",
+      "source": "main_streams",
+      "target": "main_layer_x"
+    },
+    {
+      "id": "edge_21",
+      "source": "main_layer_x",
+      "target": "main_attn_pre"
+    },
+    {
+      "id": "edge_22",
+      "source": "main_attn_pre",
+      "target": "main_attn_norm"
+    },
+    {
+      "id": "edge_23",
+      "source": "main_attn_norm",
+      "target": "main_attn_core"
+    },
+    {
+      "id": "edge_24",
+      "source": "main_attn_core",
+      "target": "main_attn_mix"
+    },
+    {
+      "id": "edge_25",
+      "source": "main_attn_mix",
+      "target": "main_ffn_pre"
+    },
+    {
+      "id": "edge_26",
+      "source": "main_ffn_pre",
+      "target": "main_ffn_norm"
+    },
+    {
+      "id": "edge_27",
+      "source": "main_ffn_norm",
+      "target": "main_ffn"
+    },
+    {
+      "id": "edge_28",
+      "source": "main_ffn",
+      "target": "main_ffn_mix"
+    },
+    {
+      "id": "edge_29",
+      "source": "main_ffn_mix",
+      "target": "main_layer_y"
+    },
+    {
+      "id": "edge_30",
+      "source": "main_layer_y",
+      "target": "main_hyperhead",
+      "ports": [
+        1,
+        0.5,
+        0.5,
+        1
+      ],
+      "points": [
+        [
+          1810,
+          1230
+        ],
+        [
+          1810,
+          835
+        ],
+        [
+          1435,
+          835
+        ]
+      ]
+    },
+    {
+      "id": "edge_31",
+      "source": "main_hyperhead",
+      "target": "main_norm"
+    },
+    {
+      "id": "edge_32",
+      "source": "main_norm",
+      "target": "main_head"
+    },
+    {
+      "id": "edge_33",
+      "source": "main_head",
+      "target": "main_output"
+    },
+    {
+      "id": "edge_34",
+      "source": "main_layer_x",
+      "target": "main_attn_mix",
+      "ports": [
+        1,
+        0.5,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          1825,
+          2640
+        ],
+        [
+          1825,
+          2025
+        ]
+      ]
+    },
+    {
+      "id": "edge_35",
+      "source": "main_attn_pre",
+      "target": "main_attn_mix",
+      "ports": [
+        0,
+        0.5,
+        0,
+        0.5
+      ],
+      "points": [
+        [
+          1050,
+          2495
+        ],
+        [
+          1050,
+          2025
+        ]
+      ],
+      "dashed": true
+    },
+    {
+      "id": "edge_36",
+      "source": "main_attn_mix",
+      "target": "main_ffn_mix",
+      "ports": [
+        1,
+        0.5,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          1840,
+          2025
+        ],
+        [
+          1840,
+          1405
+        ]
+      ]
+    },
+    {
+      "id": "edge_37",
+      "source": "main_ffn_pre",
+      "target": "main_ffn_mix",
+      "ports": [
+        0,
+        0.5,
+        0,
+        0.5
+      ],
+      "points": [
+        [
+          1035,
+          1865
+        ],
+        [
+          1035,
+          1405
+        ]
+      ],
+      "dashed": true
+    },
+    {
+      "id": "edge_38",
+      "source": "attn_x",
+      "target": "attn_qa",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "points": [
+        [
+          2435,
+          1695
+        ],
+        [
+          2075.0,
+          1695
+        ]
+      ]
+    },
+    {
+      "id": "edge_39",
+      "source": "attn_x",
+      "target": "attn_kv",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "points": [
+        [
+          2435,
+          1695
+        ],
+        [
+          2425.0,
+          1695
+        ]
+      ]
+    },
+    {
+      "id": "edge_40",
+      "source": "attn_x",
+      "target": "attn_compressor",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "points": [
+        [
+          2435,
+          1695
+        ],
+        [
+          2775.0,
+          1695
+        ]
+      ]
+    },
+    {
+      "id": "edge_41",
+      "source": "attn_qa",
+      "target": "attn_qan"
+    },
+    {
+      "id": "edge_42",
+      "source": "attn_qan",
+      "target": "attn_qb"
+    },
+    {
+      "id": "edge_43",
+      "source": "attn_qb",
+      "target": "attn_qn"
+    },
+    {
+      "id": "edge_44",
+      "source": "attn_qn",
+      "target": "attn_qrope"
+    },
+    {
+      "id": "edge_45",
+      "source": "attn_kv",
+      "target": "attn_kvn"
+    },
+    {
+      "id": "edge_46",
+      "source": "attn_kvn",
+      "target": "attn_kvrope"
+    },
+    {
+      "id": "edge_47",
+      "source": "attn_kvrope",
+      "target": "attn_local"
+    },
+    {
+      "id": "edge_48",
+      "source": "attn_compressor",
+      "target": "attn_entries"
+    },
+    {
+      "id": "edge_49",
+      "source": "attn_entries",
+      "target": "attn_mask"
+    },
+    {
+      "id": "edge_50",
+      "source": "attn_local",
+      "target": "attn_concat",
+      "ports": [
+        0.5,
+        0,
+        0.21774193548387097,
+        1
+      ]
+    },
+    {
+      "id": "edge_51",
+      "source": "attn_mask",
+      "target": "attn_concat",
+      "ports": [
+        0.5,
+        0,
+        0.782258064516129,
+        1
+      ]
+    },
+    {
+      "id": "edge_52",
+      "source": "attn_qrope",
+      "target": "attn_core",
+      "ports": [
+        0.5,
+        0,
+        0.03289473684210526,
+        1
+      ]
+    },
+    {
+      "id": "edge_53",
+      "source": "attn_concat",
+      "target": "attn_core",
+      "ports": [
+        0.5,
+        0,
+        0.7236842105263158,
+        1
+      ]
+    },
+    {
+      "id": "edge_54",
+      "source": "attn_sink",
+      "target": "attn_core",
+      "ports": [
+        0,
+        0.5,
+        1,
+        0.5
+      ]
+    },
+    {
+      "id": "edge_55",
+      "source": "attn_core",
+      "target": "attn_inverse",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "edge_56",
+      "source": "attn_inverse",
+      "target": "attn_oa"
+    },
+    {
+      "id": "edge_57",
+      "source": "attn_oa",
+      "target": "attn_ob"
+    },
+    {
+      "id": "edge_58",
+      "source": "attn_ob",
+      "target": "attn_y"
+    },
+    {
+      "id": "edge_59",
+      "source": "csa_x",
+      "target": "csa_kv",
+      "ports": [
+        0.21875,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "edge_60",
+      "source": "csa_x",
+      "target": "csa_gate",
+      "ports": [
+        0.78125,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "edge_61",
+      "source": "csa_kv",
+      "target": "csa_window",
+      "ports": [
+        0.5,
+        0,
+        0.22,
+        1
+      ]
+    },
+    {
+      "id": "edge_62",
+      "source": "csa_gate",
+      "target": "csa_window",
+      "ports": [
+        0.5,
+        0,
+        0.78,
+        1
+      ]
+    },
+    {
+      "id": "edge_63",
+      "source": "csa_window",
+      "target": "csa_bias"
+    },
+    {
+      "id": "edge_64",
+      "source": "csa_bias",
+      "target": "csa_sum"
+    },
+    {
+      "id": "edge_65",
+      "source": "csa_sum",
+      "target": "csa_norm"
+    },
+    {
+      "id": "edge_66",
+      "source": "csa_norm",
+      "target": "csa_rope"
+    },
+    {
+      "id": "edge_67",
+      "source": "csa_rope",
+      "target": "csa_out"
+    },
+    {
+      "id": "edge_68",
+      "source": "csa_window",
+      "target": "csa_sum",
+      "ports": [
+        1,
+        0.5,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          485,
+          2830
+        ],
+        [
+          485,
+          2460
+        ]
+      ]
+    },
+    {
+      "id": "edge_69",
+      "source": "hca_x",
+      "target": "hca_kv",
+      "ports": [
+        0.21875,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "edge_70",
+      "source": "hca_x",
+      "target": "hca_gate",
+      "ports": [
+        0.78125,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "edge_71",
+      "source": "hca_kv",
+      "target": "hca_window",
+      "ports": [
+        0.5,
+        0,
+        0.22,
+        1
+      ]
+    },
+    {
+      "id": "edge_72",
+      "source": "hca_gate",
+      "target": "hca_window",
+      "ports": [
+        0.5,
+        0,
+        0.78,
+        1
+      ]
+    },
+    {
+      "id": "edge_73",
+      "source": "hca_window",
+      "target": "hca_bias"
+    },
+    {
+      "id": "edge_74",
+      "source": "hca_bias",
+      "target": "hca_sum"
+    },
+    {
+      "id": "edge_75",
+      "source": "hca_sum",
+      "target": "hca_norm"
+    },
+    {
+      "id": "edge_76",
+      "source": "hca_norm",
+      "target": "hca_rope"
+    },
+    {
+      "id": "edge_77",
+      "source": "hca_rope",
+      "target": "hca_out"
+    },
+    {
+      "id": "edge_78",
+      "source": "hca_window",
+      "target": "hca_sum",
+      "ports": [
+        1,
+        0.5,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          955,
+          2830
+        ],
+        [
+          955,
+          2460
+        ]
+      ]
+    },
+    {
+      "id": "edge_79",
+      "source": "moe_x",
+      "target": "moe_router",
+      "ports": [
+        0.494949494949495,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "edge_80",
+      "source": "moe_router",
+      "target": "moe_weights"
+    },
+    {
+      "id": "edge_81",
+      "source": "moe_x",
+      "target": "moe_bank",
+      "ports": [
+        0.2828282828282828,
+        0,
+        0,
+        0.5
+      ],
+      "points": [
+        [
+          2220,
+          2605
+        ]
+      ]
+    },
+    {
+      "id": "edge_82",
+      "source": "moe_weights",
+      "target": "moe_bank",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "edge_83",
+      "source": "moe_bank",
+      "target": "moe_sum"
+    },
+    {
+      "id": "edge_84",
+      "source": "moe_sum",
+      "target": "moe_add"
+    },
+    {
+      "id": "edge_85",
+      "source": "moe_add",
+      "target": "moe_y"
+    },
+    {
+      "id": "edge_86",
+      "source": "moe_x",
+      "target": "moe_shared",
+      "ports": [
+        0.13131313131313133,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "edge_87",
+      "source": "moe_shared",
+      "target": "moe_add",
+      "ports": [
+        0.5,
+        0,
+        0,
+        0.5
+      ],
+      "points": [
+        [
+          2070,
+          2255
+        ]
+      ]
+    },
+    {
+      "id": "edge_88",
+      "source": "expert_x",
+      "target": "expert_up"
+    },
+    {
+      "id": "edge_89",
+      "source": "expert_x",
+      "target": "expert_gate",
+      "ports": [
+        1,
+        0.5,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          2950,
+          3025
+        ],
+        [
+          2950,
+          2735
+        ]
+      ]
+    },
+    {
+      "id": "edge_90",
+      "source": "expert_up",
+      "target": "expert_mul",
+      "ports": [
+        0,
+        0.5,
+        0,
+        0.5
+      ],
+      "points": [
+        [
+          2640,
+          2907.5
+        ],
+        [
+          2640,
+          2505
+        ]
+      ]
+    },
+    {
+      "id": "edge_91",
+      "source": "expert_gate",
+      "target": "expert_mul"
+    },
+    {
+      "id": "edge_92",
+      "source": "expert_mul",
+      "target": "expert_down"
+    },
+    {
+      "id": "edge_93",
+      "source": "expert_down",
+      "target": "expert_y"
+    },
+    {
+      "id": "edge_94",
+      "source": "idx_q",
+      "target": "idx_qproj"
+    },
+    {
+      "id": "edge_95",
+      "source": "idx_key",
+      "target": "idx_kcache"
+    },
+    {
+      "id": "edge_96",
+      "source": "idx_h",
+      "target": "idx_score"
+    },
+    {
+      "id": "edge_97",
+      "source": "idx_qproj",
+      "target": "idx_score",
+      "ports": [
+        0.5,
+        0,
+        0.8,
+        0
+      ],
+      "points": [
+        [
+          320,
+          3410
+        ],
+        [
+          1980,
+          3410
+        ]
+      ]
+    },
+    {
+      "id": "edge_98",
+      "source": "idx_kcache",
+      "target": "idx_score",
+      "ports": [
+        0.5,
+        0,
+        0.4,
+        0
+      ],
+      "points": [
+        [
+          1030,
+          3450
+        ],
+        [
+          1740,
+          3450
+        ]
+      ]
+    },
+    {
+      "id": "edge_99",
+      "source": "idx_score",
+      "target": "idx_select",
+      "ports": [
+        1,
+        0.5,
+        0,
+        0.5
+      ]
+    }
+  ],
+  "limitations": [
+    "Flash-Base class defaults, not downloaded DeepSeek-V4-Flash checkpoint configuration.",
+    "HF config/model card/weight index blocked by current network policy; no weights or inference tested.",
+    "Exact layer_types/compress_ratios schedule unknown; the Pro fallback schedule is NOT assigned to Flash.",
+    "This is the pinned Transformers reference implementation, not an assertion about every serving-engine kernel.",
+    "No independently verified parameter recount; 284B/13B headline is deliberately omitted.",
+    "MTP is declared in configuration but not instantiated by this Transformers model."
+  ]
+}
