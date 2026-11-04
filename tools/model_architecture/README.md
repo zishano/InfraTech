@@ -125,4 +125,8 @@ python tools/model_architecture/model_architecture.py verify-png \
 
 见 [源码核对版交付](../../models/deepseek_v4/flash/README.md) 和 `examples/deepseek_v4_flash.graph.json`。新增 `configuration_code` 收集类型可在 checkpoint config 暂不可读时提取框架配置类默认值；每项保存声明行号和 `source_class_default_not_checkpoint` 标签。不会运行初始化逻辑或自动推断逐层排布。
 
-此次成功收集固定提交的 Transformers 配置／模型／modular 源码，提取 28 项类默认值，生成含 mHC、MQA、CSA/HCA、Indexer 和 MoE 分支的配对图。目标 HF config 与权重索引仍未读取，尤其不把代码中的 Pro fallback 排布套到 Flash。
+初版仅有 Transformers 类默认值；网络放行后，现已收集官方 Flash 固定提交的 checkpoint config、推理 config、model.py、kernel.py、模型卡和权重索引，并与框架默认值分开保留。图现包含精确 43 层排布、MTP 和量化模拟路径；权重索引交叉核对覆盖全部主干层，但未读取 tensor shape 或数值。
+
+### Hugging Face 缓存重定向
+
+初始资料 URL 仍要求公开 HTTPS 且不带查询参数或内嵌凭据。响应可能正常跳转到 `api/resolve-cache/...?...etag...`；收集器现在验证重定向的 HTTPS 目标并接受这种响应，但保存最终 URL 时剥离全部查询参数，避免将签名或凭据记录到 inventory。文件 SHA-256 和 resolved_revision 仍保留。不会关闭 TLS、绕过代理或放宽完整权重下载限制。

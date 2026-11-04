@@ -46,4 +46,4 @@ DeepSeek V4是新一代MoE大语言模型系列，核心包含DeepSeek-V4-Pro与
 
 ## Flash 可编辑架构流程测试
 
-[DeepSeek-V4-Flash 架构试作](flash/README.md)提供配对 PNG / draw.io、逐节点源码证据及可复现命令。当前为固定提交 Transformers 实现核对版，使用 Flash-Base 类默认值；尚未读取目标 checkpoint 配置和权重索引，未将 Pro 回退排布当作 Flash 排布。
+[DeepSeek-V4-Flash 架构试作](flash/README.md)提供配对 PNG / draw.io、逐节点源码证据及可复现命令。现已读取固定提交的官方 Flash 配置、推理实现、内核、模型卡和权重索引，确认 43 个主干层的 SWA/CSA/HCA 排布及独立 MTP。图中 284B/13B 为官方模型卡声明，未独立重计权重参数或运行推理。

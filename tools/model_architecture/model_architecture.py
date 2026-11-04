@@ -35,6 +35,13 @@ def safe_url(url):
         raise ValueError('Full weight downloads are not supported; provide an index JSON instead')
     return url
 
+def public_redirect_url(url):
+    """Validate HTTPS redirects but never persist signed/cache query parameters."""
+    p=urllib.parse.urlsplit(url)
+    clean=urllib.parse.urlunsplit((p.scheme,p.netloc,p.path,'',''))
+    safe_url(clean)
+    return clean
+
 def init_manifest(model, revision, github=None):
     if not re.fullmatch(r'[\w.-]+/[\w.-]+', model):
         raise ValueError('Model must be owner/repository')
@@ -66,7 +73,7 @@ def collect(manifest, out):
         target = out / (s['id'] + '.source')
         try:
             with urllib.request.urlopen(s['url'], timeout=45) as r:
-                safe_url(r.geturl())
+                final_url=public_redirect_url(r.geturl())
                 data = r.read(LIMIT + 1)
                 if len(data) > LIMIT:
                     raise ValueError('Source exceeds 32 MiB limit')
@@ -75,7 +82,8 @@ def collect(manifest, out):
                     value = json.loads(data)
                     if not isinstance(value, dict):
                         raise ValueError('Expected JSON object')
-                item.update(status='downloaded', final_url=r.geturl(), bytes=len(data),
+                item.update(status='downloaded', final_url=final_url, bytes=len(data),
+                            redirect_query_redacted=bool(urllib.parse.urlsplit(r.geturl()).query),
                             sha256=hashlib.sha256(data).hexdigest(), path=target.name,
                             resolved_revision=r.headers.get('x-repo-commit'))
             target.write_bytes(data)
@@ -105,6 +113,14 @@ FIELDS = {
     'compress_rates': 'compress_rates', 'default_compress_rates': 'default_compress_rates',
     'mlp_layer_types': 'mlp_layer_types', 'default_num_hash_layers': 'default_hash_layers',
     'swiglu_limit': 'swiglu_limit', 'scoring_func': 'router_scoring',
+    'compress_ratios': 'compress_ratios', 'num_hash_layers': 'hash_layers',
+    'num_nextn_predict_layers': 'mtp_layers', 'qk_rope_head_dim': 'rope_head_dim',
+    'expert_dtype': 'expert_dtype', 'routed_scaling_factor': 'routing_scale',
+    'dim': 'hidden_size', 'n_layers': 'layers', 'n_heads': 'attention_heads',
+    'moe_inter_dim': 'moe_intermediate', 'n_activated_experts': 'active_experts',
+    'n_hash_layers': 'hash_layers', 'n_mtp_layers': 'mtp_layers',
+    'window_size': 'sliding_window', 'rope_head_dim': 'rope_head_dim',
+    'score_func': 'router_scoring', 'route_scale': 'routing_scale',
 }
 
 def class_defaults(raw, source):

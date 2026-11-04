@@ -1,294 +1,352 @@
-# DeepSeek-V4-Flash — Transformers implementation study
+# DeepSeek-V4-Flash — official checkpoint architecture
 
 This is a reviewed conceptual graph, not an executed model trace.
 
-- **defaults** [verified]: DEFAULTS: 43 layers · hidden 4096 · 64 Q heads / 1 KV head · head dim 512 · 256 experts, top-6 + 1 shared · mHC streams 4
-  - model: DeepseekV4Config defaults / DeepseekV4Attention / DeepseekV4SparseMoeBlock
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+- **defaults** [verified]: 284B total / 13B active (official card) · 43 layers · hidden 4096 · 64 Q / 1 KV head · 256 experts, top-6 + 1 shared · 1M context
+  - config: /num_hidden_layers, /compress_ratios, /num_hash_layers; index 43 is separate MTP
+  - weight_index: layers.0–42 attention compressors/indexers and mtp.0.*
+  - model_card: Introduction and Model Downloads: 284B total / 13B active / 1M context
 - **hc_x** [verified]: X: four streams [B,T,4,4096]
-  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+  - kernel: hc_split_sinkhorn_kernel, lines 372–425
 - **hc_flat** [verified]: Flatten streams → unweighted / RMSNorm
-  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+  - kernel: hc_split_sinkhorn_kernel, lines 372–425
 - **hc_linear** [verified]: Linear fn: 16384 → 24 coefficients / Scale + bias; split pre / post / / comb
-  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+  - kernel: hc_split_sinkhorn_kernel, lines 372–425
 - **hc_pre** [verified]: pre = / sigmoid(·) / + eps
-  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+  - kernel: hc_split_sinkhorn_kernel, lines 372–425
 - **hc_post** [verified]: post = 2 / sigmoid(·)
-  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+  - kernel: hc_split_sinkhorn_kernel, lines 372–425
 - **hc_comb** [verified]: comb / logits / [4 × 4]
-  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+  - kernel: hc_split_sinkhorn_kernel, lines 372–425
 - **hc_soft** [verified]: Row softmax / + eps
-  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+  - kernel: hc_split_sinkhorn_kernel, lines 372–425
 - **hc_sink** [verified]: Sinkhorn: 20 / iterations / Doubly / stochastic comb
-  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+  - kernel: hc_split_sinkhorn_kernel, lines 372–425
 - **hc_collapse** [verified]: Collapse input streams / h = sum(pre_i × X_i)
-  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+  - kernel: hc_split_sinkhorn_kernel, lines 372–425
 - **hc_norm** [verified]: RMSNorm of h
-  - model: DeepseekV4DecoderLayer.forward, lines 1175–1186
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+  - kernel: hc_split_sinkhorn_kernel, lines 372–425
 - **hc_fun** [verified]: Attention OR MoE FFN / F(h) [B,T,4096]
-  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+  - kernel: hc_split_sinkhorn_kernel, lines 372–425
 - **hc_expand** [verified]: Expand block output / post × F(h)
-  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+  - kernel: hc_split_sinkhorn_kernel, lines 372–425
 - **hc_residual** [verified]: Residual stream mixing / combᵀ × X
-  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+  - kernel: hc_split_sinkhorn_kernel, lines 372–425
 - **hc_sum** [verified]: +
-  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+  - kernel: hc_split_sinkhorn_kernel, lines 372–425
 - **hc_y** [verified]: Updated streams / [B,T,4,4096]
-  - model: DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+  - kernel: hc_split_sinkhorn_kernel, lines 372–425
 - **main_tokens** [verified]: Input token IDs
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **main_embed** [verified]: Token embedding [B,T,4096]
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **main_streams** [verified]: Repeat embedding into 4 streams
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **main_layer_x** [verified]: Layer input X [B,T,4,4096]
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **main_attn_pre** [verified]: Attention mHC: pre-collapse; compute post, comb
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **main_attn_norm** [verified]: RMSNorm [4096]
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
-- **main_attn_core** [verified]: Layer-selected attention / SWA + (CSA OR HCA); exact schedule unknown
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **main_attn_core** [verified]: Layer-selected attention / SWA + layer-selected CSA / HCA; see exact schedule
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **main_attn_mix** [verified]: post × attention output + combᵀ × X
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **main_ffn_pre** [verified]: FFN mHC: pre-collapse; compute post, comb
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **main_ffn_norm** [verified]: RMSNorm [4096]
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **main_ffn** [verified]: Hash-MoE or learned top-k MoE
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **main_ffn_mix** [verified]: post × FFN output + combᵀ × residual
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
-- **main_layer_y** [verified]: Layer output streams / Repeat this decoder layer 43× (class default)
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **main_layer_y** [verified]: Layer output streams / Repeat decoder layer 43× (official checkpoint)
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **main_hyperhead** [verified]: HyperHead: learned sigmoid-weighted / collapse 4 streams → one hidden state
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **main_norm** [verified]: Final RMSNorm [4096]
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **main_head** [verified]: LM head: 4096 → vocabulary 129280
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
-- **main_output** [verified]: Next-token logits
-  - model: DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **main_output** [verified]: Last-token logits (official inference)
+  - model: Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_x** [verified]: h [B,T,4096]
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_qa** [verified]: Q Linear 4096 → 1024
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_qan** [verified]: RMSNorm → q_residual
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_qb** [verified]: Q up: 1024 → 64 × 512
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_qn** [verified]: Per-head unweighted / RMSNorm
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_qrope** [verified]: Partial RoPE: / trailing 64 dims
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_kv** [verified]: KV Linear: 4096 → 512
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_kvn** [verified]: RMSNorm [512]
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_kvrope** [verified]: Partial RoPE (64 / dims)
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **attn_kvquant** [verified]: FP8 simulate non-RoPE / 448 / RoPE 64 stays BF16
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_local** [verified]: Sliding cache: window 128 / K and V are the SAME / tensor
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_compressor** [verified]: Layer-selected CSA / (4) OR HCA (128) / None for sliding-only
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_entries** [verified]: Compressed historical / entries / Single shared KV head
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_mask** [verified]: CSA: causal + top-512 / mask / HCA: causal mask; no / indexer
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_concat** [verified]: Concatenate local KV and compressed history / Per-query mask; K = V
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_core** [verified]: Scaled dot-product attention / Softmax over KV logits + learnable sink / Discard sink probability; multiply shared V
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_sink** [verified]: Learned / sink / per Q / head
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_inverse** [verified]: Inverse partial RoPE on attention output / Use conjugate rotation at query position
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_oa** [verified]: Grouped O_a: 8 groups / Per-group 4096 → 1024
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_ob** [verified]: Flatten 8 × 1024 → O_b → 4096
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **attn_y** [verified]: Attention output [B,T,4096]
-  - model: DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Attention.__init__/forward, model.py lines 436–543
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **csa_x** [verified]: Hidden states h [4096]
-  - model: DeepseekV4CSACompressor.forward, lines 620–700
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **csa_kv** [verified]: Linear KV: / 4096 → 2 × 512
-  - model: DeepseekV4CSACompressor.forward, lines 620–700
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **csa_gate** [verified]: Linear gates: / 4096 → 2 × 512
-  - model: DeepseekV4CSACompressor.forward, lines 620–700
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **csa_window** [verified]: Overlap Ca / Cb: effective width / 8, stride 4 / Buffer previous Ca across calls
-  - model: DeepseekV4CSACompressor.forward, lines 620–700
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **csa_bias** [verified]: GATE PATH: + position bias / FP32 softmax within compression / window
-  - model: DeepseekV4CSACompressor.forward, lines 620–700
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **csa_sum** [verified]: Weighted sum of projected KV / One vector [512] per completed / window
-  - model: DeepseekV4CSACompressor.forward, lines 620–700
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **csa_norm** [verified]: RMSNorm [512]
-  - model: DeepseekV4CSACompressor.forward, lines 620–700
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
-- **csa_rope** [verified]: Partial RoPE at window position / Append to compressed KV cache
-  - model: DeepseekV4CSACompressor.forward, lines 620–700
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **csa_rope** [verified]: Partial RoPE at window position
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **csa_out** [verified]: Lightning Indexer → top-512 / validity mask / Only chosen entries are visible / to each query
-  - model: DeepseekV4CSACompressor.forward, lines 620–700
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **csa_quant** [verified]: FP8 simulation on non-RoPE 448 / RoPE 64 BF16; write compressed / cache
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **hca_x** [verified]: Hidden states h [4096]
-  - model: DeepseekV4HCACompressor.forward, lines 391–440
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **hca_kv** [verified]: Linear KV: / 4096 → 512
-  - model: DeepseekV4HCACompressor.forward, lines 391–440
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **hca_gate** [verified]: Linear gates: / 4096 → 512
-  - model: DeepseekV4HCACompressor.forward, lines 391–440
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **hca_window** [verified]: Non-overlapping 128-token / windows / Buffer partial window across / calls
-  - model: DeepseekV4HCACompressor.forward, lines 391–440
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **hca_bias** [verified]: GATE PATH: + position bias / FP32 softmax within compression / window
-  - model: DeepseekV4HCACompressor.forward, lines 391–440
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **hca_sum** [verified]: Weighted sum of projected KV / One vector [512] per completed / window
-  - model: DeepseekV4HCACompressor.forward, lines 391–440
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **hca_norm** [verified]: RMSNorm [512]
-  - model: DeepseekV4HCACompressor.forward, lines 391–440
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
-- **hca_rope** [verified]: Partial RoPE at window position / Append to compressed KV cache
-  - model: DeepseekV4HCACompressor.forward, lines 391–440
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **hca_rope** [verified]: Partial RoPE at window position
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **hca_out** [verified]: Causal visibility mask / All completed compressed / entries; NO indexer
-  - model: DeepseekV4HCACompressor.forward, lines 391–440
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **hca_quant** [verified]: FP8 simulation on non-RoPE 448 / RoPE 64 BF16; write compressed / cache
+  - model: Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **moe_x** [verified]: h [4096] and token IDs (hash route)
-  - model: DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Gate.__init__/forward, model.py lines 546–584; MoE, 609–644
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **moe_shared** [verified]: One shared expert / 4096 → 2048 → 4096
-  - model: DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Gate.__init__/forward, model.py lines 546–584; MoE, 609–644
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **moe_router** [verified]: Learned score: Linear → sqrtsoftplus / Hash: tid2eid[token IDs] selects / experts / Else: top-6(scores + correction / bias)
-  - model: DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Gate.__init__/forward, model.py lines 546–584; MoE, 609–644
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **moe_weights** [verified]: Gather ORIGINAL scores / Normalize selected weights × / 1.5
-  - model: DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
-- **moe_bank** [verified]: 256 routed experts; activate 6 / Input / output width 4096 / Expert intermediate width 2048
-  - model: DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Gate.__init__/forward, model.py lines 546–584; MoE, 609–644
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **moe_bank** [verified]: 256 experts; activate 6 / Routed weights FP4; / intermediate 2048 / Input / output width 4096
+  - model: Gate.__init__/forward, model.py lines 546–584; MoE, 609–644
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **moe_sum** [verified]: Weighted routed output
-  - model: DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Gate.__init__/forward, model.py lines 546–584; MoE, 609–644
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **moe_add** [verified]: +
-  - model: DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Gate.__init__/forward, model.py lines 546–584; MoE, 609–644
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **moe_y** [verified]: MoE output [4096]
-  - model: DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Gate.__init__/forward, model.py lines 546–584; MoE, 609–644
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **expert_x** [verified]: Expert input x [4096]
-  - model: DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Expert.forward, model.py lines 596–606
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **expert_up** [verified]: Linear W_up / 4096 → 2048 / clip to [-10,10]
-  - model: DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Expert.forward, model.py lines 596–606
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **expert_gate** [verified]: Linear W_gate / 4096 → 2048 / clip MAX at 10 / then SiLU
-  - model: DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Expert.forward, model.py lines 596–606
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **expert_mul** [verified]: Elementwise product / SiLU(clipped gate) × / clipped up
-  - model: DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Expert.forward, model.py lines 596–606
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **expert_weight** [verified]: Routed: × weight / Shared: bypass
+  - model: Expert.forward, model.py lines 596–606
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **expert_down** [verified]: W_down: 2048 → 4096
-  - model: DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Expert.forward, model.py lines 596–606
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **expert_y** [verified]: Expert output [4096]
-  - model: DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Expert.forward, model.py lines 596–606
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **idx_q** [verified]: q_residual [1024]
-  - model: DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
-- **idx_qproj** [verified]: Index Q projection: 64 × 128 / Partial RoPE at query position
-  - model: DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254; Compressor with rotate=True
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **idx_qproj** [verified]: Q: 1024 → 64 × 128; RoPE 64 / Hadamard rotate → FP4 QAT / simulation
+  - model: Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254; Compressor with rotate=True
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **idx_key** [verified]: h → independent overlapping compressor / Index-head width 128; stride 4
-  - model: DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
-- **idx_kcache** [verified]: Normalized + partial-RoPE compressed keys / Own cache / previous-window Ca state
-  - model: DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254; Compressor with rotate=True
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **idx_kcache** [verified]: RMSNorm 128 → RoPE 64 / Hadamard rotate → FP4 QAT simulation / Own KV cache / previous Ca state
+  - model: Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254; Compressor with rotate=True
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **idx_h** [verified]: h [4096] → Linear W_weights / 64 query-head scoring weights
-  - model: DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254; Compressor with rotate=True
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **idx_score** [verified]: sum_h w_h ReLU(Q_index · K_comp) / Scale: 128^-0.5 × 64^-0.5 / Causal masking before top-k
-  - model: DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254; Compressor with rotate=True
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 - **idx_select** [verified]: Top min(512, compressed length) / Mark invalid future entries as -1 / Build per-query CSA mask
-  - model: DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456
-  - config: DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values
+  - model: Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254; Compressor with rotate=True
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **mtp_h** [verified]: Main hidden streams [B,T,4,4096]
+  - model: MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **mtp_hn** [verified]: hnorm [4096]
+  - model: MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **mtp_hp** [verified]: h_proj: 4096 → 4096
+  - model: MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **mtp_e** [verified]: MTP token IDs → shared embedding
+  - model: MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **mtp_en** [verified]: enorm [4096]
+  - model: MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **mtp_ep** [verified]: e_proj: 4096 → 4096; unsqueeze stream axis
+  - model: MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **mtp_sum** [verified]: +
+  - model: MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **mtp_block** [verified]: Same mHC decoder Block, layer 43 / SWA only (ratio 0); learned MoE routing
+  - model: MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
+- **mtp_head** [verified]: MTP-specific HC-head weights and norm / Shared LM head → MTP logits
+  - model: MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793
+  - config: Official config.json at checkpoint 60d8d707; see checked-in official_config.json
 
 ## Sources
 
-- model: https://github.com/huggingface/transformers/blob/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/modeling_deepseek_v4.py
-- config: https://github.com/huggingface/transformers/blob/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/configuration_deepseek_v4.py
+- model: https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/inference/model.py
+- kernel: https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/inference/kernel.py
+- config: https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json
+- inference_config: https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/inference/config.json
+- model_card: https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/README.md
+- weight_index: https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/model.safetensors.index.json
+- transformers_model: https://github.com/huggingface/transformers/blob/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/modeling_deepseek_v4.py
 
 ## Limitations
 
-- Flash-Base class defaults, not downloaded DeepSeek-V4-Flash checkpoint configuration.
-- HF config/model card/weight index blocked by current network policy; no weights or inference tested.
-- Exact layer_types/compress_ratios schedule unknown; the Pro fallback schedule is NOT assigned to Flash.
-- This is the pinned Transformers reference implementation, not an assertion about every serving-engine kernel.
-- No independently verified parameter recount; 284B/13B headline is deliberately omitted.
-- MTP is declared in configuration but not instantiated by this Transformers model.
+- Official config, inference code, kernel and weight index are checked at a single fixed checkpoint revision.
+- 284B / 13B are official model-card claims, not an independently recomputed parameter count.
+- Weight index confirms names and shard mapping; shapes, values and full weights were not read.
+- Downloaded Python and GPU kernels were not executed; no numerical inference equivalence test was performed.

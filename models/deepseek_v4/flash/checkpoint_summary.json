@@ -1,0 +1,422 @@
+{
+  "revision": "60d8d70770c6776ff598c94bb586a859a38244f1",
+  "model": "deepseek-ai/DeepSeek-V4-Flash",
+  "reported_by_model_card": {
+    "total_parameters": "284B",
+    "activated_parameters": "13B",
+    "context": "1M",
+    "precision": "FP4 + FP8 mixed"
+  },
+  "main_layers": 43,
+  "main_schedule_counts": {
+    "0": 2,
+    "4": 21,
+    "128": 20
+  },
+  "main_compress_ratios": [
+    0,
+    0,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4,
+    128,
+    4
+  ],
+  "auxiliary_compress_ratios": [
+    0
+  ],
+  "hash_layers": [
+    0,
+    1,
+    2
+  ],
+  "weight_index": {
+    "sha256": "7e975ba3bef8947a94e7da0abd60888375b232b4dfad883d59653e65c6ba522a",
+    "tensor_names": 69187,
+    "shards": 46,
+    "mtp0_tensor_names": 1575,
+    "limitation": "Names and shard mapping verified; tensor shapes, values and full parameter recount not checked."
+  },
+  "per_layer_checks": [
+    {
+      "layer": 0,
+      "compress_ratio": 0,
+      "weight_entries": 1565,
+      "indexer_present": false,
+      "compressor_present": false,
+      "hash_lookup_present": true
+    },
+    {
+      "layer": 1,
+      "compress_ratio": 0,
+      "weight_entries": 1565,
+      "indexer_present": false,
+      "compressor_present": false,
+      "hash_lookup_present": true
+    },
+    {
+      "layer": 2,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": true
+    },
+    {
+      "layer": 3,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 4,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 5,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 6,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 7,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 8,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 9,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 10,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 11,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 12,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 13,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 14,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 15,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 16,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 17,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 18,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 19,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 20,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 21,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 22,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 23,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 24,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 25,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 26,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 27,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 28,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 29,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 30,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 31,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 32,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 33,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 34,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 35,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 36,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 37,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 38,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 39,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 40,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 41,
+      "compress_ratio": 128,
+      "weight_entries": 1569,
+      "indexer_present": false,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    },
+    {
+      "layer": 42,
+      "compress_ratio": 4,
+      "weight_entries": 1576,
+      "indexer_present": true,
+      "compressor_present": true,
+      "hash_lookup_present": false
+    }
+  ]
+}

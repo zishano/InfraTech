@@ -1,16 +1,21 @@
 {
   "version": 1,
-  "title": "DeepSeek-V4-Flash — Transformers implementation study",
+  "title": "DeepSeek-V4-Flash — official checkpoint architecture",
   "width": 3000,
-  "height": 3900,
+  "height": 4580,
   "sources": {
-    "model": "https://github.com/huggingface/transformers/blob/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/modeling_deepseek_v4.py",
-    "config": "https://github.com/huggingface/transformers/blob/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/configuration_deepseek_v4.py"
+    "model": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/inference/model.py",
+    "kernel": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/inference/kernel.py",
+    "config": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/config.json",
+    "inference_config": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/inference/config.json",
+    "model_card": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/README.md",
+    "weight_index": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/model.safetensors.index.json",
+    "transformers_model": "https://github.com/huggingface/transformers/blob/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/modeling_deepseek_v4.py"
   },
   "nodes": [
     {
       "id": "title",
-      "label": "DeepSeek-V4-Flash | Detailed architecture study",
+      "label": "DeepSeek-V4-Flash | Official architecture study",
       "box": [
         40,
         15,
@@ -23,7 +28,7 @@
     },
     {
       "id": "subtitle",
-      "label": "SOURCE-REVIEWED TRANSFORMERS IMPLEMENTATION · Flash-Base class defaults; checkpoint config not read",
+      "label": "OFFICIAL CHECKPOINT 60d8d707 · config, inference implementation, kernel and weight index checked",
       "box": [
         40,
         100,
@@ -36,7 +41,7 @@
     },
     {
       "id": "defaults",
-      "label": "DEFAULTS: 43 layers · hidden 4096 · 64 Q heads / 1 KV head · head dim 512 · 256 experts, top-6 + 1 shared · mHC streams 4",
+      "label": "284B total / 13B active (official card) · 43 layers · hidden 4096 · 64 Q / 1 KV head · 256 experts, top-6 + 1 shared · 1M context",
       "box": [
         40,
         175,
@@ -48,12 +53,16 @@
       "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
       "evidence": [
         {
-          "source": "model",
-          "locator": "DeepseekV4Config defaults / DeepseekV4Attention / DeepseekV4SparseMoeBlock"
+          "source": "config",
+          "locator": "/num_hidden_layers, /compress_ratios, /num_hash_layers; index 43 is separate MTP"
         },
         {
-          "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "source": "weight_index",
+          "locator": "layers.0–42 attention compressors/indexers and mtp.0.*"
+        },
+        {
+          "source": "model_card",
+          "locator": "Introduction and Model Downloads: 284B total / 13B active / 1M context"
         }
       ]
     },
@@ -132,8 +141,18 @@
         62
       ],
       "kind": "decoration",
-      "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;"
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
     },
     {
       "id": "attention",
@@ -150,7 +169,7 @@
     },
     {
       "id": "attention_heading",
-      "label": "Shared-KV MQA + optional compressed history ↑",
+      "label": "Official Attention: shared K=V + compressed history ↑",
       "box": [
         1912,
         272,
@@ -184,8 +203,18 @@
         62
       ],
       "kind": "decoration",
-      "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;"
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate.__init__/forward, model.py lines 546–584; MoE, 609–644"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
     },
     {
       "id": "indexer",
@@ -228,11 +257,15 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+          "locator": "Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        },
+        {
+          "source": "kernel",
+          "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
       ]
     },
@@ -251,11 +284,15 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+          "locator": "Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        },
+        {
+          "source": "kernel",
+          "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
       ]
     },
@@ -274,11 +311,15 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+          "locator": "Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        },
+        {
+          "source": "kernel",
+          "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
       ]
     },
@@ -297,11 +338,15 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+          "locator": "Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        },
+        {
+          "source": "kernel",
+          "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
       ]
     },
@@ -320,11 +365,15 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+          "locator": "Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        },
+        {
+          "source": "kernel",
+          "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
       ]
     },
@@ -343,11 +392,15 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+          "locator": "Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        },
+        {
+          "source": "kernel",
+          "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
       ]
     },
@@ -366,11 +419,15 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+          "locator": "Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        },
+        {
+          "source": "kernel",
+          "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
       ]
     },
@@ -389,11 +446,15 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+          "locator": "Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        },
+        {
+          "source": "kernel",
+          "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
       ]
     },
@@ -412,11 +473,15 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+          "locator": "Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        },
+        {
+          "source": "kernel",
+          "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
       ]
     },
@@ -435,11 +500,15 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4DecoderLayer.forward, lines 1175–1186"
+          "locator": "Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        },
+        {
+          "source": "kernel",
+          "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
       ]
     },
@@ -458,11 +527,15 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+          "locator": "Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        },
+        {
+          "source": "kernel",
+          "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
       ]
     },
@@ -481,11 +554,15 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+          "locator": "Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        },
+        {
+          "source": "kernel",
+          "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
       ]
     },
@@ -504,11 +581,15 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+          "locator": "Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        },
+        {
+          "source": "kernel",
+          "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
       ]
     },
@@ -527,11 +608,15 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+          "locator": "Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        },
+        {
+          "source": "kernel",
+          "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
       ]
     },
@@ -550,11 +635,15 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HyperConnection.forward, lines 940–984; DeepseekV4DecoderLayer.forward, 1176–1186"
+          "locator": "Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        },
+        {
+          "source": "kernel",
+          "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
       ]
     },
@@ -568,8 +657,22 @@
         40
       ],
       "kind": "decoration",
-      "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.hc_pre/hc_post, model.py lines 673–701; hc_split_sinkhorn, kernel.py lines 372–439"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        },
+        {
+          "source": "kernel",
+          "locator": "hc_split_sinkhorn_kernel, lines 372–425"
+        }
+      ]
     },
     {
       "id": "main_tokens",
@@ -586,11 +689,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -609,11 +712,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -632,11 +735,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -655,11 +758,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -678,11 +781,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -701,17 +804,17 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
     {
       "id": "main_attn_core",
-      "label": "Layer-selected attention\nSWA + (CSA OR HCA); exact schedule unknown",
+      "label": "Layer-selected attention\nSWA + layer-selected CSA / HCA; see exact schedule",
       "box": [
         1100,
         2130,
@@ -724,11 +827,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -747,11 +850,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -770,11 +873,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -793,11 +896,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -816,11 +919,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -839,17 +942,17 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
     {
       "id": "main_layer_y",
-      "label": "Layer output streams\nRepeat this decoder layer 43× (class default)",
+      "label": "Layer output streams\nRepeat decoder layer 43× (official checkpoint)",
       "box": [
         1100,
         1180,
@@ -862,11 +965,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -885,11 +988,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -908,11 +1011,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -931,17 +1034,17 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
     {
       "id": "main_output",
-      "label": "Next-token logits",
+      "label": "Last-token logits (official inference)",
       "box": [
         1100,
         350,
@@ -954,17 +1057,17 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Model.forward, lines 1317–1368; DeepseekV4DecoderLayer.forward, 1161–1187"
+          "locator": "Transformer.__init__/forward, model.py lines 769–811; Block.forward, 688–701; ParallelHead, 703–735"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
     {
       "id": "schedule",
-      "label": "IMPORTANT: do not copy Pro fallback layer_types.\nCheckpoint-specific CSA/HCA ordering is unverified.\nMTP: config declares 1; this class does not\ninstantiate it.",
+      "label": "CHECKPOINT main layers 0–42 (43 total)\nL0–1: SWA only (ratio 0)\nL2–41: [CSA 4, HCA 128] × 20\nL42: CSA 4\nMTP0 / L43: SWA only; separate auxiliary path\nHash-MoE L0–2; learned routing L3–42",
       "box": [
         1070,
         875,
@@ -972,8 +1075,22 @@
         180
       ],
       "kind": "decoration",
-      "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/num_hidden_layers, /compress_ratios, /num_hash_layers; index 43 is separate MTP"
+        },
+        {
+          "source": "weight_index",
+          "locator": "layers.0–42 attention compressors/indexers and mtp.0.*"
+        },
+        {
+          "source": "model_card",
+          "locator": "Introduction and Model Downloads: 284B total / 13B active / 1M context"
+        }
+      ]
     },
     {
       "id": "attn_x",
@@ -990,11 +1107,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1013,11 +1130,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1036,11 +1153,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1059,11 +1176,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1082,11 +1199,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1105,11 +1222,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1128,11 +1245,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1151,11 +1268,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1164,9 +1281,9 @@
       "label": "Partial RoPE (64\ndims)",
       "box": [
         2290,
-        1340,
+        1370,
         270,
-        80
+        70
       ],
       "kind": "operation",
       "status": "verified",
@@ -1174,11 +1291,34 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
+    },
+    {
+      "id": "attn_kvquant",
+      "label": "FP8 simulate non-RoPE\n448\nRoPE 64 stays BF16",
+      "box": [
+        2290,
+        1270,
+        270,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1187,9 +1327,9 @@
       "label": "Sliding cache: window 128\nK and V are the SAME\ntensor",
       "box": [
         2290,
-        1210,
+        1160,
         270,
-        85
+        90
       ],
       "kind": "operation",
       "status": "verified",
@@ -1197,11 +1337,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1220,11 +1360,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1243,11 +1383,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1266,11 +1406,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1279,9 +1419,9 @@
       "label": "Concatenate local KV and compressed history\nPer-query mask; K = V",
       "box": [
         2290,
-        1050,
+        1030,
         620,
-        100
+        110
       ],
       "kind": "operation",
       "status": "verified",
@@ -1289,11 +1429,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1312,11 +1452,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1335,11 +1475,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1358,11 +1498,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1381,11 +1521,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1404,11 +1544,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1427,11 +1567,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Attention.__init__/forward, lines 752–870; apply_rotary_pos_emb, 339–356"
+          "locator": "Attention.__init__/forward, model.py lines 436–543"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1442,11 +1582,21 @@
         65,
         1840,
         400,
-        65
+        45
       ],
       "kind": "decoration",
-      "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
     },
     {
       "id": "csa_x",
@@ -1463,11 +1613,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1486,11 +1636,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1509,11 +1659,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1532,11 +1682,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1555,11 +1705,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1578,11 +1728,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1601,22 +1751,22 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
     {
       "id": "csa_rope",
-      "label": "Partial RoPE at window position\nAppend to compressed KV cache",
+      "label": "Partial RoPE at window position",
       "box": [
         65,
-        2100,
+        2160,
         400,
-        100
+        65
       ],
       "kind": "operation",
       "status": "verified",
@@ -1624,11 +1774,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1637,9 +1787,32 @@
       "label": "Lightning Indexer → top-512\nvalidity mask\nOnly chosen entries are visible\nto each query",
       "box": [
         65,
-        1915,
+        1900,
         400,
-        140
+        110
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
+    },
+    {
+      "id": "csa_quant",
+      "label": "FP8 simulation on non-RoPE 448\nRoPE 64 BF16; write compressed\ncache",
+      "box": [
+        65,
+        2035,
+        400,
+        95
       ],
       "kind": "operation",
       "status": "verified",
@@ -1647,11 +1820,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4CSACompressor.forward, lines 620–700"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1662,11 +1835,21 @@
         535,
         1840,
         400,
-        65
+        45
       ],
       "kind": "decoration",
-      "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
     },
     {
       "id": "hca_x",
@@ -1683,11 +1866,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1706,11 +1889,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1729,11 +1912,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1752,11 +1935,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1775,11 +1958,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1798,11 +1981,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1821,22 +2004,22 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
     {
       "id": "hca_rope",
-      "label": "Partial RoPE at window position\nAppend to compressed KV cache",
+      "label": "Partial RoPE at window position",
       "box": [
         535,
-        2100,
+        2160,
         400,
-        100
+        65
       ],
       "kind": "operation",
       "status": "verified",
@@ -1844,11 +2027,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1857,9 +2040,9 @@
       "label": "Causal visibility mask\nAll completed compressed\nentries; NO indexer",
       "box": [
         535,
-        1915,
+        1900,
         400,
-        140
+        110
       ],
       "kind": "operation",
       "status": "verified",
@@ -1867,11 +2050,34 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4HCACompressor.forward, lines 391–440"
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
+    },
+    {
+      "id": "hca_quant",
+      "label": "FP8 simulation on non-RoPE 448\nRoPE 64 BF16; write compressed\ncache",
+      "box": [
+        535,
+        2035,
+        400,
+        95
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.__init__/forward, model.py lines 279–377; ratio 4 overlaps, ratio 128 does not"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1890,11 +2096,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022"
+          "locator": "Gate.__init__/forward, model.py lines 546–584; MoE, 609–644"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1913,11 +2119,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022"
+          "locator": "Gate.__init__/forward, model.py lines 546–584; MoE, 609–644"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1936,11 +2142,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022"
+          "locator": "Gate.__init__/forward, model.py lines 546–584; MoE, 609–644"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -1959,17 +2165,17 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022"
+          "locator": "Gate.__init__/forward, model.py lines 546–584; MoE, 609–644"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
     {
       "id": "moe_bank",
-      "label": "256 routed experts; activate 6\nInput / output width 4096\nExpert intermediate width 2048",
+      "label": "256 experts; activate 6\nRouted weights FP4;\nintermediate 2048\nInput / output width 4096",
       "box": [
         2250,
         2540,
@@ -1978,15 +2184,15 @@
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022"
+          "locator": "Gate.__init__/forward, model.py lines 546–584; MoE, 609–644"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -2005,11 +2211,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022"
+          "locator": "Gate.__init__/forward, model.py lines 546–584; MoE, 609–644"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -2028,11 +2234,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022"
+          "locator": "Gate.__init__/forward, model.py lines 546–584; MoE, 609–644"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -2051,11 +2257,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4TopKRouter / HashRouter / SparseMoeBlock, lines 1065–1135; DeepseekV4MLP, 1006–1022"
+          "locator": "Gate.__init__/forward, model.py lines 546–584; MoE, 609–644"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -2074,11 +2280,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts"
+          "locator": "Expert.forward, model.py lines 596–606"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -2097,11 +2303,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts"
+          "locator": "Expert.forward, model.py lines 596–606"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -2120,11 +2326,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts"
+          "locator": "Expert.forward, model.py lines 596–606"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -2143,11 +2349,34 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts"
+          "locator": "Expert.forward, model.py lines 596–606"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
+    },
+    {
+      "id": "expert_weight",
+      "label": "Routed: × weight\nShared: bypass",
+      "box": [
+        2660,
+        2370,
+        280,
+        60
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Expert.forward, model.py lines 596–606"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -2166,11 +2395,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts"
+          "locator": "Expert.forward, model.py lines 596–606"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -2189,17 +2418,17 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4MLP.forward, lines 1018–1022; DeepseekV4Experts"
+          "locator": "Expert.forward, model.py lines 596–606"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
     {
       "id": "moe_note",
-      "label": "Hash routing freezes WHICH experts, not their activation weights.\nDefault hash bootstrap count = 3; actual checkpoint schedule not read.",
+      "label": "Hash routing freezes WHICH experts, not their activation weights.\nCheckpoint: Hash-MoE L0–2; learned top-k L3–42.",
       "box": [
         1940,
         1990,
@@ -2207,8 +2436,18 @@
         70
       ],
       "kind": "decoration",
-      "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate.__init__/forward, model.py lines 546–584; MoE, 609–644"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
     },
     {
       "id": "idx_q",
@@ -2225,17 +2464,17 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456"
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254; Compressor with rotate=True"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
     {
       "id": "idx_qproj",
-      "label": "Index Q projection: 64 × 128\nPartial RoPE at query position",
+      "label": "Q: 1024 → 64 × 128; RoPE 64\nHadamard rotate → FP4 QAT\nsimulation",
       "box": [
         80,
         3510,
@@ -2248,11 +2487,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456"
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254; Compressor with rotate=True"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -2271,17 +2510,17 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456"
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254; Compressor with rotate=True"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
     {
       "id": "idx_kcache",
-      "label": "Normalized + partial-RoPE compressed keys\nOwn cache / previous-window Ca state",
+      "label": "RMSNorm 128 → RoPE 64\nHadamard rotate → FP4 QAT simulation\nOwn KV cache / previous Ca state",
       "box": [
         730,
         3505,
@@ -2294,11 +2533,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456"
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254; Compressor with rotate=True"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -2317,11 +2556,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456"
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254; Compressor with rotate=True"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -2340,11 +2579,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456"
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254; Compressor with rotate=True"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -2363,11 +2602,11 @@
       "evidence": [
         {
           "source": "model",
-          "locator": "DeepseekV4Indexer.forward, lines 504–583; DeepseekV4IndexerScorer.forward, 452–456"
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254; Compressor with rotate=True"
         },
         {
           "source": "config",
-          "locator": "DeepseekV4Config literal class defaults, lines 128–175; not checkpoint values"
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
       ]
     },
@@ -2381,21 +2620,274 @@
         50
       ],
       "kind": "decoration",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer.__init__/forward, model.py lines 380–433; rotate_activation, 247–254; Compressor with rotate=True"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
+    },
+    {
+      "id": "mtp",
+      "label": "",
+      "box": [
+        30,
+        3820,
+        2940,
+        620
+      ],
+      "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;fillColor=#ffffff;dashed=1;"
+    },
+    {
+      "id": "mtp_heading",
+      "label": "Independent MTP0 / layer_id 43 — not an extra main layer ↑",
+      "box": [
+        42,
+        3832,
+        2916,
+        62
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
+    },
+    {
+      "id": "mtp_h",
+      "label": "Main hidden streams [B,T,4,4096]",
+      "box": [
+        80,
+        4360,
+        650,
+        65
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
+    },
+    {
+      "id": "mtp_hn",
+      "label": "hnorm [4096]",
+      "box": [
+        80,
+        4250,
+        650,
+        75
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
+    },
+    {
+      "id": "mtp_hp",
+      "label": "h_proj: 4096 → 4096",
+      "box": [
+        80,
+        4130,
+        650,
+        75
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
+    },
+    {
+      "id": "mtp_e",
+      "label": "MTP token IDs → shared embedding",
+      "box": [
+        850,
+        4360,
+        650,
+        65
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
+    },
+    {
+      "id": "mtp_en",
+      "label": "enorm [4096]",
+      "box": [
+        850,
+        4250,
+        650,
+        75
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
+    },
+    {
+      "id": "mtp_ep",
+      "label": "e_proj: 4096 → 4096; unsqueeze stream axis",
+      "box": [
+        850,
+        4130,
+        650,
+        75
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
+    },
+    {
+      "id": "mtp_sum",
+      "label": "+",
+      "box": [
+        1680,
+        4085,
+        70,
+        70
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;shape=ellipse;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
+    },
+    {
+      "id": "mtp_block",
+      "label": "Same mHC decoder Block, layer 43\nSWA only (ratio 0); learned MoE routing",
+      "box": [
+        1900,
+        4020,
+        950,
+        100
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
+    },
+    {
+      "id": "mtp_head",
+      "label": "MTP-specific HC-head weights and norm\nShared LM head → MTP logits",
+      "box": [
+        1900,
+        3905,
+        950,
+        80
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "MTPBlock, model.py lines 738–766; Transformer.__init__, 790–793"
+        },
+        {
+          "source": "config",
+          "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
+        }
+      ]
     },
     {
       "id": "footer",
-      "label": "Pinned source: huggingface/transformers @ f275431 · configuration_deepseek_v4.py + modeling_deepseek_v4.py\nClass defaults shown; HF checkpoint config / weight index blocked. Exact layer schedule remains UNVERIFIED. No inference or parameter recount performed.",
+      "label": "Official checkpoint deepseek-ai/DeepSeek-V4-Flash @ 60d8d707 · config + model.py + kernel.py + model card + weight index\n43 main layers: 2 SWA-only + 21 CSA + 20 HCA; separate MTP0. Index: 69,187 tensor names / 46 shards; shapes and values not read.\n284B / 13B are model-card claims, not an independent parameter recount. No GPU inference executed.",
       "box": [
         40,
-        3790,
+        4470,
         2920,
         90
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
     }
   ],
   "edges": [
@@ -2875,20 +3367,25 @@
     {
       "id": "edge_47",
       "source": "attn_kvrope",
-      "target": "attn_local"
+      "target": "attn_kvquant"
     },
     {
       "id": "edge_48",
+      "source": "attn_kvquant",
+      "target": "attn_local"
+    },
+    {
+      "id": "edge_49",
       "source": "attn_compressor",
       "target": "attn_entries"
     },
     {
-      "id": "edge_49",
+      "id": "edge_50",
       "source": "attn_entries",
       "target": "attn_mask"
     },
     {
-      "id": "edge_50",
+      "id": "edge_51",
       "source": "attn_local",
       "target": "attn_concat",
       "ports": [
@@ -2899,7 +3396,7 @@
       ]
     },
     {
-      "id": "edge_51",
+      "id": "edge_52",
       "source": "attn_mask",
       "target": "attn_concat",
       "ports": [
@@ -2910,7 +3407,7 @@
       ]
     },
     {
-      "id": "edge_52",
+      "id": "edge_53",
       "source": "attn_qrope",
       "target": "attn_core",
       "ports": [
@@ -2921,7 +3418,7 @@
       ]
     },
     {
-      "id": "edge_53",
+      "id": "edge_54",
       "source": "attn_concat",
       "target": "attn_core",
       "ports": [
@@ -2932,7 +3429,7 @@
       ]
     },
     {
-      "id": "edge_54",
+      "id": "edge_55",
       "source": "attn_sink",
       "target": "attn_core",
       "ports": [
@@ -2943,7 +3440,7 @@
       ]
     },
     {
-      "id": "edge_55",
+      "id": "edge_56",
       "source": "attn_core",
       "target": "attn_inverse",
       "ports": [
@@ -2954,22 +3451,22 @@
       ]
     },
     {
-      "id": "edge_56",
+      "id": "edge_57",
       "source": "attn_inverse",
       "target": "attn_oa"
     },
     {
-      "id": "edge_57",
+      "id": "edge_58",
       "source": "attn_oa",
       "target": "attn_ob"
     },
     {
-      "id": "edge_58",
+      "id": "edge_59",
       "source": "attn_ob",
       "target": "attn_y"
     },
     {
-      "id": "edge_59",
+      "id": "edge_60",
       "source": "csa_x",
       "target": "csa_kv",
       "ports": [
@@ -2980,7 +3477,7 @@
       ]
     },
     {
-      "id": "edge_60",
+      "id": "edge_61",
       "source": "csa_x",
       "target": "csa_gate",
       "ports": [
@@ -2991,7 +3488,7 @@
       ]
     },
     {
-      "id": "edge_61",
+      "id": "edge_62",
       "source": "csa_kv",
       "target": "csa_window",
       "ports": [
@@ -3002,7 +3499,7 @@
       ]
     },
     {
-      "id": "edge_62",
+      "id": "edge_63",
       "source": "csa_gate",
       "target": "csa_window",
       "ports": [
@@ -3013,32 +3510,37 @@
       ]
     },
     {
-      "id": "edge_63",
+      "id": "edge_64",
       "source": "csa_window",
       "target": "csa_bias"
     },
     {
-      "id": "edge_64",
+      "id": "edge_65",
       "source": "csa_bias",
       "target": "csa_sum"
     },
     {
-      "id": "edge_65",
+      "id": "edge_66",
       "source": "csa_sum",
       "target": "csa_norm"
     },
     {
-      "id": "edge_66",
+      "id": "edge_67",
       "source": "csa_norm",
       "target": "csa_rope"
     },
     {
-      "id": "edge_67",
+      "id": "edge_68",
       "source": "csa_rope",
+      "target": "csa_quant"
+    },
+    {
+      "id": "edge_69",
+      "source": "csa_quant",
       "target": "csa_out"
     },
     {
-      "id": "edge_68",
+      "id": "edge_70",
       "source": "csa_window",
       "target": "csa_sum",
       "ports": [
@@ -3059,7 +3561,7 @@
       ]
     },
     {
-      "id": "edge_69",
+      "id": "edge_71",
       "source": "hca_x",
       "target": "hca_kv",
       "ports": [
@@ -3070,7 +3572,7 @@
       ]
     },
     {
-      "id": "edge_70",
+      "id": "edge_72",
       "source": "hca_x",
       "target": "hca_gate",
       "ports": [
@@ -3081,7 +3583,7 @@
       ]
     },
     {
-      "id": "edge_71",
+      "id": "edge_73",
       "source": "hca_kv",
       "target": "hca_window",
       "ports": [
@@ -3092,7 +3594,7 @@
       ]
     },
     {
-      "id": "edge_72",
+      "id": "edge_74",
       "source": "hca_gate",
       "target": "hca_window",
       "ports": [
@@ -3103,32 +3605,37 @@
       ]
     },
     {
-      "id": "edge_73",
+      "id": "edge_75",
       "source": "hca_window",
       "target": "hca_bias"
     },
     {
-      "id": "edge_74",
+      "id": "edge_76",
       "source": "hca_bias",
       "target": "hca_sum"
     },
     {
-      "id": "edge_75",
+      "id": "edge_77",
       "source": "hca_sum",
       "target": "hca_norm"
     },
     {
-      "id": "edge_76",
+      "id": "edge_78",
       "source": "hca_norm",
       "target": "hca_rope"
     },
     {
-      "id": "edge_77",
+      "id": "edge_79",
       "source": "hca_rope",
+      "target": "hca_quant"
+    },
+    {
+      "id": "edge_80",
+      "source": "hca_quant",
       "target": "hca_out"
     },
     {
-      "id": "edge_78",
+      "id": "edge_81",
       "source": "hca_window",
       "target": "hca_sum",
       "ports": [
@@ -3149,7 +3656,7 @@
       ]
     },
     {
-      "id": "edge_79",
+      "id": "edge_82",
       "source": "moe_x",
       "target": "moe_router",
       "ports": [
@@ -3160,12 +3667,12 @@
       ]
     },
     {
-      "id": "edge_80",
+      "id": "edge_83",
       "source": "moe_router",
       "target": "moe_weights"
     },
     {
-      "id": "edge_81",
+      "id": "edge_84",
       "source": "moe_x",
       "target": "moe_bank",
       "ports": [
@@ -3182,7 +3689,7 @@
       ]
     },
     {
-      "id": "edge_82",
+      "id": "edge_85",
       "source": "moe_weights",
       "target": "moe_bank",
       "ports": [
@@ -3193,22 +3700,22 @@
       ]
     },
     {
-      "id": "edge_83",
+      "id": "edge_86",
       "source": "moe_bank",
       "target": "moe_sum"
     },
     {
-      "id": "edge_84",
+      "id": "edge_87",
       "source": "moe_sum",
       "target": "moe_add"
     },
     {
-      "id": "edge_85",
+      "id": "edge_88",
       "source": "moe_add",
       "target": "moe_y"
     },
     {
-      "id": "edge_86",
+      "id": "edge_89",
       "source": "moe_x",
       "target": "moe_shared",
       "ports": [
@@ -3219,7 +3726,7 @@
       ]
     },
     {
-      "id": "edge_87",
+      "id": "edge_90",
       "source": "moe_shared",
       "target": "moe_add",
       "ports": [
@@ -3236,12 +3743,12 @@
       ]
     },
     {
-      "id": "edge_88",
+      "id": "edge_91",
       "source": "expert_x",
       "target": "expert_up"
     },
     {
-      "id": "edge_89",
+      "id": "edge_92",
       "source": "expert_x",
       "target": "expert_gate",
       "ports": [
@@ -3262,7 +3769,7 @@
       ]
     },
     {
-      "id": "edge_90",
+      "id": "edge_93",
       "source": "expert_up",
       "target": "expert_mul",
       "ports": [
@@ -3283,37 +3790,42 @@
       ]
     },
     {
-      "id": "edge_91",
+      "id": "edge_94",
       "source": "expert_gate",
       "target": "expert_mul"
     },
     {
-      "id": "edge_92",
+      "id": "edge_95",
       "source": "expert_mul",
+      "target": "expert_weight"
+    },
+    {
+      "id": "edge_96",
+      "source": "expert_weight",
       "target": "expert_down"
     },
     {
-      "id": "edge_93",
+      "id": "edge_97",
       "source": "expert_down",
       "target": "expert_y"
     },
     {
-      "id": "edge_94",
+      "id": "edge_98",
       "source": "idx_q",
       "target": "idx_qproj"
     },
     {
-      "id": "edge_95",
+      "id": "edge_99",
       "source": "idx_key",
       "target": "idx_kcache"
     },
     {
-      "id": "edge_96",
+      "id": "edge_100",
       "source": "idx_h",
       "target": "idx_score"
     },
     {
-      "id": "edge_97",
+      "id": "edge_101",
       "source": "idx_qproj",
       "target": "idx_score",
       "ports": [
@@ -3334,7 +3846,7 @@
       ]
     },
     {
-      "id": "edge_98",
+      "id": "edge_102",
       "source": "idx_kcache",
       "target": "idx_score",
       "ports": [
@@ -3355,7 +3867,7 @@
       ]
     },
     {
-      "id": "edge_99",
+      "id": "edge_103",
       "source": "idx_score",
       "target": "idx_select",
       "ports": [
@@ -3364,14 +3876,90 @@
         0,
         0.5
       ]
+    },
+    {
+      "id": "edge_104",
+      "source": "mtp_h",
+      "target": "mtp_hn"
+    },
+    {
+      "id": "edge_105",
+      "source": "mtp_hn",
+      "target": "mtp_hp"
+    },
+    {
+      "id": "edge_106",
+      "source": "mtp_e",
+      "target": "mtp_en"
+    },
+    {
+      "id": "edge_107",
+      "source": "mtp_en",
+      "target": "mtp_ep"
+    },
+    {
+      "id": "edge_108",
+      "source": "mtp_hp",
+      "target": "mtp_sum",
+      "ports": [
+        0.5,
+        0,
+        0,
+        0.5
+      ],
+      "points": [
+        [
+          405,
+          4120
+        ]
+      ]
+    },
+    {
+      "id": "edge_109",
+      "source": "mtp_ep",
+      "target": "mtp_sum",
+      "ports": [
+        0.5,
+        0,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          1175,
+          3970
+        ],
+        [
+          1780,
+          3970
+        ],
+        [
+          1780,
+          4120
+        ]
+      ]
+    },
+    {
+      "id": "edge_110",
+      "source": "mtp_sum",
+      "target": "mtp_block",
+      "ports": [
+        1,
+        0.5,
+        0,
+        0.5
+      ]
+    },
+    {
+      "id": "edge_111",
+      "source": "mtp_block",
+      "target": "mtp_head"
     }
   ],
   "limitations": [
-    "Flash-Base class defaults, not downloaded DeepSeek-V4-Flash checkpoint configuration.",
-    "HF config/model card/weight index blocked by current network policy; no weights or inference tested.",
-    "Exact layer_types/compress_ratios schedule unknown; the Pro fallback schedule is NOT assigned to Flash.",
-    "This is the pinned Transformers reference implementation, not an assertion about every serving-engine kernel.",
-    "No independently verified parameter recount; 284B/13B headline is deliberately omitted.",
-    "MTP is declared in configuration but not instantiated by this Transformers model."
+    "Official config, inference code, kernel and weight index are checked at a single fixed checkpoint revision.",
+    "284B / 13B are official model-card claims, not an independently recomputed parameter count.",
+    "Weight index confirms names and shard mapping; shapes, values and full weights were not read.",
+    "Downloaded Python and GPU kernels were not executed; no numerical inference equivalence test was performed."
   ]
 }

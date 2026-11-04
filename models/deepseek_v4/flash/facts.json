@@ -3,6 +3,648 @@
   "model": "deepseek-ai/DeepSeek-V4-Flash",
   "facts": [
     {
+      "name": "architectures",
+      "value": [
+        "DeepseekV4ForCausalLM"
+      ],
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/architectures"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "expert_dtype",
+      "value": "fp4",
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/expert_dtype"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "hc_streams",
+      "value": 4,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/hc_mult"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "sinkhorn_iterations",
+      "value": 20,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/hc_sinkhorn_iters"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "head_dim",
+      "value": 512,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/head_dim"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "hidden_size",
+      "value": 4096,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/hidden_size"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "index_head_dim",
+      "value": 128,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/index_head_dim"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "index_heads",
+      "value": 64,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/index_n_heads"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "index_topk",
+      "value": 512,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/index_topk"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "context_config_limit",
+      "value": 1048576,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/max_position_embeddings"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "model_type",
+      "value": "deepseek_v4",
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/model_type"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "moe_intermediate",
+      "value": 2048,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/moe_intermediate_size"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "routed_experts",
+      "value": 256,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/n_routed_experts"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "shared_experts",
+      "value": 1,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/n_shared_experts"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "attention_heads",
+      "value": 64,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/num_attention_heads"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "active_experts",
+      "value": 6,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/num_experts_per_tok"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "layers",
+      "value": 43,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/num_hidden_layers"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "hash_layers",
+      "value": 3,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/num_hash_layers"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "kv_heads",
+      "value": 1,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/num_key_value_heads"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "mtp_layers",
+      "value": 1,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/num_nextn_predict_layers"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "output_groups",
+      "value": 8,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/o_groups"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "output_rank_per_group",
+      "value": 1024,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/o_lora_rank"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "q_lora_rank",
+      "value": 1024,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/q_lora_rank"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "rope_head_dim",
+      "value": 64,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/qk_rope_head_dim"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "routing_scale",
+      "value": 1.5,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/routed_scaling_factor"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "router_scoring",
+      "value": "sqrtsoftplus",
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/scoring_func"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "sliding_window",
+      "value": 128,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/sliding_window"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "swiglu_limit",
+      "value": 10.0,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/swiglu_limit"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "vocab_size",
+      "value": 129280,
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/vocab_size"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "compress_ratios",
+      "value": [
+        0,
+        0,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        0
+      ],
+      "status": "verified",
+      "evidence": {
+        "source": "config",
+        "pointer": "/compress_ratios"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "vocab_size",
+      "value": 129280,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/vocab_size"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "hidden_size",
+      "value": 4096,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/dim"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "moe_intermediate",
+      "value": 2048,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/moe_inter_dim"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "layers",
+      "value": 43,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/n_layers"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "hash_layers",
+      "value": 3,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/n_hash_layers"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "attention_heads",
+      "value": 64,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/n_heads"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "routed_experts",
+      "value": 256,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/n_routed_experts"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "shared_experts",
+      "value": 1,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/n_shared_experts"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "active_experts",
+      "value": 6,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/n_activated_experts"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "router_scoring",
+      "value": "sqrtsoftplus",
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/score_func"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "routing_scale",
+      "value": 1.5,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/route_scale"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "swiglu_limit",
+      "value": 10.0,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/swiglu_limit"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "q_lora_rank",
+      "value": 1024,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/q_lora_rank"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "head_dim",
+      "value": 512,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/head_dim"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "rope_head_dim",
+      "value": 64,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/rope_head_dim"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "output_groups",
+      "value": 8,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/o_groups"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "output_rank_per_group",
+      "value": 1024,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/o_lora_rank"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "sliding_window",
+      "value": 128,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/window_size"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "index_heads",
+      "value": 64,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/index_n_heads"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "index_head_dim",
+      "value": 128,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/index_head_dim"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "index_topk",
+      "value": 512,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/index_topk"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "hc_streams",
+      "value": 4,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/hc_mult"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "sinkhorn_iterations",
+      "value": 20,
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/hc_sinkhorn_iters"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "expert_dtype",
+      "value": "fp4",
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/expert_dtype"
+      },
+      "scope": "/"
+    },
+    {
+      "name": "compress_ratios",
+      "value": [
+        0,
+        0,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        128,
+        4,
+        0
+      ],
+      "status": "verified",
+      "evidence": {
+        "source": "official_args",
+        "pointer": "/compress_ratios"
+      },
+      "scope": "/"
+    },
+    {
       "name": "model_type",
       "value": "deepseek_v4",
       "status": "verified",
@@ -156,6 +798,18 @@
         "source": "transformers_config",
         "pointer": "/DeepseekV4Config/scoring_func",
         "locator": "DeepseekV4Config.scoring_func, line 140"
+      }
+    },
+    {
+      "name": "routing_scale",
+      "value": 1.5,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/routed_scaling_factor",
+        "locator": "DeepseekV4Config.routed_scaling_factor, line 142"
       }
     },
     {
@@ -340,10 +994,492 @@
         "pointer": "/DeepseekV4Config/index_topk",
         "locator": "DeepseekV4Config.index_topk, line 161"
       }
+    },
+    {
+      "name": "mtp_layers",
+      "value": 1,
+      "status": "verified",
+      "verification_scope": "source_class_default_not_checkpoint",
+      "scope": "/DeepseekV4Config",
+      "evidence": {
+        "source": "transformers_config",
+        "pointer": "/DeepseekV4Config/num_nextn_predict_layers",
+        "locator": "DeepseekV4Config.num_nextn_predict_layers, line 162"
+      }
     }
   ],
-  "weight_indexes": [],
+  "weight_indexes": [
+    {
+      "source": "weight_index",
+      "tensor_names": 69187,
+      "shard_count": 46,
+      "module_prefix_counts": {
+        "embed.weight": 1,
+        "layers.0.hc_attn_base": 1,
+        "layers.0.hc_ffn_base": 1,
+        "layers.0.hc_attn_fn": 1,
+        "layers.0.hc_attn_scale": 1,
+        "layers.0.hc_ffn_fn": 1,
+        "layers.0.hc_ffn_scale": 1,
+        "layers.0.attn": 13,
+        "layers.0.attn_norm": 1,
+        "layers.0.ffn_norm": 1,
+        "layers.0.ffn": 1544,
+        "layers.1.hc_attn_base": 1,
+        "layers.1.hc_ffn_base": 1,
+        "layers.1.hc_attn_fn": 1,
+        "layers.1.hc_attn_scale": 1,
+        "layers.1.hc_ffn_fn": 1,
+        "layers.1.hc_ffn_scale": 1,
+        "layers.1.attn": 13,
+        "layers.1.attn_norm": 1,
+        "layers.1.ffn_norm": 1,
+        "layers.1.ffn": 1544,
+        "layers.2.hc_attn_base": 1,
+        "layers.2.hc_ffn_base": 1,
+        "layers.2.hc_attn_fn": 1,
+        "layers.2.hc_attn_scale": 1,
+        "layers.2.hc_ffn_fn": 1,
+        "layers.2.hc_ffn_scale": 1,
+        "layers.2.attn": 24,
+        "layers.2.attn_norm": 1,
+        "layers.2.ffn_norm": 1,
+        "layers.2.ffn": 1544,
+        "layers.3.hc_attn_base": 1,
+        "layers.3.hc_ffn_base": 1,
+        "layers.3.hc_attn_fn": 1,
+        "layers.3.hc_attn_scale": 1,
+        "layers.3.hc_ffn_fn": 1,
+        "layers.3.hc_ffn_scale": 1,
+        "layers.3.attn": 17,
+        "layers.3.attn_norm": 1,
+        "layers.3.ffn_norm": 1,
+        "layers.3.ffn": 1544,
+        "layers.4.hc_attn_base": 1,
+        "layers.4.hc_ffn_base": 1,
+        "layers.4.hc_attn_fn": 1,
+        "layers.4.hc_attn_scale": 1,
+        "layers.4.hc_ffn_fn": 1,
+        "layers.4.hc_ffn_scale": 1,
+        "layers.4.attn": 24,
+        "layers.4.attn_norm": 1,
+        "layers.4.ffn_norm": 1,
+        "layers.4.ffn": 1544,
+        "layers.5.hc_attn_base": 1,
+        "layers.5.hc_ffn_base": 1,
+        "layers.5.hc_attn_fn": 1,
+        "layers.5.hc_attn_scale": 1,
+        "layers.5.hc_ffn_fn": 1,
+        "layers.5.hc_ffn_scale": 1,
+        "layers.5.attn": 17,
+        "layers.5.attn_norm": 1,
+        "layers.5.ffn_norm": 1,
+        "layers.5.ffn": 1544,
+        "layers.6.hc_attn_base": 1,
+        "layers.6.hc_ffn_base": 1,
+        "layers.6.hc_attn_fn": 1,
+        "layers.6.hc_attn_scale": 1,
+        "layers.6.hc_ffn_fn": 1,
+        "layers.6.hc_ffn_scale": 1,
+        "layers.6.attn": 24,
+        "layers.6.attn_norm": 1,
+        "layers.6.ffn_norm": 1,
+        "layers.6.ffn": 1544,
+        "layers.7.hc_attn_base": 1,
+        "layers.7.hc_ffn_base": 1,
+        "layers.7.hc_attn_fn": 1,
+        "layers.7.hc_attn_scale": 1,
+        "layers.7.hc_ffn_fn": 1,
+        "layers.7.hc_ffn_scale": 1,
+        "layers.7.attn": 17,
+        "layers.7.attn_norm": 1,
+        "layers.7.ffn_norm": 1,
+        "layers.7.ffn": 1544,
+        "layers.8.hc_attn_base": 1,
+        "layers.8.hc_ffn_base": 1,
+        "layers.8.hc_attn_fn": 1,
+        "layers.8.hc_attn_scale": 1,
+        "layers.8.hc_ffn_fn": 1,
+        "layers.8.hc_ffn_scale": 1,
+        "layers.8.attn": 24,
+        "layers.8.attn_norm": 1,
+        "layers.8.ffn_norm": 1,
+        "layers.8.ffn": 1544,
+        "layers.9.hc_attn_base": 1,
+        "layers.9.hc_ffn_base": 1,
+        "layers.9.hc_attn_fn": 1,
+        "layers.9.hc_attn_scale": 1,
+        "layers.9.hc_ffn_fn": 1,
+        "layers.9.hc_ffn_scale": 1,
+        "layers.9.attn": 17,
+        "layers.9.attn_norm": 1,
+        "layers.9.ffn_norm": 1,
+        "layers.9.ffn": 1544,
+        "layers.10.hc_attn_base": 1,
+        "layers.10.hc_ffn_base": 1,
+        "layers.10.hc_attn_fn": 1,
+        "layers.10.hc_attn_scale": 1,
+        "layers.10.hc_ffn_fn": 1,
+        "layers.10.hc_ffn_scale": 1,
+        "layers.10.attn": 24,
+        "layers.10.attn_norm": 1,
+        "layers.10.ffn_norm": 1,
+        "layers.10.ffn": 1544,
+        "layers.11.hc_attn_base": 1,
+        "layers.11.hc_ffn_base": 1,
+        "layers.11.hc_attn_fn": 1,
+        "layers.11.hc_attn_scale": 1,
+        "layers.11.hc_ffn_fn": 1,
+        "layers.11.hc_ffn_scale": 1,
+        "layers.11.attn": 17,
+        "layers.11.attn_norm": 1,
+        "layers.11.ffn_norm": 1,
+        "layers.11.ffn": 1544,
+        "layers.12.hc_attn_base": 1,
+        "layers.12.hc_ffn_base": 1,
+        "layers.12.hc_attn_fn": 1,
+        "layers.12.hc_attn_scale": 1,
+        "layers.12.hc_ffn_fn": 1,
+        "layers.12.hc_ffn_scale": 1,
+        "layers.12.attn": 24,
+        "layers.12.attn_norm": 1,
+        "layers.12.ffn_norm": 1,
+        "layers.12.ffn": 1544,
+        "layers.13.hc_attn_base": 1,
+        "layers.13.hc_ffn_base": 1,
+        "layers.13.hc_attn_fn": 1,
+        "layers.13.hc_attn_scale": 1,
+        "layers.13.hc_ffn_fn": 1,
+        "layers.13.hc_ffn_scale": 1,
+        "layers.13.attn": 17,
+        "layers.13.attn_norm": 1,
+        "layers.13.ffn_norm": 1,
+        "layers.13.ffn": 1544,
+        "layers.14.hc_attn_base": 1,
+        "layers.14.hc_ffn_base": 1,
+        "layers.14.hc_attn_fn": 1,
+        "layers.14.hc_attn_scale": 1,
+        "layers.14.hc_ffn_fn": 1,
+        "layers.14.hc_ffn_scale": 1,
+        "layers.14.attn": 24,
+        "layers.14.attn_norm": 1,
+        "layers.14.ffn_norm": 1,
+        "layers.14.ffn": 1544,
+        "layers.15.hc_attn_base": 1,
+        "layers.15.hc_ffn_base": 1,
+        "layers.15.hc_attn_fn": 1,
+        "layers.15.hc_attn_scale": 1,
+        "layers.15.hc_ffn_fn": 1,
+        "layers.15.hc_ffn_scale": 1,
+        "layers.15.attn": 17,
+        "layers.15.attn_norm": 1,
+        "layers.15.ffn_norm": 1,
+        "layers.15.ffn": 1544,
+        "layers.16.hc_attn_base": 1,
+        "layers.16.hc_ffn_base": 1,
+        "layers.16.hc_attn_fn": 1,
+        "layers.16.hc_attn_scale": 1,
+        "layers.16.hc_ffn_fn": 1,
+        "layers.16.hc_ffn_scale": 1,
+        "layers.16.attn": 24,
+        "layers.16.attn_norm": 1,
+        "layers.16.ffn_norm": 1,
+        "layers.16.ffn": 1544,
+        "layers.17.hc_attn_base": 1,
+        "layers.17.hc_ffn_base": 1,
+        "layers.17.hc_attn_fn": 1,
+        "layers.17.hc_attn_scale": 1,
+        "layers.17.hc_ffn_fn": 1,
+        "layers.17.hc_ffn_scale": 1,
+        "layers.17.attn": 17,
+        "layers.17.attn_norm": 1,
+        "layers.17.ffn_norm": 1,
+        "layers.17.ffn": 1544,
+        "layers.18.hc_attn_base": 1,
+        "layers.18.hc_ffn_base": 1,
+        "layers.18.hc_attn_fn": 1,
+        "layers.18.hc_attn_scale": 1,
+        "layers.18.hc_ffn_fn": 1,
+        "layers.18.hc_ffn_scale": 1,
+        "layers.18.attn": 24,
+        "layers.18.attn_norm": 1,
+        "layers.18.ffn_norm": 1,
+        "layers.18.ffn": 1544,
+        "layers.19.hc_attn_base": 1,
+        "layers.19.hc_ffn_base": 1,
+        "layers.19.hc_attn_fn": 1,
+        "layers.19.hc_attn_scale": 1,
+        "layers.19.hc_ffn_fn": 1,
+        "layers.19.hc_ffn_scale": 1,
+        "layers.19.attn": 17,
+        "layers.19.attn_norm": 1,
+        "layers.19.ffn_norm": 1,
+        "layers.19.ffn": 1544,
+        "layers.20.hc_attn_base": 1,
+        "layers.20.hc_ffn_base": 1,
+        "layers.20.hc_attn_fn": 1,
+        "layers.20.hc_attn_scale": 1,
+        "layers.20.hc_ffn_fn": 1,
+        "layers.20.hc_ffn_scale": 1,
+        "layers.20.attn": 24,
+        "layers.20.attn_norm": 1,
+        "layers.20.ffn_norm": 1,
+        "layers.20.ffn": 1544,
+        "layers.21.hc_attn_base": 1,
+        "layers.21.hc_ffn_base": 1,
+        "layers.21.hc_attn_fn": 1,
+        "layers.21.hc_attn_scale": 1,
+        "layers.21.hc_ffn_fn": 1,
+        "layers.21.hc_ffn_scale": 1,
+        "layers.21.attn": 17,
+        "layers.21.attn_norm": 1,
+        "layers.21.ffn_norm": 1,
+        "layers.21.ffn": 1544,
+        "layers.22.hc_attn_base": 1,
+        "layers.22.hc_ffn_base": 1,
+        "layers.22.hc_attn_fn": 1,
+        "layers.22.hc_attn_scale": 1,
+        "layers.22.hc_ffn_fn": 1,
+        "layers.22.hc_ffn_scale": 1,
+        "layers.22.attn": 24,
+        "layers.22.attn_norm": 1,
+        "layers.22.ffn_norm": 1,
+        "layers.22.ffn": 1544,
+        "layers.23.hc_attn_base": 1,
+        "layers.23.hc_ffn_base": 1,
+        "layers.23.hc_attn_fn": 1,
+        "layers.23.hc_attn_scale": 1,
+        "layers.23.hc_ffn_fn": 1,
+        "layers.23.hc_ffn_scale": 1,
+        "layers.23.attn": 17,
+        "layers.23.attn_norm": 1,
+        "layers.23.ffn_norm": 1,
+        "layers.23.ffn": 1544,
+        "layers.24.hc_attn_base": 1,
+        "layers.24.hc_ffn_base": 1,
+        "layers.24.hc_attn_fn": 1,
+        "layers.24.hc_attn_scale": 1,
+        "layers.24.hc_ffn_fn": 1,
+        "layers.24.hc_ffn_scale": 1,
+        "layers.24.attn": 24,
+        "layers.24.attn_norm": 1,
+        "layers.24.ffn_norm": 1,
+        "layers.24.ffn": 1544,
+        "layers.25.hc_attn_base": 1,
+        "layers.25.hc_ffn_base": 1,
+        "layers.25.hc_attn_fn": 1,
+        "layers.25.hc_attn_scale": 1,
+        "layers.25.hc_ffn_fn": 1,
+        "layers.25.hc_ffn_scale": 1,
+        "layers.25.attn": 17,
+        "layers.25.attn_norm": 1,
+        "layers.25.ffn_norm": 1,
+        "layers.25.ffn": 1544,
+        "layers.26.hc_attn_base": 1,
+        "layers.26.hc_ffn_base": 1,
+        "layers.26.hc_attn_fn": 1,
+        "layers.26.hc_attn_scale": 1,
+        "layers.26.hc_ffn_fn": 1,
+        "layers.26.hc_ffn_scale": 1,
+        "layers.26.attn": 24,
+        "layers.26.attn_norm": 1,
+        "layers.26.ffn_norm": 1,
+        "layers.26.ffn": 1544,
+        "layers.27.hc_attn_base": 1,
+        "layers.27.hc_ffn_base": 1,
+        "layers.27.hc_attn_fn": 1,
+        "layers.27.hc_attn_scale": 1,
+        "layers.27.hc_ffn_fn": 1,
+        "layers.27.hc_ffn_scale": 1,
+        "layers.27.attn": 17,
+        "layers.27.attn_norm": 1,
+        "layers.27.ffn_norm": 1,
+        "layers.27.ffn": 1544,
+        "layers.28.hc_attn_base": 1,
+        "layers.28.hc_ffn_base": 1,
+        "layers.28.hc_attn_fn": 1,
+        "layers.28.hc_attn_scale": 1,
+        "layers.28.hc_ffn_fn": 1,
+        "layers.28.hc_ffn_scale": 1,
+        "layers.28.attn": 24,
+        "layers.28.attn_norm": 1,
+        "layers.28.ffn_norm": 1,
+        "layers.28.ffn": 1544,
+        "layers.29.hc_attn_base": 1,
+        "layers.29.hc_ffn_base": 1,
+        "layers.29.hc_attn_fn": 1,
+        "layers.29.hc_attn_scale": 1,
+        "layers.29.hc_ffn_fn": 1,
+        "layers.29.hc_ffn_scale": 1,
+        "layers.29.attn": 17,
+        "layers.29.attn_norm": 1,
+        "layers.29.ffn_norm": 1,
+        "layers.29.ffn": 1544,
+        "layers.30.hc_attn_base": 1,
+        "layers.30.hc_ffn_base": 1,
+        "layers.30.hc_attn_fn": 1,
+        "layers.30.hc_attn_scale": 1,
+        "layers.30.hc_ffn_fn": 1,
+        "layers.30.hc_ffn_scale": 1,
+        "layers.30.attn": 24,
+        "layers.30.attn_norm": 1,
+        "layers.30.ffn_norm": 1,
+        "layers.30.ffn": 1544,
+        "layers.31.hc_attn_base": 1,
+        "layers.31.hc_ffn_base": 1,
+        "layers.31.hc_attn_fn": 1,
+        "layers.31.hc_attn_scale": 1,
+        "layers.31.hc_ffn_fn": 1,
+        "layers.31.hc_ffn_scale": 1,
+        "layers.31.attn": 17,
+        "layers.31.attn_norm": 1,
+        "layers.31.ffn_norm": 1,
+        "layers.31.ffn": 1544,
+        "layers.32.hc_attn_base": 1,
+        "layers.32.hc_ffn_base": 1,
+        "layers.32.hc_attn_fn": 1,
+        "layers.32.hc_attn_scale": 1,
+        "layers.32.hc_ffn_fn": 1,
+        "layers.32.hc_ffn_scale": 1,
+        "layers.32.attn": 24,
+        "layers.32.attn_norm": 1,
+        "layers.32.ffn_norm": 1,
+        "layers.32.ffn": 1544,
+        "layers.33.hc_attn_base": 1,
+        "layers.33.hc_ffn_base": 1,
+        "layers.33.hc_attn_fn": 1,
+        "layers.33.hc_attn_scale": 1,
+        "layers.33.hc_ffn_fn": 1,
+        "layers.33.hc_ffn_scale": 1,
+        "layers.33.attn": 17,
+        "layers.33.attn_norm": 1,
+        "layers.33.ffn_norm": 1,
+        "layers.33.ffn": 1544,
+        "layers.34.hc_attn_base": 1,
+        "layers.34.hc_ffn_base": 1,
+        "layers.34.hc_attn_fn": 1,
+        "layers.34.hc_attn_scale": 1,
+        "layers.34.hc_ffn_fn": 1,
+        "layers.34.hc_ffn_scale": 1,
+        "layers.34.attn": 24,
+        "layers.34.attn_norm": 1,
+        "layers.34.ffn_norm": 1,
+        "layers.34.ffn": 1544,
+        "layers.35.hc_attn_base": 1,
+        "layers.35.hc_ffn_base": 1,
+        "layers.35.hc_attn_fn": 1,
+        "layers.35.hc_attn_scale": 1,
+        "layers.35.hc_ffn_fn": 1,
+        "layers.35.hc_ffn_scale": 1,
+        "layers.35.attn": 17,
+        "layers.35.attn_norm": 1,
+        "layers.35.ffn_norm": 1,
+        "layers.35.ffn": 1544,
+        "layers.36.hc_attn_base": 1,
+        "layers.36.hc_ffn_base": 1,
+        "layers.36.hc_attn_fn": 1,
+        "layers.36.hc_attn_scale": 1,
+        "layers.36.hc_ffn_fn": 1,
+        "layers.36.hc_ffn_scale": 1,
+        "layers.36.attn": 24,
+        "layers.36.attn_norm": 1,
+        "layers.36.ffn_norm": 1,
+        "layers.36.ffn": 1544,
+        "layers.37.hc_attn_base": 1,
+        "layers.37.hc_ffn_base": 1,
+        "layers.37.hc_attn_fn": 1,
+        "layers.37.hc_attn_scale": 1,
+        "layers.37.hc_ffn_fn": 1,
+        "layers.37.hc_ffn_scale": 1,
+        "layers.37.attn": 17,
+        "layers.37.attn_norm": 1,
+        "layers.37.ffn_norm": 1,
+        "layers.37.ffn": 1544,
+        "layers.38.hc_attn_base": 1,
+        "layers.38.hc_ffn_base": 1,
+        "layers.38.hc_attn_fn": 1,
+        "layers.38.hc_attn_scale": 1,
+        "layers.38.hc_ffn_fn": 1,
+        "layers.38.hc_ffn_scale": 1,
+        "layers.38.attn": 24,
+        "layers.38.attn_norm": 1,
+        "layers.38.ffn_norm": 1,
+        "layers.38.ffn": 1544,
+        "layers.39.hc_attn_base": 1,
+        "layers.39.hc_ffn_base": 1,
+        "layers.39.hc_attn_fn": 1,
+        "layers.39.hc_attn_scale": 1,
+        "layers.39.hc_ffn_fn": 1,
+        "layers.39.hc_ffn_scale": 1,
+        "layers.39.attn": 17,
+        "layers.39.attn_norm": 1,
+        "layers.39.ffn_norm": 1,
+        "layers.39.ffn": 1544,
+        "layers.40.hc_attn_base": 1,
+        "layers.40.hc_ffn_base": 1,
+        "layers.40.hc_attn_fn": 1,
+        "layers.40.hc_attn_scale": 1,
+        "layers.40.hc_ffn_fn": 1,
+        "layers.40.hc_ffn_scale": 1,
+        "layers.40.attn": 24,
+        "layers.40.attn_norm": 1,
+        "layers.40.ffn_norm": 1,
+        "layers.40.ffn": 1544,
+        "layers.41.hc_attn_base": 1,
+        "layers.41.hc_ffn_base": 1,
+        "layers.41.hc_attn_fn": 1,
+        "layers.41.hc_attn_scale": 1,
+        "layers.41.hc_ffn_fn": 1,
+        "layers.41.hc_ffn_scale": 1,
+        "layers.41.attn": 17,
+        "layers.41.attn_norm": 1,
+        "layers.41.ffn_norm": 1,
+        "layers.41.ffn": 1544,
+        "layers.42.hc_attn_base": 1,
+        "layers.42.hc_ffn_base": 1,
+        "layers.42.hc_attn_fn": 1,
+        "layers.42.hc_attn_scale": 1,
+        "layers.42.hc_ffn_fn": 1,
+        "layers.42.hc_ffn_scale": 1,
+        "layers.42.attn": 24,
+        "layers.42.attn_norm": 1,
+        "layers.42.ffn_norm": 1,
+        "layers.42.ffn": 1544,
+        "hc_head_base": 1,
+        "hc_head_fn": 1,
+        "hc_head_scale": 1,
+        "norm.weight": 1,
+        "head.weight": 1,
+        "mtp.0.hc_head_base": 1,
+        "mtp.0.hc_head_fn": 1,
+        "mtp.0.hc_head_scale": 1,
+        "mtp.0.hc_attn_base": 1,
+        "mtp.0.hc_ffn_base": 1,
+        "mtp.0.hc_attn_fn": 1,
+        "mtp.0.hc_attn_scale": 1,
+        "mtp.0.hc_ffn_fn": 1,
+        "mtp.0.hc_ffn_scale": 1,
+        "mtp.0.attn": 13,
+        "mtp.0.attn_norm": 1,
+        "mtp.0.ffn_norm": 1,
+        "mtp.0.ffn": 1544,
+        "mtp.0.e_proj": 2,
+        "mtp.0.h_proj": 2,
+        "mtp.0.enorm": 1,
+        "mtp.0.hnorm": 1,
+        "mtp.0.norm": 1
+      },
+      "limitation": "Index contains tensor names and shard mapping, not shapes or exact parameter counts."
+    }
+  ],
   "sources": {
+    "config": "https://huggingface.co/api/resolve-cache/models/deepseek-ai/DeepSeek-V4-Flash/60d8d70770c6776ff598c94bb586a859a38244f1/config.json",
+    "model_card": "https://huggingface.co/api/resolve-cache/models/deepseek-ai/DeepSeek-V4-Flash/60d8d70770c6776ff598c94bb586a859a38244f1/README.md",
+    "weight_index": "https://huggingface.co/api/resolve-cache/models/deepseek-ai/DeepSeek-V4-Flash/60d8d70770c6776ff598c94bb586a859a38244f1/model.safetensors.index.json",
+    "official_model": "https://huggingface.co/api/resolve-cache/models/deepseek-ai/DeepSeek-V4-Flash/60d8d70770c6776ff598c94bb586a859a38244f1/inference%2Fmodel.py",
+    "official_kernel": "https://huggingface.co/api/resolve-cache/models/deepseek-ai/DeepSeek-V4-Flash/60d8d70770c6776ff598c94bb586a859a38244f1/inference%2Fkernel.py",
+    "official_args": "https://huggingface.co/api/resolve-cache/models/deepseek-ai/DeepSeek-V4-Flash/60d8d70770c6776ff598c94bb586a859a38244f1/inference%2Fconfig.json",
+    "official_inference_readme": "https://huggingface.co/api/resolve-cache/models/deepseek-ai/DeepSeek-V4-Flash/60d8d70770c6776ff598c94bb586a859a38244f1/inference%2FREADME.md",
     "transformers_config": "https://raw.githubusercontent.com/huggingface/transformers/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/configuration_deepseek_v4.py",
     "transformers_model": "https://raw.githubusercontent.com/huggingface/transformers/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/modeling_deepseek_v4.py",
     "transformers_modular": "https://raw.githubusercontent.com/huggingface/transformers/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/modular_deepseek_v4.py"

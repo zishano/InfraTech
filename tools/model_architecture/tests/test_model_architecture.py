@@ -16,7 +16,21 @@ class Response(io.BytesIO):
     headers={'x-repo-commit':'abc123'}
     def geturl(self):return 'https://example.org/config.json'
 
+class CacheRedirectResponse(Response):
+    def geturl(self):return 'https://huggingface.co/api/resolve-cache/models/org/model/abc/config.json?etag=cache-tag&token=must-not-persist'
+
 class WorkflowTests(unittest.TestCase):
+    def test_https_cache_redirect_is_accepted_without_persisting_query(self):
+        manifest={'sources':[dict(id='config',url='https://huggingface.co/org/model/resolve/abc/config.json',kind='config',required=True)]}
+        with tempfile.TemporaryDirectory() as d, patch.object(a.urllib.request,'urlopen',return_value=CacheRedirectResponse(b'{"hidden_size":4096}')):
+            self.assertTrue(a.collect(manifest,d))
+            raw=(Path(d)/'inventory.json').read_text()
+            self.assertNotIn('must-not-persist',raw)
+            self.assertNotIn('etag=',raw)
+            inv=a.read(Path(d)/'inventory.json')['sources'][0]
+            self.assertTrue(inv['redirect_query_redacted'])
+        with self.assertRaises(ValueError):a.public_redirect_url('http://example.org/config.json?etag=a')
+
     def test_collect_extract_nested_and_conflicting_facts(self):
         raw=(BASE/'tests/fixtures/config.json').read_bytes()
         manifest={'model':'test/model','sources':[{'id':'config','url':'https://example.org/config.json','kind':'config','required':True}]}

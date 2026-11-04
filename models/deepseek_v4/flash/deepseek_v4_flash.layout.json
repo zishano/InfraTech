@@ -809,27 +809,42 @@
         ],
         [
           2425,
-          1420
+          1440
         ]
       ]
     },
     {
       "id": "edge_47",
       "source": "attn_kvrope",
-      "target": "attn_local",
+      "target": "attn_kvquant",
       "points": [
         [
           2425,
-          1340
+          1370
         ],
         [
           2425,
-          1295
+          1350
         ]
       ]
     },
     {
       "id": "edge_48",
+      "source": "attn_kvquant",
+      "target": "attn_local",
+      "points": [
+        [
+          2425,
+          1270
+        ],
+        [
+          2425,
+          1250
+        ]
+      ]
+    },
+    {
+      "id": "edge_49",
       "source": "attn_compressor",
       "target": "attn_entries",
       "points": [
@@ -844,7 +859,7 @@
       ]
     },
     {
-      "id": "edge_49",
+      "id": "edge_50",
       "source": "attn_entries",
       "target": "attn_mask",
       "points": [
@@ -859,22 +874,22 @@
       ]
     },
     {
-      "id": "edge_50",
+      "id": "edge_51",
       "source": "attn_local",
       "target": "attn_concat",
       "points": [
         [
           2425,
-          1210
+          1160
         ],
         [
           2425,
-          1150
+          1140
         ]
       ]
     },
     {
-      "id": "edge_51",
+      "id": "edge_52",
       "source": "attn_mask",
       "target": "attn_concat",
       "points": [
@@ -884,12 +899,12 @@
         ],
         [
           2775,
-          1150
+          1140
         ]
       ]
     },
     {
-      "id": "edge_52",
+      "id": "edge_53",
       "source": "attn_qrope",
       "target": "attn_core",
       "points": [
@@ -904,13 +919,13 @@
       ]
     },
     {
-      "id": "edge_53",
+      "id": "edge_54",
       "source": "attn_concat",
       "target": "attn_core",
       "points": [
         [
           2600,
-          1050
+          1030
         ],
         [
           2600,
@@ -919,7 +934,7 @@
       ]
     },
     {
-      "id": "edge_54",
+      "id": "edge_55",
       "source": "attn_sink",
       "target": "attn_core",
       "points": [
@@ -934,7 +949,7 @@
       ]
     },
     {
-      "id": "edge_55",
+      "id": "edge_56",
       "source": "attn_core",
       "target": "attn_inverse",
       "points": [
@@ -949,7 +964,7 @@
       ]
     },
     {
-      "id": "edge_56",
+      "id": "edge_57",
       "source": "attn_inverse",
       "target": "attn_oa",
       "points": [
@@ -964,7 +979,7 @@
       ]
     },
     {
-      "id": "edge_57",
+      "id": "edge_58",
       "source": "attn_oa",
       "target": "attn_ob",
       "points": [
@@ -979,7 +994,7 @@
       ]
     },
     {
-      "id": "edge_58",
+      "id": "edge_59",
       "source": "attn_ob",
       "target": "attn_y",
       "points": [
@@ -994,7 +1009,7 @@
       ]
     },
     {
-      "id": "edge_59",
+      "id": "edge_60",
       "source": "csa_x",
       "target": "csa_kv",
       "points": [
@@ -1009,7 +1024,7 @@
       ]
     },
     {
-      "id": "edge_60",
+      "id": "edge_61",
       "source": "csa_x",
       "target": "csa_gate",
       "points": [
@@ -1024,7 +1039,7 @@
       ]
     },
     {
-      "id": "edge_61",
+      "id": "edge_62",
       "source": "csa_kv",
       "target": "csa_window",
       "points": [
@@ -1047,7 +1062,7 @@
       ]
     },
     {
-      "id": "edge_62",
+      "id": "edge_63",
       "source": "csa_gate",
       "target": "csa_window",
       "points": [
@@ -1070,7 +1085,7 @@
       ]
     },
     {
-      "id": "edge_63",
+      "id": "edge_64",
       "source": "csa_window",
       "target": "csa_bias",
       "points": [
@@ -1085,7 +1100,7 @@
       ]
     },
     {
-      "id": "edge_64",
+      "id": "edge_65",
       "source": "csa_bias",
       "target": "csa_sum",
       "points": [
@@ -1100,7 +1115,7 @@
       ]
     },
     {
-      "id": "edge_65",
+      "id": "edge_66",
       "source": "csa_sum",
       "target": "csa_norm",
       "points": [
@@ -1115,7 +1130,7 @@
       ]
     },
     {
-      "id": "edge_66",
+      "id": "edge_67",
       "source": "csa_norm",
       "target": "csa_rope",
       "points": [
@@ -1125,27 +1140,42 @@
         ],
         [
           265,
-          2200
-        ]
-      ]
-    },
-    {
-      "id": "edge_67",
-      "source": "csa_rope",
-      "target": "csa_out",
-      "points": [
-        [
-          265,
-          2100
-        ],
-        [
-          265,
-          2055
+          2225
         ]
       ]
     },
     {
       "id": "edge_68",
+      "source": "csa_rope",
+      "target": "csa_quant",
+      "points": [
+        [
+          265,
+          2160
+        ],
+        [
+          265,
+          2130
+        ]
+      ]
+    },
+    {
+      "id": "edge_69",
+      "source": "csa_quant",
+      "target": "csa_out",
+      "points": [
+        [
+          265,
+          2035
+        ],
+        [
+          265,
+          2010
+        ]
+      ]
+    },
+    {
+      "id": "edge_70",
       "source": "csa_window",
       "target": "csa_sum",
       "points": [
@@ -1168,7 +1198,7 @@
       ]
     },
     {
-      "id": "edge_69",
+      "id": "edge_71",
       "source": "hca_x",
       "target": "hca_kv",
       "points": [
@@ -1183,7 +1213,7 @@
       ]
     },
     {
-      "id": "edge_70",
+      "id": "edge_72",
       "source": "hca_x",
       "target": "hca_gate",
       "points": [
@@ -1198,7 +1228,7 @@
       ]
     },
     {
-      "id": "edge_71",
+      "id": "edge_73",
       "source": "hca_kv",
       "target": "hca_window",
       "points": [
@@ -1221,7 +1251,7 @@
       ]
     },
     {
-      "id": "edge_72",
+      "id": "edge_74",
       "source": "hca_gate",
       "target": "hca_window",
       "points": [
@@ -1244,7 +1274,7 @@
       ]
     },
     {
-      "id": "edge_73",
+      "id": "edge_75",
       "source": "hca_window",
       "target": "hca_bias",
       "points": [
@@ -1259,7 +1289,7 @@
       ]
     },
     {
-      "id": "edge_74",
+      "id": "edge_76",
       "source": "hca_bias",
       "target": "hca_sum",
       "points": [
@@ -1274,7 +1304,7 @@
       ]
     },
     {
-      "id": "edge_75",
+      "id": "edge_77",
       "source": "hca_sum",
       "target": "hca_norm",
       "points": [
@@ -1289,7 +1319,7 @@
       ]
     },
     {
-      "id": "edge_76",
+      "id": "edge_78",
       "source": "hca_norm",
       "target": "hca_rope",
       "points": [
@@ -1299,27 +1329,42 @@
         ],
         [
           735,
-          2200
+          2225
         ]
       ]
     },
     {
-      "id": "edge_77",
+      "id": "edge_79",
       "source": "hca_rope",
+      "target": "hca_quant",
+      "points": [
+        [
+          735,
+          2160
+        ],
+        [
+          735,
+          2130
+        ]
+      ]
+    },
+    {
+      "id": "edge_80",
+      "source": "hca_quant",
       "target": "hca_out",
       "points": [
         [
           735,
-          2100
+          2035
         ],
         [
           735,
-          2055
+          2010
         ]
       ]
     },
     {
-      "id": "edge_78",
+      "id": "edge_81",
       "source": "hca_window",
       "target": "hca_sum",
       "points": [
@@ -1342,7 +1387,7 @@
       ]
     },
     {
-      "id": "edge_79",
+      "id": "edge_82",
       "source": "moe_x",
       "target": "moe_router",
       "points": [
@@ -1357,7 +1402,7 @@
       ]
     },
     {
-      "id": "edge_80",
+      "id": "edge_83",
       "source": "moe_router",
       "target": "moe_weights",
       "points": [
@@ -1372,7 +1417,7 @@
       ]
     },
     {
-      "id": "edge_81",
+      "id": "edge_84",
       "source": "moe_x",
       "target": "moe_bank",
       "points": [
@@ -1391,7 +1436,7 @@
       ]
     },
     {
-      "id": "edge_82",
+      "id": "edge_85",
       "source": "moe_weights",
       "target": "moe_bank",
       "points": [
@@ -1406,7 +1451,7 @@
       ]
     },
     {
-      "id": "edge_83",
+      "id": "edge_86",
       "source": "moe_bank",
       "target": "moe_sum",
       "points": [
@@ -1421,7 +1466,7 @@
       ]
     },
     {
-      "id": "edge_84",
+      "id": "edge_87",
       "source": "moe_sum",
       "target": "moe_add",
       "points": [
@@ -1436,7 +1481,7 @@
       ]
     },
     {
-      "id": "edge_85",
+      "id": "edge_88",
       "source": "moe_add",
       "target": "moe_y",
       "points": [
@@ -1451,7 +1496,7 @@
       ]
     },
     {
-      "id": "edge_86",
+      "id": "edge_89",
       "source": "moe_x",
       "target": "moe_shared",
       "points": [
@@ -1466,7 +1511,7 @@
       ]
     },
     {
-      "id": "edge_87",
+      "id": "edge_90",
       "source": "moe_shared",
       "target": "moe_add",
       "points": [
@@ -1485,7 +1530,7 @@
       ]
     },
     {
-      "id": "edge_88",
+      "id": "edge_91",
       "source": "expert_x",
       "target": "expert_up",
       "points": [
@@ -1500,7 +1545,7 @@
       ]
     },
     {
-      "id": "edge_89",
+      "id": "edge_92",
       "source": "expert_x",
       "target": "expert_gate",
       "points": [
@@ -1523,7 +1568,7 @@
       ]
     },
     {
-      "id": "edge_90",
+      "id": "edge_93",
       "source": "expert_up",
       "target": "expert_mul",
       "points": [
@@ -1546,7 +1591,7 @@
       ]
     },
     {
-      "id": "edge_91",
+      "id": "edge_94",
       "source": "expert_gate",
       "target": "expert_mul",
       "points": [
@@ -1561,13 +1606,28 @@
       ]
     },
     {
-      "id": "edge_92",
+      "id": "edge_95",
       "source": "expert_mul",
-      "target": "expert_down",
+      "target": "expert_weight",
       "points": [
         [
           2800,
           2440
+        ],
+        [
+          2800,
+          2430
+        ]
+      ]
+    },
+    {
+      "id": "edge_96",
+      "source": "expert_weight",
+      "target": "expert_down",
+      "points": [
+        [
+          2800,
+          2370
         ],
         [
           2800,
@@ -1576,7 +1636,7 @@
       ]
     },
     {
-      "id": "edge_93",
+      "id": "edge_97",
       "source": "expert_down",
       "target": "expert_y",
       "points": [
@@ -1591,7 +1651,7 @@
       ]
     },
     {
-      "id": "edge_94",
+      "id": "edge_98",
       "source": "idx_q",
       "target": "idx_qproj",
       "points": [
@@ -1606,7 +1666,7 @@
       ]
     },
     {
-      "id": "edge_95",
+      "id": "edge_99",
       "source": "idx_key",
       "target": "idx_kcache",
       "points": [
@@ -1621,7 +1681,7 @@
       ]
     },
     {
-      "id": "edge_96",
+      "id": "edge_100",
       "source": "idx_h",
       "target": "idx_score",
       "points": [
@@ -1636,7 +1696,7 @@
       ]
     },
     {
-      "id": "edge_97",
+      "id": "edge_101",
       "source": "idx_qproj",
       "target": "idx_score",
       "points": [
@@ -1659,7 +1719,7 @@
       ]
     },
     {
-      "id": "edge_98",
+      "id": "edge_102",
       "source": "idx_kcache",
       "target": "idx_score",
       "points": [
@@ -1682,7 +1742,7 @@
       ]
     },
     {
-      "id": "edge_99",
+      "id": "edge_103",
       "source": "idx_score",
       "target": "idx_select",
       "points": [
@@ -1703,7 +1763,151 @@
           3545
         ]
       ]
+    },
+    {
+      "id": "edge_104",
+      "source": "mtp_h",
+      "target": "mtp_hn",
+      "points": [
+        [
+          405,
+          4360
+        ],
+        [
+          405,
+          4325
+        ]
+      ]
+    },
+    {
+      "id": "edge_105",
+      "source": "mtp_hn",
+      "target": "mtp_hp",
+      "points": [
+        [
+          405,
+          4250
+        ],
+        [
+          405,
+          4205
+        ]
+      ]
+    },
+    {
+      "id": "edge_106",
+      "source": "mtp_e",
+      "target": "mtp_en",
+      "points": [
+        [
+          1175,
+          4360
+        ],
+        [
+          1175,
+          4325
+        ]
+      ]
+    },
+    {
+      "id": "edge_107",
+      "source": "mtp_en",
+      "target": "mtp_ep",
+      "points": [
+        [
+          1175,
+          4250
+        ],
+        [
+          1175,
+          4205
+        ]
+      ]
+    },
+    {
+      "id": "edge_108",
+      "source": "mtp_hp",
+      "target": "mtp_sum",
+      "points": [
+        [
+          405,
+          4130
+        ],
+        [
+          405,
+          4120
+        ],
+        [
+          1680,
+          4120
+        ]
+      ]
+    },
+    {
+      "id": "edge_109",
+      "source": "mtp_ep",
+      "target": "mtp_sum",
+      "points": [
+        [
+          1175,
+          4130
+        ],
+        [
+          1175,
+          3970
+        ],
+        [
+          1780,
+          3970
+        ],
+        [
+          1780,
+          4120
+        ],
+        [
+          1750,
+          4120
+        ]
+      ]
+    },
+    {
+      "id": "edge_110",
+      "source": "mtp_sum",
+      "target": "mtp_block",
+      "points": [
+        [
+          1750,
+          4120
+        ],
+        [
+          1825,
+          4120
+        ],
+        [
+          1825,
+          4070
+        ],
+        [
+          1900,
+          4070
+        ]
+      ]
+    },
+    {
+      "id": "edge_111",
+      "source": "mtp_block",
+      "target": "mtp_head",
+      "points": [
+        [
+          2375,
+          4020
+        ],
+        [
+          2375,
+          3985
+        ]
+      ]
     }
   ],
-  "drawio_sha256": "c459c3b60659cbeaeb469c2d3a5baf71839102586c76eaf3f183a86c7cc2db07"
+  "drawio_sha256": "e8eea3181bdaf260aca20cdc406b2d1b8c8c1736987d4218123a1d2c80ad4337"
 }

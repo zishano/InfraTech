@@ -1,42 +1,66 @@
 {
   "version": 1,
   "model": "deepseek-ai/DeepSeek-V4-Flash",
-  "revision": "f2754311602414ed561cdf8ed9d852390f514404",
+  "revision": "60d8d70770c6776ff598c94bb586a859a38244f1",
   "sources": [
     {
-      "id": "transformers_config",
-      "url": "https://raw.githubusercontent.com/huggingface/transformers/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/configuration_deepseek_v4.py",
-      "kind": "configuration_code",
-      "required": true
-    },
-    {
-      "id": "transformers_model",
-      "url": "https://raw.githubusercontent.com/huggingface/transformers/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/modeling_deepseek_v4.py",
-      "kind": "implementation",
-      "required": true
-    },
-    {
-      "id": "transformers_modular",
-      "url": "https://raw.githubusercontent.com/huggingface/transformers/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/modular_deepseek_v4.py",
-      "kind": "implementation",
-      "required": true
-    },
-    {
       "id": "config",
-      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/resolve/main/config.json",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/resolve/60d8d70770c6776ff598c94bb586a859a38244f1/config.json",
       "kind": "config",
       "required": true
     },
     {
       "id": "model_card",
-      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/resolve/main/README.md",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/resolve/60d8d70770c6776ff598c94bb586a859a38244f1/README.md",
       "kind": "documentation",
-      "required": false
+      "required": true
     },
     {
       "id": "weight_index",
-      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/resolve/main/model.safetensors.index.json",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/resolve/60d8d70770c6776ff598c94bb586a859a38244f1/model.safetensors.index.json",
       "kind": "weight_index",
+      "required": true
+    },
+    {
+      "id": "official_model",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/resolve/60d8d70770c6776ff598c94bb586a859a38244f1/inference/model.py",
+      "kind": "implementation",
+      "required": true
+    },
+    {
+      "id": "official_kernel",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/resolve/60d8d70770c6776ff598c94bb586a859a38244f1/inference/kernel.py",
+      "kind": "implementation",
+      "required": true
+    },
+    {
+      "id": "official_args",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/resolve/60d8d70770c6776ff598c94bb586a859a38244f1/inference/config.json",
+      "kind": "config",
+      "required": true
+    },
+    {
+      "id": "official_inference_readme",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/resolve/60d8d70770c6776ff598c94bb586a859a38244f1/inference/README.md",
+      "kind": "documentation",
+      "required": true
+    },
+    {
+      "id": "transformers_config",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/configuration_deepseek_v4.py",
+      "kind": "configuration_code",
+      "required": false
+    },
+    {
+      "id": "transformers_model",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/modeling_deepseek_v4.py",
+      "kind": "implementation",
+      "required": false
+    },
+    {
+      "id": "transformers_modular",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/f2754311602414ed561cdf8ed9d852390f514404/src/transformers/models/deepseek_v4/modular_deepseek_v4.py",
+      "kind": "implementation",
       "required": false
     }
   ]
