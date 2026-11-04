@@ -1,0 +1,164 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="2300" viewBox="0 0 1800 2300" role="img" aria-labelledby="title desc">
+<title id="title">Kimi K3 architecture study</title><desc id="desc">Technical report verified conceptual architecture; config and weight index remain unverified.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 Z" fill="#52627a"/></marker></defs>
+<rect width="100%" height="100%" fill="#fff"/><g font-family="DejaVu Sans,Arial,sans-serif">
+<text x="900" y="62" font-size="40" fill="#223047" text-anchor="middle" font-weight="700">Kimi K3 | Architecture Study</text>
+<text x="900" y="105" font-size="21" fill="#223047" text-anchor="middle" font-weight="400">Technical-report verified draft · HF config and weight index not yet verified</text>
+<rect x="45" y="132" width="1710" height="68" rx="9" fill="#f2f5fb" stroke="#bbc7d5"/>
+<text x="900.0" y="173.0" font-size="25" fill="#223047" text-anchor="middle" font-weight="400">2.78T total · 104.2B active · 93 layers · d_model 7168 · 96 heads · 1M context</text>
+<rect x="650" y="230" width="500" height="1290" rx="15" fill="white" stroke="#8056bb" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="670" y="264" font-size="25" fill="#8056bb" text-anchor="start" font-weight="700">LANGUAGE BACKBONE</text>
+<rect x="695" y="310" width="410" height="64" rx="9" fill="#f0eafa" stroke="#bbc7d5"/>
+<text x="900.0" y="349.0" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">Output tokens</text>
+<rect x="695" y="405" width="410" height="64" rx="9" fill="#f0eafa" stroke="#bbc7d5"/>
+<text x="900.0" y="444.0" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">LM head</text>
+<rect x="695" y="500" width="410" height="64" rx="9" fill="#f0eafa" stroke="#bbc7d5"/>
+<text x="900.0" y="539.0" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">Final depth aggregation / norm</text>
+<path d="M900,405 L900,374" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M900,500 L900,469" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="695" y="615" width="410" height="100" rx="9" fill="#fff0df" stroke="#bbc7d5"/>
+<text x="900.0" y="659.5" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">Final Gated MLA + FFN</text>
+<text x="900.0" y="684.5" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">Global attention / NoPE</text>
+<path d="M900,615 L900,564" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="680" y="770" width="440" height="455" rx="15" fill="white" stroke="#8056bb" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="700" y="804" font-size="25" fill="#8056bb" text-anchor="start" font-weight="700">23 × HYBRID GROUP</text>
+<rect x="705" y="835" width="390" height="100" rx="9" fill="#fff0df" stroke="#bbc7d5"/>
+<text x="900.0" y="879.5" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">1 × Gated MLA + FFN</text>
+<text x="900.0" y="904.5" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">Global causal attention / NoPE</text>
+<rect x="705" y="1025" width="390" height="100" rx="9" fill="#eaf6dc" stroke="#bbc7d5"/>
+<text x="900.0" y="1069.5" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">3 × KDA + FFN</text>
+<text x="900.0" y="1094.5" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">Recurrent linear attention</text>
+<path d="M900,1025 L900,935" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M900,835 L900,715" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="900" y="1180" font-size="22" fill="#223047" text-anchor="middle" font-weight="700">69 KDA + 24 Gated MLA = 93</text>
+<rect x="695" y="1280" width="410" height="95" rx="9" fill="#f1edf9" stroke="#bbc7d5"/>
+<text x="900.0" y="1322.0" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">92 MoE FFNs + 1 dense FFN</text>
+<text x="900.0" y="1347.0" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">Dense-layer location not mapped</text>
+<rect x="695" y="1410" width="410" height="65" rx="9" fill="#e1f5f1" stroke="#bbc7d5"/>
+<text x="900.0" y="1449.5" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">Fused multimodal embeddings</text>
+<path d="M900,1410 L670,1410 L670,1235 L900,1235 L900,1225" fill="none" stroke="#52627a" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="900" y="1255" font-size="17" fill="#223047" text-anchor="middle" font-weight="400">FFN composition across all 93 layers</text>
+<rect x="45" y="230" width="555" height="470" rx="15" fill="white" stroke="#8056bb" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="65" y="264" font-size="25" fill="#8056bb" text-anchor="start" font-weight="700">BLOCK ATTENTION RESIDUALS</text>
+<rect x="80" y="295" width="485" height="65" rx="9" fill="#f0eafa" stroke="#bbc7d5"/>
+<text x="322.5" y="334.5" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">Embedding + block sums + partial sum</text>
+<path d="M322,360 L322,390" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="80" y="390" width="220" height="65" rx="9" fill="#f0eafa" stroke="#bbc7d5"/>
+<text x="190.0" y="429.5" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">Keys: RMSNorm</text>
+<rect x="345" y="390" width="220" height="65" rx="9" fill="#f0eafa" stroke="#bbc7d5"/>
+<text x="455.0" y="429.5" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">Values: unchanged</text>
+<rect x="80" y="490" width="485" height="65" rx="9" fill="#f0eafa" stroke="#bbc7d5"/>
+<text x="322.5" y="529.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">Learned pseudo-query w → depth softmax</text>
+<path d="M190,455 L190,490" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M455,455 L455,590" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M320,555 L320,590" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="80" y="590" width="485" height="65" rx="9" fill="#f0eafa" stroke="#bbc7d5"/>
+<text x="322.5" y="629.5" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">Weighted sum → next sublayer</text>
+<text x="80" y="683" font-size="18" fill="#223047" text-anchor="start" font-weight="400">Applied before attention and FFN sublayers</text>
+<path d="M600,465 L650,465" stroke="#8056bb" fill="none" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="7 5"/>
+<rect x="45" y="735" width="555" height="785" rx="15" fill="white" stroke="#70a73c" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="65" y="769" font-size="25" fill="#70a73c" text-anchor="start" font-weight="700">KIMI DELTA ATTENTION (KDA)</text>
+<rect x="80" y="800" width="485" height="60" rx="9" fill="#eaf6dc" stroke="#bbc7d5"/>
+<text x="322.5" y="837.0" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">Input x [d = 7168]</text>
+<rect x="80" y="900" width="485" height="80" rx="9" fill="#eaf6dc" stroke="#bbc7d5"/>
+<text x="322.5" y="934.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">Q, K, V: Linear → ShortConv → Swish</text>
+<text x="322.5" y="959.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">Q and K additionally L2-normalized</text>
+<path d="M322,860 L322,900" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="80" y="1040" width="485" height="85" rx="9" fill="#eaf6dc" stroke="#bbc7d5"/>
+<text x="322.5" y="1077.0" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">KDA recurrent state update S_t</text>
+<text x="322.5" y="1102.0" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">Inputs: Q, K, V, decay α, write gate β</text>
+<path d="M322,980 L322,1040" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="80" y="1180" width="485" height="65" rx="9" fill="#eaf6dc" stroke="#bbc7d5"/>
+<text x="322.5" y="1219.5" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">Head-wise RMSNorm</text>
+<path d="M322,1125 L322,1180" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="80" y="1300" width="485" height="65" rx="9" fill="#eaf6dc" stroke="#bbc7d5"/>
+<text x="322.5" y="1339.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">× sigmoid(W_g x) → W_o → output</text>
+<path d="M322,1245 L322,1300" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="80" y="1420" font-size="17" fill="#223047" text-anchor="start" font-weight="400">g = −5 · sigmoid(exp(A) · z); α = exp(g)</text>
+<text x="80" y="1448" font-size="17" fill="#223047" text-anchor="start" font-weight="400">β = sigmoid(Wβ x)</text>
+<text x="80" y="1476" font-size="17" fill="#223047" text-anchor="start" font-weight="400">Fixed-size recurrent state; full-rank output gate</text>
+<path d="M600,1090 L650,1090" stroke="#70a73c" fill="none" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="7 5"/>
+<rect x="1200" y="230" width="555" height="660" rx="15" fill="white" stroke="#2684d5" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="1220" y="264" font-size="25" fill="#2684d5" text-anchor="start" font-weight="700">STABLE LATENT MoE</text>
+<rect x="1230" y="295" width="495" height="60" rx="9" fill="#e5f2ff" stroke="#bbc7d5"/>
+<text x="1477.5" y="332.0" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">Input x [7168]</text>
+<rect x="1230" y="405" width="230" height="90" rx="9" fill="#e5f2ff" stroke="#bbc7d5"/>
+<text x="1345.0" y="444.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">2 shared experts</text>
+<text x="1345.0" y="469.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">7168 → 7168</text>
+<rect x="1490" y="405" width="235" height="90" rx="9" fill="#e5f2ff" stroke="#bbc7d5"/>
+<text x="1607.5" y="444.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">Down projection</text>
+<text x="1607.5" y="469.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">7168 → 3584</text>
+<path d="M1360,355 L1360,405" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1605,355 L1605,405" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1490" y="535" width="235" height="100" rx="9" fill="#e5f2ff" stroke="#bbc7d5"/>
+<text x="1607.5" y="567.0" font-size="17" fill="#223047" text-anchor="middle" font-weight="400">896 routed experts</text>
+<text x="1607.5" y="592.0" font-size="17" fill="#223047" text-anchor="middle" font-weight="400">Top 16 per token</text>
+<text x="1607.5" y="617.0" font-size="17" fill="#223047" text-anchor="middle" font-weight="400">Weighted sum</text>
+<path d="M1605,495 L1605,535" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1490" y="670" width="235" height="70" rx="9" fill="#e5f2ff" stroke="#bbc7d5"/>
+<text x="1607.5" y="699.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">RMSNorm</text>
+<text x="1607.5" y="724.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">3584 → 7168 up</text>
+<path d="M1605,635 L1605,670" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1230" y="780" width="495" height="60" rx="9" fill="#e5f2ff" stroke="#bbc7d5"/>
+<text x="1477.5" y="817.0" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">SUM: shared + routed output [7168]</text>
+<path d="M1360,495 L1360,780" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1605,740 L1605,780" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="1230" y="875" font-size="16" fill="#223047" text-anchor="start" font-weight="400">Router: Quantile Balancing · Expert FFN: 3072 / SiTU-GLU</text>
+<path d="M1150,960 L1200,550" stroke="#2684d5" fill="none" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="7 5"/>
+<rect x="1200" y="925" width="555" height="595" rx="15" fill="white" stroke="#e58a21" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="1220" y="959" font-size="25" fill="#e58a21" text-anchor="start" font-weight="700">GATED MLA | NoPE</text>
+<rect x="1230" y="990" width="495" height="60" rx="9" fill="#fff0df" stroke="#bbc7d5"/>
+<text x="1477.5" y="1027.0" font-size="19" fill="#223047" text-anchor="middle" font-weight="400">Input x</text>
+<rect x="1230" y="1100" width="225" height="80" rx="9" fill="#fff0df" stroke="#bbc7d5"/>
+<text x="1342.5" y="1134.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">Query projection</text>
+<text x="1342.5" y="1159.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">Q</text>
+<rect x="1485" y="1100" width="240" height="80" rx="9" fill="#fff0df" stroke="#bbc7d5"/>
+<text x="1605.0" y="1134.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">KV compression</text>
+<text x="1605.0" y="1159.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">Latent cache c</text>
+<path d="M1340,1050 L1340,1100" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1605,1050 L1605,1100" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1230" y="1240" width="495" height="65" rx="9" fill="#fff0df" stroke="#bbc7d5"/>
+<text x="1477.5" y="1279.5" font-size="17" fill="#223047" text-anchor="middle" font-weight="400">Global causal attention (Q, reconstructed K/V)</text>
+<path d="M1340,1180 L1340,1240" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1605,1180 L1605,1240" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="1230" y="1360" width="495" height="65" rx="9" fill="#fff0df" stroke="#bbc7d5"/>
+<text x="1477.5" y="1399.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">× sigmoid(W_g x) → W_o → output</text>
+<path d="M1475,1305 L1475,1360" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="1477" y="1470" font-size="21" fill="#a85c0c" text-anchor="middle" font-weight="700">NO RoPE / no explicit position encoding</text>
+<text x="1477" y="1500" font-size="17" fill="#223047" text-anchor="middle" font-weight="400">Projection ranks pending model configuration</text>
+<path d="M1150,670 L1200,1160" stroke="#e58a21" fill="none" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="7 5"/>
+<rect x="45" y="1560" width="1710" height="440" rx="15" fill="white" stroke="#219a95" stroke-width="2" stroke-dasharray="8 5"/>
+<text x="65" y="1594" font-size="25" fill="#219a95" text-anchor="start" font-weight="700">NATIVE MULTIMODAL INPUT | MoonViT-V2</text>
+<rect x="80" y="1630" width="265" height="75" rx="9" fill="#e1f5f1" stroke="#bbc7d5"/>
+<text x="212.5" y="1662.0" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">Images / video</text>
+<text x="212.5" y="1687.0" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">Patch embedding (14)</text>
+<rect x="410" y="1630" width="430" height="125" rx="9" fill="#e1f5f1" stroke="#bbc7d5"/>
+<text x="625.0" y="1674.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">MoonViT-V2 · 27 layers · 401M</text>
+<text x="625.0" y="1699.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">12 heads · RMSNorm</text>
+<text x="625.0" y="1724.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">Spatial / temporal attention + FFN</text>
+<rect x="905" y="1630" width="305" height="125" rx="9" fill="#e1f5f1" stroke="#bbc7d5"/>
+<text x="1057.5" y="1674.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">Temporal pooling</text>
+<text x="1057.5" y="1699.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">2 × 2 pixel shuffle</text>
+<text x="1057.5" y="1724.5" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">4× fewer spatial tokens</text>
+<rect x="1275" y="1630" width="430" height="125" rx="9" fill="#e1f5f1" stroke="#bbc7d5"/>
+<text x="1490.0" y="1687.0" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">Lightweight MLP projector</text>
+<text x="1490.0" y="1712.0" font-size="18" fill="#223047" text-anchor="middle" font-weight="400">Map vision features to LM width</text>
+<path d="M345,1668 L410,1668" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M840,1668 L905,1668" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1210,1668 L1275,1668" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<rect x="80" y="1820" width="570" height="65" rx="9" fill="#edf2f8" stroke="#bbc7d5"/>
+<text x="365.0" y="1859.5" font-size="20" fill="#223047" text-anchor="middle" font-weight="400">Text → Tokenizer → Token embeddings</text>
+<rect x="905" y="1820" width="800" height="65" rx="9" fill="#e1f5f1" stroke="#bbc7d5"/>
+<text x="1305.0" y="1859.5" font-size="20" fill="#223047" text-anchor="middle" font-weight="400">Merge visual features with text-token embeddings</text>
+<path d="M650,1852 L905,1852" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1490,1755 L1490,1820" stroke="#52627a" fill="none" stroke-width="2" marker-end="url(#arrow)"/>
+<path d="M1305,1885 L1305,1940 L625,1940 L625,1487 L900,1487 L900,1475" fill="none" stroke="#52627a" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="80" y="1965" font-size="19" fill="#223047" text-anchor="start" font-weight="400">Vision linear and attention projections are bias-free. Vision hidden width is not assumed.</text>
+<rect x="45" y="2040" width="1710" height="65" rx="9" fill="#f2f5fb" stroke="#bbc7d5"/>
+<text x="900.0" y="2079.5" font-size="21" fill="#223047" text-anchor="middle" font-weight="400">Auxiliary: 1 MTP layer reported separately; not counted as another main-backbone layer.</text>
+<text x="55" y="2150" font-size="17" fill="#223047" text-anchor="start" font-weight="400">SOURCES: MoonshotAI/Kimi-K3 technical report §§2.1–2.4 and Table 1; official repository commit 3cb39df.</text>
+<text x="55" y="2178" font-size="17" fill="#223047" text-anchor="start" font-weight="400">BACKBONE: 23 × (3 KDA + 1 MLA) + final MLA is the reported attention schedule; dense FFN is part of the 93 layers.</text>
+<text x="55" y="2206" font-size="17" fill="#223047" text-anchor="start" font-weight="400">EVIDENCE LIMIT: Hugging Face config / safetensors index inaccessible under current network policy.</text>
+<text x="55" y="2234" font-size="17" fill="#223047" text-anchor="start" font-weight="400">Transformers main f275431 has kimi_k25 and kimi_linear, but no direct kimi_k3 implementation was found.</text>
+<text x="55" y="2262" font-size="17" fill="#223047" text-anchor="start" font-weight="400">Conceptual module topology, not an executable graph. Tensor ranks, exact FFN placement and weight names remain unverified.</text>
+</g></svg>
