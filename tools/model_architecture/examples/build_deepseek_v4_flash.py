@@ -264,6 +264,8 @@ for n in G['nodes']:
   n['status']='verified'
 # Put backgrounds before all foreground nodes, preserving panel/label ordering.
 # Existing list order already does this for each independent panel.
+from deepseek_operator_style import apply
+G=apply(G)
 path=Path(__file__).with_name('deepseek_v4_flash.graph.json')
 path.write_text(json.dumps(G,ensure_ascii=False,indent=2)+'\n')
 print(path,len(G['nodes']),'nodes',len(G['edges']),'edges')

@@ -254,7 +254,8 @@ def build(kind):
     if kind=='csa':indexer(p)
     else:hca_indices(p)
     attention(p);state_panel(p)
-    return p.g
+    from deepseek_operator_style import apply
+    return apply(p.g,kind)
 
 if __name__=='__main__':
     for kind in ['csa','hca']:

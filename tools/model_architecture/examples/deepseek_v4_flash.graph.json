@@ -2,7 +2,7 @@
   "version": 1,
   "title": "DeepSeek-V4-Flash — official checkpoint architecture",
   "width": 3000,
-  "height": 4580,
+  "height": 2748,
   "sources": {
     "model": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/inference/model.py",
     "kernel": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/inference/kernel.py",
@@ -15,42 +15,44 @@
   "nodes": [
     {
       "id": "title",
-      "label": "DeepSeek-V4-Flash | Official architecture study",
+      "label": "DeepSeek-V4-Flash (284B / 13B active)",
       "box": [
         40,
-        15,
+        9.0,
         2920,
-        80
+        48.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=42;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=31;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "DeepSeek-V4-Flash | Official architecture study"
     },
     {
       "id": "subtitle",
-      "label": "OFFICIAL CHECKPOINT 60d8d707 · config, inference implementation, kernel and weight index checked",
+      "label": "43 layers · hidden 4096 · Q 64 / KV 1 · context 1M",
       "box": [
         40,
-        100,
+        60.0,
         2920,
-        65
+        39.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=25;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "OFFICIAL CHECKPOINT 60d8d707 · config, inference implementation, kernel and weight index checked"
     },
     {
       "id": "defaults",
-      "label": "284B total / 13B active (official card) · 43 layers · hidden 4096 · 64 Q / 1 KV head · 256 experts, top-6 + 1 shared · 1M context",
+      "label": "256 experts · top-6 + 1 shared · head dim 512 · window 128",
       "box": [
         40,
-        175,
+        105.0,
         2920,
-        65
+        39.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "config",
@@ -64,85 +66,91 @@
           "source": "model_card",
           "locator": "Introduction and Model Downloads: 284B total / 13B active / 1M context"
         }
-      ]
+      ],
+      "description": "284B total / 13B active (official card) · 43 layers · hidden 4096 · 64 Q / 1 KV head · 256 experts, top-6 + 1 shared · 1M context"
     },
     {
       "id": "mhc",
       "label": "",
       "box": [
         30,
-        260,
+        156.0,
         940,
-        1450
+        870.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;fillColor=#ffffff;dashed=1;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;dashed=1;dashPattern=7 5;strokeColor=#7f8cff;",
+      "description": ""
     },
     {
       "id": "mhc_heading",
-      "label": "mHC: one attention or FFN wrapper ↑",
+      "label": "mHC",
       "box": [
         42,
-        272,
+        163.2,
         916,
-        62
+        37.199999999999996
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "mHC: one attention or FFN wrapper ↑"
     },
     {
       "id": "compress",
       "label": "",
       "box": [
         30,
-        1760,
+        1056.0,
         940,
-        1460
+        876.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;fillColor=#ffffff;dashed=1;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;dashed=1;dashPattern=7 5;strokeColor=#7f8cff;",
+      "description": ""
     },
     {
       "id": "compress_heading",
-      "label": "Layer-selected compressors: CSA OR HCA ↑",
+      "label": "Compressor — CSA / HCA",
       "box": [
         42,
-        1772,
+        1063.2,
         916,
-        62
+        37.199999999999996
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "Layer-selected compressors: CSA OR HCA ↑"
     },
     {
       "id": "main",
       "label": "",
       "box": [
         1010,
-        260,
+        156.0,
         850,
-        2960
+        1776.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;fillColor=#ffffff;dashed=1;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;dashed=1;dashPattern=7 5;strokeColor=#7f8cff;",
+      "description": ""
     },
     {
       "id": "main_heading",
-      "label": "Language backbone / repeat layer ↑",
+      "label": "Transformer ×43",
       "box": [
         1022,
-        272,
+        163.2,
         826,
-        62
+        37.199999999999996
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
       "evidence": [
         {
           "source": "model",
@@ -152,59 +160,63 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Language backbone / repeat layer ↑"
     },
     {
       "id": "attention",
       "label": "",
       "box": [
         1900,
-        260,
+        156.0,
         1070,
-        1590
+        954.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;fillColor=#ffffff;dashed=1;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;dashed=1;dashPattern=7 5;strokeColor=#7f8cff;",
+      "description": ""
     },
     {
       "id": "attention_heading",
-      "label": "Official Attention: shared K=V + compressed history ↑",
+      "label": "CSA / HCA / SWA",
       "box": [
         1912,
-        272,
+        163.2,
         1046,
-        62
+        37.199999999999996
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "Official Attention: shared K=V + compressed history ↑"
     },
     {
       "id": "moe",
       "label": "",
       "box": [
         1900,
-        1900,
+        1140.0,
         1070,
-        1320
+        792.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;fillColor=#ffffff;dashed=1;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;dashed=1;dashPattern=7 5;strokeColor=#7f8cff;",
+      "description": ""
     },
     {
       "id": "moe_heading",
-      "label": "Hash-MoE / routed MoE + shared expert ↑",
+      "label": "MoE / MLP",
       "box": [
         1912,
-        1912,
+        1147.2,
         1046,
-        62
+        37.199999999999996
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#48c9b9;strokeWidth=1;fillColor=#48c9b9;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
       "evidence": [
         {
           "source": "model",
@@ -214,46 +226,49 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Hash-MoE / routed MoE + shared expert ↑"
     },
     {
       "id": "indexer",
       "label": "",
       "box": [
         30,
-        3270,
+        1962.0,
         2940,
-        500
+        300.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;fillColor=#ffffff;dashed=1;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;dashed=1;dashPattern=7 5;strokeColor=#7f8cff;",
+      "description": ""
     },
     {
       "id": "indexer_heading",
-      "label": "CSA Lightning Indexer — separate query, key and scoring-weight paths ↑",
+      "label": "Lightning Indexer (CSA only)",
       "box": [
         42,
-        3282,
+        1969.1999999999998,
         2916,
-        62
+        37.199999999999996
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "CSA Lightning Indexer — separate query, key and scoring-weight paths ↑"
     },
     {
       "id": "hc_x",
-      "label": "X: four streams [B,T,4,4096]",
+      "label": "X [4,4096]",
       "box": [
         70,
-        1580,
+        948.0,
         850,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -267,20 +282,21 @@
           "source": "kernel",
           "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
-      ]
+      ],
+      "description": "X: four streams [B,T,4,4096]"
     },
     {
       "id": "hc_flat",
-      "label": "Flatten streams → unweighted\nRMSNorm",
+      "label": "RMSNorm",
       "box": [
         500,
-        1470,
+        882.0,
         400,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -294,20 +310,21 @@
           "source": "kernel",
           "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
-      ]
+      ],
+      "description": "Flatten streams → unweighted\nRMSNorm"
     },
     {
       "id": "hc_linear",
-      "label": "Linear fn: 16384 → 24 coefficients\nScale + bias; split pre / post /\ncomb",
+      "label": "Linear → Scale + Bias",
       "box": [
         500,
-        1370,
+        822.0,
         400,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -321,20 +338,21 @@
           "source": "kernel",
           "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
-      ]
+      ],
+      "description": "Linear fn: 16384 → 24 coefficients\nScale + bias; split pre / post /\ncomb"
     },
     {
       "id": "hc_pre",
-      "label": "pre =\nsigmoid(·)\n+ eps",
+      "label": "Sigmoid\n+ ε",
       "box": [
         500,
-        1260,
+        756.0,
         120,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -348,20 +366,21 @@
           "source": "kernel",
           "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
-      ]
+      ],
+      "description": "pre =\nsigmoid(·)\n+ eps"
     },
     {
       "id": "hc_post",
-      "label": "post = 2\nsigmoid(·)",
+      "label": "2 × Sigmoid",
       "box": [
         650,
-        1260,
+        756.0,
         120,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -375,20 +394,21 @@
           "source": "kernel",
           "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
-      ]
+      ],
+      "description": "post = 2\nsigmoid(·)"
     },
     {
       "id": "hc_comb",
-      "label": "comb\nlogits\n[4 × 4]",
+      "label": "Reshape\n[4,4]",
       "box": [
         800,
-        1260,
+        756.0,
         120,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -402,20 +422,21 @@
           "source": "kernel",
           "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
-      ]
+      ],
+      "description": "comb\nlogits\n[4 × 4]"
     },
     {
       "id": "hc_soft",
-      "label": "Row softmax\n+ eps",
+      "label": "Softmax",
       "box": [
         800,
-        1160,
+        696.0,
         120,
-        70
+        42.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -429,20 +450,21 @@
           "source": "kernel",
           "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
-      ]
+      ],
+      "description": "Row softmax\n+ eps"
     },
     {
       "id": "hc_sink",
-      "label": "Sinkhorn: 20\niterations\nDoubly\nstochastic comb",
+      "label": "Sinkhorn\n×20",
       "box": [
         780,
-        1030,
+        618.0,
         160,
-        95
+        57.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -456,20 +478,21 @@
           "source": "kernel",
           "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
-      ]
+      ],
+      "description": "Sinkhorn: 20\niterations\nDoubly\nstochastic comb"
     },
     {
       "id": "hc_collapse",
-      "label": "Collapse input streams\nh = sum(pre_i × X_i)",
+      "label": "Σ preᵢXᵢ",
       "box": [
         100,
-        1160,
+        696.0,
         300,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -483,20 +506,21 @@
           "source": "kernel",
           "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
-      ]
+      ],
+      "description": "Collapse input streams\nh = sum(pre_i × X_i)"
     },
     {
       "id": "hc_norm",
-      "label": "RMSNorm of h",
+      "label": "RMSNorm",
       "box": [
         100,
-        1040,
+        624.0,
         300,
-        70
+        42.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -510,20 +534,21 @@
           "source": "kernel",
           "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
-      ]
+      ],
+      "description": "RMSNorm of h"
     },
     {
       "id": "hc_fun",
-      "label": "Attention OR MoE FFN\nF(h) [B,T,4096]",
+      "label": "Attention / MoE",
       "box": [
         100,
-        900,
+        540.0,
         300,
-        100
+        60.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -537,20 +562,21 @@
           "source": "kernel",
           "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
-      ]
+      ],
+      "description": "Attention OR MoE FFN\nF(h) [B,T,4096]"
     },
     {
       "id": "hc_expand",
-      "label": "Expand block output\npost × F(h)",
+      "label": "post × F(h)",
       "box": [
         100,
-        730,
+        438.0,
         300,
-        85
+        51.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -564,20 +590,21 @@
           "source": "kernel",
           "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
-      ]
+      ],
+      "description": "Expand block output\npost × F(h)"
     },
     {
       "id": "hc_residual",
-      "label": "Residual stream mixing\ncombᵀ × X",
+      "label": "combᵀ × X",
       "box": [
         570,
-        730,
+        438.0,
         330,
-        85
+        51.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -591,20 +618,21 @@
           "source": "kernel",
           "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
-      ]
+      ],
+      "description": "Residual stream mixing\ncombᵀ × X"
     },
     {
       "id": "hc_sum",
       "label": "+",
       "box": [
-        215,
-        550,
-        70,
-        70
+        229.0,
+        330.0,
+        42.0,
+        42.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;shape=ellipse;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;shape=ellipse;perimeter=ellipsePerimeter;fontSize=22;fontStyle=1;",
       "evidence": [
         {
           "source": "model",
@@ -618,20 +646,21 @@
           "source": "kernel",
           "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
-      ]
+      ],
+      "description": "+"
     },
     {
       "id": "hc_y",
-      "label": "Updated streams\n[B,T,4,4096]",
+      "label": "X′ [4,4096]",
       "box": [
         100,
-        400,
+        240.0,
         300,
-        85
+        51.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -645,20 +674,21 @@
           "source": "kernel",
           "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
-      ]
+      ],
+      "description": "Updated streams\n[B,T,4,4096]"
     },
     {
       "id": "hc_note",
-      "label": "Residual uses comb transpose; all coefficients are computed from X.",
+      "label": "pre / post / comb ← X",
       "box": [
         65,
-        1670,
+        1002.0,
         850,
-        40
+        24.0
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=12;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
       "evidence": [
         {
           "source": "model",
@@ -672,20 +702,21 @@
           "source": "kernel",
           "locator": "hc_split_sinkhorn_kernel, lines 372–425"
         }
-      ]
+      ],
+      "description": "Residual uses comb transpose; all coefficients are computed from X."
     },
     {
       "id": "main_tokens",
-      "label": "Input token IDs",
+      "label": "Token IDs",
       "box": [
         1100,
-        3060,
+        1836.0,
         670,
-        70
+        42.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -695,20 +726,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Input token IDs"
     },
     {
       "id": "main_embed",
-      "label": "Token embedding [B,T,4096]",
+      "label": "Embedding",
       "box": [
         1100,
-        2940,
+        1764.0,
         670,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -718,20 +750,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Token embedding [B,T,4096]"
     },
     {
       "id": "main_streams",
-      "label": "Repeat embedding into 4 streams",
+      "label": "Repeat ×4",
       "box": [
         1100,
-        2810,
+        1686.0,
         670,
-        85
+        51.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -741,20 +774,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Repeat embedding into 4 streams"
     },
     {
       "id": "main_layer_x",
-      "label": "Layer input X [B,T,4,4096]",
+      "label": "X [4,4096]",
       "box": [
         1100,
-        2600,
+        1560.0,
         670,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -764,20 +798,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Layer input X [B,T,4,4096]"
     },
     {
       "id": "main_attn_pre",
-      "label": "Attention mHC: pre-collapse; compute post, comb",
+      "label": "hc_pre",
       "box": [
         1100,
-        2450,
+        1470.0,
         670,
-        90
+        54.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -787,20 +822,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Attention mHC: pre-collapse; compute post, comb"
     },
     {
       "id": "main_attn_norm",
-      "label": "RMSNorm [4096]",
+      "label": "RMSNorm",
       "box": [
         1100,
-        2300,
+        1380.0,
         670,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -810,20 +846,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "RMSNorm [4096]"
     },
     {
       "id": "main_attn_core",
-      "label": "Layer-selected attention\nSWA + layer-selected CSA / HCA; see exact schedule",
+      "label": "CSA / HCA / SWA",
       "box": [
         1100,
-        2130,
+        1278.0,
         670,
-        110
+        66.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -833,20 +870,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Layer-selected attention\nSWA + layer-selected CSA / HCA; see exact schedule"
     },
     {
       "id": "main_attn_mix",
-      "label": "post × attention output + combᵀ × X",
+      "label": "hc_post + Residual",
       "box": [
         1100,
-        1980,
+        1188.0,
         670,
-        90
+        54.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -856,20 +894,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "post × attention output + combᵀ × X"
     },
     {
       "id": "main_ffn_pre",
-      "label": "FFN mHC: pre-collapse; compute post, comb",
+      "label": "hc_pre",
       "box": [
         1100,
-        1820,
+        1092.0,
         670,
-        90
+        54.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -879,20 +918,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "FFN mHC: pre-collapse; compute post, comb"
     },
     {
       "id": "main_ffn_norm",
-      "label": "RMSNorm [4096]",
+      "label": "RMSNorm",
       "box": [
         1100,
-        1670,
+        1002.0,
         670,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -902,20 +942,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "RMSNorm [4096]"
     },
     {
       "id": "main_ffn",
-      "label": "Hash-MoE or learned top-k MoE",
+      "label": "Hash-MoE / MoE",
       "box": [
         1100,
-        1520,
+        912.0,
         670,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -925,20 +966,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Hash-MoE or learned top-k MoE"
     },
     {
       "id": "main_ffn_mix",
-      "label": "post × FFN output + combᵀ × residual",
+      "label": "hc_post + Residual",
       "box": [
         1100,
-        1360,
+        816.0,
         670,
-        90
+        54.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -948,20 +990,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "post × FFN output + combᵀ × residual"
     },
     {
       "id": "main_layer_y",
-      "label": "Layer output streams\nRepeat decoder layer 43× (official checkpoint)",
+      "label": "Decoder ×43",
       "box": [
         1100,
-        1180,
+        708.0,
         670,
-        100
+        60.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -971,20 +1014,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Layer output streams\nRepeat decoder layer 43× (official checkpoint)"
     },
     {
       "id": "main_hyperhead",
-      "label": "HyperHead: learned sigmoid-weighted\ncollapse 4 streams → one hidden state",
+      "label": "HC-head",
       "box": [
         1100,
-        690,
+        414.0,
         670,
-        110
+        66.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -994,20 +1038,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "HyperHead: learned sigmoid-weighted\ncollapse 4 streams → one hidden state"
     },
     {
       "id": "main_norm",
-      "label": "Final RMSNorm [4096]",
+      "label": "RMSNorm",
       "box": [
         1100,
-        550,
+        330.0,
         670,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -1017,20 +1062,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Final RMSNorm [4096]"
     },
     {
       "id": "main_head",
-      "label": "LM head: 4096 → vocabulary 129280",
+      "label": "LM-head",
       "box": [
         1100,
-        445,
+        267.0,
         670,
-        70
+        42.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -1040,20 +1086,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "LM head: 4096 → vocabulary 129280"
     },
     {
       "id": "main_output",
-      "label": "Last-token logits (official inference)",
+      "label": "Logits [129280]",
       "box": [
         1100,
-        350,
+        210.0,
         670,
-        60
+        36.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -1063,20 +1110,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Last-token logits (official inference)"
     },
     {
       "id": "schedule",
-      "label": "CHECKPOINT main layers 0–42 (43 total)\nL0–1: SWA only (ratio 0)\nL2–41: [CSA 4, HCA 128] × 20\nL42: CSA 4\nMTP0 / L43: SWA only; separate auxiliary path\nHash-MoE L0–2; learned routing L3–42",
+      "label": "L0–1: SWA\nL2–41: [CSA4, HCA128] ×20\nL42: CSA4\nHash-MoE: L0–2",
       "box": [
         1070,
-        875,
+        525.0,
         730,
-        180
+        108.0
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
       "evidence": [
         {
           "source": "config",
@@ -1090,20 +1138,21 @@
           "source": "model_card",
           "locator": "Introduction and Model Downloads: 284B total / 13B active / 1M context"
         }
-      ]
+      ],
+      "description": "CHECKPOINT main layers 0–42 (43 total)\nL0–1: SWA only (ratio 0)\nL2–41: [CSA 4, HCA 128] × 20\nL42: CSA 4\nMTP0 / L43: SWA only; separate auxiliary path\nHash-MoE L0–2; learned routing L3–42"
     },
     {
       "id": "attn_x",
-      "label": "h [B,T,4096]",
+      "label": "h [4096]",
       "box": [
         1940,
-        1720,
+        1032.0,
         990,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1113,20 +1162,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "h [B,T,4096]"
     },
     {
       "id": "attn_qa",
-      "label": "Q Linear 4096 → 1024",
+      "label": "Linear (Q down)",
       "box": [
         1940,
-        1580,
+        948.0,
         270,
-        70
+        42.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1136,20 +1186,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Q Linear 4096 → 1024"
     },
     {
       "id": "attn_qan",
-      "label": "RMSNorm → q_residual",
+      "label": "RMSNorm",
       "box": [
         1940,
-        1470,
+        882.0,
         270,
-        70
+        42.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1159,20 +1210,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "RMSNorm → q_residual"
     },
     {
       "id": "attn_qb",
-      "label": "Q up: 1024 → 64 × 512",
+      "label": "Linear (Q up)",
       "box": [
         1940,
-        1340,
+        804.0,
         270,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1182,20 +1234,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Q up: 1024 → 64 × 512"
     },
     {
       "id": "attn_qn",
-      "label": "Per-head unweighted\nRMSNorm",
+      "label": "Q head Norm",
       "box": [
         1940,
-        1210,
+        726.0,
         270,
-        75
+        45.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1205,20 +1258,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Per-head unweighted\nRMSNorm"
     },
     {
       "id": "attn_qrope",
-      "label": "Partial RoPE:\ntrailing 64 dims",
+      "label": "RoPE₆₄",
       "box": [
         1940,
-        1090,
+        654.0,
         270,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1228,20 +1282,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Partial RoPE:\ntrailing 64 dims"
     },
     {
       "id": "attn_kv",
-      "label": "KV Linear: 4096 → 512",
+      "label": "Linear (KV down)",
       "box": [
         2290,
-        1580,
+        948.0,
         270,
-        70
+        42.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1251,20 +1306,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "KV Linear: 4096 → 512"
     },
     {
       "id": "attn_kvn",
-      "label": "RMSNorm [512]",
+      "label": "RMSNorm",
       "box": [
         2290,
-        1470,
+        882.0,
         270,
-        70
+        42.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1274,20 +1330,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "RMSNorm [512]"
     },
     {
       "id": "attn_kvrope",
-      "label": "Partial RoPE (64\ndims)",
+      "label": "RoPE₆₄",
       "box": [
         2290,
-        1370,
+        822.0,
         270,
-        70
+        42.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1297,20 +1354,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Partial RoPE (64\ndims)"
     },
     {
       "id": "attn_kvquant",
-      "label": "FP8 simulate non-RoPE\n448\nRoPE 64 stays BF16",
+      "label": "Quant (FP8 sim)",
       "box": [
         2290,
-        1270,
+        762.0,
         270,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1320,20 +1378,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "FP8 simulate non-RoPE\n448\nRoPE 64 stays BF16"
     },
     {
       "id": "attn_local",
-      "label": "Sliding cache: window 128\nK and V are the SAME\ntensor",
+      "label": "KV cache (window)\nK and V are the SAME",
       "box": [
         2290,
-        1160,
+        696.0,
         270,
-        90
+        54.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ed343b;strokeWidth=1;fillColor=#ed343b;",
       "evidence": [
         {
           "source": "model",
@@ -1343,20 +1402,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Sliding cache: window 128\nK and V are the SAME\ntensor"
     },
     {
       "id": "attn_compressor",
-      "label": "Layer-selected CSA\n(4) OR HCA (128)\nNone for sliding-only",
+      "label": "Compressor\nC4 / C128",
       "box": [
         2640,
-        1560,
+        936.0,
         270,
-        110
+        66.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1366,20 +1426,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Layer-selected CSA\n(4) OR HCA (128)\nNone for sliding-only"
     },
     {
       "id": "attn_entries",
-      "label": "Compressed historical\nentries\nSingle shared KV head",
+      "label": "KV cache (compress)",
       "box": [
         2640,
-        1410,
+        846.0,
         270,
-        95
+        57.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ed343b;strokeWidth=1;fillColor=#ed343b;",
       "evidence": [
         {
           "source": "model",
@@ -1389,20 +1450,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Compressed historical\nentries\nSingle shared KV head"
     },
     {
       "id": "attn_mask",
-      "label": "CSA: causal + top-512\nmask\nHCA: causal mask; no\nindexer",
+      "label": "CSA: TopK + Mask\nHCA: Causal Mask",
       "box": [
         2640,
-        1270,
+        762.0,
         270,
-        100
+        60.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1412,20 +1474,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "CSA: causal + top-512\nmask\nHCA: causal mask; no\nindexer"
     },
     {
       "id": "attn_concat",
-      "label": "Concatenate local KV and compressed history\nPer-query mask; K = V",
+      "label": "Concat (KV)",
       "box": [
         2290,
-        1030,
+        618.0,
         620,
-        110
+        66.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1435,20 +1498,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Concatenate local KV and compressed history\nPer-query mask; K = V"
     },
     {
       "id": "attn_core",
-      "label": "Scaled dot-product attention\nSoftmax over KV logits + learnable sink\nDiscard sink probability; multiply shared V",
+      "label": "Attention (MQA)",
       "box": [
         2050,
-        850,
+        510.0,
         760,
-        120
+        72.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1458,20 +1522,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Scaled dot-product attention\nSoftmax over KV logits + learnable sink\nDiscard sink probability; multiply shared V"
     },
     {
       "id": "attn_sink",
-      "label": "Learned\nsink\nper Q\nhead",
+      "label": "sink",
       "box": [
         2850,
-        850,
+        510.0,
         90,
-        120
+        72.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1481,20 +1546,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Learned\nsink\nper Q\nhead"
     },
     {
       "id": "attn_inverse",
-      "label": "Inverse partial RoPE on attention output\nUse conjugate rotation at query position",
+      "label": "RoPE (inverse)",
       "box": [
         2180,
-        710,
+        426.0,
         500,
-        90
+        54.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1504,20 +1570,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Inverse partial RoPE on attention output\nUse conjugate rotation at query position"
     },
     {
       "id": "attn_oa",
-      "label": "Grouped O_a: 8 groups\nPer-group 4096 → 1024",
+      "label": "Linear (O down)\n8 × [4096→1024]",
       "box": [
         2180,
-        560,
+        336.0,
         500,
-        85
+        51.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1527,20 +1594,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Grouped O_a: 8 groups\nPer-group 4096 → 1024"
     },
     {
       "id": "attn_ob",
-      "label": "Flatten 8 × 1024 → O_b → 4096",
+      "label": "Linear (O up)\n8192→4096",
       "box": [
         2180,
-        445,
+        267.0,
         500,
-        75
+        45.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1550,20 +1618,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Flatten 8 × 1024 → O_b → 4096"
     },
     {
       "id": "attn_y",
-      "label": "Attention output [B,T,4096]",
+      "label": "h′ [4096]",
       "box": [
         2180,
-        340,
+        204.0,
         500,
-        65
+        39.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#fff0de;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1573,20 +1642,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Attention output [B,T,4096]"
     },
     {
       "id": "csa_label",
-      "label": "CSA | compression stride 4",
+      "label": "CSA (C4)",
       "box": [
         65,
-        1840,
+        1104.0,
         400,
-        45
+        27.0
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
       "evidence": [
         {
           "source": "model",
@@ -1596,20 +1666,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "CSA | compression stride 4"
     },
     {
       "id": "csa_x",
-      "label": "Hidden states h [4096]",
+      "label": "h [4096]",
       "box": [
         65,
-        3090,
+        1854.0,
         400,
-        75
+        45.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1619,20 +1690,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Hidden states h [4096]"
     },
     {
       "id": "csa_kv",
-      "label": "Linear KV:\n4096 → 2 × 512",
+      "label": "Linear (KV proj)",
       "box": [
         65,
-        2950,
+        1770.0,
         175,
-        95
+        57.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1642,20 +1714,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Linear KV:\n4096 → 2 × 512"
     },
     {
       "id": "csa_gate",
-      "label": "Linear gates:\n4096 → 2 × 512",
+      "label": "Linear (Gate proj)",
       "box": [
         290,
-        2950,
+        1770.0,
         175,
-        95
+        57.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1665,20 +1738,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Linear gates:\n4096 → 2 × 512"
     },
     {
       "id": "csa_window",
-      "label": "Overlap Ca / Cb: effective width\n8, stride 4\nBuffer previous Ca across calls",
+      "label": "Cat (prev Ca, cur Cb)\nwindow 8 / stride 4",
       "box": [
         65,
-        2770,
+        1662.0,
         400,
-        120
+        72.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1688,20 +1762,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Overlap Ca / Cb: effective width\n8, stride 4\nBuffer previous Ca across calls"
     },
     {
       "id": "csa_bias",
-      "label": "GATE PATH: + position bias\nFP32 softmax within compression\nwindow",
+      "label": "+ APE → Softmax",
       "box": [
         65,
-        2580,
+        1548.0,
         400,
-        120
+        72.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1711,20 +1786,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "GATE PATH: + position bias\nFP32 softmax within compression\nwindow"
     },
     {
       "id": "csa_sum",
-      "label": "Weighted sum of projected KV\nOne vector [512] per completed\nwindow",
+      "label": "× → Sum",
       "box": [
         65,
-        2410,
+        1446.0,
         400,
-        100
+        60.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1734,20 +1810,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Weighted sum of projected KV\nOne vector [512] per completed\nwindow"
     },
     {
       "id": "csa_norm",
-      "label": "RMSNorm [512]",
+      "label": "RMSNorm",
       "box": [
         65,
-        2270,
+        1362.0,
         400,
-        75
+        45.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1757,20 +1834,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "RMSNorm [512]"
     },
     {
       "id": "csa_rope",
-      "label": "Partial RoPE at window position",
+      "label": "RoPE₆₄",
       "box": [
         65,
-        2160,
+        1296.0,
         400,
-        65
+        39.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1780,20 +1858,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Partial RoPE at window position"
     },
     {
       "id": "csa_out",
-      "label": "Lightning Indexer → top-512\nvalidity mask\nOnly chosen entries are visible\nto each query",
+      "label": "Indexer → TopK",
       "box": [
         65,
-        1900,
+        1140.0,
         400,
-        110
+        66.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1803,20 +1882,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Lightning Indexer → top-512\nvalidity mask\nOnly chosen entries are visible\nto each query"
     },
     {
       "id": "csa_quant",
-      "label": "FP8 simulation on non-RoPE 448\nRoPE 64 BF16; write compressed\ncache",
+      "label": "Quant → KV cache",
       "box": [
         65,
-        2035,
+        1221.0,
         400,
-        95
+        57.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ed343b;strokeWidth=1;fillColor=#ed343b;",
       "evidence": [
         {
           "source": "model",
@@ -1826,20 +1906,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "FP8 simulation on non-RoPE 448\nRoPE 64 BF16; write compressed\ncache"
     },
     {
       "id": "hca_label",
-      "label": "HCA | compression stride 128",
+      "label": "HCA (C128)",
       "box": [
         535,
-        1840,
+        1104.0,
         400,
-        45
+        27.0
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=14;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#399e90;strokeWidth=1;fillColor=#399e90;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
       "evidence": [
         {
           "source": "model",
@@ -1849,20 +1930,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "HCA | compression stride 128"
     },
     {
       "id": "hca_x",
-      "label": "Hidden states h [4096]",
+      "label": "h [4096]",
       "box": [
         535,
-        3090,
+        1854.0,
         400,
-        75
+        45.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#399e90;strokeWidth=1;fillColor=#399e90;",
       "evidence": [
         {
           "source": "model",
@@ -1872,20 +1954,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Hidden states h [4096]"
     },
     {
       "id": "hca_kv",
-      "label": "Linear KV:\n4096 → 512",
+      "label": "Linear (KV proj)",
       "box": [
         535,
-        2950,
+        1770.0,
         175,
-        95
+        57.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#399e90;strokeWidth=1;fillColor=#399e90;",
       "evidence": [
         {
           "source": "model",
@@ -1895,20 +1978,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Linear KV:\n4096 → 512"
     },
     {
       "id": "hca_gate",
-      "label": "Linear gates:\n4096 → 512",
+      "label": "Linear (Gate proj)",
       "box": [
         760,
-        2950,
+        1770.0,
         175,
-        95
+        57.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=15;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#399e90;strokeWidth=1;fillColor=#399e90;",
       "evidence": [
         {
           "source": "model",
@@ -1918,20 +2002,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Linear gates:\n4096 → 512"
     },
     {
       "id": "hca_window",
-      "label": "Non-overlapping 128-token\nwindows\nBuffer partial window across\ncalls",
+      "label": "Window 128\nstride 128",
       "box": [
         535,
-        2770,
+        1662.0,
         400,
-        120
+        72.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#399e90;strokeWidth=1;fillColor=#399e90;",
       "evidence": [
         {
           "source": "model",
@@ -1941,20 +2026,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Non-overlapping 128-token\nwindows\nBuffer partial window across\ncalls"
     },
     {
       "id": "hca_bias",
-      "label": "GATE PATH: + position bias\nFP32 softmax within compression\nwindow",
+      "label": "+ APE → Softmax",
       "box": [
         535,
-        2580,
+        1548.0,
         400,
-        120
+        72.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#399e90;strokeWidth=1;fillColor=#399e90;",
       "evidence": [
         {
           "source": "model",
@@ -1964,20 +2050,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "GATE PATH: + position bias\nFP32 softmax within compression\nwindow"
     },
     {
       "id": "hca_sum",
-      "label": "Weighted sum of projected KV\nOne vector [512] per completed\nwindow",
+      "label": "× → Sum",
       "box": [
         535,
-        2410,
+        1446.0,
         400,
-        100
+        60.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#399e90;strokeWidth=1;fillColor=#399e90;",
       "evidence": [
         {
           "source": "model",
@@ -1987,20 +2074,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Weighted sum of projected KV\nOne vector [512] per completed\nwindow"
     },
     {
       "id": "hca_norm",
-      "label": "RMSNorm [512]",
+      "label": "RMSNorm",
       "box": [
         535,
-        2270,
+        1362.0,
         400,
-        75
+        45.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#399e90;strokeWidth=1;fillColor=#399e90;",
       "evidence": [
         {
           "source": "model",
@@ -2010,20 +2098,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "RMSNorm [512]"
     },
     {
       "id": "hca_rope",
-      "label": "Partial RoPE at window position",
+      "label": "RoPE₆₄",
       "box": [
         535,
-        2160,
+        1296.0,
         400,
-        65
+        39.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#399e90;strokeWidth=1;fillColor=#399e90;",
       "evidence": [
         {
           "source": "model",
@@ -2033,20 +2122,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Partial RoPE at window position"
     },
     {
       "id": "hca_out",
-      "label": "Causal visibility mask\nAll completed compressed\nentries; NO indexer",
+      "label": "Causal Mask\nNO indexer",
       "box": [
         535,
-        1900,
+        1140.0,
         400,
-        110
+        66.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#399e90;strokeWidth=1;fillColor=#399e90;",
       "evidence": [
         {
           "source": "model",
@@ -2056,20 +2146,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Causal visibility mask\nAll completed compressed\nentries; NO indexer"
     },
     {
       "id": "hca_quant",
-      "label": "FP8 simulation on non-RoPE 448\nRoPE 64 BF16; write compressed\ncache",
+      "label": "Quant → KV cache",
       "box": [
         535,
-        2035,
+        1221.0,
         400,
-        95
+        57.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e2f6f2;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ed343b;strokeWidth=1;fillColor=#ed343b;",
       "evidence": [
         {
           "source": "model",
@@ -2079,20 +2170,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "FP8 simulation on non-RoPE 448\nRoPE 64 BF16; write compressed\ncache"
     },
     {
       "id": "moe_x",
-      "label": "h [4096] and token IDs (hash route)",
+      "label": "h [4096]",
       "box": [
         1940,
-        3080,
+        1848.0,
         990,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#48c9b9;strokeWidth=1;fillColor=#48c9b9;",
       "evidence": [
         {
           "source": "model",
@@ -2102,20 +2194,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "h [4096] and token IDs (hash route)"
     },
     {
       "id": "moe_shared",
-      "label": "One shared expert\n4096 → 2048 → 4096",
+      "label": "Shared MLP ×1",
       "box": [
         1940,
-        2690,
+        1614.0,
         260,
-        100
+        60.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#48c9b9;strokeWidth=1;fillColor=#48c9b9;",
       "evidence": [
         {
           "source": "model",
@@ -2125,20 +2218,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "One shared expert\n4096 → 2048 → 4096"
     },
     {
       "id": "moe_router",
-      "label": "Learned score: Linear → sqrtsoftplus\nHash: tid2eid[token IDs] selects\nexperts\nElse: top-6(scores + correction\nbias)",
+      "label": "Linear → √Softplus\nHash / Top6",
       "box": [
         2250,
-        2910,
+        1746.0,
         360,
-        120
+        72.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#48c9b9;strokeWidth=1;fillColor=#48c9b9;",
       "evidence": [
         {
           "source": "model",
@@ -2148,20 +2242,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Learned score: Linear → sqrtsoftplus\nHash: tid2eid[token IDs] selects\nexperts\nElse: top-6(scores + correction\nbias)"
     },
     {
       "id": "moe_weights",
-      "label": "Gather ORIGINAL scores\nNormalize selected weights ×\n1.5",
+      "label": "Gather → Normalize\n×1.5",
       "box": [
         2250,
-        2740,
+        1644.0,
         360,
-        100
+        60.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#48c9b9;strokeWidth=1;fillColor=#48c9b9;",
       "evidence": [
         {
           "source": "model",
@@ -2171,20 +2266,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Gather ORIGINAL scores\nNormalize selected weights ×\n1.5"
     },
     {
       "id": "moe_bank",
-      "label": "256 experts; activate 6\nRouted weights FP4;\nintermediate 2048\nInput / output width 4096",
+      "label": "MLP ×256\n6 active",
       "box": [
         2250,
-        2540,
+        1524.0,
         360,
-        130
+        78.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#48c9b9;strokeWidth=1;fillColor=#48c9b9;",
       "evidence": [
         {
           "source": "model",
@@ -2194,20 +2290,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "256 experts; activate 6\nRouted weights FP4;\nintermediate 2048\nInput / output width 4096"
     },
     {
       "id": "moe_sum",
-      "label": "Weighted routed output",
+      "label": "Σ weighted experts",
       "box": [
         2250,
-        2370,
+        1422.0,
         360,
-        95
+        57.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#48c9b9;strokeWidth=1;fillColor=#48c9b9;",
       "evidence": [
         {
           "source": "model",
@@ -2217,20 +2314,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Weighted routed output"
     },
     {
       "id": "moe_add",
       "label": "+",
       "box": [
-        2395,
-        2220,
-        70,
-        70
+        2409.0,
+        1332.0,
+        42.0,
+        42.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=30;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;shape=ellipse;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#48c9b9;strokeWidth=1;fillColor=#48c9b9;shape=ellipse;perimeter=ellipsePerimeter;fontSize=22;fontStyle=1;",
       "evidence": [
         {
           "source": "model",
@@ -2240,20 +2338,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "+"
     },
     {
       "id": "moe_y",
-      "label": "MoE output [4096]",
+      "label": "h′ [4096]",
       "box": [
         2250,
-        2070,
+        1242.0,
         360,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#48c9b9;strokeWidth=1;fillColor=#48c9b9;",
       "evidence": [
         {
           "source": "model",
@@ -2263,20 +2362,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "MoE output [4096]"
     },
     {
       "id": "expert_x",
-      "label": "Expert input x [4096]",
+      "label": "x [4096]",
       "box": [
         2660,
-        2990,
+        1794.0,
         280,
-        70
+        42.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -2286,20 +2386,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Expert input x [4096]"
     },
     {
       "id": "expert_up",
-      "label": "Linear W_up\n4096 → 2048\nclip to [-10,10]",
+      "label": "Linear (up)\nClip [−10,10]",
       "box": [
         2660,
-        2850,
+        1710.0,
         280,
-        115
+        69.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -2309,20 +2410,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Linear W_up\n4096 → 2048\nclip to [-10,10]"
     },
     {
       "id": "expert_gate",
-      "label": "Linear W_gate\n4096 → 2048\nclip MAX at 10\nthen SiLU",
+      "label": "Linear (gate)\nClip max10 → SiLU",
       "box": [
         2660,
-        2660,
+        1596.0,
         280,
-        150
+        90.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -2332,20 +2434,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Linear W_gate\n4096 → 2048\nclip MAX at 10\nthen SiLU"
     },
     {
       "id": "expert_mul",
-      "label": "Elementwise product\nSiLU(clipped gate) ×\nclipped up",
+      "label": "×",
       "box": [
-        2660,
-        2440,
-        280,
-        130
+        2761.0,
+        1464.0,
+        78.0,
+        78.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;shape=ellipse;perimeter=ellipsePerimeter;fontSize=22;fontStyle=1;",
       "evidence": [
         {
           "source": "model",
@@ -2355,20 +2458,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Elementwise product\nSiLU(clipped gate) ×\nclipped up"
     },
     {
       "id": "expert_weight",
-      "label": "Routed: × weight\nShared: bypass",
+      "label": "× routing weight",
       "box": [
         2660,
-        2370,
+        1422.0,
         280,
-        60
+        36.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -2378,20 +2482,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Routed: × weight\nShared: bypass"
     },
     {
       "id": "expert_down",
-      "label": "W_down: 2048 → 4096",
+      "label": "Linear (down)",
       "box": [
         2660,
-        2260,
+        1356.0,
         280,
-        100
+        60.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -2401,20 +2506,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "W_down: 2048 → 4096"
     },
     {
       "id": "expert_y",
-      "label": "Expert output [4096]",
+      "label": "y [4096]",
       "box": [
         2660,
-        2100,
+        1260.0,
         280,
-        90
+        54.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#e5f0ff;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -2424,20 +2530,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Expert output [4096]"
     },
     {
       "id": "moe_note",
-      "label": "Hash routing freezes WHICH experts, not their activation weights.\nCheckpoint: Hash-MoE L0–2; learned top-k L3–42.",
+      "label": "Hash L0–2 · Learned Top6 L3–42",
       "box": [
         1940,
-        1990,
+        1194.0,
         990,
-        70
+        42.0
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#48c9b9;strokeWidth=1;fillColor=#48c9b9;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
       "evidence": [
         {
           "source": "model",
@@ -2447,20 +2554,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Hash routing freezes WHICH experts, not their activation weights.\nCheckpoint: Hash-MoE L0–2; learned top-k L3–42."
     },
     {
       "id": "idx_q",
-      "label": "q_residual [1024]",
+      "label": "Qr [1024]",
       "box": [
         80,
-        3650,
+        2190.0,
         480,
-        70
+        42.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -2470,20 +2578,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "q_residual [1024]"
     },
     {
       "id": "idx_qproj",
-      "label": "Q: 1024 → 64 × 128; RoPE 64\nHadamard rotate → FP4 QAT\nsimulation",
+      "label": "Linear → RoPE\nHadamard → Quant",
       "box": [
         80,
-        3510,
+        2106.0,
         480,
-        100
+        60.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -2493,20 +2602,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Q: 1024 → 64 × 128; RoPE 64\nHadamard rotate → FP4 QAT\nsimulation"
     },
     {
       "id": "idx_key",
-      "label": "h → independent overlapping compressor\nIndex-head width 128; stride 4",
+      "label": "Compressor C4\ndim 128",
       "box": [
         730,
-        3650,
+        2190.0,
         600,
-        90
+        54.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -2516,20 +2626,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "h → independent overlapping compressor\nIndex-head width 128; stride 4"
     },
     {
       "id": "idx_kcache",
-      "label": "RMSNorm 128 → RoPE 64\nHadamard rotate → FP4 QAT simulation\nOwn KV cache / previous Ca state",
+      "label": "Norm → RoPE → Rotate → Quant\nKV cache (index)",
       "box": [
         730,
-        3505,
+        2103.0,
         600,
-        100
+        60.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ed343b;strokeWidth=1;fillColor=#ed343b;",
       "evidence": [
         {
           "source": "model",
@@ -2539,20 +2650,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "RMSNorm 128 → RoPE 64\nHadamard rotate → FP4 QAT simulation\nOwn KV cache / previous Ca state"
     },
     {
       "id": "idx_h",
-      "label": "h [4096] → Linear W_weights\n64 query-head scoring weights",
+      "label": "Linear (weights)",
       "box": [
         1500,
-        3650,
+        2190.0,
         600,
-        90
+        54.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -2562,20 +2674,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "h [4096] → Linear W_weights\n64 query-head scoring weights"
     },
     {
       "id": "idx_score",
-      "label": "sum_h w_h ReLU(Q_index · K_comp)\nScale: 128^-0.5 × 64^-0.5\nCausal masking before top-k",
+      "label": "Matmul → ReLU → Scale → Sum",
       "box": [
         1500,
-        3500,
+        2100.0,
         600,
-        110
+        66.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -2585,20 +2698,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "sum_h w_h ReLU(Q_index · K_comp)\nScale: 128^-0.5 × 64^-0.5\nCausal masking before top-k"
     },
     {
       "id": "idx_select",
-      "label": "Top min(512, compressed length)\nMark invalid future entries as -1\nBuild per-query CSA mask",
+      "label": "Mask → TopK (≤512)",
       "box": [
         2320,
-        3470,
+        2082.0,
         580,
-        150
+        90.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#edf7e3;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -2608,20 +2722,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Top min(512, compressed length)\nMark invalid future entries as -1\nBuild per-query CSA mask"
     },
     {
       "id": "idx_note",
-      "label": "CSA only. HCA has no Lightning Indexer. Cache buffer / overlap state persists across prefill and decode.",
+      "label": "Q / K quantization: FP4 simulation",
       "box": [
         65,
-        3350,
+        2010.0,
         2860,
-        50
+        30.0
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
       "evidence": [
         {
           "source": "model",
@@ -2631,33 +2746,35 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "CSA only. HCA has no Lightning Indexer. Cache buffer / overlap state persists across prefill and decode."
     },
     {
       "id": "mtp",
       "label": "",
       "box": [
         30,
-        3820,
+        2292.0,
         2940,
-        620
+        372.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;fillColor=#ffffff;dashed=1;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;dashed=1;dashPattern=7 5;strokeColor=#7f8cff;",
+      "description": ""
     },
     {
       "id": "mtp_heading",
-      "label": "Independent MTP0 / layer_id 43 — not an extra main layer ↑",
+      "label": "MTP (auxiliary)",
       "box": [
         42,
-        3832,
+        2299.2,
         2916,
-        62
+        37.199999999999996
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
       "evidence": [
         {
           "source": "model",
@@ -2667,20 +2784,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Independent MTP0 / layer_id 43 — not an extra main layer ↑"
     },
     {
       "id": "mtp_h",
-      "label": "Main hidden streams [B,T,4,4096]",
+      "label": "Hidden streams",
       "box": [
         80,
-        4360,
+        2616.0,
         650,
-        65
+        39.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -2690,20 +2808,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Main hidden streams [B,T,4,4096]"
     },
     {
       "id": "mtp_hn",
-      "label": "hnorm [4096]",
+      "label": "RMSNorm (h)",
       "box": [
         80,
-        4250,
+        2550.0,
         650,
-        75
+        45.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -2713,20 +2832,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "hnorm [4096]"
     },
     {
       "id": "mtp_hp",
-      "label": "h_proj: 4096 → 4096",
+      "label": "Linear (h)",
       "box": [
         80,
-        4130,
+        2478.0,
         650,
-        75
+        45.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -2736,20 +2856,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "h_proj: 4096 → 4096"
     },
     {
       "id": "mtp_e",
-      "label": "MTP token IDs → shared embedding",
+      "label": "Shared Embedding",
       "box": [
         850,
-        4360,
+        2616.0,
         650,
-        65
+        39.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -2759,20 +2880,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "MTP token IDs → shared embedding"
     },
     {
       "id": "mtp_en",
-      "label": "enorm [4096]",
+      "label": "RMSNorm (e)",
       "box": [
         850,
-        4250,
+        2550.0,
         650,
-        75
+        45.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -2782,20 +2904,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "enorm [4096]"
     },
     {
       "id": "mtp_ep",
-      "label": "e_proj: 4096 → 4096; unsqueeze stream axis",
+      "label": "Linear (e)",
       "box": [
         850,
-        4130,
+        2478.0,
         650,
-        75
+        45.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -2805,20 +2928,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "e_proj: 4096 → 4096; unsqueeze stream axis"
     },
     {
       "id": "mtp_sum",
       "label": "+",
       "box": [
-        1680,
-        4085,
-        70,
-        70
+        1694.0,
+        2451.0,
+        42.0,
+        42.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;shape=ellipse;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;shape=ellipse;perimeter=ellipsePerimeter;fontSize=22;fontStyle=1;",
       "evidence": [
         {
           "source": "model",
@@ -2828,20 +2952,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "+"
     },
     {
       "id": "mtp_block",
-      "label": "Same mHC decoder Block, layer 43\nSWA only (ratio 0); learned MoE routing",
+      "label": "Block L43 (SWA)",
       "box": [
         1900,
-        4020,
+        2412.0,
         950,
-        100
+        60.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -2851,20 +2976,21 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "Same mHC decoder Block, layer 43\nSWA only (ratio 0); learned MoE routing"
     },
     {
       "id": "mtp_head",
-      "label": "MTP-specific HC-head weights and norm\nShared LM head → MTP logits",
+      "label": "HC-head → Norm → LM-head",
       "box": [
         1900,
-        3905,
+        2343.0,
         950,
-        80
+        48.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f0e9fa;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;",
       "evidence": [
         {
           "source": "model",
@@ -2874,20 +3000,22 @@
           "source": "config",
           "locator": "Official config.json at checkpoint 60d8d707; see checked-in official_config.json"
         }
-      ]
+      ],
+      "description": "MTP-specific HC-head weights and norm\nShared LM head → MTP logits"
     },
     {
       "id": "footer",
-      "label": "Official checkpoint deepseek-ai/DeepSeek-V4-Flash @ 60d8d707 · config + model.py + kernel.py + model card + weight index\n43 main layers: 2 SWA-only + 21 CSA + 20 HCA; separate MTP0. Index: 69,187 tensor names / 46 shards; shapes and values not read.\n284B / 13B are model-card claims, not an independent parameter recount. No GPU inference executed.",
+      "label": "Official Flash checkpoint 60d8d707 · detailed evidence: README / evidence.md · no GPU inference",
       "box": [
         40,
-        4470,
+        2682.0,
         2920,
-        90
+        54.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#182539;align=center;verticalAlign=middle;spacing=8;strokeColor=#364359;strokeWidth=1;fillColor=#f1f4f8;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#7f8cff;strokeWidth=1;fillColor=#7f8cff;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "Official checkpoint deepseek-ai/DeepSeek-V4-Flash @ 60d8d707 · config + model.py + kernel.py + model card + weight index\n43 main layers: 2 SWA-only + 21 CSA + 20 HCA; separate MTP0. Index: 69,187 tensor names / 46 shards; shapes and values not read.\n284B / 13B are model-card claims, not an independent parameter recount. No GPU inference executed."
     }
   ],
   "edges": [
@@ -2974,7 +3102,7 @@
       "points": [
         [
           560,
-          1200
+          720.0
         ]
       ]
     },
@@ -3016,15 +3144,15 @@
       "points": [
         [
           710,
-          860
+          516.0
         ],
         [
           430,
-          860
+          516.0
         ],
         [
           430,
-          772.5
+          463.5
         ]
       ]
     },
@@ -3041,11 +3169,11 @@
       "points": [
         [
           950,
-          1620
+          972.0
         ],
         [
           950,
-          772.5
+          463.5
         ]
       ]
     },
@@ -3073,15 +3201,15 @@
       "points": [
         [
           735,
-          650
+          390.0
         ],
         [
           320,
-          650
+          390.0
         ],
         [
           320,
-          585
+          351.0
         ]
       ]
     },
@@ -3158,15 +3286,15 @@
       "points": [
         [
           1810,
-          1230
+          738.0
         ],
         [
           1810,
-          835
+          501.0
         ],
         [
           1435,
-          835
+          501.0
         ]
       ]
     },
@@ -3198,11 +3326,11 @@
       "points": [
         [
           1825,
-          2640
+          1584.0
         ],
         [
           1825,
-          2025
+          1215.0
         ]
       ]
     },
@@ -3219,11 +3347,11 @@
       "points": [
         [
           1050,
-          2495
+          1497.0
         ],
         [
           1050,
-          2025
+          1215.0
         ]
       ],
       "dashed": true
@@ -3241,11 +3369,11 @@
       "points": [
         [
           1840,
-          2025
+          1215.0
         ],
         [
           1840,
-          1405
+          843.0
         ]
       ]
     },
@@ -3262,11 +3390,11 @@
       "points": [
         [
           1035,
-          1865
+          1119.0
         ],
         [
           1035,
-          1405
+          843.0
         ]
       ],
       "dashed": true
@@ -3284,11 +3412,11 @@
       "points": [
         [
           2435,
-          1695
+          1017.0
         ],
         [
           2075.0,
-          1695
+          1017.0
         ]
       ]
     },
@@ -3305,11 +3433,11 @@
       "points": [
         [
           2435,
-          1695
+          1017.0
         ],
         [
           2425.0,
-          1695
+          1017.0
         ]
       ]
     },
@@ -3326,11 +3454,11 @@
       "points": [
         [
           2435,
-          1695
+          1017.0
         ],
         [
           2775.0,
-          1695
+          1017.0
         ]
       ]
     },
@@ -3552,11 +3680,11 @@
       "points": [
         [
           485,
-          2830
+          1698.0
         ],
         [
           485,
-          2460
+          1476.0
         ]
       ]
     },
@@ -3647,11 +3775,11 @@
       "points": [
         [
           955,
-          2830
+          1698.0
         ],
         [
           955,
-          2460
+          1476.0
         ]
       ]
     },
@@ -3684,7 +3812,7 @@
       "points": [
         [
           2220,
-          2605
+          1563.0
         ]
       ]
     },
@@ -3738,7 +3866,7 @@
       "points": [
         [
           2070,
-          2255
+          1353.0
         ]
       ]
     },
@@ -3760,11 +3888,11 @@
       "points": [
         [
           2950,
-          3025
+          1815.0
         ],
         [
           2950,
-          2735
+          1641.0
         ]
       ]
     },
@@ -3781,11 +3909,11 @@
       "points": [
         [
           2640,
-          2907.5
+          1744.5
         ],
         [
           2640,
-          2505
+          1503.0
         ]
       ]
     },
@@ -3837,11 +3965,11 @@
       "points": [
         [
           320,
-          3410
+          2046.0
         ],
         [
           1980,
-          3410
+          2046.0
         ]
       ]
     },
@@ -3858,11 +3986,11 @@
       "points": [
         [
           1030,
-          3450
+          2070.0
         ],
         [
           1740,
-          3450
+          2070.0
         ]
       ]
     },
@@ -3910,7 +4038,7 @@
       "points": [
         [
           405,
-          4120
+          2472.0
         ]
       ]
     },
@@ -3927,15 +4055,15 @@
       "points": [
         [
           1175,
-          3970
+          2382.0
         ],
         [
           1780,
-          3970
+          2382.0
         ],
         [
           1780,
-          4120
+          2472.0
         ]
       ]
     },
@@ -3961,5 +4089,10 @@
     "284B / 13B are official model-card claims, not an independently recomputed parameter count.",
     "Weight index confirms names and shard mapping; shapes, values and full weights were not read.",
     "Downloaded Python and GPU kernels were not executed; no numerical inference equivalence test was performed."
-  ]
+  ],
+  "presentation": {
+    "reference": "models/deepseek_v4/deepseek_v4_architecture.jpg",
+    "style": "operator blocks; colored modules; dashed frames; bottom-up",
+    "notes": "Full annotations preserved in description and operator_notes.md; Flash parameters retained."
+  }
 }

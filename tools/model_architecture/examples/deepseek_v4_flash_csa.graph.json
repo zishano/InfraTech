@@ -2,7 +2,7 @@
   "version": 1,
   "title": "DeepSeek-V4-Flash | CSA detailed computation",
   "width": 4000,
-  "height": 5700,
+  "height": 3420,
   "sources": {
     "model": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/inference/model.py",
     "kernel": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash/blob/60d8d70770c6776ff598c94bb586a859a38244f1/inference/kernel.py",
@@ -11,42 +11,44 @@
   "nodes": [
     {
       "id": "title",
-      "label": "DeepSeek-V4-Flash | CSA — computation, cache and addressing",
+      "label": "DeepSeek-V4-Flash — CSA",
       "box": [
         40,
-        15,
+        9.0,
         3920,
-        100
+        60.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=48;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#f3f6fa;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=34;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "DeepSeek-V4-Flash | CSA — computation, cache and addressing"
     },
     {
       "id": "source",
-      "label": "OFFICIAL CHECKPOINT 60d8d707 | model.py + kernel.py + config.json | bottom-up computation",
+      "label": "hidden 4096 · heads 64 · head dim 512 · window 128",
       "box": [
         40,
-        125,
+        75.0,
         3920,
-        80
+        48.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#f3f6fa;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "OFFICIAL CHECKPOINT 60d8d707 | model.py + kernel.py + config.json | bottom-up computation"
     },
     {
       "id": "facts",
-      "label": "CSA: 21 layers (2,4,…,42) · stride 4 · effective window 8 · index heads64 × dim128 · top-k≤512",
+      "label": "CSA · stride 4 · window 8 · index dim 128 · top-k ≤512",
       "box": [
         40,
-        225,
+        135.0,
         3920,
-        90
+        54.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=29;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -56,111 +58,119 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "CSA: 21 layers (2,4,…,42) · stride 4 · effective window 8 · index heads64 × dim128 · top-k≤512"
     },
     {
       "id": "ports",
-      "label": "Named ports A / I / Qr are tensor aliases across panels, not extra computation or copies. B=batch, T=prefill chunk, p=decode position, Nc=completed compressed windows.",
+      "label": "A: compressed KV     I: compressed indices     Qr: normalized low-rank query",
       "box": [
         40,
-        330,
+        198.0,
         3920,
-        90
+        54.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#f3f6fa;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "Named ports A / I / Qr are tensor aliases across panels, not extra computation or copies. B=batch, T=prefill chunk, p=decode position, Nc=completed compressed windows."
     },
     {
       "id": "compressor",
       "label": "",
       "box": [
         30,
-        450,
+        270.0,
         1250,
-        3960
+        2376.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;fillColor=#ffffff;dashed=1;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;fillColor=none;dashed=1;dashPattern=7 5;strokeColor=#8797fa;",
+      "description": ""
     },
     {
       "id": "compressor_title",
-      "label": "1. MAIN KV COMPRESSOR — values and gates are separate",
+      "label": "Compressor",
       "box": [
         45,
-        465,
+        279.0,
         1220,
-        75
+        45.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=30;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "1. MAIN KV COMPRESSOR — values and gates are separate"
     },
     {
       "id": "middle",
       "label": "",
       "box": [
         1320,
-        450,
+        270.0,
         1250,
-        3960
+        2376.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;fillColor=#ffffff;dashed=1;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;fillColor=none;dashed=1;dashPattern=7 5;strokeColor=#8797fa;",
+      "description": ""
     },
     {
       "id": "middle_title",
-      "label": "2. LIGHTNING INDEXER — three independent learned paths",
+      "label": "Indexer",
       "box": [
         1335,
-        465,
+        279.0,
         1220,
-        75
+        45.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=30;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "2. LIGHTNING INDEXER — three independent learned paths"
     },
     {
       "id": "attention",
       "label": "",
       "box": [
         2610,
-        450,
+        270.0,
         1360,
-        3960
+        2376.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;fillColor=#ffffff;dashed=1;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;fillColor=none;dashed=1;dashPattern=7 5;strokeColor=#8797fa;",
+      "description": ""
     },
     {
       "id": "attention_title",
-      "label": "3. SHARED K=V ATTENTION — window + compressed history",
+      "label": "Attention (MQA)",
       "box": [
         2625,
-        465,
+        279.0,
         1330,
-        75
+        45.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=30;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "3. SHARED K=V ATTENTION — window + compressed history"
     },
     {
       "id": "comp_h",
-      "label": "Hidden states h [B,T,4096]",
+      "label": "h [4096]",
       "box": [
         70,
-        4230,
+        2538.0,
         1130,
-        110
+        66.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -170,20 +180,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Hidden states h [B,T,4096]"
     },
     {
       "id": "comp_fp32",
-      "label": "Cast hidden states to FP32\nProjection / window score arithmetic stays FP32",
+      "label": "Cast FP32",
       "box": [
         70,
-        4050,
+        2430.0,
         1130,
-        110
+        66.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -193,20 +204,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Cast hidden states to FP32\nProjection / window score arithmetic stays FP32"
     },
     {
       "id": "comp_wkv",
-      "label": "Linear Wkv: 4096 → 1024\nC = h Wkv",
+      "label": "Linear (KV proj)",
       "box": [
         70,
-        3860,
+        2316.0,
         500,
-        120
+        72.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -216,20 +228,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Linear Wkv: 4096 → 1024\nC = h Wkv"
     },
     {
       "id": "comp_wgate",
-      "label": "Linear Wgate: 4096 → 1024\nZ = h Wgate",
+      "label": "Linear (Gate proj)",
       "box": [
         700,
-        3860,
+        2316.0,
         500,
-        120
+        72.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -239,20 +252,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Linear Wgate: 4096 → 1024\nZ = h Wgate"
     },
     {
       "id": "comp_split",
-      "label": "Reshape [B,N,4,1024] → Ca / Cb\nCa = first512; Cb = last512",
+      "label": "Split (Ca / Cb)",
       "box": [
         70,
-        3640,
+        2184.0,
         500,
-        160
+        96.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -262,20 +276,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Reshape [B,N,4,1024] → Ca / Cb\nCa = first512; Cb = last512"
     },
     {
       "id": "comp_ape",
-      "label": "Add learned APE / position bias\nshape [4,1024]\nPrefill: slot in window; decode: p\n% 4",
+      "label": "+ APE",
       "box": [
         700,
-        3640,
+        2184.0,
         500,
-        160
+        96.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -285,20 +300,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Add learned APE / position bias\nshape [4,1024]\nPrefill: slot in window; decode: p\n% 4"
     },
     {
       "id": "comp_gate_split",
-      "label": "Split biased gate channels Za / Zb\nSame Ca/Cb feature layout as KV",
+      "label": "Split (Za / Zb)",
       "box": [
         700,
-        3430,
+        2058.0,
         500,
-        150
+        90.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -308,20 +324,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Split biased gate channels Za / Zb\nSame Ca/Cb feature layout as KV"
     },
     {
       "id": "comp_value_window",
-      "label": "VALUE WINDOW: [Ca_(j-1), Cb_j]\n[B,N,8,512], stride4, effective\nwidth8\nFirst window: missing Ca values =\n0",
+      "label": "Cat (prev Ca, cur Cb)",
       "box": [
         70,
-        3230,
+        1938.0,
         500,
-        190
+        114.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -331,20 +348,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "VALUE WINDOW: [Ca_(j-1), Cb_j]\n[B,N,8,512], stride4, effective\nwidth8\nFirst window: missing Ca values =\n0"
     },
     {
       "id": "comp_gate_window",
-      "label": "GATE WINDOW: [Za_(j-1), Zb_j]\n[B,N,8,512]\nMissing first-window gates =\n-infinity",
+      "label": "Cat (prev Za, cur Zb)",
       "box": [
         700,
-        3200,
+        1920.0,
         500,
-        190
+        114.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -354,20 +372,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "GATE WINDOW: [Za_(j-1), Zb_j]\n[B,N,8,512]\nMissing first-window gates =\n-infinity"
     },
     {
       "id": "comp_softmax",
-      "label": "FP32 softmax over 8 TOKEN slots\nIndependently for each of 512\nchannels\nP = softmax(Z_window, dim=tokens)",
+      "label": "Softmax (tokens)",
       "box": [
         700,
-        2980,
+        1788.0,
         500,
-        160
+        96.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -377,20 +396,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "FP32 softmax over 8 TOKEN slots\nIndependently for each of 512\nchannels\nP = softmax(Z_window, dim=tokens)"
     },
     {
       "id": "comp_mul",
-      "label": "Elementwise product: P ⊙ C_window\nShape [B,N,8,512]\nKV values bypass softmax",
+      "label": "×",
       "box": [
-        70,
-        2760,
-        1130,
-        150
+        590.0,
+        1656.0,
+        90.0,
+        90.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;shape=ellipse;perimeter=ellipsePerimeter;fontSize=22;fontStyle=1;",
       "evidence": [
         {
           "source": "model",
@@ -400,20 +420,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Elementwise product: P ⊙ C_window\nShape [B,N,8,512]\nKV values bypass softmax"
     },
     {
       "id": "comp_sum",
-      "label": "Sum over 8 token slots\nc_j[d] = sum_s P[j,s,d] × C[j,s,d]\nResult [B,N,512] — NOT pooling across channels",
+      "label": "Sum (tokens)",
       "box": [
         70,
-        2550,
+        1530.0,
         1130,
-        150
+        90.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -423,20 +444,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Sum over 8 token slots\nc_j[d] = sum_s P[j,s,d] × C[j,s,d]\nResult [B,N,512] — NOT pooling across channels"
     },
     {
       "id": "comp_complete",
-      "label": "Emit only a completed 4-token stride\nPrefill: cutoff=T−(T%4); decode: (p+1)%4==0\nOtherwise return None; keep buffered state",
+      "label": "Stride boundary",
       "box": [
         70,
-        2350,
+        1410.0,
         1130,
-        145
+        87.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -446,20 +468,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Emit only a completed 4-token stride\nPrefill: cutoff=T−(T%4); decode: (p+1)%4==0\nOtherwise return None; keep buffered state"
     },
     {
       "id": "comp_norm",
-      "label": "Cast pooled vector back to input dtype\nLearned RMSNorm over 512 channels",
+      "label": "RMSNorm",
       "box": [
         70,
-        2160,
+        1296.0,
         1130,
-        120
+        72.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -469,20 +492,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Cast pooled vector back to input dtype\nLearned RMSNorm over 512 channels"
     },
     {
       "id": "comp_nope",
-      "label": "Content 448 dims\nFP8 QAT simulation, block64\nSimulated values remain BF16",
+      "label": "Quant (FP8 sim)\ncontent 448",
       "box": [
         70,
-        1940,
+        1164.0,
         500,
-        155
+        93.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -492,20 +516,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Content 448 dims\nFP8 QAT simulation, block64\nSimulated values remain BF16"
     },
     {
       "id": "comp_rope",
-      "label": "Trailing 64 dims: partial RoPE\nPrefill position=4j\nDecode position=p+1−4\nRoPE values remain BF16",
+      "label": "RoPE₆₄",
       "box": [
         700,
-        1940,
+        1164.0,
         500,
-        155
+        93.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -515,20 +540,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Trailing 64 dims: partial RoPE\nPrefill position=4j\nDecode position=p+1−4\nRoPE values remain BF16"
     },
     {
       "id": "comp_concat",
-      "label": "Reassemble content448 | RoPE64\nOne shared KV vector [512] per complete stride",
+      "label": "Concat",
       "box": [
         70,
-        1740,
+        1044.0,
         1130,
-        130
+        78.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -538,20 +564,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Reassemble content448 | RoPE64\nOne shared KV vector [512] per complete stride"
     },
     {
       "id": "comp_write",
-      "label": "Write compressed KV cache\nPrefill: slots 0…floor(T/4)−1\nDecode: slot floor(p/4)",
+      "label": "Cache Write",
       "box": [
         70,
-        1530,
+        918.0,
         1130,
-        145
+        87.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -561,20 +588,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Write compressed KV cache\nPrefill: slots 0…floor(T/4)−1\nDecode: slot floor(p/4)"
     },
     {
       "id": "comp_bank",
-      "label": "Cache capacity [B,floor(max_seq_len/4),512]\nLogical valid entries Nc=floor(end_pos/4)\nNo query-specific pruning or top-k is stored here",
+      "label": "KV cache (compress)",
       "box": [
         70,
-        1300,
+        780.0,
         1130,
-        160
+        96.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ed343b;strokeWidth=1;fillColor=#ed343b;",
       "evidence": [
         {
           "source": "model",
@@ -584,20 +612,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Cache capacity [B,floor(max_seq_len/4),512]\nLogical valid entries Nc=floor(end_pos/4)\nNo query-specific pruning or top-k is stored here"
     },
     {
       "id": "comp_alias",
-      "label": "Storage aliases Attention.kv_cache[:,128:]\nCompressed entries are appended after the window region\nNo copied top-k-only KV cache",
+      "label": "View [:,128:]",
       "box": [
         70,
-        1080,
+        648.0,
         1130,
-        145
+        87.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -607,20 +636,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Storage aliases Attention.kv_cache[:,128:]\nCompressed entries are appended after the window region\nNo copied top-k-only KV cache"
     },
     {
       "id": "port_A",
-      "label": "PORT A → right panel\nALL valid compressed KV vectors (K=V)\nShape [B,Nc,512]",
+      "label": "A: KV [Nc,512]",
       "box": [
         70,
-        820,
+        492.0,
         1130,
-        170
+        102.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=30;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -630,33 +660,35 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "PORT A → right panel\nALL valid compressed KV vectors (K=V)\nShape [B,Nc,512]"
     },
     {
       "id": "comp_note",
-      "label": "Main compressor rotate=False. Indexer uses its OWN smaller compressor with\nrotate=True (CSA only).",
+      "label": "KV / Gate are independent projections",
       "box": [
         70,
-        590,
+        354.0,
         1130,
-        150
+        90.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=25;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#f3f6fa;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "Main compressor rotate=False. Indexer uses its OWN smaller compressor with\nrotate=True (CSA only)."
     },
     {
       "id": "idx_q_input",
-      "label": "PORT Qr: normalized\nq_residual\n[B,T,1024], same as\nattention rank-normalized\nquery",
+      "label": "Qr [1024]",
       "box": [
         1360,
-        4230,
+        2538.0,
         330,
-        140
+        84.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -666,20 +698,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "PORT Qr: normalized\nq_residual\n[B,T,1024], same as\nattention rank-normalized\nquery"
     },
     {
       "id": "idx_h",
-      "label": "Hidden states h [B,T,4096]\nSupplies key compressor AND scoring weights",
+      "label": "h [4096]",
       "box": [
         1750,
-        4230,
+        2538.0,
         720,
-        140
+        84.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=25;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -689,20 +722,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Hidden states h [B,T,4096]\nSupplies key compressor AND scoring weights"
     },
     {
       "id": "idx_q_proj",
-      "label": "Wq_b: 1024 → 64×128",
+      "label": "Linear (Q up)",
       "box": [
         1360,
-        4020,
+        2412.0,
         330,
-        130
+        78.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -712,20 +746,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Wq_b: 1024 → 64×128"
     },
     {
       "id": "idx_q_heads",
-      "label": "Reshape [B,T,64,128]\nTP: split query heads",
+      "label": "Reshape\n[64,128]",
       "box": [
         1360,
-        3810,
+        2286.0,
         330,
-        145
+        87.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -735,20 +770,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Reshape [B,T,64,128]\nTP: split query heads"
     },
     {
       "id": "idx_q_rope",
-      "label": "Partial RoPE on\nlast64\nAt CURRENT query\nposition t",
+      "label": "RoPE₆₄",
       "box": [
         1360,
-        3600,
+        2160.0,
         330,
-        145
+        87.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -758,20 +794,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Partial RoPE on\nlast64\nAt CURRENT query\nposition t"
     },
     {
       "id": "idx_q_hadamard",
-      "label": "Hadamard rotation\nScale 1/sqrt(128)",
+      "label": "Rotate (Hadamard)",
       "box": [
         1360,
-        3390,
+        2034.0,
         330,
-        145
+        87.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -781,20 +818,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Hadamard rotation\nScale 1/sqrt(128)"
     },
     {
       "id": "idx_q_fp4",
-      "label": "FP4 QAT simulation\nblock32, in-place\nTensor remains BF16",
+      "label": "Quant (FP4 sim)",
       "box": [
         1360,
-        3170,
+        1902.0,
         330,
-        160
+        96.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -804,20 +842,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "FP4 QAT simulation\nblock32, in-place\nTensor remains BF16"
     },
     {
       "id": "idx_q_ready",
-      "label": "Index query Q_I\n[B,T,64,128]",
+      "label": "Qᵢ [64,128]",
       "box": [
         1360,
-        2970,
+        1782.0,
         330,
-        130
+        78.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -827,20 +866,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Index query Q_I\n[B,T,64,128]"
     },
     {
       "id": "idx_kv_proj",
-      "label": "Wkv_I\n4096 → 256",
+      "label": "Linear\n(KV)",
       "box": [
         1750,
-        4020,
+        2412.0,
         150,
-        130
+        78.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -850,20 +890,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Wkv_I\n4096 → 256"
     },
     {
       "id": "idx_gate_proj",
-      "label": "Wgate_I\n4096 → 256",
+      "label": "Linear\n(Gate)",
       "box": [
         1930,
-        4020,
+        2412.0,
         150,
-        130
+        78.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -873,20 +914,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Wgate_I\n4096 → 256"
     },
     {
       "id": "idx_w_proj",
-      "label": "W_weights: 4096 → 64\nOne score weight per\nhead",
+      "label": "Linear (weights)",
       "box": [
         2140,
-        4020,
+        2412.0,
         330,
-        130
+        78.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -896,20 +938,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "W_weights: 4096 → 64\nOne score weight per\nhead"
     },
     {
       "id": "idx_kv_split",
-      "label": "Split Ca/Cb\n128 + 128",
+      "label": "Split\nCa / Cb",
       "box": [
         1750,
-        3810,
+        2286.0,
         150,
-        145
+        87.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -919,20 +962,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Split Ca/Cb\n128 + 128"
     },
     {
       "id": "idx_gate_ape",
-      "label": "Gate + APE\n[4,256]\nSplit Za/Zb",
+      "label": "+ APE\nSplit Za / Zb",
       "box": [
         1930,
-        3810,
+        2286.0,
         150,
-        145
+        87.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -942,20 +986,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Gate + APE\n[4,256]\nSplit Za/Zb"
     },
     {
       "id": "idx_window",
-      "label": "Independent\noverlapping windows\n[prev Ca4 | current\nCb4]\nKV / gates [B,N,8,128]",
+      "label": "Cat (prev, current)\n8 × 128",
       "box": [
         1750,
-        3580,
+        2148.0,
         330,
-        175
+        105.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -965,20 +1010,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Independent\noverlapping windows\n[prev Ca4 | current\nCb4]\nKV / gates [B,N,8,128]"
     },
     {
       "id": "idx_softmax",
-      "label": "Gate-only FP32 softmax\nAcross 8 slots per\nchannel",
+      "label": "Softmax (tokens)",
       "box": [
         1750,
-        3380,
+        2028.0,
         330,
-        145
+        87.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -988,20 +1034,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Gate-only FP32 softmax\nAcross 8 slots per\nchannel"
     },
     {
       "id": "idx_pool",
-      "label": "KV bypass × gate\nprobabilities\nSum8 → [B,N,128]",
+      "label": "× → Sum",
       "box": [
         1750,
-        3170,
+        1902.0,
         330,
-        155
+        93.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -1011,20 +1058,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "KV bypass × gate\nprobabilities\nSum8 → [B,N,128]"
     },
     {
       "id": "idx_norm",
-      "label": "Learned RMSNorm128",
+      "label": "RMSNorm",
       "box": [
         1750,
-        2970,
+        1782.0,
         330,
-        115
+        69.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -1034,20 +1082,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Learned RMSNorm128"
     },
     {
       "id": "idx_key_rope",
-      "label": "Partial RoPE64\nAt compressed position\n4j",
+      "label": "RoPE₆₄",
       "box": [
         1750,
-        2780,
+        1668.0,
         330,
-        130
+        78.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -1057,20 +1106,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Partial RoPE64\nAt compressed position\n4j"
     },
     {
       "id": "idx_key_hadamard",
-      "label": "Hadamard rotation\nSame orthogonal basis\nas Q_I",
+      "label": "Rotate (Hadamard)",
       "box": [
         1750,
-        2590,
+        1554.0,
         330,
-        145
+        87.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -1080,20 +1130,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Hadamard rotation\nSame orthogonal basis\nas Q_I"
     },
     {
       "id": "idx_key_fp4",
-      "label": "FP4 QAT simulation,\nblock32\nTensor remains BF16",
+      "label": "Quant (FP4 sim)",
       "box": [
         1750,
-        2390,
+        1434.0,
         330,
-        145
+        87.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -1103,20 +1154,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "FP4 QAT simulation,\nblock32\nTensor remains BF16"
     },
     {
       "id": "idx_key_cache",
-      "label": "Independent index KV\ncache\n[B,Nc,128]\nOwn previous-Ca /\npartial state",
+      "label": "KV cache (index)\n[Nc,128]",
       "box": [
         1750,
-        2180,
+        1308.0,
         330,
-        155
+        93.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ed343b;strokeWidth=1;fillColor=#ed343b;",
       "evidence": [
         {
           "source": "model",
@@ -1126,20 +1178,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Independent index KV\ncache\n[B,Nc,128]\nOwn previous-Ca /\npartial state"
     },
     {
       "id": "idx_w_scale",
-      "label": "Scale head weights\n128^-0.5 × 64^-0.5\nThese weights are NOT\na softmax",
+      "label": "Scale\n128⁻½ × 64⁻½",
       "box": [
         2140,
-        3810,
+        2286.0,
         330,
-        175
+        105.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -1149,20 +1202,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Scale head weights\n128^-0.5 × 64^-0.5\nThese weights are NOT\na softmax"
     },
     {
       "id": "idx_w_ready",
-      "label": "Per-query head\nweights w\n[B,T,64]",
+      "label": "weights [64]",
       "box": [
         2140,
-        3590,
+        2154.0,
         330,
-        130
+        78.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -1172,20 +1226,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Per-query head\nweights w\n[B,T,64]"
     },
     {
       "id": "idx_dot",
-      "label": "einsum: Q_I · K_I_cache\nRaw scores [B,T,64,Nc]",
+      "label": "Matmul (Qᵢ, Kᵢᵀ)",
       "box": [
         1390,
-        1920,
+        1152.0,
         1080,
-        150
+        90.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=29;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -1195,20 +1250,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "einsum: Q_I · K_I_cache\nRaw scores [B,T,64,Nc]"
     },
     {
       "id": "idx_relu",
-      "label": "ReLU of per-head similarities",
+      "label": "ReLU",
       "box": [
         1390,
-        1720,
+        1032.0,
         1080,
-        110
+        66.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=29;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -1218,20 +1274,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "ReLU of per-head similarities"
     },
     {
       "id": "idx_head_sum",
-      "label": "Multiply by learned head weights, then sum heads\nS[b,t,j] = sum_h w[b,t,h] × ReLU(dot[b,t,h,j])",
+      "label": "Scale → Sum (heads)",
       "box": [
         1390,
-        1510,
+        906.0,
         1080,
-        150
+        90.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -1241,20 +1298,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Multiply by learned head weights, then sum heads\nS[b,t,j] = sum_h w[b,t,h] × ReLU(dot[b,t,h,j])"
     },
     {
       "id": "idx_tp",
-      "label": "If TP > 1: all_reduce index scores\nScores [B,T,Nc] across all 64 global heads",
+      "label": "AllReduce (TP)",
       "box": [
         1390,
-        1320,
+        792.0,
         1080,
-        120
+        72.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -1264,20 +1322,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "If TP > 1: all_reduce index scores\nScores [B,T,Nc] across all 64 global heads"
     },
     {
       "id": "idx_causal",
-      "label": "Prefill: j >= floor((t+1)/4) → -infinity\nDecode: score only cache prefix j < floor((p+1)/4)",
+      "label": "Causal Mask",
       "box": [
         1390,
-        1120,
+        672.0,
         1080,
-        145
+        87.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -1287,20 +1346,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Prefill: j >= floor((t+1)/4) → -infinity\nDecode: score only cache prefix j < floor((p+1)/4)"
     },
     {
       "id": "idx_topk",
-      "label": "Top-k with k=min(512,Nc)\nPer-query ranking; may include masked -infinity entries\nNOT a cache truncation operation",
+      "label": "TopK (≤512)",
       "box": [
         1390,
-        910,
+        546.0,
         1080,
-        160
+        96.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -1310,20 +1370,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Top-k with k=min(512,Nc)\nPer-query ranking; may include masked -infinity entries\nNOT a cache truncation operation"
     },
     {
       "id": "port_I",
-      "label": "PORT I → right panel\nPrefill: invalid future j → -1, valid j → j+T\nDecode: j → j+128\nSelected compressed positions; integer tensor",
+      "label": "I: compressed indices",
       "box": [
         1390,
-        650,
+        390.0,
         1080,
-        200
+        120.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=29;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#91cc48;strokeWidth=1;fillColor=#91cc48;",
       "evidence": [
         {
           "source": "model",
@@ -1333,20 +1394,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "PORT I → right panel\nPrefill: invalid future j → -1, valid j → j+T\nDecode: j → j+128\nSelected compressed positions; integer tensor"
     },
     {
       "id": "attn_h",
-      "label": "Hidden states h [B,T,4096]",
+      "label": "h [4096]",
       "box": [
         2650,
-        4230,
+        2538.0,
         1260,
-        110
+        66.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=29;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1356,20 +1418,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Hidden states h [B,T,4096]"
     },
     {
       "id": "attn_qa",
-      "label": "Linear Wq_a: 4096 → 1024",
+      "label": "Linear (Q down)\n4096→1024",
       "box": [
         2650,
-        4050,
+        2430.0,
         540,
-        110
+        66.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1379,20 +1442,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Linear Wq_a: 4096 → 1024"
     },
     {
       "id": "attn_qrank",
-      "label": "Learned RMSNorm1024 → PORT Qr",
+      "label": "RMSNorm → Qr",
       "box": [
         2650,
-        3860,
+        2316.0,
         540,
-        120
+        72.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1402,20 +1466,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Learned RMSNorm1024 → PORT Qr"
     },
     {
       "id": "attn_qb",
-      "label": "Wq_b: 1024 → 64 × 512\nReshape to heads [B,T,64,512]",
+      "label": "Linear (Q up)\n1024→64×512",
       "box": [
         2650,
-        3660,
+        2196.0,
         540,
-        140
+        84.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1425,20 +1490,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Wq_b: 1024 → 64 × 512\nReshape to heads [B,T,64,512]"
     },
     {
       "id": "attn_qhead",
-      "label": "Unweighted RMSNorm per 512-dim\nhead",
+      "label": "Q head Norm",
       "box": [
         2650,
-        3460,
+        2076.0,
         540,
-        120
+        72.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1448,20 +1514,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Unweighted RMSNorm per 512-dim\nhead"
     },
     {
       "id": "attn_qrope",
-      "label": "RoPE on trailing64 at query t\nContent448 untouched\nCompressed layer: theta160000 /\nYaRN16",
+      "label": "RoPE₆₄",
       "box": [
         2650,
-        3250,
+        1950.0,
         540,
-        150
+        90.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1471,20 +1538,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "RoPE on trailing64 at query t\nContent448 untouched\nCompressed layer: theta160000 /\nYaRN16"
     },
     {
       "id": "attn_qready",
-      "label": "Q [B,T,64,512]",
+      "label": "Q [64,512]",
       "box": [
         2650,
-        3060,
+        1836.0,
         540,
-        110
+        66.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1494,20 +1562,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Q [B,T,64,512]"
     },
     {
       "id": "attn_wkv",
-      "label": "Linear Wkv: 4096 → 512",
+      "label": "Linear (KV down)\n4096→512",
       "box": [
         3370,
-        4050,
+        2430.0,
         540,
-        110
+        66.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1517,20 +1586,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Linear Wkv: 4096 → 512"
     },
     {
       "id": "attn_kvnorm",
-      "label": "Learned RMSNorm512",
+      "label": "RMSNorm",
       "box": [
         3370,
-        3860,
+        2316.0,
         540,
-        120
+        72.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1540,20 +1610,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Learned RMSNorm512"
     },
     {
       "id": "attn_kvrope",
-      "label": "Partial RoPE64 at token position t",
+      "label": "RoPE₆₄",
       "box": [
         3370,
-        3660,
+        2196.0,
         540,
-        130
+        78.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1563,20 +1634,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Partial RoPE64 at token position t"
     },
     {
       "id": "attn_kvquant",
-      "label": "FP8 simulation on content448,\nblock64\nRoPE64 stays BF16; shared K=V\ntensor",
+      "label": "Quant (FP8 sim)",
       "box": [
         3370,
-        3450,
+        2070.0,
         540,
-        150
+        90.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1586,20 +1658,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "FP8 simulation on content448,\nblock64\nRoPE64 stays BF16; shared K=V\ntensor"
     },
     {
       "id": "attn_ring",
-      "label": "Window ring cache [B,128,512]\nDecode write slot p%128\nPrefill: store last128 tokens in\nring order",
+      "label": "KV cache (window)\n128 × 512",
       "box": [
         3370,
-        3240,
+        1944.0,
         540,
-        150
+        90.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ed343b;strokeWidth=1;fillColor=#ed343b;",
       "evidence": [
         {
           "source": "model",
@@ -1609,20 +1682,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Window ring cache [B,128,512]\nDecode write slot p%128\nPrefill: store last128 tokens in\nring order"
     },
     {
       "id": "attn_positions",
-      "label": "Position inputs: T, start_pos=p,\nwindow=128\nThis path computes addresses, not\nKV values",
+      "label": "Position (t / p)",
       "box": [
         2670,
-        2870,
+        1722.0,
         540,
-        155
+        93.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=25;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1632,20 +1706,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Position inputs: T, start_pos=p,\nwindow=128\nThis path computes addresses, not\nKV values"
     },
     {
       "id": "attn_win_indices",
-      "label": "get_window_topk_idxs\nPrefill: causal local window, future\n→ -1\nDecode: ring order from p%128\nWarmup slots not yet valid → -1",
+      "label": "Window indices (128)",
       "box": [
         2670,
-        2670,
+        1602.0,
         540,
-        165
+        99.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1655,20 +1730,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "get_window_topk_idxs\nPrefill: causal local window, future\n→ -1\nDecode: ring order from p%128\nWarmup slots not yet valid → -1"
     },
     {
       "id": "attn_I",
-      "label": "PORT I from middle panel\nPer-query selected compressed\nindices",
+      "label": "I: compressed indices",
       "box": [
         2670,
-        2470,
+        1482.0,
         540,
-        145
+        87.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=25;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e8f2df;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1678,20 +1754,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "PORT I from middle panel\nPer-query selected compressed\nindices"
     },
     {
       "id": "attn_A",
-      "label": "PORT A from main compressor\nAll compressed KV [B,Nc,512]",
+      "label": "A: compressed KV",
       "box": [
         2670,
-        2330,
+        1398.0,
         540,
-        115
+        69.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=25;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#e0f4ef;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1701,20 +1778,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "PORT A from main compressor\nAll compressed KV [B,Nc,512]"
     },
     {
       "id": "attn_bank",
-      "label": "Physical KV bank (K=V)\nPrefill: cat current KV[T] and complete compressed KV[Nc]\nDecode: [ring128 | compressed cache]; compressor aliases right slice",
+      "label": "Concat (window KV, compressed KV)",
       "box": [
         2650,
-        2110,
+        1266.0,
         1260,
-        170
+        102.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1724,20 +1802,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Physical KV bank (K=V)\nPrefill: cat current KV[T] and complete compressed KV[Nc]\nDecode: [ring128 | compressed cache]; compressor aliases right slice"
     },
     {
       "id": "attn_indices",
-      "label": "Concatenate [local-window indices | port I]\nPrefill offset=T; decode compressed offset=128\nConvert to int32; -1 stays invalid",
+      "label": "Concat (window indices, I)",
       "box": [
         2670,
-        1870,
+        1122.0,
         1240,
-        165
+        99.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1747,20 +1826,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Concatenate [local-window indices | port I]\nPrefill offset=T; decode compressed offset=128\nConvert to int32; -1 stays invalid"
     },
     {
       "id": "attn_gather",
-      "label": "sparse_attn kernel: tiles of 64 index entries\nIf idx!=-1: gather shared kv[idx] (both K and V)\nQ·K / sqrt(512), FP32 score accumulators\nIf idx==-1: zero KV and -infinity score",
+      "label": "Gather (KV) → QKᵀ / √512",
       "box": [
         2730,
-        1550,
+        930.0,
         1100,
-        190
+        114.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "kernel",
@@ -1770,20 +1850,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "sparse_attn kernel: tiles of 64 index entries\nIf idx!=-1: gather shared kv[idx] (both K and V)\nQ·K / sqrt(512), FP32 score accumulators\nIf idx==-1: zero KV and -infinity score"
     },
     {
       "id": "attn_softmax",
-      "label": "Online stable softmax: update running max and sum\nDenominator = sum_j exp(score_j-max) + exp(sink_h-max)\nThe sink changes normalization ONLY; it has no value vector",
+      "label": "Softmax (+ sink)",
       "box": [
         2730,
-        1300,
+        780.0,
         1100,
-        190
+        114.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "kernel",
@@ -1793,20 +1874,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Online stable softmax: update running max and sum\nDenominator = sum_j exp(score_j-max) + exp(sink_h-max)\nThe sink changes normalization ONLY; it has no value vector"
     },
     {
       "id": "attn_sink",
-      "label": "Learned\nsink_h\nOne per\nQ head",
+      "label": "sink",
       "box": [
         3850,
-        1300,
+        780.0,
         100,
-        190
+        114.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "kernel",
@@ -1816,20 +1898,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Learned\nsink_h\nOne per\nQ head"
     },
     {
       "id": "attn_values",
-      "label": "Numerator: sum_j exp(score_j-max) × kv[idx_j]\nDivide by denominator; FP32 accumulator → BF16 output\nResult [B,T,64,512]",
+      "label": "Matmul (P, V)",
       "box": [
         2730,
-        1090,
+        654.0,
         1100,
-        150
+        90.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "kernel",
@@ -1839,20 +1922,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Numerator: sum_j exp(score_j-max) × kv[idx_j]\nDivide by denominator; FP32 accumulator → BF16 output\nResult [B,T,64,512]"
     },
     {
       "id": "attn_inverse",
-      "label": "Conjugate RoPE (inverse=True) on output trailing64\nAt the CURRENT query position; content448 unchanged",
+      "label": "RoPE (inverse)",
       "box": [
         2730,
-        900,
+        540.0,
         1100,
-        130
+        78.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1862,20 +1946,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Conjugate RoPE (inverse=True) on output trailing64\nAt the CURRENT query position; content448 unchanged"
     },
     {
       "id": "attn_oa",
-      "label": "Group 64×512 heads into 8 groups\nW_o_a: per-group 4096 → 1024 (einsum)",
+      "label": "Linear (O down)\n8 groups × (4096→1024)",
       "box": [
         2730,
-        740,
+        444.0,
         1100,
-        110
+        66.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=23;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1885,20 +1970,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Group 64×512 heads into 8 groups\nW_o_a: per-group 4096 → 1024 (einsum)"
     },
     {
       "id": "attn_ob",
-      "label": "Flatten 8×1024 → W_o_b → 4096\nTP output all-reduce when needed",
+      "label": "Linear (O up)\n8192→4096",
       "box": [
         2730,
-        600,
+        360.0,
         1100,
-        100
+        60.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=28;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#fff0dc;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;",
       "evidence": [
         {
           "source": "model",
@@ -1908,59 +1994,63 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Flatten 8×1024 → W_o_b → 4096\nTP output all-reduce when needed"
     },
     {
       "id": "attn_output",
-      "label": "OUTPUT: attention hidden states [B,T,4096]",
+      "label": "h′ [4096]",
       "box": [
         2670,
-        535,
+        321.0,
         1240,
-        60
+        36.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=26;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#f3f6fa;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#ff9f14;strokeWidth=1;fillColor=#ff9f14;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "OUTPUT: attention hidden states [B,T,4096]"
     },
     {
       "id": "states",
       "label": "",
       "box": [
         30,
-        4470,
+        2682.0,
         3940,
-        1050
+        630.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;fillColor=#ffffff;dashed=1;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;fillColor=none;dashed=1;dashPattern=7 5;strokeColor=#8797fa;",
+      "description": ""
     },
     {
       "id": "states_title",
-      "label": "PREFILL / DECODE STATE + WINDOW LAYOUT — temporal state, not an extra network layer",
+      "label": "kv_state / score_state",
       "box": [
         45,
-        4485,
+        2691.0,
         3910,
-        75
+        45.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=30;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "PREFILL / DECODE STATE + WINDOW LAYOUT — temporal state, not an extra network layer"
     },
     {
       "id": "state_shapes",
-      "label": "MAIN runtime buffers (not checkpoint)\nkv_state / score_state: [B,8,1024]\nKV init=0; gate init=-infinity\nIndexer owns separate [B,8,256] buffers",
+      "label": "kv_state / score_state\n[8,1024]",
       "box": [
         70,
-        4600,
+        2760.0,
         1170,
-        220
+        132.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -1970,20 +2060,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "MAIN runtime buffers (not checkpoint)\nkv_state / score_state: [B,8,1024]\nKV init=0; gate init=-infinity\nIndexer owns separate [B,8,256] buffers"
     },
     {
       "id": "state_prefill",
-      "label": "PREFILL (start_pos=0)\ncutoff=T−T%4; completed=floor(T/4)\nKeep incomplete suffix for decode\nKeep last complete raw window; read its Ca half later",
+      "label": "Prefill → Buffer remainder",
       "box": [
         1370,
-        4600,
+        2760.0,
         1170,
-        220
+        132.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -1993,20 +2084,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "PREFILL (start_pos=0)\ncutoff=T−T%4; completed=floor(T/4)\nKeep incomplete suffix for decode\nKeep last complete raw window; read its Ca half later"
     },
     {
       "id": "state_decode",
-      "label": "DECODE (position p)\nWrite raw KV / gate at slot 4+(p%4)\nEmit only if (p+1)%4==0\nWrite cache slot floor(p/4); RoPE pos=p+1−4",
+      "label": "Update → Emit every 4 tokens",
       "box": [
         2660,
-        4600,
+        2760.0,
         1250,
-        220
+        132.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=27;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -2016,20 +2108,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "DECODE (position p)\nWrite raw KV / gate at slot 4+(p%4)\nEmit only if (p+1)%4==0\nWrite cache slot floor(p/4); RoPE pos=p+1−4"
     },
     {
       "id": "state_window1",
-      "label": "Compressed j=1 (emitted after token7)\nVALUES: [Ca0 Ca1 Ca2 Ca3 | Cb4 Cb5 Cb6 Cb7]\nGATES:  [Za0 Za1 Za2 Za3 | Zb4 Zb5 Zb6 Zb7] + per-slot APE\nSoftmax8 PER CHANNEL; output RoPE position4",
+      "label": "prev Ca [4,512]",
       "box": [
         70,
-        4880,
+        2928.0,
         1820,
-        240
+        144.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=29;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -2039,20 +2132,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Compressed j=1 (emitted after token7)\nVALUES: [Ca0 Ca1 Ca2 Ca3 | Cb4 Cb5 Cb6 Cb7]\nGATES:  [Za0 Za1 Za2 Za3 | Zb4 Zb5 Zb6 Zb7] + per-slot APE\nSoftmax8 PER CHANNEL; output RoPE position4"
     },
     {
       "id": "state_window2",
-      "label": "Compressed j=2 (emitted after token11)\nVALUES: [Ca4 Ca5 Ca6 Ca7 | Cb8 Cb9 Cb10 Cb11]\nSame token can supply Cb to j and Ca to j+1\nFirst j=0: missing previous half has value0 / gate−infinity",
+      "label": "cur Cb [4,512]",
       "box": [
         2010,
-        4880,
+        2928.0,
         1900,
-        240
+        144.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=29;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -2062,20 +2156,21 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "Compressed j=2 (emitted after token11)\nVALUES: [Ca4 Ca5 Ca6 Ca7 | Cb8 Cb9 Cb10 Cb11]\nSame token can supply Cb to j and Ca to j+1\nFirst j=0: missing previous half has value0 / gate−infinity"
     },
     {
       "id": "state_move",
-      "label": "On a completed decode stride: copy current raw window into previous-window state. Read Ca from previous slots and Cb from current slots.\nA partial stride does NOT create a new compressed entry. Existing entries remain readable; Indexer top-k does not delete them.",
+      "label": "prev ← current (on stride boundary)",
       "box": [
         70,
-        5200,
+        3120.0,
         3840,
-        200
+        120.0
       ],
       "kind": "operation",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=29;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#eee7f7;",
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;",
       "evidence": [
         {
           "source": "model",
@@ -2085,20 +2180,22 @@
           "source": "config",
           "locator": "Official Flash config at 60d8d707; hidden4096/head512/window128/index128/topk512/compress_ratios"
         }
-      ]
+      ],
+      "description": "On a completed decode stride: copy current raw window into previous-window state. Read Ca from previous slots and Cb from current slots.\nA partial stride does NOT create a new compressed entry. Existing entries remain readable; Indexer top-k does not delete them."
     },
     {
       "id": "footer",
-      "label": "Source: official deepseek-ai/DeepSeek-V4-Flash @ 60d8d707 | model.py Compressor / Indexer / Attention; kernel.py sparse_attn\nDetailed static source transcription; no full weights, tensor headers or GPU inference executed. Native draw.io is the PNG source.",
+      "label": "Official Flash @ 60d8d707 · FP4 / FP8 = simulation · source details: operator_notes.md",
       "box": [
         50,
-        5560,
+        3336.0,
         3900,
-        110
+        66.0
       ],
       "kind": "decoration",
       "status": "inferred",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#16283d;align=center;verticalAlign=middle;spacing=10;strokeColor=#34465a;fillColor=#f3f6fa;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=4;strokeColor=#8797fa;strokeWidth=1;fillColor=#8797fa;fillColor=none;strokeColor=none;fontColor=#233247;fontStyle=1;",
+      "description": "Source: official deepseek-ai/DeepSeek-V4-Flash @ 60d8d707 | model.py Compressor / Indexer / Attention; kernel.py sparse_attn\nDetailed static source transcription; no full weights, tensor headers or GPU inference executed. Native draw.io is the PNG source."
     }
   ],
   "edges": [
@@ -2120,11 +2217,11 @@
       "points": [
         [
           635.0,
-          4010
+          2406.0
         ],
         [
           320.0,
-          4010
+          2406.0
         ]
       ]
     },
@@ -2141,11 +2238,11 @@
       "points": [
         [
           635.0,
-          4010
+          2406.0
         ],
         [
           950.0,
-          4010
+          2406.0
         ]
       ]
     },
@@ -2323,11 +2420,11 @@
       "points": [
         [
           2110.0,
-          4190
+          2514.0
         ],
         [
           1825.0,
-          4190
+          2514.0
         ]
       ]
     },
@@ -2344,11 +2441,11 @@
       "points": [
         [
           2110.0,
-          4190
+          2514.0
         ],
         [
           2005.0,
-          4190
+          2514.0
         ]
       ]
     },
@@ -2365,11 +2462,11 @@
       "points": [
         [
           2110.0,
-          4190
+          2514.0
         ],
         [
           2305.0,
-          4190
+          2514.0
         ]
       ]
     },
@@ -2453,11 +2550,11 @@
       "points": [
         [
           2100,
-          3667.5
+          2200.5
         ],
         [
           2100,
-          3247.5
+          1948.5
         ]
       ]
     },
@@ -2516,11 +2613,11 @@
       "points": [
         [
           2530,
-          3655
+          2193.0
         ],
         [
           2530,
-          1585
+          951.0
         ]
       ]
     },
@@ -2557,11 +2654,11 @@
       "points": [
         [
           3280,
-          4200
+          2520.0
         ],
         [
           2920,
-          4200
+          2520.0
         ]
       ]
     },
@@ -2603,11 +2700,11 @@
       "points": [
         [
           3280.0,
-          4200
+          2520.0
         ],
         [
           3640.0,
-          4200
+          2520.0
         ]
       ]
     },
@@ -2649,15 +2746,15 @@
       "points": [
         [
           2600,
-          2752.5
+          1651.5
         ],
         [
           2600,
-          2070
+          1242.0
         ],
         [
           2940,
-          2070
+          1242.0
         ]
       ]
     },
@@ -2674,15 +2771,15 @@
       "points": [
         [
           2620,
-          2542.5
+          1525.5
         ],
         [
           2620,
-          2075
+          1245.0
         ],
         [
           3300,
-          2075
+          1245.0
         ]
       ]
     },
@@ -2721,11 +2818,11 @@
       "points": [
         [
           2580,
-          3115
+          1869.0
         ],
         [
           2580,
-          1645
+          987.0
         ]
       ]
     },
@@ -2753,15 +2850,15 @@
       "points": [
         [
           3930,
-          2195
+          1317.0
         ],
         [
           3930,
-          1795
+          1077.0
         ],
         [
           3650,
-          1795
+          1077.0
         ]
       ]
     },
@@ -2814,11 +2911,11 @@
       "points": [
         [
           3960,
-          1702
+          1021.1999999999999
         ],
         [
           3960,
-          1165
+          699.0
         ]
       ]
     }
@@ -2908,5 +3005,10 @@
       ],
       "rope_position": 8
     }
-  ]
+  ],
+  "presentation": {
+    "reference": "models/deepseek_v4/deepseek_v4_architecture.jpg",
+    "style": "operator blocks; colored modules; dashed frames; bottom-up",
+    "notes": "Full annotations preserved in description and operator_notes.md; Flash parameters retained."
+  }
 }

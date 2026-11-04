@@ -49,8 +49,21 @@ class AttentionDetailTests(unittest.TestCase):
         self.assertFalse(any(k.startswith('idx_') for k in hn))
         self.assertEqual(c['window_examples'][0],dict(j=1,ca_tokens=[0,1,2,3],cb_tokens=[4,5,6,7],rope_position=4))
         self.assertEqual(h['window_examples'][1],dict(j=1,first_token=128,last_token=255,rope_position=128))
-        self.assertIn('No query-specific pruning',cn['comp_bank']['label'])
+        self.assertIn('No query-specific pruning',cn['comp_bank']['description'])
         self.assertIn('floor((t+1)/128)',hn['hist_no_prune']['label'])
+
+    def test_operator_presentation_keeps_annotations_outside_labels(self):
+        for kind in ['csa','hca']:
+            graph=self.graph(kind)
+            self.assertEqual(graph['presentation']['reference'],'models/deepseek_v4/deepseek_v4_architecture.jpg')
+            for node in graph['nodes']:
+                if node.get('kind')=='decoration':continue
+                self.assertLessEqual(len(node['label'].splitlines()),2,node['id'])
+                self.assertLessEqual(len(node['label']),80,node['id'])
+                self.assertTrue(node['description'])
+            root=ET.parse(REPO/'models/deepseek_v4/flash'/f'deepseek_v4_flash_{kind}.drawio').getroot()
+            cells={c.get('id'):c for c in root.iter('mxCell')}
+            self.assertEqual(cells['comp_bank'].get('tooltip'),next(n['description'] for n in graph['nodes'] if n['id']=='comp_bank'))
 
     def test_every_detail_png_matches_native_xml_and_master_page(self):
         folder=REPO/'models/deepseek_v4/flash'

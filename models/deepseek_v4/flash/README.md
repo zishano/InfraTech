@@ -2,6 +2,10 @@
 
 当前模型资料已可正常访问。本目录现依据官方 checkpoint **`60d8d70770c6776ff598c94bb586a859a38244f1`** 的 `config.json`、`inference/config.json`、`inference/model.py`、`inference/kernel.py`、模型卡和权重索引生成，不再仅依赖 Transformers 的 Flash-Base 类默认值。
 
+## 图示风格
+
+参考上级目录 `deepseek_v4_architecture.jpg`：紫蓝主干／压缩器、橙色 CSA、青绿 HCA、绿色 Indexer、红色 KV 缓存，使用虚线模块边框和彩色算子块，自下而上排列。图内保留关键算子及必要维度，不放段落说明；详细语义和证据移至 [operator_notes.md](operator_notes.md)，并保留在 graph JSON 的 `description` 和 draw.io 节点 tooltip 中。参考图中的 Pro 参数没有套用到本 Flash 图。
+
 ## 配对交付
 
 - **[CSA 详细图](deepseek_v4_flash_csa.png)** / [可编辑 draw.io](deepseek_v4_flash_csa.drawio)：97 个图元、80 条连接。
@@ -69,6 +73,7 @@ python tools/model_architecture/model_architecture.py extract \
   /workspace/deepseek-v4-flash-sources --out /workspace/deepseek-v4-flash-facts.json
 
 # 已审阅图数据 → 原生 XML → PNG；不独立生成另一张结构图。
+python tools/model_architecture/examples/build_deepseek_v4_flash.py
 python tools/model_architecture/examples/build_deepseek_v4_attention_detail.py
 python models/deepseek_v4/flash/rebuild.py
 python tools/model_architecture/model_architecture.py export-png \

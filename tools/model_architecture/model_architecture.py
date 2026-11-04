@@ -245,6 +245,8 @@ def drawio(g, path):
         if n.get('status') == 'unverified' and n.get('kind') != 'decoration':
             style+='dashed=1;'
         c=ET.SubElement(r,'mxCell',id=n['id'],value=n['label'],style=style,vertex='1',parent='1')
+        if n.get('description'):
+            c.set('tooltip',n['description'])
         x,y,w,h=n['box'];ET.SubElement(c,'mxGeometry',x=str(x),y=str(y),width=str(w),height=str(h),attrib={'as':'geometry'})
     for i,e in enumerate(g['edges']):
         a,b,c,d=e.get('ports',[.5,0,.5,1])

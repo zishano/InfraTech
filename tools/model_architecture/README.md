@@ -136,3 +136,5 @@ python tools/model_architecture/model_architecture.py verify-png \
 `examples/build_deepseek_v4_attention_detail.py` 将固定官方提交的 Compressor、Indexer、Attention、sparse_attn 分拆为原生算子，生成 CSA/HCA graph JSON。`models/deepseek_v4/flash/rebuild.py` 同时构建独立详细 draw.io 和三页总图；独立详细 PNG 必须从对应 XML 使用 `export-png` 导出。总图 PNG 导出首页，详细页各有独立 PNG 和配对检查记录。
 
 大图跨面板的数据通过 `port_bindings` 元数据及可见 A / I / Qr 同名端口关联，分别代表完整压缩 KV、压缩位置索引和归一化低秩 query；端口不是额外网络层。模型专用测试检查端点存在、值旁路、CSA 独立 Indexer、HCA 无 Indexer、窗口实例及总图详细页与独立 XML 一致。通用新模型仍需审阅官方 forward 的真实分支，再配置布局，不能只替换模型名称和参数。
+
+`examples/deepseek_operator_style.py` 是当前 DeepSeek 的算子展示层：参考已有 JPG 的模块配色、虚线边框和算子符号，显示短标签，完整注释保留在 `description`。两个构造器均调用它，rebuild 同步生成详细说明文档；PNG 仍从原生 XML 导出。

@@ -47,7 +47,7 @@ class Fixture:
 
     def test_compressor_value_paths_and_model_specific_branches(self):
         g=a.read(BASE/'examples/deepseek_v4_flash.graph.json');a.validate(g)
-        nodes={n['id']:n for n in g['nodes']};edges={(e['source'],e['target']) for e in g['edges']}
+        nodes={n['id']:{**n,'label':n.get('description',n['label'])} for n in g['nodes']};edges={(e['source'],e['target']) for e in g['edges']}
         for kind in ['csa','hca']:
             self.assertIn((kind+'_window',kind+'_sum'),edges)
             self.assertIn((kind+'_bias',kind+'_sum'),edges)

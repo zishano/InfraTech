@@ -10,8 +10,17 @@ from model_architecture import read,drawio
 def rebuild():
     folder=Path(__file__).parent
     names=['deepseek_v4_flash','deepseek_v4_flash_csa','deepseek_v4_flash_hca']
+    notes=['# 算子图详细说明','', '图上仅保留算子；下列说明来自相同 graph JSON，保留完整语义与来源。','']
     for name in names:
-        drawio(read(ROOT/'tools/model_architecture/examples'/f'{name}.graph.json'),folder/f'{name}.drawio')
+        graph=read(ROOT/'tools/model_architecture/examples'/f'{name}.graph.json')
+        drawio(graph,folder/f'{name}.drawio')
+        notes.extend(['## '+name,''])
+        for node in graph['nodes']:
+            if not node.get('description'):continue
+            notes.extend(['### '+node['id']+' — '+node['label'].replace('\n',' / '),'',node['description'],''])
+            for item in node.get('evidence',[]):
+                notes.extend(['- ['+item['locator']+']('+graph['sources'][item['source']]+')',''])
+    (folder/'operator_notes.md').write_text('\n'.join(notes)+'\n')
     target=folder/f'{names[0]}.drawio'
     root=ET.parse(target).getroot()
     root.find('diagram').set('name','Overview')
