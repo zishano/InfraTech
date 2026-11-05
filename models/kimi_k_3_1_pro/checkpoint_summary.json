@@ -1,0 +1,39 @@
+{
+  "k3": {
+    "revision": "f831ab66814297da540d832a5235f8e904f29d06",
+    "safetensors_metadata": {
+      "parameters": {
+        "F32": 11122432,
+        "BF16": 57179884544,
+        "U8": 2722740830208
+      },
+      "total": 2779931837184
+    },
+    "shards_in_file_list": 96
+  },
+  "k31": {
+    "revision": "d9e99b0792a5e93b78ea9bea62a68167e36ddd9e",
+    "safetensors_metadata": {
+      "parameters": {
+        "F32": 11122432,
+        "BF16": 57358410752,
+        "U8": 2722740830208
+      },
+      "total": 2780110363392
+    },
+    "shards_in_file_list": 96
+  },
+  "indexer_expected_parameter_delta": {
+    "per_layer": 7438592,
+    "layers": 24,
+    "total": 178526208,
+    "formula": "24 × (1536×32×128 + 7168×128 + 7168×32 + 2×128)"
+  },
+  "bf16_metadata_delta": 178526208,
+  "weight_index_verified": false,
+  "limitations": [
+    "HF metadata counts are not independent tensor-header or logical parameter recounts.",
+    "Weight index resolve redirects were denied by network policy; full weights and tensor headers were not read.",
+    "Shared K3 internals are inherited only where configs agree and source evidence supports them."
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "before": "moonshotai/Kimi-K3",
+  "after": "moonshotai/Kimi-K3.1-Pro",
+  "changes": [
+    {
+      "path": "/architectures",
+      "kind": "changed",
+      "before": [
+        "KimiK3ForConditionalGeneration"
+      ],
+      "after": [
+        "KimiK31ForConditionalGeneration"
+      ]
+    },
+    {
+      "path": "/auto_map/AutoModel",
+      "kind": "removed",
+      "before": "modeling_kimi_k3.KimiK3ForConditionalGeneration"
+    },
+    {
+      "path": "/auto_map/AutoModelForCausalLM",
+      "kind": "removed",
+      "before": "modeling_kimi_k3.KimiK3ForConditionalGeneration"
+    },
+    {
+      "path": "/model_type",
+      "kind": "changed",
+      "before": "kimi_k3",
+      "after": "kimi_k31"
+    },
+    {
+      "path": "/text_config/auto_map",
+      "kind": "removed",
+      "before": {
+        "AutoConfig": "configuration_kimi_k3.KimiLinearConfig",
+        "AutoModel": "modeling_kimi_linear.KimiLinearModel",
+        "AutoModelForCausalLM": "modeling_kimi_linear.KimiLinearForCausalLM"
+      }
+    },
+    {
+      "path": "/text_config/dsa_config",
+      "kind": "added",
+      "after": {
+        "dsa_layers": [
+          4,
+          8,
+          12,
+          16,
+          20,
+          24,
+          28,
+          32,
+          36,
+          40,
+          44,
+          48,
+          52,
+          56,
+          60,
+          64,
+          68,
+          72,
+          76,
+          80,
+          84,
+          88,
+          92,
+          93
+        ],
+        "index_topk": 2048,
+        "index_head_dim": 128,
+        "index_num_heads": 32,
+        "index_rope_dim": 0,
+        "index_k_norm_type": "layernorm",
+        "index_topk_freq": 1,
+        "index_skip_topk_offset": 1
+      }
+    },
+    {
+      "path": "/text_config/quantization_config/ignore",
+      "kind": "changed",
+      "before": [
+        "re:.*self_attn.*",
+        "re:.*shared_experts.*",
+        "re:.*mlp\\.(gate|up|gate_up|down)_proj.*",
+        "re:.*lm_head.*",
+        "re:.*vision_tower.*",
+        "re:.*mm_projector.*"
+      ],
+      "after": [
+        "re:.*self_attn.*",
+        "re:.*shared_experts.*",
+        "re:.*mlp\\.(gate|up|gate_up|down)_proj.*",
+        "re:.*block_sparse_moe\\.gate$",
+        "re:.*block_sparse_moe\\.routed_expert_(up|down)_proj.*",
+        "re:.*lm_head.*",
+        "re:.*vision_tower.*",
+        "re:.*mm_projector.*"
+      ]
+    },
+    {
+      "path": "/text_config/transformers_version",
+      "kind": "changed",
+      "before": "4.56.2",
+      "after": "4.57.6"
+    }
+  ]
+}

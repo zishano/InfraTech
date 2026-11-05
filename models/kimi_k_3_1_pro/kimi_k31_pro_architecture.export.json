@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "drawio_file": "kimi_k31_pro_architecture.drawio",
+  "png_file": "kimi_k31_pro_architecture.png",
+  "drawio_sha256": "f1fcadfc55651040db6b645221f5788e3593557aa68501764820a4da32dc048d",
+  "png_sha256": "10e9524407689ba511668565d7442ddfad0badf9b5108f1f2d77cf639b8b2c09",
+  "renderer": "mxGraph 4.2.2 / Chromium",
+  "browser_version": "155.0.8059.79",
+  "scale": 1.5,
+  "width": 2920,
+  "height": 2896,
+  "vertices": 190,
+  "edges": 154,
+  "layout_file": "kimi_k31_pro_architecture.layout.json",
+  "layout_sha256": "cb10336e28d75ddb9760a9ea7a09325cc5d6cb333bc0b4286ce97be774efa32e",
+  "layout_check": {
+    "text_overflow": 0,
+    "tight_text": 0,
+    "nonorthogonal_segments": 0,
+    "edge_node_crossings": 0
+  }
+}

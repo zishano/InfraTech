@@ -1,0 +1,238 @@
+{
+  "comparison": {
+    "baseline": "moonshotai/Kimi-K3",
+    "baseline_revision": "f831ab66814297da540d832a5235f8e904f29d06",
+    "target": "moonshotai/Kimi-K3.1-Pro",
+    "target_revision": "d9e99b0792a5e93b78ea9bea62a68167e36ddd9e",
+    "baseline_graph": "tools/model_architecture/examples/kimi_k3.graph.json",
+    "layer_numbering": "Config lists are 1-based; Python layer_idx is 0-based",
+    "themes": {
+      "added": "red",
+      "removed": "green",
+      "parameter_changed": "yellow"
+    },
+    "active_attention_counts": {
+      "kda": 69,
+      "dsa": 24
+    },
+    "retired_nodes": [
+      "retired_dense_attention"
+    ],
+    "unchanged": [
+      "KDA five-path topology",
+      "AttnRes",
+      "Stable LatentMoE",
+      "MoonViT-V2",
+      "Output gate and NoPE",
+      "93-layer positions"
+    ],
+    "clarified_not_model_deltas": [
+      "Dense FFN is first layer in BOTH configs",
+      "Q rank1536 / KV rank512 available in BOTH configs",
+      "num_nextn_predict_layers=0 in BOTH released configs; do not invent an MTP deletion",
+      "Model-card 2.8T /104B are rounded; old report2.78T /104.2B are not evidence of changed model scale"
+    ]
+  },
+  "changed_nodes": [
+    {
+      "id": "mla",
+      "change": "added",
+      "label": "",
+      "active": true
+    },
+    {
+      "id": "mla_title",
+      "change": "added",
+      "label": "Gated DSA (NoPE) — sparse read",
+      "active": true
+    },
+    {
+      "id": "lm_repeat",
+      "change": "added",
+      "label": "23 × [3 KDA + FFN, then\n1 Gated DSA + FFN]\n= 92 attention layers",
+      "active": true
+    },
+    {
+      "id": "lm_final",
+      "change": "added",
+      "label": "Final Gated DSA + FFN\n= 1 attention layer",
+      "active": true
+    },
+    {
+      "id": "lm_counts",
+      "change": "added",
+      "label": "69 KDA + 24 Gated DSA = 93\nL1 dense FFN; L2–93 MoE\nSame layer positions as K3",
+      "active": true
+    },
+    {
+      "id": "m_title",
+      "change": "added",
+      "label": "",
+      "active": true
+    },
+    {
+      "id": "m_attn",
+      "change": "added",
+      "label": "Gated DSA (NoPE)",
+      "active": true
+    },
+    {
+      "id": "mla_attention",
+      "change": "added",
+      "label": "Sparse causal attention (NoPE)\nselected token positions",
+      "active": true
+    },
+    {
+      "id": "diff_added",
+      "change": "added",
+      "label": "ADDED\nGated DSA ×24\nIndexer + per-query TopK ≤2048",
+      "active": true
+    },
+    {
+      "id": "retired_dense_attention",
+      "change": "removed",
+      "label": "RETIRED / K3 ONLY\nDense all-token attention\nMLA latent projections are retained",
+      "active": false
+    },
+    {
+      "id": "diff_quant",
+      "change": "parameter_changed",
+      "label": "PARAMETER / CONFIG ONLY\nQuantization ignore patterns: 6 → 8",
+      "active": true
+    },
+    {
+      "id": "diff_count",
+      "change": "parameter_changed",
+      "label": "HF BF16 tensor-elements\n57,179,884,544 → 57,358,410,752\n+178,526,208 (matches new indexer)",
+      "active": true
+    },
+    {
+      "id": "dsa_indexer",
+      "change": "added",
+      "label": "",
+      "active": true
+    },
+    {
+      "id": "dsa_indexer_title",
+      "change": "added",
+      "label": "ADDED · DSA Indexer (per DSA layer)",
+      "active": true
+    },
+    {
+      "id": "idx_scope",
+      "change": "added",
+      "label": "32 heads ×128 · NoPE · no Hadamard",
+      "active": true
+    },
+    {
+      "id": "idx_qr",
+      "change": "added",
+      "label": "Qr [1536]",
+      "active": true
+    },
+    {
+      "id": "idx_h",
+      "change": "added",
+      "label": "h [7168]",
+      "active": true
+    },
+    {
+      "id": "idx_qproj",
+      "change": "added",
+      "label": "Linear Wq\n1536 → 32×128",
+      "active": true
+    },
+    {
+      "id": "idx_qquant",
+      "change": "added",
+      "label": "FP8 Quant",
+      "active": true
+    },
+    {
+      "id": "idx_q",
+      "change": "added",
+      "label": "Qᵢ [32,128]",
+      "active": true
+    },
+    {
+      "id": "idx_kproj",
+      "change": "added",
+      "label": "Linear Wk\n7168 →128",
+      "active": true
+    },
+    {
+      "id": "idx_knorm",
+      "change": "added",
+      "label": "LayerNorm",
+      "active": true
+    },
+    {
+      "id": "idx_kquant",
+      "change": "added",
+      "label": "FP8 Quant",
+      "active": true
+    },
+    {
+      "id": "idx_cache",
+      "change": "added",
+      "label": "Index key cache\n[T,128]",
+      "active": true
+    },
+    {
+      "id": "idx_wproj",
+      "change": "added",
+      "label": "Linear Wweights\n7168 →32",
+      "active": true
+    },
+    {
+      "id": "idx_scale",
+      "change": "added",
+      "label": "Scale\n32^-0.5 ×128^-0.5",
+      "active": true
+    },
+    {
+      "id": "idx_weights",
+      "change": "added",
+      "label": "Head weights [32]",
+      "active": true
+    },
+    {
+      "id": "idx_dot",
+      "change": "added",
+      "label": "Matmul (Qᵢ, Kᵢᵀ)",
+      "active": true
+    },
+    {
+      "id": "idx_relu",
+      "change": "added",
+      "label": "ReLU",
+      "active": true
+    },
+    {
+      "id": "idx_sum",
+      "change": "added",
+      "label": "Scale by head weights → Sum (heads)",
+      "active": true
+    },
+    {
+      "id": "idx_mask",
+      "change": "added",
+      "label": "Causal mask",
+      "active": true
+    },
+    {
+      "id": "idx_topk",
+      "change": "added",
+      "label": "TopK (≤2048) → token indices",
+      "active": true
+    }
+  ],
+  "limitations": [
+    "No K3.1 forward implementation is bundled in its pinned HF file list; DSA details are read from pinned model-card-recommended SGLang.",
+    "Weight index downloads redirect to a host denied by active policy; no index/tensor-header/full-weight verification.",
+    "HF safetensors metadata element counts are provider metadata, not an independent logical parameter recount.",
+    "Q/K FP8 index-cache path is backend-specific; no NoPE RoPE or Hadamard operations are drawn.",
+    "Shared K3 modules retain the reviewed report topology and are cross-checked against equal released config fields.",
+    "No GPU model execution or Feishu-client import test."
+  ]
+}

@@ -1,0 +1,171 @@
+[
+  {
+    "model": "k31",
+    "file": "config.json",
+    "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro/resolve/d9e99b0792a5e93b78ea9bea62a68167e36ddd9e/config.json",
+    "revision": "d9e99b0792a5e93b78ea9bea62a68167e36ddd9e",
+    "bytes": 7303,
+    "sha256": "d95037631e3f23bf527a9f476f25209b231b46853a84877b9c56d5672b8d1202",
+    "status": "downloaded"
+  },
+  {
+    "model": "k31",
+    "file": "configuration_kimi_k3.py",
+    "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro/resolve/d9e99b0792a5e93b78ea9bea62a68167e36ddd9e/configuration_kimi_k3.py",
+    "revision": "d9e99b0792a5e93b78ea9bea62a68167e36ddd9e",
+    "bytes": 11414,
+    "sha256": "7156d9489ee9bf14ac4c5e9410bfa0f9679f5831a26bf6d007296f14e90ab329",
+    "status": "downloaded"
+  },
+  {
+    "model": "k31",
+    "file": "README.md",
+    "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro/resolve/d9e99b0792a5e93b78ea9bea62a68167e36ddd9e/README.md",
+    "revision": "d9e99b0792a5e93b78ea9bea62a68167e36ddd9e",
+    "bytes": 47653,
+    "sha256": "5daa13793292c65cf198b2f4997c69a21378a1688c40c8b3dbdf48a27dd15085",
+    "status": "downloaded"
+  },
+  {
+    "model": "k31",
+    "file": "model.safetensors.index.json",
+    "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro/resolve/d9e99b0792a5e93b78ea9bea62a68167e36ddd9e/model.safetensors.index.json",
+    "status": "failed",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "model": "k31",
+    "file": "preprocessor_config.json",
+    "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro/resolve/d9e99b0792a5e93b78ea9bea62a68167e36ddd9e/preprocessor_config.json",
+    "revision": "d9e99b0792a5e93b78ea9bea62a68167e36ddd9e",
+    "bytes": 1011,
+    "sha256": "4be333605990c53a816e586dee9d5dd545afb7a59947c17f8f7ef26b4782668e",
+    "status": "downloaded"
+  },
+  {
+    "model": "k3",
+    "file": "config.json",
+    "url": "https://huggingface.co/moonshotai/Kimi-K3/resolve/f831ab66814297da540d832a5235f8e904f29d06/config.json",
+    "revision": "f831ab66814297da540d832a5235f8e904f29d06",
+    "bytes": 7006,
+    "sha256": "9710e121a58d03ac92c8d6da287a19541994319afbbe6d6202af001ffd379213",
+    "status": "downloaded"
+  },
+  {
+    "model": "k3",
+    "file": "configuration_kimi_k3.py",
+    "url": "https://huggingface.co/moonshotai/Kimi-K3/resolve/f831ab66814297da540d832a5235f8e904f29d06/configuration_kimi_k3.py",
+    "revision": "f831ab66814297da540d832a5235f8e904f29d06",
+    "bytes": 11343,
+    "sha256": "735eb9ebe593e17d231e08e1df7f7be9b5ee0e079f511aa201f9572077b416ae",
+    "status": "downloaded"
+  },
+  {
+    "model": "k3",
+    "file": "README.md",
+    "url": "https://huggingface.co/moonshotai/Kimi-K3/resolve/f831ab66814297da540d832a5235f8e904f29d06/README.md",
+    "revision": "f831ab66814297da540d832a5235f8e904f29d06",
+    "bytes": 45261,
+    "sha256": "57de265b5842dfa465c6e73b368b0e15a89b8793b5450528dad577da202cc6fe",
+    "status": "downloaded"
+  },
+  {
+    "model": "k3",
+    "file": "model.safetensors.index.json",
+    "url": "https://huggingface.co/moonshotai/Kimi-K3/resolve/f831ab66814297da540d832a5235f8e904f29d06/model.safetensors.index.json",
+    "status": "failed",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "model": "k3",
+    "file": "preprocessor_config.json",
+    "url": "https://huggingface.co/moonshotai/Kimi-K3/resolve/f831ab66814297da540d832a5235f8e904f29d06/preprocessor_config.json",
+    "revision": "f831ab66814297da540d832a5235f8e904f29d06",
+    "bytes": 1011,
+    "sha256": "4be333605990c53a816e586dee9d5dd545afb7a59947c17f8f7ef26b4782668e",
+    "status": "downloaded"
+  },
+  {
+    "model": "k3",
+    "file": "modeling_kimi_k3.py",
+    "url": "https://huggingface.co/moonshotai/Kimi-K3/resolve/f831ab66814297da540d832a5235f8e904f29d06/modeling_kimi_k3.py",
+    "revision": "f831ab66814297da540d832a5235f8e904f29d06",
+    "bytes": 53444,
+    "sha256": "b9171c96726eda55234c92ac8dfae7e24c512fda68968ae8f2c3782b42665ea2",
+    "status": "downloaded"
+  },
+  {
+    "model": "k3",
+    "file": "modeling_kimi_linear.py",
+    "url": "https://huggingface.co/moonshotai/Kimi-K3/resolve/f831ab66814297da540d832a5235f8e904f29d06/modeling_kimi_linear.py",
+    "revision": "f831ab66814297da540d832a5235f8e904f29d06",
+    "bytes": 51506,
+    "sha256": "9e3564c70ac21854ce5a090cc946c5dc76b70d1050ef50840449181a20fff44a",
+    "status": "downloaded"
+  },
+  {
+    "model": "sglang",
+    "file": "python/sglang/srt/models/kimi_k3.py",
+    "url": "https://raw.githubusercontent.com/sgl-project/sglang/b09bda75c89a88263811a49e13adeef7a7aa8bf7/python/sglang/srt/models/kimi_k3.py",
+    "revision": "b09bda75c89a88263811a49e13adeef7a7aa8bf7",
+    "bytes": 5210,
+    "sha256": "6e3b203fabcc1589a257a3e20ee1f8d836772768bcaf1526c22557258ff866e6",
+    "status": "downloaded"
+  },
+  {
+    "model": "sglang",
+    "file": "python/sglang/srt/configs/kimi_linear.py",
+    "url": "https://raw.githubusercontent.com/sgl-project/sglang/b09bda75c89a88263811a49e13adeef7a7aa8bf7/python/sglang/srt/configs/kimi_linear.py",
+    "revision": "b09bda75c89a88263811a49e13adeef7a7aa8bf7",
+    "bytes": 9056,
+    "sha256": "e7aebbc73d38c25993248ab07521b116328bdf707284c6810f9c6d23a7b616b2",
+    "status": "downloaded"
+  },
+  {
+    "model": "sglang",
+    "file": "python/sglang/srt/models/deepseek_v2.py",
+    "url": "https://raw.githubusercontent.com/sgl-project/sglang/b09bda75c89a88263811a49e13adeef7a7aa8bf7/python/sglang/srt/models/deepseek_v2.py",
+    "revision": "b09bda75c89a88263811a49e13adeef7a7aa8bf7",
+    "bytes": 153153,
+    "sha256": "0f05bd15eef8e36ba550647bfa420f74f675448f4adf139da14791116a9cf243",
+    "status": "downloaded"
+  },
+  {
+    "model": "sglang",
+    "file": "python/sglang/srt/layers/attention/dsa/dsa_indexer.py",
+    "url": "https://raw.githubusercontent.com/sgl-project/sglang/b09bda75c89a88263811a49e13adeef7a7aa8bf7/python/sglang/srt/layers/attention/dsa/dsa_indexer.py",
+    "revision": "b09bda75c89a88263811a49e13adeef7a7aa8bf7",
+    "bytes": 93589,
+    "sha256": "8dbb443224b49f37ffbd48de61715a3a2f913dd82612de6fd08da9597ad82bb4",
+    "status": "downloaded"
+  },
+  {
+    "model": "sglang",
+    "file": "python/sglang/kernels/ops/attention/dsa/cutedsl_fp8_paged_mqa_logits.py",
+    "url": "https://raw.githubusercontent.com/sgl-project/sglang/b09bda75c89a88263811a49e13adeef7a7aa8bf7/python/sglang/kernels/ops/attention/dsa/cutedsl_fp8_paged_mqa_logits.py",
+    "revision": "b09bda75c89a88263811a49e13adeef7a7aa8bf7",
+    "bytes": 83046,
+    "sha256": "d9f3b88e1ef63422cd69e5ddb13810650cebc22b4d408c1b22aa2b6acbebe1de",
+    "status": "downloaded"
+  },
+  {
+    "model": "k31",
+    "file": "Hugging Face API metadata",
+    "url": "https://huggingface.co/api/models/moonshotai/Kimi-K3.1-Pro",
+    "observed_revision": "d9e99b0792a5e93b78ea9bea62a68167e36ddd9e",
+    "bytes": 7506,
+    "sha256": "d8a31e67dbd2984aa4a9dbe149c16399432685d6f5121a288da5c176e53e7e1d",
+    "status": "downloaded",
+    "verification_scope": "provider-reported safetensors element metadata; not independently read tensor headers"
+  },
+  {
+    "model": "k3",
+    "file": "Hugging Face API metadata",
+    "url": "https://huggingface.co/api/models/moonshotai/Kimi-K3",
+    "observed_revision": "f831ab66814297da540d832a5235f8e904f29d06",
+    "bytes": 10523,
+    "sha256": "f98f86fa4ebe015d26f55dff25ebde2947b383e14cc43b952c4d410d3630d749",
+    "status": "downloaded",
+    "verification_scope": "provider-reported safetensors element metadata; not independently read tensor headers"
+  }
+]

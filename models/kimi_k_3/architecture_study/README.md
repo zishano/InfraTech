@@ -64,3 +64,7 @@ python tools/model_architecture/model_architecture.py verify-png \
 原生画布和字号统一放大，输入支路、输出门、KV 路径、专家 FFN 和底部流程的中心线及锚点已对齐。调整了紧贴边界的文字及邻接节点留白；MoE 和视觉分支绕线不再穿过无关节点。
 
 `kimi_k3_design_preview_v2.layout.json` 记录 mxGraph 实测文字边界及连线路径。当前导出检查要求文字不越界、至少 2 个原生坐标单位的留白、连线无斜向错位线段、连线不穿过无关运算节点；布局报告哈希同时纳入 `.export.json`。验证的是当前 mxGraph/Chromium 渲染，未代替飞书客户端导入测试。
+
+## K3.1-Pro 对比图
+
+后续 [Kimi-K3.1-Pro 差异版](../../kimi_k_3_1_pro/README.md) 沿用本目录 v2 的原生图布局，并补充了现已可访问的 K3 / K3.1-Pro 官方配置与推荐推理实现。新图用红色表示新增 DSA、绿色表示退役的全 token 稠密读取、黄色表示参数／配置统计变化；本目录历史图保持原样。

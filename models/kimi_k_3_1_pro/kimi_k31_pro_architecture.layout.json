@@ -1,0 +1,2587 @@
+{
+  "text_overflow": [],
+  "tight_text": [],
+  "nonorthogonal_segments": [],
+  "edge_node_crossings": [],
+  "routes": [
+    {
+      "id": "connection_0",
+      "source": "ar_source",
+      "target": "ar_keys",
+      "points": [
+        [
+          442,
+          1040
+        ],
+        [
+          442,
+          1001
+        ],
+        [
+          337,
+          1001
+        ],
+        [
+          337,
+          962
+        ]
+      ]
+    },
+    {
+      "id": "connection_1",
+      "source": "ar_keys",
+      "target": "ar_logits",
+      "points": [
+        [
+          337,
+          868
+        ],
+        [
+          337,
+          840
+        ],
+        [
+          429,
+          840
+        ],
+        [
+          429,
+          812
+        ]
+      ]
+    },
+    {
+      "id": "connection_2",
+      "source": "ar_logits",
+      "target": "ar_softmax",
+      "points": [
+        [
+          429,
+          732
+        ],
+        [
+          429,
+          710
+        ]
+      ]
+    },
+    {
+      "id": "connection_3",
+      "source": "ar_softmax",
+      "target": "ar_sum",
+      "points": [
+        [
+          429,
+          604
+        ],
+        [
+          429,
+          570
+        ]
+      ]
+    },
+    {
+      "id": "connection_4",
+      "source": "ar_sum",
+      "target": "ar_out",
+      "points": [
+        [
+          429,
+          464
+        ],
+        [
+          429,
+          428
+        ]
+      ]
+    },
+    {
+      "id": "connection_5",
+      "source": "ar_query",
+      "target": "ar_logits",
+      "points": [
+        [
+          687,
+          868
+        ],
+        [
+          687,
+          840
+        ],
+        [
+          601,
+          840
+        ],
+        [
+          600.9999999999999,
+          812
+        ]
+      ]
+    },
+    {
+      "id": "connection_6",
+      "source": "ar_source",
+      "target": "ar_values",
+      "points": [
+        [
+          785.8000000000131,
+          1040
+        ],
+        [
+          862,
+          1040
+        ],
+        [
+          862,
+          750
+        ],
+        [
+          763,
+          750
+        ],
+        [
+          763,
+          722
+        ]
+      ]
+    },
+    {
+      "id": "connection_7",
+      "source": "ar_values",
+      "target": "ar_sum",
+      "points": [
+        [
+          763,
+          618
+        ],
+        [
+          763,
+          517
+        ],
+        [
+          682,
+          517
+        ]
+      ]
+    },
+    {
+      "id": "connection_8",
+      "source": "kda_x",
+      "target": "kda_q_linear",
+      "points": [
+        [
+          444,
+          2348
+        ],
+        [
+          444,
+          2320
+        ],
+        [
+          96,
+          2320
+        ],
+        [
+          96,
+          2236
+        ]
+      ]
+    },
+    {
+      "id": "connection_9",
+      "source": "kda_q_linear",
+      "target": "kda_q_conv",
+      "points": [
+        [
+          96,
+          2150
+        ],
+        [
+          96,
+          2092
+        ]
+      ]
+    },
+    {
+      "id": "connection_10",
+      "source": "kda_q_conv",
+      "target": "kda_q_swish",
+      "points": [
+        [
+          96,
+          2046
+        ],
+        [
+          96,
+          2010
+        ]
+      ]
+    },
+    {
+      "id": "connection_11",
+      "source": "kda_q_swish",
+      "target": "kda_q_l2",
+      "points": [
+        [
+          96,
+          1940
+        ],
+        [
+          96,
+          1908
+        ]
+      ]
+    },
+    {
+      "id": "connection_12",
+      "source": "kda_q_l2",
+      "target": "kda_port_q",
+      "points": [
+        [
+          96,
+          1862
+        ],
+        [
+          96,
+          1830
+        ]
+      ]
+    },
+    {
+      "id": "connection_13",
+      "source": "kda_x",
+      "target": "kda_k_linear",
+      "points": [
+        [
+          444,
+          2348
+        ],
+        [
+          444,
+          2320
+        ],
+        [
+          238,
+          2320
+        ],
+        [
+          238,
+          2236
+        ]
+      ]
+    },
+    {
+      "id": "connection_14",
+      "source": "kda_k_linear",
+      "target": "kda_k_conv",
+      "points": [
+        [
+          238,
+          2150
+        ],
+        [
+          238,
+          2092
+        ]
+      ]
+    },
+    {
+      "id": "connection_15",
+      "source": "kda_k_conv",
+      "target": "kda_k_swish",
+      "points": [
+        [
+          238,
+          2046
+        ],
+        [
+          238,
+          2010
+        ]
+      ]
+    },
+    {
+      "id": "connection_16",
+      "source": "kda_k_swish",
+      "target": "kda_k_l2",
+      "points": [
+        [
+          238,
+          1940
+        ],
+        [
+          238,
+          1908
+        ]
+      ]
+    },
+    {
+      "id": "connection_17",
+      "source": "kda_k_l2",
+      "target": "kda_port_k",
+      "points": [
+        [
+          238,
+          1862
+        ],
+        [
+          238,
+          1830
+        ]
+      ]
+    },
+    {
+      "id": "connection_18",
+      "source": "kda_x",
+      "target": "kda_v_linear",
+      "points": [
+        [
+          444,
+          2348
+        ],
+        [
+          444,
+          2320
+        ],
+        [
+          382,
+          2320
+        ],
+        [
+          382,
+          2236
+        ]
+      ]
+    },
+    {
+      "id": "connection_19",
+      "source": "kda_v_linear",
+      "target": "kda_v_conv",
+      "points": [
+        [
+          382,
+          2150
+        ],
+        [
+          382,
+          2092
+        ]
+      ]
+    },
+    {
+      "id": "connection_20",
+      "source": "kda_v_conv",
+      "target": "kda_v_swish",
+      "points": [
+        [
+          382,
+          2046
+        ],
+        [
+          382,
+          2010
+        ]
+      ]
+    },
+    {
+      "id": "connection_21",
+      "source": "kda_v_swish",
+      "target": "kda_port_v",
+      "points": [
+        [
+          382,
+          1940
+        ],
+        [
+          382,
+          1830
+        ]
+      ]
+    },
+    {
+      "id": "connection_22",
+      "source": "kda_x",
+      "target": "kda_alpha_down",
+      "points": [
+        [
+          444,
+          2348
+        ],
+        [
+          444,
+          2320
+        ],
+        [
+          562,
+          2320
+        ],
+        [
+          562,
+          2268
+        ]
+      ]
+    },
+    {
+      "id": "connection_23",
+      "source": "kda_alpha_down",
+      "target": "kda_alpha_up",
+      "points": [
+        [
+          562,
+          2220
+        ],
+        [
+          562,
+          2174
+        ]
+      ]
+    },
+    {
+      "id": "connection_24",
+      "source": "kda_alpha_up",
+      "target": "kda_alpha_bias",
+      "points": [
+        [
+          562,
+          2126
+        ],
+        [
+          562,
+          2096
+        ]
+      ]
+    },
+    {
+      "id": "connection_25",
+      "source": "kda_alpha_bias",
+      "target": "kda_alpha_scale",
+      "points": [
+        [
+          562,
+          2048
+        ],
+        [
+          562,
+          2036
+        ]
+      ]
+    },
+    {
+      "id": "connection_26",
+      "source": "kda_alpha_scale",
+      "target": "kda_alpha_sigmoid",
+      "points": [
+        [
+          562,
+          1988
+        ],
+        [
+          562,
+          1974
+        ]
+      ]
+    },
+    {
+      "id": "connection_27",
+      "source": "kda_alpha_sigmoid",
+      "target": "kda_alpha_exp",
+      "points": [
+        [
+          562,
+          1926
+        ],
+        [
+          562,
+          1914
+        ]
+      ]
+    },
+    {
+      "id": "connection_28",
+      "source": "kda_alpha_exp",
+      "target": "kda_port_alpha",
+      "points": [
+        [
+          562,
+          1866
+        ],
+        [
+          562,
+          1830
+        ]
+      ]
+    },
+    {
+      "id": "connection_29",
+      "source": "kda_x",
+      "target": "kda_beta_linear",
+      "points": [
+        [
+          444,
+          2348
+        ],
+        [
+          444,
+          2320
+        ],
+        [
+          704,
+          2320
+        ],
+        [
+          704,
+          2236
+        ]
+      ]
+    },
+    {
+      "id": "connection_30",
+      "source": "kda_beta_linear",
+      "target": "kda_beta_sigmoid",
+      "points": [
+        [
+          704,
+          2150
+        ],
+        [
+          704,
+          2092
+        ]
+      ]
+    },
+    {
+      "id": "connection_31",
+      "source": "kda_beta_sigmoid",
+      "target": "kda_port_beta",
+      "points": [
+        [
+          704,
+          2046
+        ],
+        [
+          704,
+          1830
+        ]
+      ]
+    },
+    {
+      "id": "connection_32",
+      "source": "kda_port_q",
+      "target": "kda_core",
+      "points": [
+        [
+          96,
+          1784
+        ],
+        [
+          95.99999999999966,
+          1754
+        ]
+      ]
+    },
+    {
+      "id": "connection_33",
+      "source": "kda_port_k",
+      "target": "kda_core",
+      "points": [
+        [
+          238,
+          1784
+        ],
+        [
+          237.99999999999997,
+          1754
+        ]
+      ]
+    },
+    {
+      "id": "connection_34",
+      "source": "kda_port_v",
+      "target": "kda_core",
+      "points": [
+        [
+          382,
+          1784
+        ],
+        [
+          382,
+          1754
+        ]
+      ]
+    },
+    {
+      "id": "connection_35",
+      "source": "kda_port_alpha",
+      "target": "kda_core",
+      "points": [
+        [
+          562,
+          1784
+        ],
+        [
+          562,
+          1754
+        ]
+      ]
+    },
+    {
+      "id": "connection_36",
+      "source": "kda_port_beta",
+      "target": "kda_core",
+      "points": [
+        [
+          704,
+          1784
+        ],
+        [
+          703.9999999999998,
+          1754
+        ]
+      ]
+    },
+    {
+      "id": "connection_37",
+      "source": "kda_core",
+      "target": "kda_norm",
+      "points": [
+        [
+          424,
+          1620
+        ],
+        [
+          424,
+          1594
+        ]
+      ]
+    },
+    {
+      "id": "connection_38",
+      "source": "kda_norm",
+      "target": "kda_product",
+      "points": [
+        [
+          424,
+          1544
+        ],
+        [
+          424,
+          1518
+        ]
+      ]
+    },
+    {
+      "id": "connection_39",
+      "source": "kda_product",
+      "target": "kda_wo",
+      "points": [
+        [
+          424,
+          1460
+        ],
+        [
+          424,
+          1436
+        ]
+      ]
+    },
+    {
+      "id": "connection_40",
+      "source": "kda_x",
+      "target": "kda_gate_linear",
+      "points": [
+        [
+          444,
+          2348
+        ],
+        [
+          444,
+          2320
+        ],
+        [
+          811,
+          2320
+        ],
+        [
+          811,
+          1724
+        ]
+      ]
+    },
+    {
+      "id": "connection_41",
+      "source": "kda_gate_linear",
+      "target": "kda_gate_sigmoid",
+      "points": [
+        [
+          811,
+          1664
+        ],
+        [
+          811,
+          1624
+        ]
+      ]
+    },
+    {
+      "id": "connection_42",
+      "source": "kda_gate_sigmoid",
+      "target": "kda_product",
+      "points": [
+        [
+          811,
+          1578
+        ],
+        [
+          811,
+          1489
+        ],
+        [
+          453,
+          1489
+        ]
+      ]
+    },
+    {
+      "id": "connection_43",
+      "source": "lm_repeat",
+      "target": "lm_final",
+      "points": [
+        [
+          1102,
+          836
+        ],
+        [
+          1102,
+          758
+        ]
+      ]
+    },
+    {
+      "id": "connection_44",
+      "source": "lm_final",
+      "target": "lm_norm",
+      "points": [
+        [
+          1102,
+          662
+        ],
+        [
+          1102,
+          558
+        ]
+      ]
+    },
+    {
+      "id": "connection_45",
+      "source": "lm_norm",
+      "target": "lm_head",
+      "points": [
+        [
+          1102,
+          442
+        ],
+        [
+          1102,
+          416
+        ]
+      ]
+    },
+    {
+      "id": "connection_46",
+      "source": "lm_head",
+      "target": "lm_out",
+      "points": [
+        [
+          1102,
+          330
+        ],
+        [
+          1102,
+          298
+        ]
+      ]
+    },
+    {
+      "id": "connection_47",
+      "source": "k_ar1",
+      "target": "k_norm1",
+      "points": [
+        [
+          1109,
+          1560
+        ],
+        [
+          1109,
+          1546
+        ]
+      ]
+    },
+    {
+      "id": "connection_48",
+      "source": "k_norm1",
+      "target": "k_attn",
+      "points": [
+        [
+          1109,
+          1500
+        ],
+        [
+          1109,
+          1486
+        ]
+      ]
+    },
+    {
+      "id": "connection_49",
+      "source": "k_attn",
+      "target": "k_ar2",
+      "points": [
+        [
+          1109,
+          1440
+        ],
+        [
+          1109,
+          1426
+        ]
+      ]
+    },
+    {
+      "id": "connection_50",
+      "source": "k_ar2",
+      "target": "k_norm2",
+      "points": [
+        [
+          1109,
+          1380
+        ],
+        [
+          1109,
+          1366
+        ]
+      ]
+    },
+    {
+      "id": "connection_51",
+      "source": "k_norm2",
+      "target": "k_ffn",
+      "points": [
+        [
+          1109,
+          1320
+        ],
+        [
+          1109,
+          1306
+        ]
+      ]
+    },
+    {
+      "id": "connection_52",
+      "source": "k_ffn",
+      "target": "k_out",
+      "points": [
+        [
+          1109,
+          1260
+        ],
+        [
+          1109,
+          1246
+        ]
+      ]
+    },
+    {
+      "id": "connection_53",
+      "source": "m_ar1",
+      "target": "m_norm1",
+      "points": [
+        [
+          1109,
+          2030
+        ],
+        [
+          1109,
+          2016
+        ]
+      ]
+    },
+    {
+      "id": "connection_54",
+      "source": "m_norm1",
+      "target": "m_attn",
+      "points": [
+        [
+          1109,
+          1970
+        ],
+        [
+          1109,
+          1956
+        ]
+      ]
+    },
+    {
+      "id": "connection_55",
+      "source": "m_attn",
+      "target": "m_ar2",
+      "points": [
+        [
+          1109,
+          1910
+        ],
+        [
+          1109,
+          1896
+        ]
+      ]
+    },
+    {
+      "id": "connection_56",
+      "source": "m_ar2",
+      "target": "m_norm2",
+      "points": [
+        [
+          1109,
+          1850
+        ],
+        [
+          1109,
+          1836
+        ]
+      ]
+    },
+    {
+      "id": "connection_57",
+      "source": "m_norm2",
+      "target": "m_ffn",
+      "points": [
+        [
+          1109,
+          1790
+        ],
+        [
+          1109,
+          1776
+        ]
+      ]
+    },
+    {
+      "id": "connection_58",
+      "source": "m_ffn",
+      "target": "m_out",
+      "points": [
+        [
+          1109,
+          1730
+        ],
+        [
+          1109,
+          1716
+        ]
+      ]
+    },
+    {
+      "id": "connection_59",
+      "source": "moe_x",
+      "target": "moe_down",
+      "points": [
+        [
+          1735,
+          1144
+        ],
+        [
+          1735,
+          1126
+        ],
+        [
+          1611,
+          1126
+        ],
+        [
+          1611,
+          986
+        ]
+      ]
+    },
+    {
+      "id": "connection_60",
+      "source": "moe_down",
+      "target": "moe_bank",
+      "points": [
+        [
+          1611,
+          914
+        ],
+        [
+          1611,
+          872
+        ]
+      ]
+    },
+    {
+      "id": "connection_61",
+      "source": "moe_bank",
+      "target": "moe_weighted",
+      "points": [
+        [
+          1611,
+          772
+        ],
+        [
+          1611,
+          746
+        ]
+      ]
+    },
+    {
+      "id": "connection_62",
+      "source": "moe_weighted",
+      "target": "moe_norm",
+      "points": [
+        [
+          1611,
+          666
+        ],
+        [
+          1611,
+          638
+        ]
+      ]
+    },
+    {
+      "id": "connection_63",
+      "source": "moe_norm",
+      "target": "moe_up",
+      "points": [
+        [
+          1611,
+          592
+        ],
+        [
+          1611,
+          566
+        ]
+      ]
+    },
+    {
+      "id": "connection_64",
+      "source": "moe_up",
+      "target": "moe_sum",
+      "points": [
+        [
+          1611,
+          504
+        ],
+        [
+          1611,
+          492
+        ]
+      ]
+    },
+    {
+      "id": "connection_65",
+      "source": "moe_sum",
+      "target": "moe_y",
+      "points": [
+        [
+          1611,
+          438
+        ],
+        [
+          1611,
+          418
+        ]
+      ]
+    },
+    {
+      "id": "connection_66",
+      "source": "moe_x",
+      "target": "moe_shared",
+      "points": [
+        [
+          1735,
+          1144
+        ],
+        [
+          1735,
+          1126
+        ],
+        [
+          1406,
+          1126
+        ],
+        [
+          1406,
+          640
+        ]
+      ]
+    },
+    {
+      "id": "connection_67",
+      "source": "moe_shared",
+      "target": "moe_sum",
+      "points": [
+        [
+          1406,
+          556
+        ],
+        [
+          1406,
+          465
+        ],
+        [
+          1584,
+          465
+        ]
+      ]
+    },
+    {
+      "id": "connection_68",
+      "source": "moe_x",
+      "target": "moe_router",
+      "points": [
+        [
+          1735,
+          1144
+        ],
+        [
+          1735,
+          1126
+        ],
+        [
+          1766,
+          1126
+        ],
+        [
+          1766,
+          1112
+        ]
+      ]
+    },
+    {
+      "id": "connection_69",
+      "source": "moe_router",
+      "target": "moe_bank",
+      "points": [
+        [
+          1860,
+          1060
+        ],
+        [
+          1872,
+          1060
+        ],
+        [
+          1872,
+          822
+        ],
+        [
+          1739,
+          822
+        ]
+      ]
+    },
+    {
+      "id": "connection_70",
+      "source": "moe_router",
+      "target": "moe_weighted",
+      "points": [
+        [
+          1766,
+          1008
+        ],
+        [
+          1766,
+          706
+        ],
+        [
+          1718,
+          706
+        ]
+      ]
+    },
+    {
+      "id": "connection_71",
+      "source": "ex_x",
+      "target": "ex_gate",
+      "points": [
+        [
+          2012,
+          1040
+        ],
+        [
+          2012,
+          1017
+        ],
+        [
+          1950,
+          1017
+        ],
+        [
+          1950,
+          994
+        ]
+      ]
+    },
+    {
+      "id": "connection_72",
+      "source": "ex_gate",
+      "target": "ex_capgate",
+      "points": [
+        [
+          1950,
+          914
+        ],
+        [
+          1950,
+          842
+        ]
+      ]
+    },
+    {
+      "id": "connection_73",
+      "source": "ex_capgate",
+      "target": "ex_mul",
+      "points": [
+        [
+          1950,
+          718
+        ],
+        [
+          1950,
+          692
+        ],
+        [
+          1986,
+          692
+        ]
+      ]
+    },
+    {
+      "id": "connection_74",
+      "source": "ex_mul",
+      "target": "ex_down",
+      "points": [
+        [
+          2012,
+          666
+        ],
+        [
+          2012,
+          638
+        ]
+      ]
+    },
+    {
+      "id": "connection_75",
+      "source": "ex_down",
+      "target": "ex_y",
+      "points": [
+        [
+          2012,
+          552
+        ],
+        [
+          2012,
+          524
+        ]
+      ]
+    },
+    {
+      "id": "connection_76",
+      "source": "ex_x",
+      "target": "ex_up",
+      "points": [
+        [
+          2012,
+          1040
+        ],
+        [
+          2012,
+          1017
+        ],
+        [
+          2080,
+          1017
+        ],
+        [
+          2080,
+          994
+        ]
+      ]
+    },
+    {
+      "id": "connection_77",
+      "source": "ex_up",
+      "target": "ex_capup",
+      "points": [
+        [
+          2080,
+          914
+        ],
+        [
+          2080,
+          842
+        ]
+      ]
+    },
+    {
+      "id": "connection_78",
+      "source": "ex_capup",
+      "target": "ex_mul",
+      "points": [
+        [
+          2080,
+          718
+        ],
+        [
+          2080,
+          692
+        ],
+        [
+          2038,
+          692
+        ]
+      ]
+    },
+    {
+      "id": "connection_79",
+      "source": "mla_x",
+      "target": "mla_q",
+      "points": [
+        [
+          1674,
+          2318
+        ],
+        [
+          1674,
+          2280
+        ],
+        [
+          1450,
+          2280
+        ],
+        [
+          1450,
+          2224
+        ]
+      ]
+    },
+    {
+      "id": "connection_81",
+      "source": "mla_port_q",
+      "target": "mla_attention",
+      "points": [
+        [
+          1450,
+          1792
+        ],
+        [
+          1450.0000000000002,
+          1746
+        ]
+      ]
+    },
+    {
+      "id": "connection_82",
+      "source": "mla_attention",
+      "target": "mla_mul",
+      "points": [
+        [
+          1720,
+          1680
+        ],
+        [
+          1720,
+          1636
+        ]
+      ]
+    },
+    {
+      "id": "connection_83",
+      "source": "mla_mul",
+      "target": "mla_wo",
+      "points": [
+        [
+          1720,
+          1580
+        ],
+        [
+          1720,
+          1570
+        ]
+      ]
+    },
+    {
+      "id": "connection_84",
+      "source": "mla_x",
+      "target": "mla_compress",
+      "points": [
+        [
+          1674,
+          2318
+        ],
+        [
+          1674,
+          2280
+        ],
+        [
+          1750,
+          2280
+        ],
+        [
+          1750,
+          2278
+        ]
+      ]
+    },
+    {
+      "id": "connection_86",
+      "source": "mla_cache",
+      "target": "mla_reconstruct",
+      "points": [
+        [
+          1750,
+          2010
+        ],
+        [
+          1750,
+          1998
+        ]
+      ]
+    },
+    {
+      "id": "connection_87",
+      "source": "mla_reconstruct",
+      "target": "mla_port_k",
+      "points": [
+        [
+          1662,
+          1880
+        ],
+        [
+          1662,
+          1842
+        ]
+      ]
+    },
+    {
+      "id": "connection_88",
+      "source": "mla_reconstruct",
+      "target": "mla_port_v",
+      "points": [
+        [
+          1850,
+          1880
+        ],
+        [
+          1850,
+          1842
+        ]
+      ]
+    },
+    {
+      "id": "connection_89",
+      "source": "mla_port_k",
+      "target": "mla_attention",
+      "points": [
+        [
+          1662,
+          1792
+        ],
+        [
+          1662,
+          1746
+        ]
+      ]
+    },
+    {
+      "id": "connection_90",
+      "source": "mla_port_v",
+      "target": "mla_attention",
+      "points": [
+        [
+          1850,
+          1792
+        ],
+        [
+          1850,
+          1746
+        ]
+      ]
+    },
+    {
+      "id": "connection_91",
+      "source": "mla_x",
+      "target": "mla_gate",
+      "points": [
+        [
+          1674,
+          2318
+        ],
+        [
+          1674,
+          2280
+        ],
+        [
+          2060,
+          2280
+        ],
+        [
+          2060,
+          1782
+        ]
+      ]
+    },
+    {
+      "id": "connection_92",
+      "source": "mla_gate",
+      "target": "mla_sigmoid",
+      "points": [
+        [
+          2060,
+          1722
+        ],
+        [
+          2060,
+          1680
+        ]
+      ]
+    },
+    {
+      "id": "connection_93",
+      "source": "mla_sigmoid",
+      "target": "mla_mul",
+      "points": [
+        [
+          2060,
+          1632
+        ],
+        [
+          2060,
+          1608
+        ],
+        [
+          1748,
+          1608
+        ]
+      ]
+    },
+    {
+      "id": "connection_94",
+      "source": "vision_input",
+      "target": "vision_processor",
+      "points": [
+        [
+          152,
+          2766
+        ],
+        [
+          152,
+          2742
+        ]
+      ]
+    },
+    {
+      "id": "connection_95",
+      "source": "vision_processor",
+      "target": "vision_patch",
+      "points": [
+        [
+          152,
+          2680
+        ],
+        [
+          152,
+          2664
+        ]
+      ]
+    },
+    {
+      "id": "connection_96",
+      "source": "vision_pool",
+      "target": "vision_projector",
+      "points": [
+        [
+          630,
+          2624
+        ],
+        [
+          630,
+          2614
+        ]
+      ]
+    },
+    {
+      "id": "connection_97",
+      "source": "text_input",
+      "target": "text_tokenizer",
+      "points": [
+        [
+          1183,
+          2760
+        ],
+        [
+          1183,
+          2754
+        ]
+      ]
+    },
+    {
+      "id": "connection_98",
+      "source": "text_tokenizer",
+      "target": "text_embedding",
+      "points": [
+        [
+          1183,
+          2708
+        ],
+        [
+          1183,
+          2702
+        ]
+      ]
+    },
+    {
+      "id": "connection_99",
+      "source": "text_embedding",
+      "target": "vision_merge",
+      "points": [
+        [
+          1183,
+          2656
+        ],
+        [
+          1183,
+          2646
+        ]
+      ]
+    },
+    {
+      "id": "connection_100",
+      "source": "vitattn0",
+      "target": "vitattn1",
+      "points": [
+        [
+          1478,
+          2607
+        ],
+        [
+          1500,
+          2607
+        ]
+      ]
+    },
+    {
+      "id": "connection_101",
+      "source": "vitattn1",
+      "target": "vitattn2",
+      "points": [
+        [
+          1650,
+          2607
+        ],
+        [
+          1676,
+          2607
+        ]
+      ]
+    },
+    {
+      "id": "connection_102",
+      "source": "vitattn2",
+      "target": "vitattn3",
+      "points": [
+        [
+          1826,
+          2607
+        ],
+        [
+          1944,
+          2607
+        ]
+      ]
+    },
+    {
+      "id": "connection_103",
+      "source": "vitffn0",
+      "target": "vitffn1",
+      "points": [
+        [
+          1478,
+          2765
+        ],
+        [
+          1500,
+          2765
+        ]
+      ]
+    },
+    {
+      "id": "connection_104",
+      "source": "vitffn1",
+      "target": "vitffn2",
+      "points": [
+        [
+          1650,
+          2765
+        ],
+        [
+          1676,
+          2765
+        ]
+      ]
+    },
+    {
+      "id": "connection_105",
+      "source": "vitffn2",
+      "target": "vitffn3",
+      "points": [
+        [
+          1826,
+          2765
+        ],
+        [
+          1944,
+          2765
+        ]
+      ]
+    },
+    {
+      "id": "connection_106",
+      "source": "k_input",
+      "target": "k_ar1",
+      "points": [
+        [
+          1109,
+          1620
+        ],
+        [
+          1109,
+          1606
+        ]
+      ]
+    },
+    {
+      "id": "connection_107",
+      "source": "m_input",
+      "target": "m_ar1",
+      "points": [
+        [
+          1109,
+          2090
+        ],
+        [
+          1109,
+          2076
+        ]
+      ]
+    },
+    {
+      "id": "connection_108",
+      "source": "lm_fused",
+      "target": "lm_repeat",
+      "points": [
+        [
+          922,
+          2171
+        ],
+        [
+          902,
+          2171
+        ],
+        [
+          902,
+          894
+        ],
+        [
+          932,
+          894
+        ]
+      ]
+    },
+    {
+      "id": "connection_109",
+      "source": "vision_enc_norm1",
+      "target": "vision_enc_attn",
+      "points": [
+        [
+          630,
+          2822
+        ],
+        [
+          630,
+          2816
+        ]
+      ]
+    },
+    {
+      "id": "connection_110",
+      "source": "vision_enc_attn",
+      "target": "vision_enc_add1",
+      "points": [
+        [
+          630,
+          2794
+        ],
+        [
+          630,
+          2790
+        ]
+      ]
+    },
+    {
+      "id": "connection_111",
+      "source": "vision_enc_add1",
+      "target": "vision_enc_norm2",
+      "points": [
+        [
+          630,
+          2768
+        ],
+        [
+          630,
+          2764
+        ]
+      ]
+    },
+    {
+      "id": "connection_112",
+      "source": "vision_enc_norm2",
+      "target": "vision_enc_ffn",
+      "points": [
+        [
+          630,
+          2742
+        ],
+        [
+          630,
+          2738
+        ]
+      ]
+    },
+    {
+      "id": "connection_113",
+      "source": "vision_enc_ffn",
+      "target": "vision_enc_add2",
+      "points": [
+        [
+          630,
+          2716
+        ],
+        [
+          630,
+          2714
+        ]
+      ]
+    },
+    {
+      "id": "connection_114",
+      "source": "vision_patch",
+      "target": "vision_enc_norm1",
+      "points": [
+        [
+          264,
+          2634
+        ],
+        [
+          362.5,
+          2634
+        ],
+        [
+          362.5,
+          2833
+        ],
+        [
+          461,
+          2833
+        ]
+      ]
+    },
+    {
+      "id": "connection_115",
+      "source": "vision_enc_add2",
+      "target": "vision_pool",
+      "points": [
+        [
+          630,
+          2692
+        ],
+        [
+          630,
+          2682
+        ]
+      ]
+    },
+    {
+      "id": "connection_116",
+      "source": "vision_projector",
+      "target": "vision_out",
+      "points": [
+        [
+          630,
+          2576
+        ],
+        [
+          630,
+          2566
+        ]
+      ]
+    },
+    {
+      "id": "connection_117",
+      "source": "vision_out",
+      "target": "vision_merge",
+      "points": [
+        [
+          884,
+          2540
+        ],
+        [
+          884,
+          2539
+        ],
+        [
+          950,
+          2539
+        ],
+        [
+          950,
+          2618
+        ],
+        [
+          1155,
+          2618
+        ]
+      ]
+    },
+    {
+      "id": "connection_118",
+      "source": "vision_merge",
+      "target": "vision_fused_detail",
+      "points": [
+        [
+          1183,
+          2590
+        ],
+        [
+          1183,
+          2582
+        ]
+      ]
+    },
+    {
+      "id": "connection_119",
+      "source": "mini_text",
+      "target": "mini_tokenizer",
+      "points": [
+        [
+          1005,
+          2418
+        ],
+        [
+          1005,
+          2408
+        ]
+      ]
+    },
+    {
+      "id": "connection_120",
+      "source": "mini_tokenizer",
+      "target": "mini_embed",
+      "points": [
+        [
+          1005,
+          2372
+        ],
+        [
+          1005,
+          2366
+        ]
+      ]
+    },
+    {
+      "id": "connection_121",
+      "source": "mini_embed",
+      "target": "mini_textvec",
+      "points": [
+        [
+          1005,
+          2330
+        ],
+        [
+          1005,
+          2326
+        ]
+      ]
+    },
+    {
+      "id": "connection_122",
+      "source": "mini_textvec",
+      "target": "mini_merge",
+      "points": [
+        [
+          1005,
+          2272
+        ],
+        [
+          1005,
+          2237
+        ],
+        [
+          1077,
+          2237
+        ]
+      ]
+    },
+    {
+      "id": "connection_123",
+      "source": "mini_merge",
+      "target": "lm_fused",
+      "points": [
+        [
+          1102,
+          2212
+        ],
+        [
+          1102,
+          2204
+        ]
+      ]
+    },
+    {
+      "id": "connection_124",
+      "source": "mini_images",
+      "target": "mini_pool",
+      "points": [
+        [
+          1194,
+          2418
+        ],
+        [
+          1194,
+          2408
+        ]
+      ]
+    },
+    {
+      "id": "connection_125",
+      "source": "mini_pool",
+      "target": "mini_projector",
+      "points": [
+        [
+          1194,
+          2372
+        ],
+        [
+          1194,
+          2366
+        ]
+      ]
+    },
+    {
+      "id": "connection_126",
+      "source": "mini_projector",
+      "target": "mini_visvec",
+      "points": [
+        [
+          1194,
+          2330
+        ],
+        [
+          1194,
+          2326
+        ]
+      ]
+    },
+    {
+      "id": "connection_127",
+      "source": "mini_visvec",
+      "target": "mini_merge",
+      "points": [
+        [
+          1194,
+          2272
+        ],
+        [
+          1194,
+          2237
+        ],
+        [
+          1127,
+          2237
+        ]
+      ]
+    },
+    {
+      "id": "connection_128",
+      "source": "ar_embedding",
+      "target": "ar_source",
+      "points": [
+        [
+          170,
+          1074
+        ],
+        [
+          170.00000000000722,
+          1042
+        ]
+      ]
+    },
+    {
+      "id": "connection_129",
+      "source": "ar_blocks",
+      "target": "ar_source",
+      "points": [
+        [
+          420,
+          1074
+        ],
+        [
+          420,
+          1042
+        ]
+      ]
+    },
+    {
+      "id": "connection_130",
+      "source": "ar_partial",
+      "target": "ar_source",
+      "points": [
+        [
+          690,
+          1074
+        ],
+        [
+          689.9999999999991,
+          1042
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_mla_q__mla_qnorm",
+      "source": "mla_q",
+      "target": "mla_qnorm",
+      "points": [
+        [
+          1450,
+          2134
+        ],
+        [
+          1450,
+          2090
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_mla_qnorm__mla_qup",
+      "source": "mla_qnorm",
+      "target": "mla_qup",
+      "points": [
+        [
+          1450,
+          2020
+        ],
+        [
+          1450,
+          1986
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_mla_qup__mla_port_q",
+      "source": "mla_qup",
+      "target": "mla_port_q",
+      "points": [
+        [
+          1450,
+          1910
+        ],
+        [
+          1450,
+          1842
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_mla_compress__mla_kvnorm",
+      "source": "mla_compress",
+      "target": "mla_kvnorm",
+      "points": [
+        [
+          1667.6,
+          2200
+        ],
+        [
+          1667.6,
+          2185
+        ],
+        [
+          1675,
+          2185
+        ],
+        [
+          1675,
+          2170
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_mla_compress__mla_k64",
+      "source": "mla_compress",
+      "target": "mla_k64",
+      "points": [
+        [
+          1890.08,
+          2200
+        ],
+        [
+          1890.1,
+          2185
+        ],
+        [
+          1888,
+          2185
+        ],
+        [
+          1888,
+          2170
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_mla_kvnorm__mla_cache",
+      "source": "mla_kvnorm",
+      "target": "mla_cache",
+      "points": [
+        [
+          1675,
+          2110
+        ],
+        [
+          1675,
+          2099
+        ],
+        [
+          1677.6,
+          2099
+        ],
+        [
+          1677.64,
+          2088
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_mla_k64__mla_cache",
+      "source": "mla_k64",
+      "target": "mla_cache",
+      "points": [
+        [
+          1888,
+          2110
+        ],
+        [
+          1888,
+          2099
+        ],
+        [
+          1886.7,
+          2099
+        ],
+        [
+          1886.68,
+          2088
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_qr__idx_qproj",
+      "source": "idx_qr",
+      "target": "idx_qproj",
+      "points": [
+        [
+          2335,
+          2320
+        ],
+        [
+          2335,
+          2270
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_qproj__idx_qquant",
+      "source": "idx_qproj",
+      "target": "idx_qquant",
+      "points": [
+        [
+          2335,
+          2200
+        ],
+        [
+          2335,
+          2130
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_qquant__idx_q",
+      "source": "idx_qquant",
+      "target": "idx_q",
+      "points": [
+        [
+          2335,
+          2070
+        ],
+        [
+          2335,
+          2010
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_h__idx_kproj",
+      "source": "idx_h",
+      "target": "idx_kproj",
+      "points": [
+        [
+          2555,
+          2320
+        ],
+        [
+          2555,
+          2270
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_h__idx_wproj",
+      "source": "idx_h",
+      "target": "idx_wproj",
+      "points": [
+        [
+          2770,
+          2320
+        ],
+        [
+          2770,
+          2270
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_kproj__idx_knorm",
+      "source": "idx_kproj",
+      "target": "idx_knorm",
+      "points": [
+        [
+          2555,
+          2200
+        ],
+        [
+          2555,
+          2160
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_knorm__idx_kquant",
+      "source": "idx_knorm",
+      "target": "idx_kquant",
+      "points": [
+        [
+          2555,
+          2100
+        ],
+        [
+          2555,
+          2060
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_kquant__idx_cache",
+      "source": "idx_kquant",
+      "target": "idx_cache",
+      "points": [
+        [
+          2555,
+          2000
+        ],
+        [
+          2555,
+          1960
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_wproj__idx_scale",
+      "source": "idx_wproj",
+      "target": "idx_scale",
+      "points": [
+        [
+          2770,
+          2200
+        ],
+        [
+          2770,
+          2140
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_scale__idx_weights",
+      "source": "idx_scale",
+      "target": "idx_weights",
+      "points": [
+        [
+          2770,
+          2070
+        ],
+        [
+          2770,
+          2000
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_q__idx_dot",
+      "source": "idx_q",
+      "target": "idx_dot",
+      "points": [
+        [
+          2335,
+          1950
+        ],
+        [
+          2335,
+          1830
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_cache__idx_dot",
+      "source": "idx_cache",
+      "target": "idx_dot",
+      "points": [
+        [
+          2555,
+          1890
+        ],
+        [
+          2555,
+          1830
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_dot__idx_relu",
+      "source": "idx_dot",
+      "target": "idx_relu",
+      "points": [
+        [
+          2470,
+          1760
+        ],
+        [
+          2470,
+          1734
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_relu__idx_sum",
+      "source": "idx_relu",
+      "target": "idx_sum",
+      "points": [
+        [
+          2470,
+          1680
+        ],
+        [
+          2470,
+          1660
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_sum__idx_mask",
+      "source": "idx_sum",
+      "target": "idx_mask",
+      "points": [
+        [
+          2470,
+          1600
+        ],
+        [
+          2470,
+          1574
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_mask__idx_topk",
+      "source": "idx_mask",
+      "target": "idx_topk",
+      "points": [
+        [
+          2470,
+          1520
+        ],
+        [
+          2470,
+          1500
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_weights__idx_sum",
+      "source": "idx_weights",
+      "target": "idx_sum",
+      "points": [
+        [
+          2860,
+          1970
+        ],
+        [
+          2875,
+          1970
+        ],
+        [
+          2875,
+          1630
+        ],
+        [
+          2680,
+          1630
+        ]
+      ]
+    },
+    {
+      "id": "k31_link_idx_topk__mla_attention",
+      "source": "idx_topk",
+      "target": "mla_attention",
+      "points": [
+        [
+          2260,
+          1470
+        ],
+        [
+          2185,
+          1470
+        ],
+        [
+          2185,
+          1713
+        ],
+        [
+          1940,
+          1713
+        ]
+      ]
+    }
+  ],
+  "drawio_sha256": "f1fcadfc55651040db6b645221f5788e3593557aa68501764820a4da32dc048d"
+}

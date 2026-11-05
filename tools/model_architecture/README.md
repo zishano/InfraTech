@@ -142,3 +142,18 @@ python tools/model_architecture/model_architecture.py verify-png \
 `examples/deepseek_visual_layout.py` 负责紧凑布局：短算子块、模块色描边、少量重点强调，以及原生张量格状态示意。它保留原节点描述和计算边，仅重排几何和分支走线；两个模型专用构造器统一使用该展示层。
 
 `examples/deepseek_page_reflow.py` 负责页面编排：总览主干居中、mHC/MoE 在左、注意力/压缩器在右；详细页将注意力放在压缩器和索引器之间，并统一标题、模块间隔及底部状态区。重排后须再次运行严格导出及节点避让测试。
+
+
+### 版本差异架构图
+
+`model_diff.py` 提供 `compare_configs(before, after)` 的 JSON Pointer 逐字段差异，以及 `mark(node, change, source=..., locator=...)` 的红／绿／黄原生样式：`added`、`removed`、`parameter_changed`。这些是展示语义，不会把配置字段删除自动判成网络层删除。需要结合固定模型卡和实际实现审阅后再给图元分类。
+
+Kimi-K3.1-Pro 的实例为 `examples/build_kimi_k31_pro.py`：继承 `kimi_k3.graph.json` 的模块几何，保留原图；公共部分用中性色，新增 DSA 用红色，旧全注意力用绿色独立退役框，参数／配置统计用黄色。颜色语义及来源随 `architecture_diff.json` 一起保存。`drawio` 支持边的 `color`（六位十六进制）字段，用于让新增路径的连线也遵循相同主题。
+
+```bash
+python tools/model_architecture/examples/build_kimi_k31_pro.py
+python models/kimi_k_3_1_pro/rebuild.py
+python tools/model_architecture/model_architecture.py export-png \
+  models/kimi_k_3_1_pro/kimi_k31_pro_architecture.drawio \
+  --out models/kimi_k_3_1_pro/kimi_k31_pro_architecture.png --scale 1.5
+```

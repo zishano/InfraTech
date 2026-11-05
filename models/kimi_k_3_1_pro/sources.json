@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "model": "moonshotai/Kimi-K3.1-Pro",
+  "revision": "d9e99b0792a5e93b78ea9bea62a68167e36ddd9e",
+  "sources": [
+    {
+      "id": "report",
+      "url": "https://github.com/MoonshotAI/Kimi-K3/blob/3cb39dfd32e51c3328e2e4b4af21341247d06c43/k3_tech_report.pdf",
+      "kind": "documentation",
+      "required": false
+    },
+    {
+      "id": "config",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro/resolve/d9e99b0792a5e93b78ea9bea62a68167e36ddd9e/config.json",
+      "kind": "config",
+      "required": true
+    },
+    {
+      "id": "card",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro/resolve/d9e99b0792a5e93b78ea9bea62a68167e36ddd9e/README.md",
+      "kind": "documentation",
+      "required": true
+    },
+    {
+      "id": "baseline_config",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3/resolve/f831ab66814297da540d832a5235f8e904f29d06/config.json",
+      "kind": "config",
+      "required": true
+    },
+    {
+      "id": "baseline_code",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3/resolve/f831ab66814297da540d832a5235f8e904f29d06/modeling_kimi_linear.py",
+      "kind": "code",
+      "required": false
+    },
+    {
+      "id": "engine",
+      "url": "https://raw.githubusercontent.com/sgl-project/sglang/b09bda75c89a88263811a49e13adeef7a7aa8bf7/python/sglang/srt/models/kimi_k3.py",
+      "kind": "code",
+      "required": true
+    },
+    {
+      "id": "engine_config",
+      "url": "https://raw.githubusercontent.com/sgl-project/sglang/b09bda75c89a88263811a49e13adeef7a7aa8bf7/python/sglang/srt/configs/kimi_linear.py",
+      "kind": "code",
+      "required": true
+    },
+    {
+      "id": "indexer",
+      "url": "https://raw.githubusercontent.com/sgl-project/sglang/b09bda75c89a88263811a49e13adeef7a7aa8bf7/python/sglang/srt/layers/attention/dsa/dsa_indexer.py",
+      "kind": "code",
+      "required": true
+    },
+    {
+      "id": "kernel",
+      "url": "https://raw.githubusercontent.com/sgl-project/sglang/b09bda75c89a88263811a49e13adeef7a7aa8bf7/python/sglang/kernels/ops/attention/dsa/cutedsl_fp8_paged_mqa_logits.py",
+      "kind": "code",
+      "required": true
+    },
+    {
+      "id": "metadata",
+      "url": "https://huggingface.co/api/models/moonshotai/Kimi-K3.1-Pro/revision/d9e99b0792a5e93b78ea9bea62a68167e36ddd9e",
+      "kind": "documentation",
+      "required": false
+    }
+  ]
+}
