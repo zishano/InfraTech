@@ -71,7 +71,9 @@ K3 图中原注释：Gated MLA (NoPE)    ↑
 
 ## vision_title [unchanged]
 
-Native vision: MoonViT-V2    ↑
+MoonViT-V2 · 27 layers · hidden 1024
+
+K3 图中原注释：Native vision: MoonViT-V2    ↑
 
 - [§2.4 and Table 1 (vision path; exact FFN implementation not verified)](https://github.com/MoonshotAI/Kimi-K3/blob/3cb39dfd32e51c3328e2e4b4af21341247d06c43/k3_tech_report.pdf)
 
@@ -87,7 +89,9 @@ RMSNorm(Keys)
 
 ## ar_query [unchanged]
 
-Learned pseudo-query
+Pseudo-query w
+
+K3 图中原注释：Learned pseudo-query
 w
 (independent
 parameter)
@@ -98,7 +102,9 @@ parameter)
 
 ## ar_logits [unchanged]
 
-Depth logits: wᵀ RMSNorm(K)
+wᵀ RMSNorm(K)
+
+K3 图中原注释：Depth logits: wᵀ RMSNorm(K)
 
 - [§2.2, equations 8–10 (block-level attention residuals)](https://github.com/MoonshotAI/Kimi-K3/blob/3cb39dfd32e51c3328e2e4b4af21341247d06c43/k3_tech_report.pdf)
 
@@ -106,7 +112,9 @@ Depth logits: wᵀ RMSNorm(K)
 
 ## ar_softmax [unchanged]
 
-Softmax over DEPTH
+Softmax (depth)
+
+K3 图中原注释：Softmax over DEPTH
 
 - [§2.2, equations 8–10 (block-level attention residuals)](https://github.com/MoonshotAI/Kimi-K3/blob/3cb39dfd32e51c3328e2e4b4af21341247d06c43/k3_tech_report.pdf)
 
@@ -114,7 +122,10 @@ Softmax over DEPTH
 
 ## ar_values [unchanged]
 
-Values
+Values V
+(original)
+
+K3 图中原注释：Values
 (original)
 unchanged
 
@@ -124,7 +135,9 @@ unchanged
 
 ## ar_sum [unchanged]
 
-Weighted sum of original values
+Weighted sum
+
+K3 图中原注释：Weighted sum of original values
 
 - [§2.2, equations 8–10 (block-level attention residuals)](https://github.com/MoonshotAI/Kimi-K3/blob/3cb39dfd32e51c3328e2e4b4af21341247d06c43/k3_tech_report.pdf)
 
@@ -884,17 +897,6 @@ Patch embedding
 
 - [Shared topology/config values checked against pinned K3 config; see baseline_k3_config.json and config_diff.json](https://huggingface.co/moonshotai/Kimi-K3.1-Pro/blob/d9e99b0792a5e93b78ea9bea62a68167e36ddd9e/config.json)
 
-## vision_encoder [unchanged]
-
-27 × MoonViT-V2
-hidden 1024 · QKV 1536
-
-K3 图中原注释：27 × MoonViT-V2 encoder
-
-- [§2.4 and Table 1 (vision path; exact FFN implementation not verified)](https://github.com/MoonshotAI/Kimi-K3/blob/3cb39dfd32e51c3328e2e4b4af21341247d06c43/k3_tech_report.pdf)
-
-- [Shared topology/config values checked against pinned K3 config; see baseline_k3_config.json and config_diff.json](https://huggingface.co/moonshotai/Kimi-K3.1-Pro/blob/d9e99b0792a5e93b78ea9bea62a68167e36ddd9e/config.json)
-
 ## vision_pool [unchanged]
 
 Temporal pooling
@@ -1255,7 +1257,10 @@ MLA latent projections are retained
 
 ## diff_quant [parameter_changed]
 
-PARAMETER / CONFIG ONLY
+CONFIG ONLY
+MXFP4 exclusions: 6 →8 rules
+
+K3 图中原注释：PARAMETER / CONFIG ONLY
 Quantization ignore patterns: 6 → 8
 
 - [/text_config/quantization_config/ignore; two additional regex patterns](https://huggingface.co/moonshotai/Kimi-K3.1-Pro/blob/d9e99b0792a5e93b78ea9bea62a68167e36ddd9e/config.json)
@@ -1264,7 +1269,11 @@ Quantization ignore patterns: 6 → 8
 
 ## diff_count [parameter_changed]
 
-HF BF16 tensor-elements
+ADDED INDEXER PARAMETERS
++178.53M BF16 elements
+(provider metadata; source-derived match)
+
+K3 图中原注释：HF BF16 tensor-elements
 57,179,884,544 → 57,358,410,752
 +178,526,208 (matches new indexer)
 
@@ -1316,6 +1325,9 @@ h [7168]
 ## idx_qproj [added]
 
 Linear Wq
+1536 →4096
+
+K3 图中原注释：Linear Wq
 1536 → 32×128
 
 - [Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320](https://github.com/sgl-project/sglang/blob/b09bda75c89a88263811a49e13adeef7a7aa8bf7/python/sglang/srt/layers/attention/dsa/dsa_indexer.py)
@@ -1365,7 +1377,10 @@ FP8 Quant
 
 ## idx_cache [added]
 
-Index key cache
+Index K cache
+[T,128]
+
+K3 图中原注释：Index key cache
 [T,128]
 
 - [Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320](https://github.com/sgl-project/sglang/blob/b09bda75c89a88263811a49e13adeef7a7aa8bf7/python/sglang/srt/layers/attention/dsa/dsa_indexer.py)
@@ -1374,7 +1389,10 @@ Index key cache
 
 ## idx_wproj [added]
 
-Linear Wweights
+Linear (weights)
+7168 →32
+
+K3 图中原注释：Linear Wweights
 7168 →32
 
 - [Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320](https://github.com/sgl-project/sglang/blob/b09bda75c89a88263811a49e13adeef7a7aa8bf7/python/sglang/srt/layers/attention/dsa/dsa_indexer.py)
@@ -1384,6 +1402,9 @@ Linear Wweights
 ## idx_scale [added]
 
 Scale
+1 / sqrt(32×128)
+
+K3 图中原注释：Scale
 32^-0.5 ×128^-0.5
 
 - [Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320](https://github.com/sgl-project/sglang/blob/b09bda75c89a88263811a49e13adeef7a7aa8bf7/python/sglang/srt/layers/attention/dsa/dsa_indexer.py)
@@ -1392,7 +1413,9 @@ Scale
 
 ## idx_weights [added]
 
-Head weights [32]
+w [32]
+
+K3 图中原注释：Head weights [32]
 
 - [Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320](https://github.com/sgl-project/sglang/blob/b09bda75c89a88263811a49e13adeef7a7aa8bf7/python/sglang/srt/layers/attention/dsa/dsa_indexer.py)
 
@@ -1416,7 +1439,9 @@ ReLU
 
 ## idx_sum [added]
 
-Scale by head weights → Sum (heads)
+Weighted sum (heads)
+
+K3 图中原注释：Scale by head weights → Sum (heads)
 
 - [relu2_fma_f32x2 and epilogue weighted head reduction, 180–190 / 1416–1542](https://github.com/sgl-project/sglang/blob/b09bda75c89a88263811a49e13adeef7a7aa8bf7/python/sglang/kernels/ops/attention/dsa/cutedsl_fp8_paged_mqa_logits.py)
 

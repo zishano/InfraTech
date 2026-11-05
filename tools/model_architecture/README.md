@@ -157,3 +157,6 @@ python tools/model_architecture/model_architecture.py export-png \
   models/kimi_k_3_1_pro/kimi_k31_pro_architecture.drawio \
   --out models/kimi_k_3_1_pro/kimi_k31_pro_architecture.png --scale 1.5
 ```
+
+
+连线简化可调用 `routing.simplify_connections(graph)`，优先对齐端口直连，再寻找无障碍的单折点路径；不会增删模型计算边。图中 `routing: "straight"` 表示让 draw.io 按显式端口及可选 waypoint 绘制，关闭自动增加的绕线。必须继续通过 mxGraph 实测布局检查。Kimi 的展示层示例见 `examples/kimi_k31_presentation.py`。

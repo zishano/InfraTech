@@ -2,7 +2,7 @@
   "version": 1,
   "title": "Kimi-K3.1-Pro — architecture delta vs Kimi-K3",
   "width": 2920,
-  "height": 2896,
+  "height": 3014,
   "sources": {
     "report": "https://github.com/MoonshotAI/Kimi-K3/blob/3cb39dfd32e51c3328e2e4b4af21341247d06c43/k3_tech_report.pdf",
     "config": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro/blob/d9e99b0792a5e93b78ea9bea62a68167e36ddd9e/config.json",
@@ -27,7 +27,7 @@
       ],
       "status": "inferred",
       "kind": "decoration",
-      "style": "rounded=1;verticalAlign=top;spacingTop=8;whiteSpace=wrap;html=0;fillColor=#faf8ff;strokeColor=#333333;fontStyle=1;fontFamily=Arial;fontSize=28.0;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=#b5c1d0;",
+      "style": "rounded=1;verticalAlign=top;spacingTop=8;whiteSpace=wrap;html=0;fillColor=#faf8ff;strokeColor=#333333;fontStyle=1;fontFamily=Arial;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=#b5c1d0;fontSize=20;fontFamily=Arial;spacing=4;",
       "change": "unchanged",
       "description": "Hybrid backbone\n(93 layers)",
       "evidence": [
@@ -46,7 +46,7 @@
         2900,
         78
       ],
-      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=48;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;",
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;fontSize=44;fontFamily=Arial;spacing=4;",
       "kind": "decoration",
       "status": "inferred",
       "change": "unchanged",
@@ -67,7 +67,7 @@
         2840,
         50
       ],
-      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=26.0;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;",
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;fontSize=24;fontFamily=Arial;spacing=4;fontStyle=0;",
       "kind": "decoration",
       "status": "inferred",
       "change": "unchanged",
@@ -88,7 +88,7 @@
         2840,
         66
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=32.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=28;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -134,7 +134,7 @@
         866,
         46
       ],
-      "style": "rounded=1;html=0;whiteSpace=wrap;fillColor=#7934a3;strokeColor=none;fontColor=#ffffff;fontFamily=Arial;fontSize=30.0;fontStyle=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#59718f;strokeColor=none;fontColor=#ffffff;",
+      "style": "rounded=1;html=0;whiteSpace=wrap;fillColor=#7934a3;strokeColor=none;fontColor=#ffffff;fontFamily=Arial;fontStyle=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#59718f;strokeColor=none;fontColor=#ffffff;fontSize=28;fontFamily=Arial;spacing=4;",
       "kind": "decoration",
       "status": "inferred",
       "change": "unchanged",
@@ -176,7 +176,7 @@
         866,
         46
       ],
-      "style": "rounded=1;html=0;whiteSpace=wrap;fillColor=#1b861f;strokeColor=none;fontColor=#ffffff;fontFamily=Arial;fontSize=30.0;fontStyle=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#59718f;strokeColor=none;fontColor=#ffffff;",
+      "style": "rounded=1;html=0;whiteSpace=wrap;fillColor=#1b861f;strokeColor=none;fontColor=#ffffff;fontFamily=Arial;fontStyle=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#59718f;strokeColor=none;fontColor=#ffffff;fontSize=28;fontFamily=Arial;spacing=4;",
       "kind": "decoration",
       "status": "inferred",
       "evidence": [
@@ -243,7 +243,7 @@
         834,
         46
       ],
-      "style": "rounded=1;html=0;whiteSpace=wrap;fillColor=#095ba7;strokeColor=none;fontColor=#ffffff;fontFamily=Arial;fontSize=30.0;fontStyle=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#59718f;strokeColor=none;fontColor=#ffffff;",
+      "style": "rounded=1;html=0;whiteSpace=wrap;fillColor=#095ba7;strokeColor=none;fontColor=#ffffff;fontFamily=Arial;fontStyle=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#59718f;strokeColor=none;fontColor=#ffffff;fontSize=28;fontFamily=Arial;spacing=4;",
       "kind": "decoration",
       "status": "inferred",
       "evidence": [
@@ -293,7 +293,7 @@
         834,
         46
       ],
-      "style": "rounded=1;html=0;whiteSpace=wrap;fillColor=#ec6507;strokeColor=none;fontColor=#ffffff;fontFamily=Arial;fontSize=30.0;fontStyle=1;arcSize=8;absoluteArcSize=1;spacing=4.0;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;",
+      "style": "rounded=1;html=0;whiteSpace=wrap;fillColor=#ec6507;strokeColor=none;fontColor=#ffffff;fontFamily=Arial;fontStyle=1;arcSize=8;absoluteArcSize=1;spacing=4.0;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=28;fontFamily=Arial;spacing=4;",
       "kind": "decoration",
       "status": "verified",
       "evidence": [
@@ -320,7 +320,7 @@
         10.0,
         2452.0,
         2152.0,
-        402.0
+        505.8
       ],
       "style": "rounded=1;fillColor=#ffffff;strokeColor=#199c98;dashed=1;dashPattern=8 5;strokeWidth=1;pointerEvents=0;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=#b5c1d0;",
       "kind": "decoration",
@@ -336,14 +336,14 @@
     },
     {
       "id": "vision_title",
-      "label": "Native vision: MoonViT-V2    ↑",
+      "label": "MoonViT-V2 · 27 layers · hidden 1024",
       "box": [
         20,
         2462,
         2132,
         46
       ],
-      "style": "rounded=1;html=0;whiteSpace=wrap;fillColor=#008e91;strokeColor=none;fontColor=#ffffff;fontFamily=Arial;fontSize=30.0;fontStyle=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#59718f;strokeColor=none;fontColor=#ffffff;",
+      "style": "rounded=1;html=0;whiteSpace=wrap;fillColor=#008e91;strokeColor=none;fontColor=#ffffff;fontFamily=Arial;fontStyle=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#59718f;strokeColor=none;fontColor=#ffffff;fontSize=28;fontFamily=Arial;spacing=4;",
       "kind": "decoration",
       "status": "inferred",
       "evidence": [
@@ -388,12 +388,12 @@
       "id": "ar_keys",
       "label": "RMSNorm(Keys)",
       "box": [
-        170,
+        270,
         868,
-        334,
+        280,
         94
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=22;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -411,14 +411,14 @@
     },
     {
       "id": "ar_query",
-      "label": "Learned pseudo-query\nw\n(independent\nparameter)",
+      "label": "Pseudo-query w",
       "box": [
-        564,
+        610,
         868,
-        246,
-        128
+        190,
+        108
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=22;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -436,14 +436,14 @@
     },
     {
       "id": "ar_logits",
-      "label": "Depth logits: wᵀ RMSNorm(K)",
+      "label": "wᵀ RMSNorm(K)",
       "box": [
-        214.0,
+        200,
         732,
-        430,
+        420,
         80
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=22;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -461,14 +461,14 @@
     },
     {
       "id": "ar_softmax",
-      "label": "Softmax over DEPTH",
+      "label": "Softmax (depth)",
       "box": [
-        214.0,
+        200,
         604,
-        430,
+        420,
         106
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=22;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -486,14 +486,14 @@
     },
     {
       "id": "ar_values",
-      "label": "Values\n(original)\nunchanged",
+      "label": "Values V\n(original)",
       "box": [
         674,
         618,
         178,
         104
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=22;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -511,14 +511,14 @@
     },
     {
       "id": "ar_sum",
-      "label": "Weighted sum of original values",
+      "label": "Weighted sum",
       "box": [
-        176.0,
+        200,
         464,
-        506,
+        420,
         106
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=22;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -538,12 +538,12 @@
       "id": "ar_out",
       "label": "Output to next sublayer",
       "box": [
-        117.0,
+        200,
         358,
-        624,
+        420,
         70
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=22;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -568,7 +568,7 @@
         340,
         48
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -593,7 +593,7 @@
         120,
         86
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -618,7 +618,7 @@
         120,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -643,7 +643,7 @@
         120,
         70
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -668,7 +668,7 @@
         120,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -693,7 +693,7 @@
         100,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=22.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -718,7 +718,7 @@
         120,
         86
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -743,7 +743,7 @@
         120,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -768,7 +768,7 @@
         120,
         70
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -793,7 +793,7 @@
         120,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -818,7 +818,7 @@
         100,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=22.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -843,7 +843,7 @@
         120,
         86
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -868,7 +868,7 @@
         120,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -893,7 +893,7 @@
         120,
         70
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -918,7 +918,7 @@
         100,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=22.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -943,7 +943,7 @@
         168,
         48
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -968,7 +968,7 @@
         168,
         48
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -993,7 +993,7 @@
         168,
         48
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1018,7 +1018,7 @@
         168,
         48
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1043,7 +1043,7 @@
         168,
         48
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1068,7 +1068,7 @@
         168,
         48
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1093,7 +1093,7 @@
         100,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=22.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1118,7 +1118,7 @@
         100,
         86
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1143,7 +1143,7 @@
         100,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1168,7 +1168,7 @@
         100,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=22.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1193,7 +1193,7 @@
         688,
         134
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -1218,7 +1218,7 @@
         408,
         50
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -1243,7 +1243,7 @@
         58,
         58
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=32.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;shape=ellipse;aspect=fixed;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;shape=ellipse;aspect=fixed;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=28;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1268,7 +1268,7 @@
         128,
         60
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -1293,7 +1293,7 @@
         126,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -1318,7 +1318,7 @@
         404,
         54
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -1343,7 +1343,7 @@
         360,
         66
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1368,7 +1368,7 @@
         340,
         116
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=22;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -1397,7 +1397,7 @@
         340,
         96
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=22;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -1426,7 +1426,7 @@
         334,
         116
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=22;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1451,7 +1451,7 @@
         334,
         86
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=22;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1476,7 +1476,7 @@
         334,
         72
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=22;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1501,7 +1501,7 @@
         340,
         120
       ],
-      "style": "shape=rectangle;fillColor=none;strokeColor=none;html=0;fontFamily=Arial;fontSize=16.0;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;",
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;html=0;fontFamily=Arial;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=22;fontFamily=Arial;spacing=4;fontStyle=0;",
       "kind": "decoration",
       "status": "verified",
       "evidence": [
@@ -1530,7 +1530,7 @@
         340,
         36
       ],
-      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=18.0;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#59718f;strokeColor=none;fontColor=#ffffff;",
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#59718f;strokeColor=none;fontColor=#ffffff;fontSize=22;fontFamily=Arial;spacing=4;",
       "kind": "decoration",
       "status": "inferred",
       "change": "unchanged",
@@ -1551,7 +1551,7 @@
         310,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "change": "unchanged",
@@ -1572,7 +1572,7 @@
         310,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "change": "unchanged",
@@ -1593,7 +1593,7 @@
         310,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "change": "unchanged",
@@ -1614,7 +1614,7 @@
         310,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "change": "unchanged",
@@ -1635,7 +1635,7 @@
         310,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "change": "unchanged",
@@ -1656,7 +1656,7 @@
         310,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "change": "unchanged",
@@ -1677,7 +1677,7 @@
         310,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#edf8df;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "change": "unchanged",
@@ -1723,7 +1723,7 @@
         310,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "change": "unchanged",
@@ -1744,7 +1744,7 @@
         310,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "change": "unchanged",
@@ -1765,7 +1765,7 @@
         310,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "change": "added",
@@ -1790,7 +1790,7 @@
         310,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "change": "unchanged",
@@ -1811,7 +1811,7 @@
         310,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "change": "unchanged",
@@ -1832,7 +1832,7 @@
         310,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "change": "unchanged",
@@ -1853,7 +1853,7 @@
         310,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "change": "unchanged",
@@ -1874,7 +1874,7 @@
         718,
         44
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1899,7 +1899,7 @@
         176,
         84
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1924,7 +1924,7 @@
         220,
         72
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -1949,7 +1949,7 @@
         256,
         100
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -1974,7 +1974,7 @@
         214,
         80
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -1999,7 +1999,7 @@
         214,
         46
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -2024,7 +2024,7 @@
         198,
         62
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -2049,7 +2049,7 @@
         188,
         104
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2074,7 +2074,7 @@
         54,
         54
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;shape=ellipse;aspect=fixed;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;shape=ellipse;aspect=fixed;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=28;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2099,7 +2099,7 @@
         242,
         48
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2124,7 +2124,7 @@
         244,
         58
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2149,7 +2149,7 @@
         120,
         80
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2174,7 +2174,7 @@
         120,
         80
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2199,7 +2199,7 @@
         120,
         124
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2224,7 +2224,7 @@
         120,
         124
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2245,11 +2245,11 @@
       "label": "×",
       "box": [
         1986.0,
-        666,
+        650,
         52,
         52
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;shape=ellipse;aspect=fixed;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;shape=ellipse;aspect=fixed;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=28;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2274,7 +2274,7 @@
         250,
         86
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2299,7 +2299,7 @@
         250,
         76
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e9f3ff;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2324,7 +2324,7 @@
         252,
         50
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2349,7 +2349,7 @@
         172,
         90
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2374,7 +2374,7 @@
         412,
         78
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2399,7 +2399,7 @@
         402,
         78
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2424,7 +2424,7 @@
         254,
         118
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2449,7 +2449,7 @@
         104,
         50
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2474,7 +2474,7 @@
         104,
         50
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2499,7 +2499,7 @@
         104,
         50
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2524,7 +2524,7 @@
         574,
         66
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "verified",
       "evidence": [
@@ -2553,7 +2553,7 @@
         166,
         60
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2578,7 +2578,7 @@
         144,
         48
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2603,7 +2603,7 @@
         56,
         56
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;shape=ellipse;aspect=fixed;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;shape=ellipse;aspect=fixed;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=28;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2628,7 +2628,7 @@
         420,
         50
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#fff0de;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2653,7 +2653,7 @@
         810,
         56
       ],
-      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=20.0;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;",
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;fontSize=18;fontFamily=Arial;spacing=4;fontStyle=0;",
       "kind": "decoration",
       "status": "inferred",
       "evidence": [
@@ -2674,11 +2674,11 @@
       "label": "Images / video",
       "box": [
         40,
-        2766,
+        2843.4,
         224,
-        74
+        96.2
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=20.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2699,11 +2699,11 @@
       "label": "ImageProcessor",
       "box": [
         40,
-        2680,
+        2731.6,
         224,
-        62
+        80.6
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2724,11 +2724,11 @@
       "label": "Patch embedding\n(patch 14)",
       "box": [
         40,
-        2604,
+        2632.8,
         224,
-        60
+        78.0
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2746,12 +2746,12 @@
     },
     {
       "id": "vision_encoder",
-      "label": "27 × MoonViT-V2\nhidden 1024 · QKV 1536",
+      "label": "",
       "box": [
         400.0,
-        2692,
+        2747.2,
         460,
-        156
+        202.8
       ],
       "style": "rounded=1;fillColor=none;strokeColor=none;verticalAlign=top;html=0;fontFamily=Arial;fontSize=16.0;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;",
       "kind": "decoration",
@@ -2774,11 +2774,11 @@
       "label": "Temporal pooling\n+ 2 × 2 pixel shuffle",
       "box": [
         439.0,
-        2624,
+        2658.8,
         382,
-        58
+        75.4
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2799,11 +2799,11 @@
       "label": "MLP projector",
       "box": [
         467.0,
-        2576,
+        2596.4,
         326,
-        38
+        49.4
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2824,11 +2824,11 @@
       "label": "Text",
       "box": [
         1100.0,
-        2760,
+        2835.6,
         166,
-        52
+        67.6
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "change": "unchanged",
@@ -2845,11 +2845,11 @@
       "label": "Tokenizer",
       "box": [
         1100.0,
-        2708,
+        2768.0,
         166,
-        46
+        59.8
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=18.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "change": "unchanged",
@@ -2866,11 +2866,11 @@
       "label": "Text embedding\n[Ttext, 7168]",
       "box": [
         1100.0,
-        2656,
+        2700.4,
         166,
-        46
+        59.8
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f4f6fa;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "change": "unchanged",
@@ -2887,11 +2887,11 @@
       "label": "+",
       "box": [
         1155.0,
-        2590,
+        2614.6,
         56,
-        56
+        72.8
       ],
-      "style": "ellipse;shape=ellipse;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#333333;fontFamily=Arial;fontSize=32.0;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "ellipse;shape=ellipse;whiteSpace=wrap;html=0;fillColor=#ffffff;strokeColor=#333333;fontFamily=Arial;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=28;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "inferred",
       "evidence": [
@@ -2912,11 +2912,11 @@
       "label": "Input\nx",
       "box": [
         1418,
-        2564,
+        2580.8,
         60,
-        86
+        111.8
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "unverified",
       "change": "unchanged",
@@ -2933,11 +2933,11 @@
       "label": "Linear QKV\n(bias-free)",
       "box": [
         1500,
-        2564,
+        2580.8,
         150,
-        86
+        111.8
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "unverified",
       "change": "unchanged",
@@ -2954,11 +2954,11 @@
       "label": "Spatial /\ntemporal\nattention",
       "box": [
         1676,
-        2564,
+        2580.8,
         150,
-        86
+        111.8
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "unverified",
       "change": "unchanged",
@@ -2975,11 +2975,11 @@
       "label": "Linear Wo →\noutput",
       "box": [
         1944,
-        2564,
+        2580.8,
         154,
-        86
+        111.8
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "unverified",
       "change": "unchanged",
@@ -2996,11 +2996,11 @@
       "label": "Input\nx",
       "box": [
         1418,
-        2722,
+        2786.2,
         60,
-        86
+        111.8
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "unverified",
       "change": "unchanged",
@@ -3017,11 +3017,11 @@
       "label": "Linear up",
       "box": [
         1500,
-        2722,
+        2786.2,
         150,
-        86
+        111.8
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "unverified",
       "change": "unchanged",
@@ -3038,11 +3038,11 @@
       "label": "GELU\n(schematic)",
       "box": [
         1676,
-        2722,
+        2786.2,
         150,
-        86
+        111.8
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "unverified",
       "change": "unchanged",
@@ -3059,11 +3059,11 @@
       "label": "Linear down →\noutput",
       "box": [
         1944,
-        2722,
+        2786.2,
         154,
-        86
+        111.8
       ],
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;fontSize=16.0;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontColor=#152337;fontFamily=Arial;align=center;verticalAlign=middle;spacing=10.0;strokeWidth=1;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "kind": "operation",
       "status": "unverified",
       "change": "unchanged",
@@ -3080,11 +3080,11 @@
       "label": "Vision config unchanged; projector type patchmergerv2",
       "box": [
         1388,
-        2820,
+        2913.6,
         754,
-        28
+        36.4
       ],
-      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14.0;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;",
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;fontSize=16;fontFamily=Arial;spacing=4;fontStyle=0;",
       "kind": "decoration",
       "status": "inferred",
       "evidence": [
@@ -3105,11 +3105,11 @@
       "label": "K3.1-Pro config / card @ d9e99b0 · K3 @ f831ab6 · SGLang @ b09bda7 · weight index / full weights not read",
       "box": [
         20,
-        2858,
+        2963.0,
         2880,
-        34
+        44.2
       ],
-      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontSize=14.0;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;",
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;rounded=0;html=0;whiteSpace=wrap;align=center;verticalAlign=middle;fontFamily=Arial;fontColor=#24344b;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;fontSize=16;fontFamily=Arial;spacing=4;fontStyle=0;",
       "kind": "decoration",
       "status": "inferred",
       "change": "unchanged",
@@ -3132,7 +3132,7 @@
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=18.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "change": "unchanged",
       "description": "xₗ",
       "evidence": [
@@ -3153,7 +3153,7 @@
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=18.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;",
       "change": "unchanged",
       "description": "xₗ",
       "evidence": [
@@ -3174,7 +3174,7 @@
       ],
       "status": "inferred",
       "kind": "decoration",
-      "style": "shape=rectangle;fillColor=none;strokeColor=none;html=0;fontFamily=Arial;fontSize=18.0;fillColor=none;fontColor=#435671;strokeColor=none;",
+      "style": "shape=rectangle;fillColor=none;strokeColor=none;html=0;fontFamily=Arial;fillColor=none;fontColor=#435671;strokeColor=none;fontSize=18;fontFamily=Arial;spacing=4;fontStyle=0;",
       "change": "unchanged",
       "description": "Representative layer detail\n(explanatory insets)",
       "evidence": [
@@ -3195,7 +3195,7 @@
       ],
       "status": "inferred",
       "kind": "decoration",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=18.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;fontSize=18;fontFamily=Arial;spacing=4;fontStyle=0;",
       "change": "unchanged",
       "description": "Output gate\n(separate from\nfive KDA\ninputs)",
       "evidence": [
@@ -3216,7 +3216,7 @@
       ],
       "status": "inferred",
       "kind": "decoration",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=18;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;fontSize=18;fontFamily=Arial;spacing=4;fontStyle=0;",
       "change": "unchanged",
       "description": "Expert FFN\n(SiTU-GLU)",
       "evidence": [
@@ -3237,7 +3237,7 @@
       ],
       "status": "inferred",
       "kind": "decoration",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=18.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=none;strokeColor=none;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=none;fontColor=#435671;strokeColor=none;fontSize=20;fontFamily=Arial;spacing=4;fontStyle=0;",
       "change": "unchanged",
       "description": "Shared experts bypass latent down/up.\nRouted experts operate in 3584-dimensional space.",
       "evidence": [
@@ -3252,13 +3252,13 @@
       "label": "Visual embedding [Tvis, 7168]",
       "box": [
         376.0,
-        2514,
+        2515.8,
         508,
-        52
+        67.6
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontFamily=Arial;fontSize=20.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#e1f5f2;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "evidence": [
         {
           "source": "report",
@@ -3277,13 +3277,13 @@
       "label": "RMSNorm",
       "box": [
         461.0,
-        2822,
+        2916.2,
         338,
-        22
+        28.6
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontSize=13.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=14;fontFamily=Arial;spacing=4;",
       "evidence": [
         {
           "source": "report",
@@ -3302,13 +3302,13 @@
       "label": "Spatial / temporal attention",
       "box": [
         461.0,
-        2794,
+        2879.8,
         338,
-        22
+        28.6
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontSize=13.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=14;fontFamily=Arial;spacing=4;",
       "evidence": [
         {
           "source": "report",
@@ -3327,13 +3327,13 @@
       "label": "Residual add",
       "box": [
         461.0,
-        2768,
+        2846.0,
         338,
-        22
+        28.6
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontSize=13.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=14;fontFamily=Arial;spacing=4;",
       "evidence": [
         {
           "source": "report",
@@ -3352,13 +3352,13 @@
       "label": "RMSNorm",
       "box": [
         461.0,
-        2742,
+        2812.2,
         338,
-        22
+        28.6
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontSize=13.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=14;fontFamily=Arial;spacing=4;",
       "evidence": [
         {
           "source": "report",
@@ -3377,13 +3377,13 @@
       "label": "FFN (schematic)",
       "box": [
         461.0,
-        2716,
+        2778.4,
         338,
-        22
+        28.6
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontSize=13.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=14;fontFamily=Arial;spacing=4;",
       "evidence": [
         {
           "source": "report",
@@ -3402,13 +3402,13 @@
       "label": "Residual add",
       "box": [
         461.0,
-        2692,
+        2747.2,
         338,
-        22
+        28.6
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontSize=13.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f1f8f7;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=14;fontFamily=Arial;spacing=4;",
       "evidence": [
         {
           "source": "report",
@@ -3427,13 +3427,13 @@
       "label": "Fused sequence\n(text + visual tokens)",
       "box": [
         1003.0,
-        2514,
+        2515.8,
         360,
-        68
+        88.4
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=20.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;",
       "evidence": [
         {
           "source": "report",
@@ -3458,7 +3458,7 @@
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=30.0;fontColor=#111111;shape=ellipse;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;shape=ellipse;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=28;fontFamily=Arial;spacing=4;",
       "change": "unchanged",
       "description": "+",
       "evidence": [
@@ -3479,7 +3479,7 @@
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=14.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "change": "unchanged",
       "description": "Text",
       "evidence": [
@@ -3500,7 +3500,7 @@
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=14.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "change": "unchanged",
       "description": "Tokenizer",
       "evidence": [
@@ -3521,7 +3521,7 @@
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=14.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "change": "unchanged",
       "description": "Embedding",
       "evidence": [
@@ -3542,7 +3542,7 @@
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=14.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "change": "unchanged",
       "description": "Text embedding",
       "evidence": [
@@ -3563,7 +3563,7 @@
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=14.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "change": "unchanged",
       "description": "Images / video",
       "evidence": [
@@ -3584,7 +3584,7 @@
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=14.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "change": "unchanged",
       "description": "Pool / shuffle",
       "evidence": [
@@ -3605,7 +3605,7 @@
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=14.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "change": "unchanged",
       "description": "MLP projector",
       "evidence": [
@@ -3626,7 +3626,7 @@
       ],
       "status": "inferred",
       "kind": "operation",
-      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=14.0;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontColor=#111111;arcSize=8;absoluteArcSize=1;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=16;fontFamily=Arial;spacing=4;",
       "change": "unchanged",
       "description": "Visual embedding",
       "evidence": [
@@ -3657,7 +3657,7 @@
           "locator": "Shared topology/config values checked against pinned K3 config; see baseline_k3_config.json and config_diff.json"
         }
       ],
-      "style": "rounded=1;arcSize=8;absoluteArcSize=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=20.0;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;arcSize=8;absoluteArcSize=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=22;fontFamily=Arial;spacing=4;",
       "change": "unchanged",
       "description": "Embedding"
     },
@@ -3682,7 +3682,7 @@
           "locator": "Shared topology/config values checked against pinned K3 config; see baseline_k3_config.json and config_diff.json"
         }
       ],
-      "style": "rounded=1;arcSize=8;absoluteArcSize=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=20.0;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;arcSize=8;absoluteArcSize=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=22;fontFamily=Arial;spacing=4;",
       "change": "unchanged",
       "description": "Completed\nblock sums"
     },
@@ -3707,7 +3707,7 @@
           "locator": "Shared topology/config values checked against pinned K3 config; see baseline_k3_config.json and config_diff.json"
         }
       ],
-      "style": "rounded=1;arcSize=8;absoluteArcSize=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;fontSize=20.0;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;",
+      "style": "rounded=1;arcSize=8;absoluteArcSize=1;whiteSpace=wrap;html=0;fillColor=#f2eafa;strokeColor=#252525;fontFamily=Arial;spacing=4.0;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=22;fontFamily=Arial;spacing=4;",
       "change": "unchanged",
       "description": "Current\npartial sum"
     },
@@ -3730,7 +3730,7 @@
           "locator": "KimiMLAAttention.__init__/forward, lines 335–474"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "mla_qup",
@@ -3751,7 +3751,7 @@
           "locator": "KimiMLAAttention.forward, 419–424"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=18;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "mla_kvnorm",
@@ -3772,7 +3772,7 @@
           "locator": "KimiMLAAttention.forward, 426–443"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "mla_k64",
@@ -3793,7 +3793,7 @@
           "locator": "KimiMLAAttention.forward: unrotated shared k_rot channels, 426–450"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fillColor=#f3f6fb;strokeColor=#8e9db0;fontColor=#26384c;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "diff_register",
@@ -3835,7 +3835,7 @@
           "locator": "Model Summary, Attention-Layer Composition and footnote: full-attention Gated MLA replaced by Gated DSA"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fontStyle=1;fillColor=#59718f;strokeColor=none;fontColor=#ffffff;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fontStyle=1;fillColor=#59718f;strokeColor=none;fontColor=#ffffff;fontSize=28;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "diff_added",
@@ -3860,7 +3860,7 @@
           "locator": "Model Summary, Attention-Layer Composition and footnote: full-attention Gated MLA replaced by Gated DSA"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=25;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=22;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "retired_dense_attention",
@@ -3885,11 +3885,11 @@
           "locator": "Model Summary, Attention-Layer Composition and footnote: full-attention Gated MLA replaced by Gated DSA"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#2e7d32;fontColor=#1b5e20;fillColor=#edf7ee;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#2e7d32;fontColor=#1b5e20;fillColor=#edf7ee;strokeWidth=2;fontSize=22;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "diff_quant",
-      "label": "PARAMETER / CONFIG ONLY\nQuantization ignore patterns: 6 → 8",
+      "label": "CONFIG ONLY\nMXFP4 exclusions: 6 →8 rules",
       "description": "PARAMETER / CONFIG ONLY\nQuantization ignore patterns: 6 → 8",
       "box": [
         2240,
@@ -3910,11 +3910,11 @@
           "locator": "/text_config/quantization_config/ignore; two additional regex patterns"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=24;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#d39b12;fontColor=#8a6500;fillColor=#fff8d9;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#d39b12;fontColor=#8a6500;fillColor=#fff8d9;strokeWidth=2;fontSize=22;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "diff_count",
-      "label": "HF BF16 tensor-elements\n57,179,884,544 → 57,358,410,752\n+178,526,208 (matches new indexer)",
+      "label": "ADDED INDEXER PARAMETERS\n+178.53M BF16 elements\n(provider metadata; source-derived match)",
       "description": "HF BF16 tensor-elements\n57,179,884,544 → 57,358,410,752\n+178,526,208 (matches new indexer)",
       "box": [
         2240,
@@ -3935,7 +3935,7 @@
           "locator": "safetensors.parameters.BF16; compare pinned baseline metadata; derived indexer count in checkpoint_summary.json"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#d39b12;fontColor=#8a6500;fillColor=#fff8d9;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#d39b12;fontColor=#8a6500;fillColor=#fff8d9;strokeWidth=2;fontSize=22;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "diff_unchanged",
@@ -3956,7 +3956,7 @@
           "locator": "Shared fields equal across both pinned configs; see config_diff.json"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fillColor=none;strokeColor=none;fillColor=none;fontColor=#435671;strokeColor=none;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fillColor=none;strokeColor=none;fillColor=none;fontColor=#435671;strokeColor=none;fontSize=22;fontFamily=Arial;spacing=4;fontStyle=0;"
     },
     {
       "id": "dsa_indexer",
@@ -4006,7 +4006,7 @@
           "locator": "Model Summary, Attention-Layer Composition and footnote: full-attention Gated MLA replaced by Gated DSA"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontStyle=1;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontStyle=1;fontSize=28;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_scope",
@@ -4031,7 +4031,7 @@
           "locator": "_init_dsa, lines 137–174"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fillColor=none;strokeColor=none;fontSize=20;fontFamily=Arial;spacing=4;fontStyle=0;"
     },
     {
       "id": "idx_qr",
@@ -4056,7 +4056,7 @@
           "locator": "Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_h",
@@ -4081,11 +4081,11 @@
           "locator": "Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_qproj",
-      "label": "Linear Wq\n1536 → 32×128",
+      "label": "Linear Wq\n1536 →4096",
       "description": "Linear Wq\n1536 → 32×128",
       "box": [
         2250,
@@ -4106,7 +4106,7 @@
           "locator": "Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_qquant",
@@ -4131,7 +4131,7 @@
           "locator": "Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_q",
@@ -4156,7 +4156,7 @@
           "locator": "Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_kproj",
@@ -4181,7 +4181,7 @@
           "locator": "Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_knorm",
@@ -4206,7 +4206,7 @@
           "locator": "Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_kquant",
@@ -4231,11 +4231,11 @@
           "locator": "Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_cache",
-      "label": "Index key cache\n[T,128]",
+      "label": "Index K cache\n[T,128]",
       "description": "Index key cache\n[T,128]",
       "box": [
         2470,
@@ -4256,16 +4256,16 @@
           "locator": "Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=17;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_wproj",
-      "label": "Linear Wweights\n7168 →32",
+      "label": "Linear (weights)\n7168 →32",
       "description": "Linear Wweights\n7168 →32",
       "box": [
-        2680,
+        2670,
         2200,
-        180,
+        190,
         70
       ],
       "change": "added",
@@ -4281,11 +4281,11 @@
           "locator": "Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=18;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=18;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_scale",
-      "label": "Scale\n32^-0.5 ×128^-0.5",
+      "label": "Scale\n1 / sqrt(32×128)",
       "description": "Scale\n32^-0.5 ×128^-0.5",
       "box": [
         2680,
@@ -4306,11 +4306,11 @@
           "locator": "Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=18;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_weights",
-      "label": "Head weights [32]",
+      "label": "w [32]",
       "description": "Head weights [32]",
       "box": [
         2680,
@@ -4331,7 +4331,7 @@
           "locator": "Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=16;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_dot",
@@ -4356,7 +4356,7 @@
           "locator": "Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_relu",
@@ -4381,11 +4381,11 @@
           "locator": "relu2_fma_f32x2 and epilogue weighted head reduction, 180–190 / 1416–1542"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_sum",
-      "label": "Scale by head weights → Sum (heads)",
+      "label": "Weighted sum (heads)",
       "description": "Scale by head weights → Sum (heads)",
       "box": [
         2260,
@@ -4406,7 +4406,7 @@
           "locator": "relu2_fma_f32x2 and epilogue weighted head reduction, 180–190 / 1416–1542"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=19;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_mask",
@@ -4431,7 +4431,7 @@
           "locator": "Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "idx_topk",
@@ -4456,7 +4456,7 @@
           "locator": "Indexer.__init__, lines 272–410; _get_q_k_bf16, 930–1027; forward_cuda, 1983–2320"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;strokeColor=#c62828;fontColor=#b71c1c;fillColor=#fff1f0;strokeWidth=2;fontSize=20;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "scope_panel",
@@ -4466,7 +4466,7 @@
         2220,
         2452,
         670,
-        402
+        505.8
       ],
       "change": "unchanged",
       "kind": "decoration",
@@ -4498,7 +4498,7 @@
           "locator": "Model Summary, Attention-Layer Composition and footnote: full-attention Gated MLA replaced by Gated DSA"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fontStyle=1;fillColor=#59718f;strokeColor=none;fontColor=#ffffff;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fontStyle=1;fillColor=#59718f;strokeColor=none;fontColor=#ffffff;fontSize=28;fontFamily=Arial;spacing=4;"
     },
     {
       "id": "scope_text",
@@ -4506,9 +4506,9 @@
       "description": "Color = model delta, not a claim\nof changed hidden/expert dimensions.\nGreen nodes are historical only.\nIndex Q/K quantization is engine-specific.",
       "box": [
         2240,
-        2530,
+        2536.6,
         630,
-        150
+        195.0
       ],
       "change": "unchanged",
       "kind": "decoration",
@@ -4519,7 +4519,7 @@
           "locator": "config_diff.json + pinned SGLang Indexer backend"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fillColor=none;strokeColor=none;fillColor=none;fontColor=#435671;strokeColor=none;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fillColor=none;strokeColor=none;fillColor=none;fontColor=#435671;strokeColor=none;fontSize=20;fontFamily=Arial;spacing=4;fontStyle=0;"
     },
     {
       "id": "scope_limits",
@@ -4527,9 +4527,9 @@
       "description": "Config + model card + engine checked.\nNo full weights or tensor headers read.\nNo GPU inference executed.",
       "box": [
         2240,
-        2710,
+        2770.6,
         630,
-        120
+        156.0
       ],
       "change": "unchanged",
       "kind": "decoration",
@@ -4540,7 +4540,7 @@
           "locator": "Source inventory and checkpoint_summary.json"
         }
       ],
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontSize=20;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fillColor=none;strokeColor=none;fillColor=none;fontColor=#435671;strokeColor=none;"
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;whiteSpace=wrap;html=0;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;strokeColor=#718096;strokeWidth=1;fillColor=#f4f7fb;fillColor=none;strokeColor=none;fillColor=none;fontColor=#435671;strokeColor=none;fontSize=20;fontFamily=Arial;spacing=4;fontStyle=0;"
     }
   ],
   "edges": [
@@ -4550,11 +4550,12 @@
       "target": "ar_keys",
       "label": "",
       "ports": [
+        0.4581151832460733,
+        0,
         0.5,
-        0.0,
-        0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_1",
@@ -4563,10 +4564,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_2",
@@ -4575,10 +4577,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_3",
@@ -4587,10 +4590,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_4",
@@ -4599,10 +4603,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_5",
@@ -4610,11 +4615,12 @@
       "target": "ar_logits",
       "label": "",
       "ports": [
-        0.5,
-        0.0,
-        0.9,
-        1.0
-      ]
+        0.04736842105263158,
+        0,
+        0.9976190476190476,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_6",
@@ -4622,25 +4628,12 @@
       "target": "ar_values",
       "label": "",
       "ports": [
-        0.95,
+        0.9895287958115183,
         0,
-        0.5,
+        0.797752808988764,
         1
       ],
-      "points": [
-        [
-          862,
-          1040
-        ],
-        [
-          862,
-          750
-        ],
-        [
-          763.0,
-          750
-        ]
-      ]
+      "routing": "straight"
     },
     {
       "id": "connection_7",
@@ -4649,9 +4642,16 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
-        1.0,
+        0,
+        1,
         0.5
+      ],
+      "routing": "straight",
+      "points": [
+        [
+          763.0,
+          517.0
+        ]
       ]
     },
     {
@@ -4660,19 +4660,16 @@
       "target": "kda_q_linear",
       "label": "",
       "ports": [
-        0.5,
         0,
+        0.5,
         0.5,
         1
       ],
+      "routing": "straight",
       "points": [
         [
-          444,
-          2320
-        ],
-        [
           96.0,
-          2320
+          2372.0
         ]
       ]
     },
@@ -4683,10 +4680,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_10",
@@ -4695,10 +4693,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_11",
@@ -4707,10 +4706,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_12",
@@ -4719,10 +4719,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_13",
@@ -4730,21 +4731,12 @@
       "target": "kda_k_linear",
       "label": "",
       "ports": [
-        0.5,
+        0.0029411764705882353,
         0,
-        0.5,
+        0.8083333333333333,
         1
       ],
-      "points": [
-        [
-          444,
-          2320
-        ],
-        [
-          238.0,
-          2320
-        ]
-      ]
+      "routing": "straight"
     },
     {
       "id": "connection_14",
@@ -4753,10 +4745,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_15",
@@ -4765,10 +4758,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_16",
@@ -4777,10 +4771,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_17",
@@ -4789,10 +4784,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_18",
@@ -4800,21 +4796,12 @@
       "target": "kda_v_linear",
       "label": "",
       "ports": [
-        0.5,
+        0.3176470588235294,
         0,
         0.5,
         1
       ],
-      "points": [
-        [
-          444,
-          2320
-        ],
-        [
-          382.0,
-          2320
-        ]
-      ]
+      "routing": "straight"
     },
     {
       "id": "connection_19",
@@ -4823,10 +4810,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_20",
@@ -4835,10 +4823,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_21",
@@ -4847,10 +4836,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_22",
@@ -4858,21 +4848,12 @@
       "target": "kda_alpha_down",
       "label": "",
       "ports": [
-        0.5,
+        0.8470588235294118,
         0,
         0.5,
         1
       ],
-      "points": [
-        [
-          444,
-          2320
-        ],
-        [
-          562.0,
-          2320
-        ]
-      ]
+      "routing": "straight"
     },
     {
       "id": "connection_23",
@@ -4881,10 +4862,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_24",
@@ -4893,10 +4875,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_25",
@@ -4905,10 +4888,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_26",
@@ -4917,10 +4901,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_27",
@@ -4929,10 +4914,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_28",
@@ -4941,10 +4927,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_29",
@@ -4952,19 +4939,16 @@
       "target": "kda_beta_linear",
       "label": "",
       "ports": [
+        1,
         0.5,
-        0,
         0.5,
         1
       ],
+      "routing": "straight",
       "points": [
         [
-          444,
-          2320
-        ],
-        [
           704.0,
-          2320
+          2372.0
         ]
       ]
     },
@@ -4975,10 +4959,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_31",
@@ -4987,10 +4972,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_32",
@@ -5002,7 +4988,8 @@
         0,
         0.08139534883720931,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_33",
@@ -5014,7 +5001,8 @@
         0,
         0.2877906976744186,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_34",
@@ -5026,7 +5014,8 @@
         0,
         0.49709302325581395,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_35",
@@ -5038,7 +5027,8 @@
         0,
         0.7587209302325582,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_36",
@@ -5050,7 +5040,8 @@
         0,
         0.9651162790697675,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_37",
@@ -5062,7 +5053,8 @@
         0,
         0.5,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_38",
@@ -5071,10 +5063,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_39",
@@ -5083,10 +5076,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_40",
@@ -5094,19 +5088,16 @@
       "target": "kda_gate_linear",
       "label": "",
       "ports": [
+        1,
         0.5,
-        0,
         0.5,
         1
       ],
+      "routing": "straight",
       "points": [
         [
-          444,
-          2320
-        ],
-        [
           811.0,
-          2320
+          2372.0
         ]
       ]
     },
@@ -5117,10 +5108,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_42",
@@ -5129,9 +5121,16 @@
       "label": "output gate",
       "ports": [
         0.5,
-        0.0,
-        1.0,
+        0,
+        1,
         0.5
+      ],
+      "routing": "straight",
+      "points": [
+        [
+          811.0,
+          1489.0
+        ]
       ]
     },
     {
@@ -5141,10 +5140,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_44",
@@ -5153,10 +5153,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_45",
@@ -5165,10 +5166,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_46",
@@ -5177,10 +5179,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_47",
@@ -5189,10 +5192,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_48",
@@ -5201,10 +5205,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_49",
@@ -5213,10 +5218,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_50",
@@ -5225,10 +5231,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_51",
@@ -5237,10 +5244,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_52",
@@ -5249,10 +5257,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_53",
@@ -5261,10 +5270,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_54",
@@ -5273,10 +5283,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_55",
@@ -5285,10 +5296,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_56",
@@ -5297,10 +5309,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_57",
@@ -5309,10 +5322,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_58",
@@ -5321,10 +5335,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_59",
@@ -5332,21 +5347,12 @@
       "target": "moe_down",
       "label": "",
       "ports": [
-        0.5,
+        0.32729805013927576,
         0,
         0.5,
         1
       ],
-      "points": [
-        [
-          1735,
-          1126
-        ],
-        [
-          1611.0,
-          1126
-        ]
-      ]
+      "routing": "straight"
     },
     {
       "id": "connection_60",
@@ -5355,10 +5361,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_61",
@@ -5367,10 +5374,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_62",
@@ -5379,10 +5387,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_63",
@@ -5391,10 +5400,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_64",
@@ -5403,10 +5413,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_65",
@@ -5415,10 +5426,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_66",
@@ -5426,21 +5438,12 @@
       "target": "moe_shared",
       "label": "",
       "ports": [
-        0.5,
+        0.04178272980501393,
         0,
         0.5,
         1
       ],
-      "points": [
-        [
-          1735,
-          1126
-        ],
-        [
-          1406,
-          1126
-        ]
-      ]
+      "routing": "straight"
     },
     {
       "id": "connection_67",
@@ -5453,10 +5456,11 @@
         0,
         0.5
       ],
+      "routing": "straight",
       "points": [
         [
-          1406,
-          465
+          1406.0,
+          465.0
         ]
       ]
     },
@@ -5466,21 +5470,12 @@
       "target": "moe_router",
       "label": "",
       "ports": [
-        0.5,
+        0.5431754874651811,
         0,
         0.5,
         1
       ],
-      "points": [
-        [
-          1735,
-          1126
-        ],
-        [
-          1766.0,
-          1126
-        ]
-      ]
+      "routing": "straight"
     },
     {
       "id": "connection_69",
@@ -5488,21 +5483,12 @@
       "target": "moe_bank",
       "label": "selection",
       "ports": [
-        1,
-        0.5,
-        1,
-        0.5
+        0.35106382978723405,
+        0,
+        0.99609375,
+        1
       ],
-      "points": [
-        [
-          1872,
-          1060
-        ],
-        [
-          1872,
-          822
-        ]
-      ]
+      "routing": "straight"
     },
     {
       "id": "connection_70",
@@ -5515,10 +5501,11 @@
         1,
         0.5
       ],
+      "routing": "straight",
       "points": [
         [
-          1766,
-          706
+          1766.0,
+          706.0
         ]
       ]
     },
@@ -5528,11 +5515,12 @@
       "target": "ex_gate",
       "label": "",
       "ports": [
+        0.2459016393442623,
+        0,
         0.5,
-        0.0,
-        0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_72",
@@ -5541,10 +5529,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_73",
@@ -5557,10 +5546,11 @@
         0,
         0.5
       ],
+      "routing": "straight",
       "points": [
         [
           1950.0,
-          692
+          676.0
         ]
       ]
     },
@@ -5571,10 +5561,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_75",
@@ -5583,10 +5574,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_76",
@@ -5594,11 +5586,12 @@
       "target": "ex_up",
       "label": "",
       "ports": [
+        0.7786885245901639,
+        0,
         0.5,
-        0.0,
-        0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_77",
@@ -5607,10 +5600,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_78",
@@ -5623,10 +5617,11 @@
         1,
         0.5
       ],
+      "routing": "straight",
       "points": [
         [
           2080.0,
-          692
+          676.0
         ]
       ]
     },
@@ -5636,19 +5631,16 @@
       "target": "mla_q",
       "label": "",
       "ports": [
-        0.5,
         0,
+        0.5,
         0.5,
         1
       ],
+      "routing": "straight",
       "points": [
         [
-          1674,
-          2280
-        ],
-        [
           1450.0,
-          2280
+          2343.0
         ]
       ]
     },
@@ -5662,7 +5654,8 @@
         0,
         0.14634146341463414,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_82",
@@ -5674,7 +5667,8 @@
         0,
         0.5,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_83",
@@ -5683,10 +5677,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_84",
@@ -5696,19 +5691,10 @@
       "ports": [
         0.5,
         0,
-        0.5,
+        0.3155339805825243,
         1
       ],
-      "points": [
-        [
-          1674,
-          2280
-        ],
-        [
-          1750.0,
-          2280
-        ]
-      ]
+      "routing": "straight"
     },
     {
       "id": "connection_86",
@@ -5717,10 +5703,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_87",
@@ -5732,7 +5719,8 @@
         0,
         0.5,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_88",
@@ -5744,7 +5732,8 @@
         0,
         0.5,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_89",
@@ -5756,7 +5745,8 @@
         0,
         0.5156794425087108,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_90",
@@ -5768,7 +5758,8 @@
         0,
         0.8432055749128919,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_91",
@@ -5776,19 +5767,16 @@
       "target": "mla_gate",
       "label": "",
       "ports": [
+        1,
         0.5,
-        0,
         0.5,
         1
       ],
+      "routing": "straight",
       "points": [
         [
-          1674,
-          2280
-        ],
-        [
           2060.0,
-          2280
+          2343.0
         ]
       ]
     },
@@ -5799,10 +5787,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_93",
@@ -5810,15 +5799,16 @@
       "target": "mla_mul",
       "label": "",
       "ports": [
-        0.5,
         0,
-        1,
-        0.5
+        0.5,
+        0.5,
+        1
       ],
+      "routing": "straight",
       "points": [
         [
-          2060,
-          1608
+          1720.0,
+          1656.0
         ]
       ]
     },
@@ -5829,10 +5819,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_95",
@@ -5841,10 +5832,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_96",
@@ -5856,7 +5848,8 @@
         0,
         0.5,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_97",
@@ -5865,10 +5858,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_98",
@@ -5877,10 +5871,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_99",
@@ -5889,10 +5884,11 @@
       "label": "",
       "ports": [
         0.5,
-        0.0,
+        0,
         0.5,
-        1.0
-      ]
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_100",
@@ -5904,7 +5900,8 @@
         0.5,
         0,
         0.5
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_101",
@@ -5916,7 +5913,8 @@
         0.5,
         0,
         0.5
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_102",
@@ -5928,7 +5926,8 @@
         0.5,
         0,
         0.5
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_103",
@@ -5940,7 +5939,8 @@
         0.5,
         0,
         0.5
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_104",
@@ -5952,7 +5952,8 @@
         0.5,
         0,
         0.5
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_105",
@@ -5964,19 +5965,34 @@
         0.5,
         0,
         0.5
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_106",
       "source": "k_input",
       "target": "k_ar1",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_107",
       "source": "m_input",
       "target": "m_ar1",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_108",
@@ -5984,51 +6000,77 @@
       "target": "lm_repeat",
       "label": "",
       "ports": [
+        0.05,
         0,
-        0.5,
-        0,
-        0.5
+        0.023529411764705882,
+        1
       ],
-      "points": [
-        [
-          902,
-          2171.0
-        ],
-        [
-          902,
-          894
-        ]
-      ]
+      "routing": "straight"
     },
     {
       "id": "connection_109",
       "source": "vision_enc_norm1",
       "target": "vision_enc_attn",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_110",
       "source": "vision_enc_attn",
       "target": "vision_enc_add1",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_111",
       "source": "vision_enc_add1",
       "target": "vision_enc_norm2",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_112",
       "source": "vision_enc_norm2",
       "target": "vision_enc_ffn",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_113",
       "source": "vision_enc_ffn",
       "target": "vision_enc_add2",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_114",
@@ -6046,13 +6088,27 @@
       "id": "connection_115",
       "source": "vision_enc_add2",
       "target": "vision_pool",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_116",
       "source": "vision_projector",
       "target": "vision_out",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_117",
@@ -6060,45 +6116,70 @@
       "target": "vision_merge",
       "label": "",
       "ports": [
+        0.95,
         1,
-        0.5,
         0,
         0.5
       ],
       "points": [
         [
-          950,
-          2539
-        ],
-        [
-          950,
-          2618
+          858.5999999999999,
+          2651.0
         ]
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_118",
       "source": "vision_merge",
       "target": "vision_fused_detail",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_119",
       "source": "mini_text",
       "target": "mini_tokenizer",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_120",
       "source": "mini_tokenizer",
       "target": "mini_embed",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_121",
       "source": "mini_embed",
       "target": "mini_textvec",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_122",
@@ -6111,6 +6192,7 @@
         0,
         0.5
       ],
+      "routing": "straight",
       "points": [
         [
           1005.0,
@@ -6122,25 +6204,53 @@
       "id": "connection_123",
       "source": "mini_merge",
       "target": "lm_fused",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_124",
       "source": "mini_images",
       "target": "mini_pool",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_125",
       "source": "mini_pool",
       "target": "mini_projector",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_126",
       "source": "mini_projector",
       "target": "mini_visvec",
-      "label": ""
+      "label": "",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "connection_127",
@@ -6148,15 +6258,16 @@
       "target": "mini_merge",
       "label": "",
       "ports": [
-        0.5,
         0,
-        1,
-        0.5
+        0.5,
+        0.5,
+        1
       ],
+      "routing": "straight",
       "points": [
         [
-          1194,
-          2237.0
+          1102.0,
+          2299.0
         ]
       ]
     },
@@ -6169,7 +6280,8 @@
         0.14397905759162305,
         1
       ],
-      "id": "connection_128"
+      "id": "connection_128",
+      "routing": "straight"
     },
     {
       "source": "ar_blocks",
@@ -6180,7 +6292,8 @@
         0.4712041884816754,
         1
       ],
-      "id": "connection_129"
+      "id": "connection_129",
+      "routing": "straight"
     },
     {
       "source": "ar_partial",
@@ -6191,44 +6304,68 @@
         0.824607329842932,
         1
       ],
-      "id": "connection_130"
+      "id": "connection_130",
+      "routing": "straight"
     },
     {
       "id": "k31_link_mla_q__mla_qnorm",
       "source": "mla_q",
-      "target": "mla_qnorm"
+      "target": "mla_qnorm",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_mla_qnorm__mla_qup",
       "source": "mla_qnorm",
-      "target": "mla_qup"
+      "target": "mla_qup",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_mla_qup__mla_port_q",
       "source": "mla_qup",
-      "target": "mla_port_q"
+      "target": "mla_port_q",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_mla_compress__mla_kvnorm",
       "source": "mla_compress",
       "target": "mla_kvnorm",
       "ports": [
-        0.3,
+        0.3179611650485437,
         0,
         0.5,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_mla_compress__mla_k64",
       "source": "mla_compress",
       "target": "mla_k64",
       "ports": [
-        0.84,
+        0.8349514563106796,
         0,
         0.5,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_mla_kvnorm__mla_cache",
@@ -6237,9 +6374,10 @@
       "ports": [
         0.5,
         0,
-        0.32,
+        0.31343283582089554,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_mla_k64__mla_cache",
@@ -6248,30 +6386,52 @@
       "ports": [
         0.5,
         0,
-        0.84,
+        0.8432835820895522,
         1
-      ]
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_qr__idx_qproj",
       "source": "idx_qr",
       "target": "idx_qproj",
       "color": "#c62828",
-      "change": "added"
+      "change": "added",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_qproj__idx_qquant",
       "source": "idx_qproj",
       "target": "idx_qquant",
       "color": "#c62828",
-      "change": "added"
+      "change": "added",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_qquant__idx_q",
       "source": "idx_qquant",
       "target": "idx_q",
       "color": "#c62828",
-      "change": "added"
+      "change": "added",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_h__idx_kproj",
@@ -6284,55 +6444,92 @@
         1
       ],
       "color": "#c62828",
-      "change": "added"
+      "change": "added",
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_h__idx_wproj",
       "source": "idx_h",
       "target": "idx_wproj",
       "ports": [
-        0.8,
+        0.7857142857142857,
         0,
         0.5,
         1
       ],
       "color": "#c62828",
-      "change": "added"
+      "change": "added",
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_kproj__idx_knorm",
       "source": "idx_kproj",
       "target": "idx_knorm",
       "color": "#c62828",
-      "change": "added"
+      "change": "added",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_knorm__idx_kquant",
       "source": "idx_knorm",
       "target": "idx_kquant",
       "color": "#c62828",
-      "change": "added"
+      "change": "added",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_kquant__idx_cache",
       "source": "idx_kquant",
       "target": "idx_cache",
       "color": "#c62828",
-      "change": "added"
+      "change": "added",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_wproj__idx_scale",
       "source": "idx_wproj",
       "target": "idx_scale",
       "color": "#c62828",
-      "change": "added"
+      "change": "added",
+      "ports": [
+        0.5263157894736842,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_scale__idx_weights",
       "source": "idx_scale",
       "target": "idx_weights",
       "color": "#c62828",
-      "change": "added"
+      "change": "added",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_q__idx_dot",
@@ -6345,7 +6542,8 @@
         1
       ],
       "color": "#c62828",
-      "change": "added"
+      "change": "added",
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_cache__idx_dot",
@@ -6358,58 +6556,84 @@
         1
       ],
       "color": "#c62828",
-      "change": "added"
+      "change": "added",
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_dot__idx_relu",
       "source": "idx_dot",
       "target": "idx_relu",
       "color": "#c62828",
-      "change": "added"
+      "change": "added",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_relu__idx_sum",
       "source": "idx_relu",
       "target": "idx_sum",
       "color": "#c62828",
-      "change": "added"
+      "change": "added",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_sum__idx_mask",
       "source": "idx_sum",
       "target": "idx_mask",
       "color": "#c62828",
-      "change": "added"
+      "change": "added",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_mask__idx_topk",
       "source": "idx_mask",
       "target": "idx_topk",
       "color": "#c62828",
-      "change": "added"
+      "change": "added",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
     },
     {
       "id": "k31_link_idx_weights__idx_sum",
       "source": "idx_weights",
       "target": "idx_sum",
       "ports": [
-        1,
         0.5,
+        0,
         1,
         0.5
       ],
+      "color": "#c62828",
+      "change": "added",
+      "routing": "straight",
       "points": [
         [
-          2875,
-          1970
-        ],
-        [
-          2875,
-          1630
+          2770.0,
+          1630.0
         ]
-      ],
-      "color": "#c62828",
-      "change": "added"
+      ]
     },
     {
       "id": "k31_link_idx_topk__mla_attention",
@@ -6496,5 +6720,16 @@
       "num_nextn_predict_layers=0 in BOTH released configs; do not invent an MTP deletion",
       "Model-card 2.8T /104B are rounded; old report2.78T /104.2B are not evidence of changed model scale"
     ]
+  },
+  "routing_summary": {
+    "straight": 136,
+    "one_bend": 16,
+    "kept": 2
+  },
+  "presentation": {
+    "base": "Kimi-K3 reviewed layout",
+    "typography": "Arial / uniform heading, operator and detail levels",
+    "routing": "clear aligned straight segments first; one bend second; detour only around obstacles",
+    "notes": "Full annotations and model-diff classifications are preserved."
   }
 }

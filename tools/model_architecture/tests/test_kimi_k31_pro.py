@@ -80,16 +80,32 @@ class KimiK31DiffTests(unittest.TestCase):
         self.assertEqual(s['indexer_expected_parameter_delta']['total'],expected)
         self.assertFalse(s['weight_index_verified'])
 
-    def test_original_k3_layout_is_reused_and_operations_do_not_overlap(self):
+    def test_original_modules_and_branches_survive_layout_refinement(self):
         old=a.read(BASE/'examples/kimi_k3.graph.json');g=self.graph();a.validate(g)
         nodes={n['id']:n for n in g['nodes']}
-        for n in old['nodes']:
-            if n['id'].startswith(('kda_','ar_','moe_','ex_','vision_')):
-                self.assertEqual(nodes[n['id']]['box'],n['box'],n['id'])
+        self.assertTrue({n['id'] for n in old['nodes']}.issubset(nodes))
+        pairs={(e['source'],e['target']) for e in g['edges']}
+        for edge in old['edges']:
+            if edge['source'].startswith(('kda_','ar_','moe_','ex_','vision_')):
+                self.assertIn((edge['source'],edge['target']),pairs)
+        for binding in g['port_bindings'].values():
+            self.assertIn(binding['source'],nodes);self.assertIn(binding['target'],nodes)
         ops=[n for n in g['nodes'] if n.get('kind')!='decoration']
         for l,r in itertools.combinations(ops,2):
             x,y,w,h=l['box'];xx,yy,ww,hh=r['box']
             self.assertFalse(min(x+w,xx+ww)-max(x,xx)>1 and min(y+h,yy+hh)-max(y,yy)>1,(l['id'],r['id']))
+
+    def test_straight_connections_keep_same_graph_and_clear_routes(self):
+        graph=self.graph();layout=a.read(self.folder/'kimi_k31_pro_architecture.layout.json')
+        p.validate_layout(layout)
+        routes={r['id']:r for r in layout['routes']}
+        self.assertEqual(len(routes),len(graph['edges']))
+        self.assertGreaterEqual(sum(len(r['points'])==2 for r in routes.values()),130)
+        self.assertLessEqual(max(len(r['points']) for r in routes.values()),4)
+        for edge in graph['edges']:
+            self.assertEqual((routes[edge['id']]['source'],routes[edge['id']]['target']),(edge['source'],edge['target']))
+            if edge.get('routing')=='straight' and not edge.get('points'):
+                self.assertEqual(len(routes[edge['id']]['points']),2,edge['id'])
 
     def test_png_native_xml_and_diff_edge_colors_match(self):
         folder=self.folder;stem='kimi_k31_pro_architecture';g=self.graph()

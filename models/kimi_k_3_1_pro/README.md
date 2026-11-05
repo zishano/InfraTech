@@ -7,7 +7,7 @@
 - [逐节点来源](evidence.md) / [来源 URL](sources.json) / [获取结果与 SHA-256](source_inventory.json)
 - [参数及元数据核对摘要](checkpoint_summary.json)
 
-以之前 `kimi_k3_design_preview_v2` 的原生图数据为布局底稿，保留主干、AttnRes、KDA 五路输入、Stable LatentMoE 和 MoonViT-V2 的位置，在原 MLA 位置绘制 Gated DSA，并在右侧展开新增 Indexer。正式 PNG 直接从同名 draw.io 渲染，没有独立生成另一套连线。
+以之前 `kimi_k3_design_preview_v2` 的原生图数据为布局底稿，沿用主干、AttnRes、KDA 五路输入、Stable LatentMoE 和 MoonViT-V2 的模块分区，统一字号并对齐主链后，在原 MLA 位置绘制 Gated DSA，并在右侧展开新增 Indexer。正式 PNG 直接从同名 draw.io 渲染，没有独立生成另一套连线。
 
 ## 红 / 绿 / 黄的含义
 
@@ -93,3 +93,12 @@ python tools/model_architecture/model_architecture.py verify-png \
 ```
 
 `tools/model_architecture/model_diff.py` 可复用逐字段比较与红绿黄主题；模型专用构造器负责有来源支持的算子增删分类，避免从字段差异自动猜测网络拓扑。旧K3图及文件保持原样。
+
+
+## 连线和排版优化
+
+`tools/model_architecture/examples/kimi_k31_presentation.py` 将显示层与结构差异分开：统一 Arial 字体及标题／算子／细节层级，对齐 AttnRes 主链，精简节点文字，并扩大视觉细节区的行距。完整说明仍保留在节点 tooltip 和证据文档中。
+
+`tools/model_architecture/routing.py` 优先在两个节点间选择无障碍的同 x 或同 y 端口，直接连线；不能直连时尝试一个直角，再保留必要避让。所有 source/target 对保持不变，并检查无关算子边界及留白。此次实测154条连接中136条为直线、16条一个折点、2条两个折点，总折点由67减为20。
+
+PNG 和 draw.io 保持同源；优化后重新运行文字、节点避让、连线正交和穿框检查。

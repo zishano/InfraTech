@@ -174,7 +174,8 @@ def build():
    'HF safetensors metadata element counts are provider metadata, not an independent logical parameter recount.',
    'Q/K FP8 index-cache path is backend-specific; no NoPE RoPE or Hadamard operations are drawn.',
    'Shared K3 modules retain the reviewed report topology and are cross-checked against equal released config fields.','No GPU model execution or Feishu-client import test.']
- return g
+ from kimi_k31_presentation import present
+ return present(g)
 
 if __name__=='__main__':
  g=build();path=Path(__file__).with_name('kimi_k31_pro.graph.json');path.write_text(json.dumps(g,ensure_ascii=False,indent=2)+'\n');print(path,len(g['nodes']),'nodes',len(g['edges']),'edges')

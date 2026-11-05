@@ -97,13 +97,13 @@
     {
       "id": "diff_quant",
       "change": "parameter_changed",
-      "label": "PARAMETER / CONFIG ONLY\nQuantization ignore patterns: 6 → 8",
+      "label": "CONFIG ONLY\nMXFP4 exclusions: 6 →8 rules",
       "active": true
     },
     {
       "id": "diff_count",
       "change": "parameter_changed",
-      "label": "HF BF16 tensor-elements\n57,179,884,544 → 57,358,410,752\n+178,526,208 (matches new indexer)",
+      "label": "ADDED INDEXER PARAMETERS\n+178.53M BF16 elements\n(provider metadata; source-derived match)",
       "active": true
     },
     {
@@ -139,7 +139,7 @@
     {
       "id": "idx_qproj",
       "change": "added",
-      "label": "Linear Wq\n1536 → 32×128",
+      "label": "Linear Wq\n1536 →4096",
       "active": true
     },
     {
@@ -175,25 +175,25 @@
     {
       "id": "idx_cache",
       "change": "added",
-      "label": "Index key cache\n[T,128]",
+      "label": "Index K cache\n[T,128]",
       "active": true
     },
     {
       "id": "idx_wproj",
       "change": "added",
-      "label": "Linear Wweights\n7168 →32",
+      "label": "Linear (weights)\n7168 →32",
       "active": true
     },
     {
       "id": "idx_scale",
       "change": "added",
-      "label": "Scale\n32^-0.5 ×128^-0.5",
+      "label": "Scale\n1 / sqrt(32×128)",
       "active": true
     },
     {
       "id": "idx_weights",
       "change": "added",
-      "label": "Head weights [32]",
+      "label": "w [32]",
       "active": true
     },
     {
@@ -211,7 +211,7 @@
     {
       "id": "idx_sum",
       "change": "added",
-      "label": "Scale by head weights → Sum (heads)",
+      "label": "Weighted sum (heads)",
       "active": true
     },
     {

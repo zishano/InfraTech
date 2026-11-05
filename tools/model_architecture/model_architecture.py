@@ -250,7 +250,7 @@ def drawio(g, path):
         x,y,w,h=n['box'];ET.SubElement(c,'mxGeometry',x=str(x),y=str(y),width=str(w),height=str(h),attrib={'as':'geometry'})
     for i,e in enumerate(g['edges']):
         a,b,c,d=e.get('ports',[.5,0,.5,1])
-        routing='segmentEdgeStyle' if e.get('points') else 'orthogonalEdgeStyle'
+        routing=('none' if e.get('routing')=='straight' else 'segmentEdgeStyle' if e.get('points') else 'orthogonalEdgeStyle')
         edge_color=e.get('color','#333333')
         if not re.fullmatch(r'#[0-9a-fA-F]{6}',edge_color):
             raise ValueError('Invalid edge color')
