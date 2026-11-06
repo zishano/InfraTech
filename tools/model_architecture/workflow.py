@@ -15,6 +15,7 @@ CHECKS={
     'visual_expression':'Short operator labels, readable type hierarchy, adjacent panels, tensor-state insets.',
     'routing_and_layout':'Aligned straight edges first; required branches preserved; actual renderer checks.',
     'native_delivery':'Direct draw.io→PNG export, paired manifests and detailed-page consistency.',
+    'delivery_summary':'Brief overall composition/dataflow and module roles; total/active parameters with component scope, source and uncertainty.',
     'validation_and_sync':'Relevant checks, honest limitations, user-authorized branch commit/push.'
 }
 
@@ -45,6 +46,7 @@ def create_study(manifest,out,baseline=None):
       architecture=dict(main_layers=None,auxiliary_layers=None,layer_numbering=None,attention_paths=[],cache_contracts=[],unresolved=[]),
       version_diff=dict(themes=dict(added='red',removed='green',parameter_changed='yellow',unchanged='neutral'),
                         additions=[],removals=[],parameter_changes=[],baseline_clarifications=[]),
+      parameter_summary=dict(total=None,total_scope=None,active_prefill=None,active_decode=None,components=[],source=None,verification_scope='pending'),
       optimization_claims=[],
       claim_fields=['claim','classification: introduced/inherited/backend_specific/unverified','source_id','locator','applicable_backend_or_hardware','measurement_scope'],
       presentation=dict(style_reference=dict(model='GLM-5.3',commit='d8dc8ea',diagram='models/glm_5_3/glm_5_3_architecture.drawio'),
@@ -88,6 +90,12 @@ def create_study(manifest,out,baseline=None):
        '## 训练与软硬协同声明','',
        '| 声明 | 新增／沿用／后端实现／待核实 | 来源 | 适用硬件和后端 | 实测或资料声明 |',
        '| --- | --- | --- | --- | --- |','| 待审阅 | | | | |','',
+       '## 架构与参数简介','',
+       '- 整体构成／输入输出数据流：待填写。',
+       '- 主要模块作用：待填写。',
+       '- 总参数量／单位／包含组件／来源：待核对。',
+       '- 每token激活参数（prefill／decode）：待核对。',
+       '- 未公开或未独立核验的范围：待填写，不能用存储元素数冒充逻辑参数量。','',
        '## 交付','',
        '- 原生 draw.io、直接导出的 PNG、layout / export 记录：待生成。',
        '- GPU推理、数值等价、完整权重形状与飞书导入：未执行，不得声称通过。',

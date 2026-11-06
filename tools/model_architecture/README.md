@@ -203,3 +203,5 @@ python tools/model_architecture/model_architecture.py export-png \
 ### DeepSeek-V4.1-Flash / CED 与 CSA2
 
 [官方配置与源码核对图](../../models/deepseek_v4_1/flash/README.md)提供总览及独立配对的CSA2详细图。构造器为`examples/build_deepseek_v41_flash.py`和`examples/build_deepseek_v41_csa2.py`。沿用当前功能配色／无图例／连线维度／×N框风格，分别审阅CED、Full/Reindex/Reuse、分层候选、Engram、single-pass mHC、ViT及DSpark；不复用旧V4的CSA4/HCA128或GLM的MLA假设。源码参考路径与模型卡描述的部署优化分别注明，不把FP4模拟缓存画成已测物理打包。
+
+交付PNG/draw.io后，按[WORKFLOW第10节](WORKFLOW.md#10-画完图后的简短架构介绍)简述整体构成、主数据流、主要模块，以及总参／激活参数的来源和范围；简介与模型README同步。新任务模板保留parameter_summary待核对字段。

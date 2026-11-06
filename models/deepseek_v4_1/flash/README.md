@@ -87,3 +87,9 @@ python tools/model_architecture/model_architecture.py verify-png models/deepseek
 ```
 
 每张图保留同名layout与export记录，PNG直接由XML渲染。重建仅运行仓库中的绘图代码，不import或执行下载的模型源码。
+
+## 简短架构与参数说明
+
+整体由文本/图像输入、DeepSeek-ViT与图像投影、20层因果encoder＋20层decoder、词表输出头构成；主干每层使用CSA2、MoE和single-pass mHC，L1/L14另有Engram记忆。独立DSpark为草稿预测辅助路径，不计入40层。
+
+官方分别报告552B backbone与196B Engram，**已公布主体组件合计约748B（7480亿）**；这个合计不是已经独立核验、包含全部视觉/DSpark等参数的精确整模总量。模型卡没有明确逐项计入这些附加组件的精确总参，不能自行补齐。官方每token激活参数为prefill8B、decode16B。HF元数据报告763,205,315,794个存储元素，包含不同dtype与量化布局，不能将其直接称为独立核验的763.2B逻辑参数。
