@@ -1,0 +1,4823 @@
+{
+  "version": 1,
+  "title": "GLM-5.3 — IndexShare DSA + MoE",
+  "width": 2400,
+  "height": 2700,
+  "sources": {
+    "config": "https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json",
+    "card": "https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/README.md",
+    "model": "https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py",
+    "framework_config": "https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/configuration_glm_moe_dsa.py",
+    "baseline_index": "https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/model.safetensors.index.json"
+  },
+  "nodes": [
+    {
+      "id": "title",
+      "label": "GLM-5.3  |  IndexShare DSA + Mixture of Experts",
+      "description": "GLM-5.3  |  IndexShare DSA + Mixture of Experts",
+      "box": [
+        30,
+        10,
+        2340,
+        65
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=41;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "facts",
+      "label": "78 layers · hidden 6144 · 64 Q heads · 256 routed / top-8 + 1 shared · context 1M",
+      "description": "78 layers · hidden 6144 · 64 Q heads · 256 routed / top-8 + 1 shared · context 1M",
+      "box": [
+        30,
+        85,
+        2340,
+        50
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "scope",
+      "label": "Official FP8 release @ba32f8c · same base as GLM-5.2 · post-training gains · bottom-up flow",
+      "description": "Official FP8 release @ba32f8c · same base as GLM-5.2 · post-training gains · bottom-up flow",
+      "box": [
+        30,
+        140,
+        2340,
+        32
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "backbone",
+      "label": "",
+      "description": "",
+      "box": [
+        30,
+        180,
+        400,
+        1600
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;"
+    },
+    {
+      "id": "backbone_title",
+      "label": "Decoder backbone",
+      "description": "Decoder backbone",
+      "box": [
+        44,
+        190,
+        372,
+        50
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#526ab8;"
+    },
+    {
+      "id": "attention",
+      "label": "",
+      "description": "",
+      "box": [
+        460,
+        180,
+        950,
+        1600
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;"
+    },
+    {
+      "id": "attention_title",
+      "label": "DSA / MLA — unabsorbed operator view",
+      "description": "DSA / MLA — unabsorbed operator view",
+      "box": [
+        474,
+        190,
+        922,
+        50
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#cf861d;"
+    },
+    {
+      "id": "indexer",
+      "label": "",
+      "description": "",
+      "box": [
+        1450,
+        180,
+        920,
+        930
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;"
+    },
+    {
+      "id": "indexer_title",
+      "label": "DSA Indexer — FULL layers only (21 /78)",
+      "description": "DSA Indexer — FULL layers only (21 /78)",
+      "box": [
+        1464,
+        190,
+        892,
+        50
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#679336;"
+    },
+    {
+      "id": "moe",
+      "label": "",
+      "description": "",
+      "box": [
+        1450,
+        1140,
+        920,
+        640
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;"
+    },
+    {
+      "id": "moe_title",
+      "label": "MoE — layers 3…77 (0-based)",
+      "description": "MoE — layers 3…77 (0-based)",
+      "box": [
+        1464,
+        1150,
+        892,
+        50
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#298c87;"
+    },
+    {
+      "id": "mlp",
+      "label": "",
+      "description": "",
+      "box": [
+        30,
+        2170,
+        1000,
+        470
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;"
+    },
+    {
+      "id": "mlp_title",
+      "label": "SwiGLU — dense / routed / shared expert",
+      "description": "SwiGLU — dense / routed / shared expert",
+      "box": [
+        44,
+        2180,
+        972,
+        50
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#679336;"
+    },
+    {
+      "id": "aux",
+      "label": "",
+      "description": "",
+      "box": [
+        1070,
+        2170,
+        1300,
+        470
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;"
+    },
+    {
+      "id": "aux_title",
+      "label": "Auxiliary MTP and source scope",
+      "description": "Auxiliary MTP and source scope",
+      "box": [
+        1084,
+        2180,
+        1272,
+        50
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#75869d;"
+    },
+    {
+      "id": "main_config",
+      "label": "L0–2: Dense FFN\nL3–77: MoE FFN\nDSA: 21 FULL +57 SHARED\nMTP: separate index78",
+      "description": "L0–2: Dense FFN\nL3–77: MoE FFN\nDSA: 21 FULL +57 SHARED\nMTP: separate index78",
+      "box": [
+        65,
+        280,
+        330,
+        250
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "main_tokens",
+      "label": "Token IDs",
+      "description": "Token IDs",
+      "box": [
+        170.0,
+        1728.0,
+        120,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          90,
+          1730,
+          280,
+          40
+        ],
+        "lane_center": [
+          230.0,
+          1750.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "main_embed",
+      "label": "Embedding\n[154880,6144]",
+      "description": "Embedding [154880,6144]",
+      "box": [
+        140.0,
+        1646.0,
+        180,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          90,
+          1650,
+          280,
+          60
+        ],
+        "lane_center": [
+          230.0,
+          1680.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "main_x",
+      "label": "Layer input h",
+      "description": "Layer input h",
+      "box": [
+        152.0,
+        1563.0,
+        156,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          90,
+          1560,
+          280,
+          50
+        ],
+        "lane_center": [
+          230.0,
+          1585.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "main_n1",
+      "label": "RMSNorm",
+      "description": "RMSNorm",
+      "box": [
+        172.0,
+        1483.0,
+        116,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          90,
+          1480,
+          280,
+          50
+        ],
+        "lane_center": [
+          230.0,
+          1505.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "main_attn",
+      "label": "DSA",
+      "description": "DSA",
+      "box": [
+        100.0,
+        1400.0,
+        260,
+        60
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "composite",
+        "reserved_slot": [
+          90,
+          1400,
+          280,
+          60
+        ],
+        "lane_center": [
+          230.0,
+          1430.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "main_n2",
+      "label": "RMSNorm",
+      "description": "RMSNorm",
+      "box": [
+        172.0,
+        1243.0,
+        116,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          90,
+          1240,
+          280,
+          50
+        ],
+        "lane_center": [
+          230.0,
+          1265.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "main_ffn",
+      "label": "Dense FFN / MoE",
+      "description": "Dense FFN / MoE",
+      "box": [
+        100.0,
+        1160.0,
+        260,
+        60
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "composite",
+        "reserved_slot": [
+          90,
+          1160,
+          280,
+          60
+        ],
+        "lane_center": [
+          230.0,
+          1190.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "main_repeat",
+      "label": "Repeat 78 layers",
+      "description": "Repeat 78 layers",
+      "box": [
+        100.0,
+        965.0,
+        260,
+        60
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "composite",
+        "reserved_slot": [
+          90,
+          960,
+          280,
+          70
+        ],
+        "lane_center": [
+          230.0,
+          995.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "main_norm",
+      "label": "RMSNorm",
+      "description": "RMSNorm",
+      "box": [
+        172.0,
+        848.0,
+        116,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          90,
+          840,
+          280,
+          60
+        ],
+        "lane_center": [
+          230.0,
+          870.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "main_head",
+      "label": "LM head\n6144 →154880",
+      "description": "LM head →154880",
+      "box": [
+        140.0,
+        736.0,
+        180,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          90,
+          740,
+          280,
+          60
+        ],
+        "lane_center": [
+          230.0,
+          770.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "main_out",
+      "label": "Logits",
+      "description": "Logits",
+      "box": [
+        180.0,
+        648.0,
+        100,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          90,
+          640,
+          280,
+          60
+        ],
+        "lane_center": [
+          230.0,
+          670.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "main_add1",
+      "label": "+",
+      "description": "+",
+      "box": [
+        208,
+        1320,
+        44,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Decoder residual add after attention, 607–609"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;shape=ellipse;perimeter=ellipsePerimeter;fontSize=24;"
+    },
+    {
+      "id": "main_add2",
+      "label": "+",
+      "description": "+",
+      "box": [
+        208,
+        1080,
+        44,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Decoder residual add after MLP, 612–616"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;shape=ellipse;perimeter=ellipsePerimeter;fontSize=24;"
+    },
+    {
+      "id": "attn_dims",
+      "label": "Q rank2048 · KV rank512 · Q/K256 =192+RoPE64 · V256\nInterleaved RoPE64, theta8e6 · per-layer KV cache",
+      "description": "Q rank2048 · KV rank512 · Q/K256 =192+RoPE64 · V256\nInterleaved RoPE64, theta8e6 · per-layer KV cache",
+      "box": [
+        490,
+        260,
+        890,
+        100
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=21;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "attn_h",
+      "label": "h [6144]",
+      "description": "h [6144]",
+      "box": [
+        657.0,
+        1660.5,
+        536,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          650,
+          1650,
+          550,
+          65
+        ],
+        "lane_center": [
+          925.0,
+          1682.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_qa",
+      "label": "Linear Q down\n6144 →2048",
+      "description": "Linear Q down\n6144 →2048",
+      "box": [
+        580.0,
+        1541.0,
+        180,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          520,
+          1540,
+          300,
+          70
+        ],
+        "lane_center": [
+          670.0,
+          1575.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_qnorm",
+      "label": "RMSNorm\nQr [2048]",
+      "description": "RMSNorm → Qr [2048]",
+      "box": [
+        608.0,
+        1426.0,
+        124,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          520,
+          1430,
+          300,
+          60
+        ],
+        "lane_center": [
+          670.0,
+          1460.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_qup",
+      "label": "Linear Q up\n2048 →64×256",
+      "description": "Linear Q up\n2048 →64×256",
+      "box": [
+        580.0,
+        1321.0,
+        180,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          520,
+          1320,
+          300,
+          70
+        ],
+        "lane_center": [
+          670.0,
+          1355.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_qsplit",
+      "label": "Split Q: 192 |64",
+      "description": "Split Q: 192 |64",
+      "box": [
+        538.0,
+        1214.0,
+        264,
+        52
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          520,
+          1210,
+          300,
+          60
+        ],
+        "lane_center": [
+          670.0,
+          1240.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_qnope",
+      "label": "Q content192",
+      "description": "Q content192",
+      "box": [
+        507.0,
+        1108.0,
+        156,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          500,
+          1100,
+          170,
+          60
+        ],
+        "lane_center": [
+          585.0,
+          1130.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_qrope",
+      "label": "RoPE64",
+      "description": "RoPE64",
+      "box": [
+        731.0,
+        1108.0,
+        108,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          710,
+          1100,
+          150,
+          60
+        ],
+        "lane_center": [
+          785.0,
+          1130.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_qcat",
+      "label": "Concat Q [64,256]",
+      "description": "Concat Q [64,256]",
+      "box": [
+        584.0,
+        984.0,
+        212,
+        52
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          520,
+          980,
+          340,
+          60
+        ],
+        "lane_center": [
+          690.0,
+          1010.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_kvdown",
+      "label": "Linear KV down\n6144 →512+64",
+      "description": "Linear KV down\n6144 →512+64",
+      "box": [
+        1080.0,
+        1541.0,
+        180,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          990,
+          1540,
+          360,
+          70
+        ],
+        "lane_center": [
+          1170.0,
+          1575.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_kvsplit",
+      "label": "Split c512 | k64",
+      "description": "Split c512 | k64",
+      "box": [
+        1048.0,
+        1434.0,
+        244,
+        52
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          990,
+          1430,
+          360,
+          60
+        ],
+        "lane_center": [
+          1170.0,
+          1460.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_kvnorm",
+      "label": "RMSNorm512",
+      "description": "RMSNorm512",
+      "box": [
+        1001.0,
+        1328.0,
+        148,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          990,
+          1320,
+          170,
+          60
+        ],
+        "lane_center": [
+          1075.0,
+          1350.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_kvrope",
+      "label": "RoPE64",
+      "description": "RoPE64",
+      "box": [
+        1221.0,
+        1328.0,
+        108,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          1200,
+          1320,
+          150,
+          60
+        ],
+        "lane_center": [
+          1275.0,
+          1350.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_cache",
+      "label": "Latent KV cache\nc512 + positional key64",
+      "description": "Latent KV cache\nc512 + positional key64",
+      "box": [
+        1040.0,
+        1211.0,
+        260,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff2f3;strokeColor=#bf5b66;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "cache",
+        "reserved_slot": [
+          990,
+          1210,
+          360,
+          70
+        ],
+        "lane_center": [
+          1170.0,
+          1245.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_expand",
+      "label": "Linear KV up: 512 →64×448\nK192 + kPE64 bypass; V256",
+      "description": "Linear KV up: 512 →64×448\nK192 + kPE64 bypass; V256",
+      "box": [
+        1020.0,
+        1103.5,
+        300,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "composite",
+        "reserved_slot": [
+          990,
+          1100,
+          360,
+          75
+        ],
+        "lane_center": [
+          1170.0,
+          1137.5
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_k",
+      "label": "K [64,256]",
+      "description": "K [64,256]",
+      "box": [
+        1011.0,
+        988.0,
+        128,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          990,
+          980,
+          170,
+          60
+        ],
+        "lane_center": [
+          1075.0,
+          1010.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_v",
+      "label": "V [64,256]",
+      "description": "V [64,256]",
+      "box": [
+        1221.0,
+        988.0,
+        128,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          1200,
+          980,
+          170,
+          60
+        ],
+        "lane_center": [
+          1285.0,
+          1010.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_indices",
+      "label": "J: new / shared",
+      "description": "J: new / shared",
+      "box": [
+        501.0,
+        828.0,
+        208,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          490,
+          820,
+          230,
+          60
+        ],
+        "lane_center": [
+          605.0,
+          850.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_core",
+      "label": "Sparse attention\nSoftmax(QKᵀ / sqrt(256)) V",
+      "description": "Sparse attention\nQKᵀ / sqrt(256) → Softmax → ×V",
+      "box": [
+        818.0,
+        706.0,
+        324,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "composite",
+        "reserved_slot": [
+          610,
+          700,
+          740,
+          80
+        ],
+        "lane_center": [
+          980.0,
+          740.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_o",
+      "label": "Linear O\n64×256 →6144",
+      "description": "Linear O\n64×256 →6144",
+      "box": [
+        940.0,
+        581.0,
+        180,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          850,
+          580,
+          360,
+          70
+        ],
+        "lane_center": [
+          1030.0,
+          615.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "attn_out",
+      "label": "Attention output [6144]",
+      "description": "Attention output [6144]",
+      "box": [
+        896.0,
+        478.0,
+        268,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          850,
+          470,
+          360,
+          60
+        ],
+        "lane_center": [
+          1030.0,
+          500.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "index_scope",
+      "label": "32 heads ×128 · interleaved RoPE64 · LayerNorm on K\nSHARED layers reuse previous TopK; no new Q/K/weight projections",
+      "description": "32 heads ×128 · interleaved RoPE64 · LayerNorm on K\nSHARED layers reuse previous TopK; no new Q/K/weight projections",
+      "box": [
+        1480,
+        245,
+        860,
+        52
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fillColor=none;strokeColor=none;fontSize=16;"
+    },
+    {
+      "id": "idx_qr",
+      "label": "Qr [2048]",
+      "description": "Qr [2048]",
+      "box": [
+        1538.0,
+        1038.0,
+        124,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          1490,
+          1030,
+          220,
+          60
+        ],
+        "lane_center": [
+          1600.0,
+          1060.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "idx_h",
+      "label": "h [6144]",
+      "description": "h [6144]",
+      "box": [
+        1888.0,
+        1038.0,
+        324,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          1790,
+          1030,
+          520,
+          60
+        ],
+        "lane_center": [
+          2050.0,
+          1060.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "idx_qp",
+      "label": "Linear Qᵢ\n2048 →32×128",
+      "description": "Linear Qᵢ\n2048 →32×128",
+      "box": [
+        1510.0,
+        946.0,
+        180,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          1490,
+          950,
+          220,
+          60
+        ],
+        "lane_center": [
+          1600.0,
+          980.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "idx_qrpe",
+      "label": "RoPE64 + Concat",
+      "description": "RoPE64 + Concat",
+      "box": [
+        1502.0,
+        871.5,
+        196,
+        52
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          1490,
+          870,
+          220,
+          55
+        ],
+        "lane_center": [
+          1600.0,
+          897.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "idx_q",
+      "label": "Qᵢ [32,128]",
+      "description": "Qᵢ [32,128]",
+      "box": [
+        1530.0,
+        795.5,
+        140,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          1490,
+          790,
+          220,
+          55
+        ],
+        "lane_center": [
+          1600.0,
+          817.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "idx_kp",
+      "label": "Linear Kᵢ\n6144 →128",
+      "description": "Linear Kᵢ\n6144 →128",
+      "box": [
+        1810.0,
+        946.0,
+        180,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          1790,
+          950,
+          220,
+          60
+        ],
+        "lane_center": [
+          1900.0,
+          980.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "idx_kn",
+      "label": "LayerNorm128",
+      "description": "LayerNorm128",
+      "box": [
+        1818.0,
+        875.5,
+        164,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          1790,
+          870,
+          220,
+          55
+        ],
+        "lane_center": [
+          1900.0,
+          897.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "idx_krpe",
+      "label": "RoPE64 + Concat",
+      "description": "RoPE64 + Concat",
+      "box": [
+        1802.0,
+        791.5,
+        196,
+        52
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          1790,
+          790,
+          220,
+          55
+        ],
+        "lane_center": [
+          1900.0,
+          817.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "idx_cache",
+      "label": "Index key cache\n[T,128]",
+      "description": "Index key cache [T,128]",
+      "box": [
+        1804.0,
+        703.5,
+        192,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff2f3;strokeColor=#bf5b66;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "cache",
+        "reserved_slot": [
+          1790,
+          710,
+          220,
+          55
+        ],
+        "lane_center": [
+          1900.0,
+          737.5
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "idx_wp",
+      "label": "Linear (weights)\n6144 →32",
+      "description": "Linear (weights)\n6144 →32",
+      "box": [
+        2102.0,
+        946.0,
+        196,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          2090,
+          950,
+          220,
+          60
+        ],
+        "lane_center": [
+          2200.0,
+          980.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "idx_scale",
+      "label": "Scale: 32^-0.5",
+      "description": "Scale: 32^-0.5",
+      "box": [
+        2118.0,
+        875.5,
+        164,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          2090,
+          870,
+          220,
+          55
+        ],
+        "lane_center": [
+          2200.0,
+          897.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "idx_w",
+      "label": "w [32]",
+      "description": "w [32]",
+      "box": [
+        2150.0,
+        795.5,
+        100,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          2090,
+          790,
+          220,
+          55
+        ],
+        "lane_center": [
+          2200.0,
+          817.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "idx_dot",
+      "label": "Matmul (Qᵢ,Kᵢᵀ) / sqrt(128)",
+      "description": "Matmul (Qᵢ,Kᵢᵀ) / sqrt(128)",
+      "box": [
+        1593.0,
+        614.0,
+        324,
+        52
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          1500,
+          610,
+          510,
+          60
+        ],
+        "lane_center": [
+          1755.0,
+          640.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "idx_relu",
+      "label": "ReLU",
+      "description": "ReLU",
+      "box": [
+        1701.0,
+        535.5,
+        108,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          1500,
+          530,
+          510,
+          55
+        ],
+        "lane_center": [
+          1755.0,
+          557.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "idx_sum",
+      "label": "Weighted sum (heads)",
+      "description": "Weighted sum (heads)",
+      "box": [
+        1631.0,
+        451.5,
+        248,
+        52
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          1500,
+          450,
+          510,
+          55
+        ],
+        "lane_center": [
+          1755.0,
+          477.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "idx_mask",
+      "label": "Causal mask",
+      "description": "Causal mask",
+      "box": [
+        1685.0,
+        375.5,
+        140,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          1500,
+          370,
+          510,
+          55
+        ],
+        "lane_center": [
+          1755.0,
+          397.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "idx_topk",
+      "label": "TopK ≤2048 → J (int32)",
+      "description": "TopK ≤2048 → J (int32)",
+      "box": [
+        1625.0,
+        299.0,
+        260,
+        52
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaIndexer.__init__/forward, lines 153–242"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          1500,
+          300,
+          510,
+          50
+        ],
+        "lane_center": [
+          1755.0,
+          325.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "moe_h",
+      "label": "h [6144]",
+      "description": "h [6144]",
+      "box": [
+        1572.0,
+        1728.0,
+        656,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          1500,
+          1720,
+          800,
+          60
+        ],
+        "lane_center": [
+          1900.0,
+          1750.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "moe_router",
+      "label": "Linear → Sigmoid\nFP32 routing",
+      "description": "FP32 Linear → Sigmoid",
+      "box": [
+        1614.0,
+        1636.0,
+        192,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          1500,
+          1640,
+          420,
+          60
+        ],
+        "lane_center": [
+          1710.0,
+          1670.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "moe_choice",
+      "label": "+ correction bias → Top8",
+      "description": "+ correction bias → Top8",
+      "box": [
+        1578.0,
+        1568.0,
+        264,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          1500,
+          1560,
+          420,
+          60
+        ],
+        "lane_center": [
+          1710.0,
+          1590.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "moe_weights",
+      "label": "Gather original scores\nNormalize → ×2.5",
+      "description": "Gather original scores\nNormalize → ×2.5",
+      "box": [
+        1584.0,
+        1476.0,
+        252,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          1500,
+          1480,
+          420,
+          60
+        ],
+        "lane_center": [
+          1710.0,
+          1510.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "moe_experts",
+      "label": "256 routed experts /8 active\nSwiGLU: 6144→2048→6144",
+      "description": "256 routed experts /8 active\nSwiGLU: 6144→2048→6144",
+      "box": [
+        1548.0,
+        1396.0,
+        324,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "composite",
+        "reserved_slot": [
+          1500,
+          1400,
+          420,
+          60
+        ],
+        "lane_center": [
+          1710.0,
+          1430.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "moe_weighted",
+      "label": "Weight outputs → Sum",
+      "description": "Weight outputs → Sum",
+      "box": [
+        1588.0,
+        1324.0,
+        244,
+        52
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          1500,
+          1320,
+          420,
+          60
+        ],
+        "lane_center": [
+          1710.0,
+          1350.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "moe_shared",
+      "label": "Shared expert ×1\n6144→2048→6144",
+      "description": "Shared expert ×1\n6144→2048→6144",
+      "box": [
+        2100.0,
+        1411.0,
+        230,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "composite",
+        "reserved_slot": [
+          2100,
+          1400,
+          230,
+          90
+        ],
+        "lane_center": [
+          2215.0,
+          1445.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "moe_add",
+      "label": "+",
+      "description": "+",
+      "box": [
+        1688,
+        1240,
+        44,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;shape=ellipse;perimeter=ellipsePerimeter;fontSize=24;"
+    },
+    {
+      "id": "mlp_x",
+      "label": "x [6144]",
+      "description": "x [6144]",
+      "box": [
+        268.0,
+        2563.0,
+        564,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaMLP.forward 453–466; Experts.forward 523–547"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          230,
+          2560,
+          640,
+          50
+        ],
+        "lane_center": [
+          550.0,
+          2585.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "mlp_gate",
+      "label": "Linear (gate)\n6144 →m",
+      "description": "Linear (gate)\n6144 →m",
+      "box": [
+        230.0,
+        2476.0,
+        180,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaMLP.forward 453–466; Experts.forward 523–547"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          200,
+          2480,
+          240,
+          60
+        ],
+        "lane_center": [
+          320.0,
+          2510.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "mlp_up",
+      "label": "Linear (up)\n6144 →m",
+      "description": "Linear (up)\n6144 →m",
+      "box": [
+        730.0,
+        2476.0,
+        180,
+        68
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaMLP.forward 453–466; Experts.forward 523–547"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          700,
+          2480,
+          240,
+          60
+        ],
+        "lane_center": [
+          820.0,
+          2510.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "mlp_silu",
+      "label": "SiLU",
+      "description": "SiLU",
+      "box": [
+        266.0,
+        2403.0,
+        108,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaMLP.forward 453–466; Experts.forward 523–547"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          200,
+          2400,
+          240,
+          50
+        ],
+        "lane_center": [
+          320.0,
+          2425.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "mlp_mul",
+      "label": "×",
+      "description": "×",
+      "box": [
+        528,
+        2320,
+        44,
+        44
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaMLP.forward 453–466; Experts.forward 523–547"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;shape=ellipse;perimeter=ellipsePerimeter;fontSize=24;"
+    },
+    {
+      "id": "mlp_down",
+      "label": "Linear (down): m →6144",
+      "description": "Linear (down): m →6144",
+      "box": [
+        427.0,
+        2237.5,
+        256,
+        60
+      ],
+      "kind": "operation",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "GlmMoeDsaMLP.forward 453–466; Experts.forward 523–547"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          380,
+          2240,
+          350,
+          55
+        ],
+        "lane_center": [
+          555.0,
+          2267.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
+    },
+    {
+      "id": "mlp_width",
+      "label": "m=12288 for first3 dense layers; m=2048 for routed/shared experts",
+      "description": "m=12288 for first3 dense layers; m=2048 for routed/shared experts",
+      "box": [
+        70,
+        2615,
+        920,
+        38
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "aux_modules",
+      "label": "MTP ×1 — inherited base view; target config verified",
+      "description": "MTP ×1 — inherited base view; target config verified",
+      "box": [
+        1100,
+        2250,
+        560,
+        60
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "mtp_norms",
+      "label": "enorm / hnorm",
+      "description": "enorm / hnorm",
+      "box": [
+        1110,
+        2350,
+        170,
+        75
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "baseline_index",
+          "locator": "GLM-5.2 baseline only; target topology supported by matching config + model card: model.layers.78 auxiliary parameter names in official weight index"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;"
+    },
+    {
+      "id": "mtp_projection",
+      "label": "eh_proj",
+      "description": "eh_proj",
+      "box": [
+        1300,
+        2350,
+        150,
+        75
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "baseline_index",
+          "locator": "GLM-5.2 baseline only; target topology supported by matching config + model card: model.layers.78 auxiliary parameter names in official weight index"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;"
+    },
+    {
+      "id": "mtp_block",
+      "label": "DSA / MoE",
+      "description": "DSA / MoE",
+      "box": [
+        1470,
+        2350,
+        170,
+        75
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "baseline_index",
+          "locator": "GLM-5.2 baseline only; target topology supported by matching config + model card: model.layers.78 auxiliary parameter names in official weight index"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;"
+    },
+    {
+      "id": "mtp_headnorm",
+      "label": "shared_head.norm",
+      "description": "shared_head.norm",
+      "box": [
+        1200,
+        2480,
+        360,
+        55
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "baseline_index",
+          "locator": "GLM-5.2 baseline only; target topology supported by matching config + model card: model.layers.78.shared_head.norm.weight"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;"
+    },
+    {
+      "id": "mtp_scope",
+      "label": "Own indexer; MTP-iteration share flag=true (backend)",
+      "description": "Own indexer; MTP-iteration share flag=true (backend)",
+      "box": [
+        1100,
+        2570,
+        560,
+        45
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "aux_scope",
+      "label": "FP8 release / deployment config\nE4M3 · dynamic activation\nWeight blocks 128 ×128\n541 exclusions; no extra network branch",
+      "description": "FP8 release / deployment config\nE4M3 · dynamic activation\nWeight blocks 128 ×128\n541 exclusions; no extra network branch",
+      "box": [
+        1710,
+        2270,
+        620,
+        260
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/quantization_config"
+        },
+        {
+          "source": "card",
+          "locator": "Introduction: same base model as GLM-5.2; gains from post-training"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=21;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "footer",
+      "label": "Sources: GLM-5.3 @ba32f8c · Transformers @8833c91 · same base as 5.2; target weight-index download blocked (see README)",
+      "description": "Sources: GLM-5.3 @ba32f8c · Transformers @8833c91 · same base as 5.2; target weight-index download blocked (see README)",
+      "box": [
+        40,
+        2658,
+        2320,
+        38
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "config.json"
+        },
+        {
+          "source": "config",
+          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+        }
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+    },
+    {
+      "id": "sharing",
+      "label": "",
+      "description": "",
+      "box": [
+        30,
+        1830,
+        2340,
+        300
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#493366;align=center;verticalAlign=middle;spacing=8;fillColor=#fbfaff;strokeColor=#7356a6;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3"
+        },
+        {
+          "source": "model",
+          "locator": "Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398"
+        }
+      ]
+    },
+    {
+      "id": "sharing_title",
+      "label": "IndexShare — reuse token positions across layers; keep KV caches independent",
+      "description": "IndexShare — reuse token positions across layers; keep KV caches independent",
+      "box": [
+        50,
+        1842,
+        2300,
+        50
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#493366;align=center;verticalAlign=middle;spacing=8;fillColor=#fbfaff;strokeColor=#7356a6;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3"
+        },
+        {
+          "source": "model",
+          "locator": "Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398"
+        }
+      ]
+    },
+    {
+      "id": "share_stage_0",
+      "label": "L2: FULL\ncompute J₂",
+      "description": "L2: FULL\ncompute J₂",
+      "box": [
+        130,
+        1940,
+        420,
+        75
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#493366;align=center;verticalAlign=middle;spacing=8;fillColor=#f5f0fc;strokeColor=#7356a6;strokeWidth=1.2;",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3"
+        },
+        {
+          "source": "model",
+          "locator": "Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398"
+        }
+      ]
+    },
+    {
+      "id": "share_stage_1",
+      "label": "L3: SHARED\nreuse J₂",
+      "description": "L3: SHARED\nreuse J₂",
+      "box": [
+        680,
+        1940,
+        420,
+        75
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#493366;align=center;verticalAlign=middle;spacing=8;fillColor=#fbfaff;strokeColor=#7356a6;strokeWidth=1.2;",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3"
+        },
+        {
+          "source": "model",
+          "locator": "Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398"
+        }
+      ]
+    },
+    {
+      "id": "share_stage_2",
+      "label": "L4: SHARED\nreuse J₂",
+      "description": "L4: SHARED\nreuse J₂",
+      "box": [
+        1230,
+        1940,
+        420,
+        75
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#493366;align=center;verticalAlign=middle;spacing=8;fillColor=#fbfaff;strokeColor=#7356a6;strokeWidth=1.2;",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3"
+        },
+        {
+          "source": "model",
+          "locator": "Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398"
+        }
+      ]
+    },
+    {
+      "id": "share_stage_3",
+      "label": "L5: SHARED\nreuse J₂",
+      "description": "L5: SHARED\nreuse J₂",
+      "box": [
+        1780,
+        1940,
+        420,
+        75
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#493366;align=center;verticalAlign=middle;spacing=8;fillColor=#fbfaff;strokeColor=#7356a6;strokeWidth=1.2;",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3"
+        },
+        {
+          "source": "model",
+          "locator": "Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398"
+        }
+      ]
+    },
+    {
+      "id": "sharing_note",
+      "label": "0-based: L0 /L1 also FULL. Next groups: L6 FULL →L7–9 SHARED; …; L74 FULL →L75–77 SHARED.\nJ is reused within the same forward query; it is not the previous decode token’s selection.",
+      "description": "0-based: L0 /L1 also FULL. Next groups: L6 FULL →L7–9 SHARED; …; L74 FULL →L75–77 SHARED.\nJ is reused within the same forward query; it is not the previous decode token’s selection.",
+      "box": [
+        70,
+        2030,
+        2260,
+        80
+      ],
+      "kind": "decoration",
+      "status": "verified",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#493366;align=center;verticalAlign=middle;spacing=8;fillColor=#fbfaff;strokeColor=#7356a6;strokeWidth=1.2;fontSize=19;fillColor=none;strokeColor=none;",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3"
+        },
+        {
+          "source": "model",
+          "locator": "Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_main_tokens__main_embed",
+      "source": "main_tokens",
+      "target": "main_embed",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_main_embed__main_x",
+      "source": "main_embed",
+      "target": "main_x",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_main_x__main_n1",
+      "source": "main_x",
+      "target": "main_n1",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_main_n1__main_attn",
+      "source": "main_n1",
+      "target": "main_attn",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_main_attn__main_add1",
+      "source": "main_attn",
+      "target": "main_add1",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_main_add1__main_n2",
+      "source": "main_add1",
+      "target": "main_n2",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_main_n2__main_ffn",
+      "source": "main_n2",
+      "target": "main_ffn",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_main_ffn__main_add2",
+      "source": "main_ffn",
+      "target": "main_add2",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_main_add2__main_repeat",
+      "source": "main_add2",
+      "target": "main_repeat",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_main_repeat__main_norm",
+      "source": "main_repeat",
+      "target": "main_norm",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_main_norm__main_head",
+      "source": "main_norm",
+      "target": "main_head",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_main_head__main_out",
+      "source": "main_head",
+      "target": "main_out",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_main_x__main_add1",
+      "source": "main_x",
+      "target": "main_add1",
+      "ports": [
+        0,
+        0.5,
+        0,
+        0.5
+      ],
+      "points": [
+        [
+          70,
+          1585
+        ],
+        [
+          70,
+          1342
+        ]
+      ]
+    },
+    {
+      "id": "e_main_add1__main_add2",
+      "source": "main_add1",
+      "target": "main_add2",
+      "ports": [
+        1,
+        0.5,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          390,
+          1342
+        ],
+        [
+          390,
+          1102
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_h__attn_qa",
+      "source": "attn_h",
+      "target": "attn_qa",
+      "ports": [
+        0.024253731343283583,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_qa__attn_qnorm",
+      "source": "attn_qa",
+      "target": "attn_qnorm",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_qnorm__attn_qup",
+      "source": "attn_qnorm",
+      "target": "attn_qup",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_qup__attn_qsplit",
+      "source": "attn_qup",
+      "target": "attn_qsplit",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_qsplit__attn_qnope",
+      "source": "attn_qsplit",
+      "target": "attn_qnope",
+      "ports": [
+        0.17803030303030304,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_qsplit__attn_qrope",
+      "source": "attn_qsplit",
+      "target": "attn_qrope",
+      "ports": [
+        0.9356060606060606,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_qnope__attn_qcat",
+      "source": "attn_qnope",
+      "target": "attn_qcat",
+      "ports": [
+        0.5,
+        0,
+        0.0047169811320754715,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_qrope__attn_qcat",
+      "source": "attn_qrope",
+      "target": "attn_qcat",
+      "ports": [
+        0.5,
+        0,
+        0.9481132075471698,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_h__attn_kvdown",
+      "source": "attn_h",
+      "target": "attn_kvdown",
+      "ports": [
+        0.957089552238806,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_kvdown__attn_kvsplit",
+      "source": "attn_kvdown",
+      "target": "attn_kvsplit",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_kvsplit__attn_kvnorm",
+      "source": "attn_kvsplit",
+      "target": "attn_kvnorm",
+      "ports": [
+        0.11065573770491803,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_kvnorm__attn_cache",
+      "source": "attn_kvnorm",
+      "target": "attn_cache",
+      "ports": [
+        0.5,
+        0,
+        0.1346153846153846,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_kvsplit__attn_kvrope",
+      "source": "attn_kvsplit",
+      "target": "attn_kvrope",
+      "ports": [
+        0.930327868852459,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_kvrope__attn_cache",
+      "source": "attn_kvrope",
+      "target": "attn_cache",
+      "ports": [
+        0.5,
+        0,
+        0.9038461538461539,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_cache__attn_expand",
+      "source": "attn_cache",
+      "target": "attn_expand",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_expand__attn_k",
+      "source": "attn_expand",
+      "target": "attn_k",
+      "ports": [
+        0.18333333333333332,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_expand__attn_v",
+      "source": "attn_expand",
+      "target": "attn_v",
+      "ports": [
+        0.8833333333333333,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_qcat__attn_core",
+      "source": "attn_qcat",
+      "target": "attn_core",
+      "ports": [
+        1,
+        0.5,
+        0.5,
+        1
+      ],
+      "routing": "straight",
+      "points": [
+        [
+          980.0,
+          1010.0
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_k__attn_core",
+      "source": "attn_k",
+      "target": "attn_core",
+      "ports": [
+        0.5,
+        0,
+        0.7932098765432098,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_v__attn_core",
+      "source": "attn_v",
+      "target": "attn_core",
+      "ports": [
+        0.5,
+        0,
+        1,
+        0.5
+      ],
+      "routing": "straight",
+      "points": [
+        [
+          1285.0,
+          740.0
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_indices__attn_core",
+      "source": "attn_indices",
+      "target": "attn_core",
+      "ports": [
+        0.5,
+        0,
+        0,
+        0.5
+      ],
+      "routing": "straight",
+      "points": [
+        [
+          605.0,
+          740.0
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_core__attn_o",
+      "source": "attn_core",
+      "target": "attn_o",
+      "ports": [
+        0.654320987654321,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_attn_o__attn_out",
+      "source": "attn_o",
+      "target": "attn_out",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_qr__idx_qp",
+      "source": "idx_qr",
+      "target": "idx_qp",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_qp__idx_qrpe",
+      "source": "idx_qp",
+      "target": "idx_qrpe",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_qrpe__idx_q",
+      "source": "idx_qrpe",
+      "target": "idx_q",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_h__idx_kp",
+      "source": "idx_h",
+      "target": "idx_kp",
+      "ports": [
+        0.037037037037037035,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_kp__idx_kn",
+      "source": "idx_kp",
+      "target": "idx_kn",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_kn__idx_krpe",
+      "source": "idx_kn",
+      "target": "idx_krpe",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_krpe__idx_cache",
+      "source": "idx_krpe",
+      "target": "idx_cache",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_h__idx_wp",
+      "source": "idx_h",
+      "target": "idx_wp",
+      "ports": [
+        0.9629629629629629,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_wp__idx_scale",
+      "source": "idx_wp",
+      "target": "idx_scale",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_scale__idx_w",
+      "source": "idx_scale",
+      "target": "idx_w",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_q__idx_dot",
+      "source": "idx_q",
+      "target": "idx_dot",
+      "ports": [
+        0.5,
+        0,
+        0.021604938271604937,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_cache__idx_dot",
+      "source": "idx_cache",
+      "target": "idx_dot",
+      "ports": [
+        0.5,
+        0,
+        0.9475308641975309,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_dot__idx_relu",
+      "source": "idx_dot",
+      "target": "idx_relu",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_relu__idx_sum",
+      "source": "idx_relu",
+      "target": "idx_sum",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_sum__idx_mask",
+      "source": "idx_sum",
+      "target": "idx_mask",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_mask__idx_topk",
+      "source": "idx_mask",
+      "target": "idx_topk",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_idx_w__idx_sum",
+      "source": "idx_w",
+      "target": "idx_sum",
+      "ports": [
+        0.5,
+        0,
+        1,
+        0.5
+      ],
+      "routing": "straight",
+      "points": [
+        [
+          2200.0,
+          477.5
+        ]
+      ]
+    },
+    {
+      "id": "e_moe_h__moe_router",
+      "source": "moe_h",
+      "target": "moe_router",
+      "ports": [
+        0.21036585365853658,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_moe_router__moe_choice",
+      "source": "moe_router",
+      "target": "moe_choice",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_moe_choice__moe_weights",
+      "source": "moe_choice",
+      "target": "moe_weights",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_moe_weights__moe_experts",
+      "source": "moe_weights",
+      "target": "moe_experts",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_moe_experts__moe_weighted",
+      "source": "moe_experts",
+      "target": "moe_weighted",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_moe_weighted__moe_add",
+      "source": "moe_weighted",
+      "target": "moe_add",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_moe_h__moe_shared",
+      "source": "moe_h",
+      "target": "moe_shared",
+      "ports": [
+        0.9801829268292683,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_moe_shared__moe_add",
+      "source": "moe_shared",
+      "target": "moe_add",
+      "ports": [
+        0.5,
+        0,
+        1,
+        0.5
+      ],
+      "routing": "straight",
+      "points": [
+        [
+          2215.0,
+          1262.0
+        ]
+      ]
+    },
+    {
+      "id": "e_mlp_x__mlp_gate",
+      "source": "mlp_x",
+      "target": "mlp_gate",
+      "ports": [
+        0.09219858156028368,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_mlp_gate__mlp_silu",
+      "source": "mlp_gate",
+      "target": "mlp_silu",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_mlp_silu__mlp_mul",
+      "source": "mlp_silu",
+      "target": "mlp_mul",
+      "ports": [
+        1,
+        0.5,
+        0.5,
+        1
+      ],
+      "routing": "straight",
+      "points": [
+        [
+          550.0,
+          2425.0
+        ]
+      ]
+    },
+    {
+      "id": "e_mlp_mul__mlp_down",
+      "source": "mlp_mul",
+      "target": "mlp_down",
+      "ports": [
+        0.5,
+        0,
+        0.48046875,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_mlp_x__mlp_up",
+      "source": "mlp_x",
+      "target": "mlp_up",
+      "ports": [
+        0.9787234042553191,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight"
+    },
+    {
+      "id": "e_mlp_up__mlp_mul",
+      "source": "mlp_up",
+      "target": "mlp_mul",
+      "ports": [
+        0,
+        0.5,
+        0.5,
+        1
+      ],
+      "routing": "straight",
+      "points": [
+        [
+          550.0,
+          2510.0
+        ]
+      ]
+    },
+    {
+      "id": "share_transfer_1",
+      "source": "share_stage_0",
+      "target": "share_stage_1",
+      "ports": [
+        1,
+        0.5,
+        0,
+        0.5
+      ],
+      "routing": "straight",
+      "color": "#7356a6",
+      "role": "index_share_illustration"
+    },
+    {
+      "id": "share_transfer_2",
+      "source": "share_stage_1",
+      "target": "share_stage_2",
+      "ports": [
+        1,
+        0.5,
+        0,
+        0.5
+      ],
+      "routing": "straight",
+      "color": "#7356a6",
+      "role": "index_share_illustration"
+    },
+    {
+      "id": "share_transfer_3",
+      "source": "share_stage_2",
+      "target": "share_stage_3",
+      "ports": [
+        1,
+        0.5,
+        0,
+        0.5
+      ],
+      "routing": "straight",
+      "color": "#7356a6",
+      "role": "index_share_illustration"
+    }
+  ],
+  "limitations": [
+    "Official model card states the same base as GLM-5.2; core configuration and pinned implementation match.",
+    "GLM-5.3 weight-index download blocked by proxy at official CDN; baseline weight-index citations are explicitly marked and do not verify target weights.",
+    "FP8 overlay describes release configuration, not added model operators or a verified backend execution graph.",
+    "MTP auxiliary structure inherited from matching config/base; no target tensor-name or backend-iteration verification.",
+    "No tensor headers, full weights, GPU inference, benchmark or Feishu import tested."
+  ],
+  "port_bindings": {
+    "Qr": {
+      "source": "attn_qnorm",
+      "target": "idx_qr",
+      "shape": [
+        "B",
+        "T",
+        2048
+      ]
+    },
+    "h_index": {
+      "source": "attn_h",
+      "target": "idx_h",
+      "shape": [
+        "B",
+        "T",
+        6144
+      ]
+    },
+    "J": {
+      "source": "idx_topk",
+      "target": "attn_indices",
+      "shape": [
+        "B",
+        "T",
+        "min(2048,context)"
+      ],
+      "condition": "FULL layer only: compute fresh indices"
+    },
+    "attention": {
+      "source": "main_n1",
+      "target": "attn_h",
+      "shape": [
+        "B",
+        "T",
+        6144
+      ]
+    },
+    "ffn": {
+      "source": "main_n2",
+      "target": "moe_h",
+      "shape": [
+        "B",
+        "T",
+        6144
+      ]
+    },
+    "previous_J": {
+      "source": "share_stage_0",
+      "target": "attn_indices",
+      "shape": [
+        "B",
+        "T",
+        "min(2048,context)"
+      ],
+      "condition": "SHARED layers consume previous FULL layer indices in the same forward; schedule inset is illustrative"
+    }
+  },
+  "checkpoint": {
+    "revision": "ba32f8c19c8738e2c57c71798c601d477a7bf844",
+    "main_layers": 78,
+    "auxiliary_layers": 1,
+    "indexer_mode": "config: 21 FULL /57 SHARED",
+    "context": 1048576,
+    "weight_index_verified": false,
+    "release_quantization": {
+      "activation_scheme": "dynamic",
+      "fmt": "e4m3",
+      "quant_method": "fp8",
+      "weight_block_size": [
+        128,
+        128
+      ],
+      "modules_to_not_convert": [
+        "model.layers.59.post_attention_layernorm",
+        "model.layers.47.mlp.gate.e_score_correction_bias",
+        "model.layers.71.self_attn.kv_a_layernorm",
+        "model.layers.46.mlp.gate.e_score_correction_bias",
+        "model.layers.30.self_attn.kv_a_layernorm",
+        "model.layers.23.self_attn.kv_a_layernorm",
+        "model.layers.73.mlp.gate.e_score_correction_bias",
+        "model.layers.36.mlp.gate",
+        "model.layers.12.self_attn.q_a_layernorm",
+        "model.layers.51.mlp.gate",
+        "model.layers.47.self_attn.kv_a_layernorm",
+        "model.layers.45.self_attn.q_a_layernorm",
+        "model.layers.15.self_attn.q_a_layernorm",
+        "model.layers.39.input_layernorm",
+        "model.layers.50.self_attn.kv_a_layernorm",
+        "model.layers.19.post_attention_layernorm",
+        "model.layers.71.input_layernorm",
+        "model.layers.72.self_attn.kv_a_layernorm",
+        "model.layers.70.mlp.gate",
+        "model.layers.52.input_layernorm",
+        "model.layers.78.self_attn.kv_a_layernorm",
+        "model.layers.48.post_attention_layernorm",
+        "model.layers.4.self_attn.q_a_layernorm",
+        "model.layers.62.self_attn.q_a_layernorm",
+        "model.layers.4.post_attention_layernorm",
+        "model.layers.38.self_attn.indexers_proj",
+        "model.layers.61.mlp.gate.e_score_correction_bias",
+        "model.layers.14.mlp.gate.e_score_correction_bias",
+        "model.layers.36.self_attn.kv_a_layernorm",
+        "model.layers.65.mlp.gate",
+        "model.layers.13.self_attn.kv_a_layernorm",
+        "model.layers.57.mlp.gate",
+        "model.layers.65.self_attn.kv_a_layernorm",
+        "model.layers.68.input_layernorm",
+        "model.layers.70.self_attn.kv_a_layernorm",
+        "model.layers.24.mlp.gate.e_score_correction_bias",
+        "model.layers.4.input_layernorm",
+        "model.layers.20.input_layernorm",
+        "model.layers.65.self_attn.q_a_layernorm",
+        "model.layers.38.mlp.gate",
+        "model.layers.76.mlp.gate.e_score_correction_bias",
+        "model.layers.62.input_layernorm",
+        "model.layers.45.input_layernorm",
+        "model.layers.68.post_attention_layernorm",
+        "model.layers.72.input_layernorm",
+        "model.layers.32.mlp.gate.e_score_correction_bias",
+        "model.layers.27.input_layernorm",
+        "model.layers.16.post_attention_layernorm",
+        "model.layers.35.self_attn.q_a_layernorm",
+        "model.layers.58.self_attn.indexers_proj",
+        "model.layers.3.mlp.gate.e_score_correction_bias",
+        "model.layers.49.self_attn.q_a_layernorm",
+        "model.layers.66.mlp.gate.e_score_correction_bias",
+        "model.layers.10.self_attn.q_a_layernorm",
+        "model.layers.51.mlp.gate.e_score_correction_bias",
+        "model.layers.64.self_attn.q_a_layernorm",
+        "model.layers.70.input_layernorm",
+        "model.layers.71.post_attention_layernorm",
+        "model.layers.67.post_attention_layernorm",
+        "model.layers.6.self_attn.indexer.k_norm",
+        "model.layers.3.mlp.gate",
+        "model.layers.11.mlp.gate",
+        "model.layers.17.input_layernorm",
+        "model.layers.13.mlp.gate",
+        "model.layers.15.mlp.gate",
+        "model.layers.71.self_attn.q_a_layernorm",
+        "model.layers.33.mlp.gate.e_score_correction_bias",
+        "model.layers.72.mlp.gate.e_score_correction_bias",
+        "model.layers.65.post_attention_layernorm",
+        "model.layers.78.hnorm",
+        "model.layers.40.post_attention_layernorm",
+        "model.layers.12.mlp.gate.e_score_correction_bias",
+        "model.layers.8.input_layernorm",
+        "model.layers.73.mlp.gate",
+        "model.layers.11.post_attention_layernorm",
+        "model.layers.61.input_layernorm",
+        "model.layers.14.self_attn.kv_a_layernorm",
+        "model.layers.39.self_attn.kv_a_layernorm",
+        "model.layers.70.self_attn.indexer.k_norm",
+        "model.layers.45.mlp.gate",
+        "model.layers.51.self_attn.q_a_layernorm",
+        "model.layers.64.post_attention_layernorm",
+        "model.layers.20.post_attention_layernorm",
+        "model.layers.66.self_attn.kv_a_layernorm",
+        "model.layers.10.self_attn.indexer.k_norm.bias",
+        "model.layers.23.input_layernorm",
+        "model.layers.38.self_attn.indexer.k_norm",
+        "model.layers.19.self_attn.kv_a_layernorm",
+        "model.layers.40.self_attn.q_a_layernorm",
+        "model.layers.10.self_attn.indexer.k_norm",
+        "model.layers.44.post_attention_layernorm",
+        "model.layers.70.post_attention_layernorm",
+        "model.layers.41.mlp.gate.e_score_correction_bias",
+        "model.layers.36.post_attention_layernorm",
+        "model.layers.30.self_attn.indexer.k_norm.bias",
+        "model.layers.54.self_attn.q_a_layernorm",
+        "model.layers.59.mlp.gate",
+        "model.layers.69.post_attention_layernorm",
+        "lm_head",
+        "model.layers.77.self_attn.kv_a_layernorm",
+        "model.layers.75.self_attn.q_a_layernorm",
+        "model.layers.56.self_attn.q_a_layernorm",
+        "model.layers.50.self_attn.indexer.k_norm.bias",
+        "model.layers.54.mlp.gate",
+        "model.layers.6.self_attn.indexer.k_norm.bias",
+        "model.layers.15.input_layernorm",
+        "model.layers.29.self_attn.q_a_layernorm",
+        "model.layers.54.self_attn.indexers_proj",
+        "model.layers.73.self_attn.kv_a_layernorm",
+        "model.layers.0.self_attn.indexer.k_norm",
+        "model.layers.58.self_attn.indexer.k_norm",
+        "model.layers.36.input_layernorm",
+        "model.layers.47.self_attn.q_a_layernorm",
+        "model.layers.26.mlp.gate.e_score_correction_bias",
+        "model.layers.50.input_layernorm",
+        "model.layers.16.self_attn.q_a_layernorm",
+        "model.layers.19.mlp.gate.e_score_correction_bias",
+        "model.layers.78.input_layernorm",
+        "model.layers.27.mlp.gate",
+        "model.layers.19.self_attn.q_a_layernorm",
+        "model.layers.25.input_layernorm",
+        "model.layers.33.self_attn.kv_a_layernorm",
+        "model.layers.32.mlp.gate",
+        "model.layers.61.self_attn.kv_a_layernorm",
+        "model.layers.50.self_attn.indexers_proj",
+        "model.layers.34.self_attn.indexers_proj",
+        "model.layers.4.mlp.gate.e_score_correction_bias",
+        "model.layers.76.post_attention_layernorm",
+        "model.layers.57.post_attention_layernorm",
+        "model.layers.73.post_attention_layernorm",
+        "model.layers.68.mlp.gate.e_score_correction_bias",
+        "model.layers.34.self_attn.kv_a_layernorm",
+        "model.layers.78.enorm",
+        "model.layers.30.mlp.gate",
+        "model.layers.10.self_attn.indexers_proj",
+        "model.layers.34.input_layernorm",
+        "model.layers.34.post_attention_layernorm",
+        "model.layers.20.mlp.gate.e_score_correction_bias",
+        "model.layers.54.self_attn.indexer.k_norm.bias",
+        "model.layers.44.mlp.gate",
+        "model.layers.25.mlp.gate.e_score_correction_bias",
+        "model.layers.26.self_attn.indexers_proj",
+        "model.layers.66.self_attn.indexer.k_norm.bias",
+        "model.layers.41.post_attention_layernorm",
+        "model.layers.51.post_attention_layernorm",
+        "model.layers.22.self_attn.indexer.k_norm.bias",
+        "model.layers.21.mlp.gate.e_score_correction_bias",
+        "model.layers.15.self_attn.kv_a_layernorm",
+        "model.layers.25.self_attn.kv_a_layernorm",
+        "model.layers.55.mlp.gate",
+        "model.layers.11.self_attn.q_a_layernorm",
+        "model.layers.72.mlp.gate",
+        "model.layers.21.self_attn.kv_a_layernorm",
+        "model.layers.59.mlp.gate.e_score_correction_bias",
+        "model.layers.2.input_layernorm",
+        "model.layers.5.mlp.gate",
+        "model.layers.54.self_attn.kv_a_layernorm",
+        "model.layers.0.self_attn.indexers_proj",
+        "model.layers.71.mlp.gate.e_score_correction_bias",
+        "model.layers.6.self_attn.q_a_layernorm",
+        "model.layers.14.mlp.gate",
+        "model.layers.44.self_attn.kv_a_layernorm",
+        "model.layers.61.post_attention_layernorm",
+        "model.layers.64.self_attn.kv_a_layernorm",
+        "model.layers.1.post_attention_layernorm",
+        "model.layers.4.mlp.gate",
+        "model.layers.22.post_attention_layernorm",
+        "model.layers.21.self_attn.q_a_layernorm",
+        "model.layers.74.self_attn.q_a_layernorm",
+        "model.layers.18.self_attn.indexers_proj",
+        "model.layers.75.input_layernorm",
+        "model.layers.70.self_attn.q_a_layernorm",
+        "model.layers.22.self_attn.indexer.k_norm",
+        "model.layers.42.mlp.gate.e_score_correction_bias",
+        "model.layers.5.self_attn.kv_a_layernorm",
+        "model.layers.31.mlp.gate.e_score_correction_bias",
+        "model.layers.62.self_attn.indexer.k_norm.bias",
+        "model.layers.29.post_attention_layernorm",
+        "model.layers.6.self_attn.kv_a_layernorm",
+        "model.layers.48.input_layernorm",
+        "model.layers.74.self_attn.indexer.k_norm.bias",
+        "model.layers.7.input_layernorm",
+        "model.layers.39.self_attn.q_a_layernorm",
+        "model.layers.41.input_layernorm",
+        "model.layers.54.self_attn.indexer.k_norm",
+        "model.layers.32.self_attn.q_a_layernorm",
+        "model.layers.39.mlp.gate.e_score_correction_bias",
+        "model.layers.42.input_layernorm",
+        "model.layers.43.mlp.gate",
+        "model.layers.72.self_attn.q_a_layernorm",
+        "model.layers.37.mlp.gate.e_score_correction_bias",
+        "model.layers.5.post_attention_layernorm",
+        "model.layers.28.mlp.gate",
+        "model.layers.2.post_attention_layernorm",
+        "model.layers.49.post_attention_layernorm",
+        "model.layers.43.self_attn.kv_a_layernorm",
+        "model.layers.12.input_layernorm",
+        "model.layers.56.mlp.gate",
+        "model.layers.5.input_layernorm",
+        "model.layers.29.mlp.gate.e_score_correction_bias",
+        "model.layers.4.self_attn.kv_a_layernorm",
+        "model.layers.20.self_attn.q_a_layernorm",
+        "model.layers.59.self_attn.q_a_layernorm",
+        "model.layers.68.mlp.gate",
+        "model.layers.21.post_attention_layernorm",
+        "model.layers.26.self_attn.q_a_layernorm",
+        "model.layers.52.self_attn.q_a_layernorm",
+        "model.layers.29.self_attn.kv_a_layernorm",
+        "model.layers.24.input_layernorm",
+        "model.layers.34.self_attn.indexer.k_norm.bias",
+        "model.layers.43.input_layernorm",
+        "model.layers.27.self_attn.kv_a_layernorm",
+        "model.layers.31.input_layernorm",
+        "model.layers.69.mlp.gate",
+        "model.layers.26.post_attention_layernorm",
+        "model.layers.3.self_attn.q_a_layernorm",
+        "model.layers.37.post_attention_layernorm",
+        "model.layers.52.mlp.gate",
+        "model.layers.73.input_layernorm",
+        "model.layers.19.input_layernorm",
+        "model.layers.13.self_attn.q_a_layernorm",
+        "model.layers.76.input_layernorm",
+        "model.layers.8.mlp.gate",
+        "model.layers.63.post_attention_layernorm",
+        "model.layers.58.mlp.gate",
+        "model.layers.31.post_attention_layernorm",
+        "model.layers.23.mlp.gate.e_score_correction_bias",
+        "model.layers.34.self_attn.q_a_layernorm",
+        "model.layers.78.self_attn.indexer.k_norm.bias",
+        "model.layers.13.mlp.gate.e_score_correction_bias",
+        "model.layers.71.mlp.gate",
+        "model.layers.14.input_layernorm",
+        "model.layers.17.mlp.gate.e_score_correction_bias",
+        "model.layers.8.post_attention_layernorm",
+        "model.layers.45.self_attn.kv_a_layernorm",
+        "model.layers.46.self_attn.indexer.k_norm",
+        "model.layers.20.self_attn.kv_a_layernorm",
+        "model.layers.78.self_attn.indexer.k_norm",
+        "model.layers.37.mlp.gate",
+        "model.layers.7.mlp.gate",
+        "model.layers.30.mlp.gate.e_score_correction_bias",
+        "model.layers.67.mlp.gate",
+        "model.layers.73.self_attn.q_a_layernorm",
+        "model.layers.10.self_attn.kv_a_layernorm",
+        "model.layers.61.mlp.gate",
+        "model.layers.22.mlp.gate.e_score_correction_bias",
+        "model.layers.58.input_layernorm",
+        "model.layers.8.self_attn.kv_a_layernorm",
+        "model.layers.33.self_attn.q_a_layernorm",
+        "model.layers.55.self_attn.q_a_layernorm",
+        "model.layers.32.input_layernorm",
+        "model.layers.17.self_attn.kv_a_layernorm",
+        "model.layers.46.self_attn.indexer.k_norm.bias",
+        "model.layers.11.mlp.gate.e_score_correction_bias",
+        "model.layers.9.input_layernorm",
+        "model.layers.77.input_layernorm",
+        "model.layers.16.self_attn.kv_a_layernorm",
+        "model.layers.45.post_attention_layernorm",
+        "model.layers.74.mlp.gate",
+        "model.layers.68.self_attn.q_a_layernorm",
+        "model.layers.55.self_attn.kv_a_layernorm",
+        "model.layers.44.input_layernorm",
+        "model.layers.60.self_attn.kv_a_layernorm",
+        "model.layers.14.post_attention_layernorm",
+        "model.layers.62.self_attn.indexers_proj",
+        "model.layers.0.self_attn.q_a_layernorm",
+        "model.layers.72.post_attention_layernorm",
+        "model.layers.78.post_attention_layernorm",
+        "model.layers.60.mlp.gate.e_score_correction_bias",
+        "model.layers.26.self_attn.indexer.k_norm.bias",
+        "model.layers.38.post_attention_layernorm",
+        "model.layers.50.post_attention_layernorm",
+        "model.layers.28.input_layernorm",
+        "model.layers.30.self_attn.indexer.k_norm",
+        "model.layers.37.self_attn.q_a_layernorm",
+        "model.layers.56.input_layernorm",
+        "model.layers.27.post_attention_layernorm",
+        "model.layers.74.input_layernorm",
+        "model.layers.78.self_attn.q_a_layernorm",
+        "model.layers.42.self_attn.q_a_layernorm",
+        "model.layers.26.self_attn.indexer.k_norm",
+        "model.layers.42.self_attn.kv_a_layernorm",
+        "model.layers.1.self_attn.indexer.k_norm",
+        "model.layers.39.post_attention_layernorm",
+        "model.layers.48.mlp.gate.e_score_correction_bias",
+        "model.layers.74.post_attention_layernorm",
+        "model.layers.69.self_attn.q_a_layernorm",
+        "model.layers.13.input_layernorm",
+        "model.layers.74.self_attn.indexer.k_norm",
+        "model.layers.29.mlp.gate",
+        "model.layers.7.mlp.gate.e_score_correction_bias",
+        "model.layers.3.self_attn.kv_a_layernorm",
+        "model.layers.35.self_attn.kv_a_layernorm",
+        "model.layers.46.self_attn.indexers_proj",
+        "model.layers.0.self_attn.kv_a_layernorm",
+        "model.layers.43.self_attn.q_a_layernorm",
+        "model.norm",
+        "model.layers.1.self_attn.kv_a_layernorm",
+        "model.layers.38.self_attn.indexer.k_norm.bias",
+        "model.layers.30.self_attn.q_a_layernorm",
+        "model.layers.0.input_layernorm",
+        "model.layers.47.input_layernorm",
+        "model.layers.8.self_attn.q_a_layernorm",
+        "model.layers.61.self_attn.q_a_layernorm",
+        "model.layers.1.self_attn.indexer.k_norm.bias",
+        "model.layers.62.mlp.gate.e_score_correction_bias",
+        "model.layers.66.self_attn.q_a_layernorm",
+        "model.layers.46.self_attn.kv_a_layernorm",
+        "model.layers.66.mlp.gate",
+        "model.layers.69.input_layernorm",
+        "model.layers.69.self_attn.kv_a_layernorm",
+        "model.layers.22.input_layernorm",
+        "model.layers.30.post_attention_layernorm",
+        "model.layers.24.self_attn.q_a_layernorm",
+        "model.layers.48.mlp.gate",
+        "model.layers.7.self_attn.kv_a_layernorm",
+        "model.layers.67.input_layernorm",
+        "model.layers.27.self_attn.q_a_layernorm",
+        "model.layers.23.mlp.gate",
+        "model.layers.45.mlp.gate.e_score_correction_bias",
+        "model.layers.76.self_attn.kv_a_layernorm",
+        "model.layers.22.self_attn.q_a_layernorm",
+        "model.layers.78.mlp.gate",
+        "model.layers.9.mlp.gate",
+        "model.layers.57.self_attn.q_a_layernorm",
+        "model.layers.78.mlp.gate.e_score_correction_bias",
+        "model.layers.23.post_attention_layernorm",
+        "model.layers.38.self_attn.q_a_layernorm",
+        "model.layers.53.mlp.gate",
+        "model.layers.77.self_attn.q_a_layernorm",
+        "model.layers.62.self_attn.kv_a_layernorm",
+        "model.layers.12.mlp.gate",
+        "model.layers.34.self_attn.indexer.k_norm",
+        "model.layers.46.self_attn.q_a_layernorm",
+        "model.layers.36.self_attn.q_a_layernorm",
+        "model.layers.58.self_attn.indexer.k_norm.bias",
+        "model.layers.60.post_attention_layernorm",
+        "model.layers.28.post_attention_layernorm",
+        "model.layers.2.self_attn.kv_a_layernorm",
+        "model.layers.70.self_attn.indexers_proj",
+        "model.layers.16.mlp.gate.e_score_correction_bias",
+        "model.layers.2.self_attn.indexer.k_norm",
+        "model.layers.31.self_attn.kv_a_layernorm",
+        "model.layers.64.input_layernorm",
+        "model.layers.6.mlp.gate.e_score_correction_bias",
+        "model.layers.50.self_attn.indexer.k_norm",
+        "model.layers.58.self_attn.q_a_layernorm",
+        "model.layers.57.mlp.gate.e_score_correction_bias",
+        "model.layers.13.post_attention_layernorm",
+        "model.layers.28.self_attn.kv_a_layernorm",
+        "model.layers.31.self_attn.q_a_layernorm",
+        "model.layers.1.self_attn.q_a_layernorm",
+        "model.layers.17.mlp.gate",
+        "model.layers.15.post_attention_layernorm",
+        "model.layers.18.self_attn.indexer.k_norm.bias",
+        "model.layers.18.self_attn.indexer.k_norm",
+        "model.layers.43.mlp.gate.e_score_correction_bias",
+        "model.layers.11.input_layernorm",
+        "model.layers.9.post_attention_layernorm",
+        "model.layers.33.input_layernorm",
+        "model.layers.66.input_layernorm",
+        "model.layers.78.self_attn.indexers_proj",
+        "model.layers.54.post_attention_layernorm",
+        "model.layers.53.mlp.gate.e_score_correction_bias",
+        "model.layers.5.mlp.gate.e_score_correction_bias",
+        "model.layers.19.mlp.gate",
+        "model.layers.49.mlp.gate",
+        "model.layers.66.self_attn.indexers_proj",
+        "model.layers.14.self_attn.indexer.k_norm.bias",
+        "model.layers.41.mlp.gate",
+        "model.layers.42.self_attn.indexer.k_norm.bias",
+        "model.layers.65.input_layernorm",
+        "model.layers.75.mlp.gate",
+        "model.layers.12.self_attn.kv_a_layernorm",
+        "model.layers.53.input_layernorm",
+        "model.layers.58.self_attn.kv_a_layernorm",
+        "model.layers.60.self_attn.q_a_layernorm",
+        "model.layers.6.mlp.gate",
+        "model.layers.49.self_attn.kv_a_layernorm",
+        "model.layers.16.mlp.gate",
+        "model.layers.22.mlp.gate",
+        "model.layers.58.post_attention_layernorm",
+        "model.layers.15.mlp.gate.e_score_correction_bias",
+        "model.layers.26.input_layernorm",
+        "model.layers.3.post_attention_layernorm",
+        "model.layers.6.input_layernorm",
+        "model.layers.22.self_attn.kv_a_layernorm",
+        "model.layers.16.input_layernorm",
+        "model.layers.33.post_attention_layernorm",
+        "model.layers.17.post_attention_layernorm",
+        "model.layers.35.mlp.gate",
+        "model.layers.56.post_attention_layernorm",
+        "model.layers.7.self_attn.q_a_layernorm",
+        "model.layers.24.mlp.gate",
+        "model.layers.24.post_attention_layernorm",
+        "model.layers.36.mlp.gate.e_score_correction_bias",
+        "model.layers.56.mlp.gate.e_score_correction_bias",
+        "model.layers.32.post_attention_layernorm",
+        "model.layers.47.post_attention_layernorm",
+        "model.layers.40.mlp.gate",
+        "model.layers.41.self_attn.kv_a_layernorm",
+        "model.layers.52.self_attn.kv_a_layernorm",
+        "model.layers.9.self_attn.kv_a_layernorm",
+        "model.layers.77.mlp.gate.e_score_correction_bias",
+        "model.layers.78.shared_head.norm",
+        "model.layers.53.post_attention_layernorm",
+        "model.layers.63.self_attn.kv_a_layernorm",
+        "model.layers.48.self_attn.kv_a_layernorm",
+        "model.layers.28.mlp.gate.e_score_correction_bias",
+        "model.layers.8.mlp.gate.e_score_correction_bias",
+        "model.layers.52.mlp.gate.e_score_correction_bias",
+        "model.layers.52.post_attention_layernorm",
+        "model.layers.18.self_attn.q_a_layernorm",
+        "model.layers.50.mlp.gate.e_score_correction_bias",
+        "model.layers.64.mlp.gate.e_score_correction_bias",
+        "model.layers.38.mlp.gate.e_score_correction_bias",
+        "model.layers.59.input_layernorm",
+        "model.layers.21.input_layernorm",
+        "model.layers.39.mlp.gate",
+        "model.layers.77.post_attention_layernorm",
+        "model.layers.76.self_attn.q_a_layernorm",
+        "model.layers.12.post_attention_layernorm",
+        "model.layers.43.post_attention_layernorm",
+        "model.layers.35.input_layernorm",
+        "model.layers.62.mlp.gate",
+        "model.layers.38.self_attn.kv_a_layernorm",
+        "model.layers.63.mlp.gate",
+        "model.layers.27.mlp.gate.e_score_correction_bias",
+        "model.layers.18.mlp.gate",
+        "model.layers.25.post_attention_layernorm",
+        "model.layers.55.mlp.gate.e_score_correction_bias",
+        "model.layers.66.self_attn.indexer.k_norm",
+        "model.layers.48.self_attn.q_a_layernorm",
+        "model.layers.78.eh_proj",
+        "model.layers.77.mlp.gate",
+        "model.layers.6.self_attn.indexers_proj",
+        "model.layers.14.self_attn.q_a_layernorm",
+        "model.layers.2.self_attn.q_a_layernorm",
+        "model.layers.42.mlp.gate",
+        "model.layers.54.mlp.gate.e_score_correction_bias",
+        "model.layers.60.input_layernorm",
+        "model.layers.40.self_attn.kv_a_layernorm",
+        "model.layers.51.self_attn.kv_a_layernorm",
+        "model.layers.18.input_layernorm",
+        "model.layers.30.self_attn.indexers_proj",
+        "model.layers.53.self_attn.kv_a_layernorm",
+        "model.layers.6.post_attention_layernorm",
+        "model.layers.70.self_attn.indexer.k_norm.bias",
+        "model.layers.54.input_layernorm",
+        "model.layers.41.self_attn.q_a_layernorm",
+        "model.layers.18.mlp.gate.e_score_correction_bias",
+        "model.layers.34.mlp.gate.e_score_correction_bias",
+        "model.layers.47.mlp.gate",
+        "model.layers.46.mlp.gate",
+        "model.layers.25.self_attn.q_a_layernorm",
+        "model.layers.63.mlp.gate.e_score_correction_bias",
+        "model.layers.66.post_attention_layernorm",
+        "model.layers.76.mlp.gate",
+        "model.embed_tokens",
+        "model.layers.67.self_attn.kv_a_layernorm",
+        "model.layers.67.mlp.gate.e_score_correction_bias",
+        "model.layers.26.self_attn.kv_a_layernorm",
+        "model.layers.31.mlp.gate",
+        "model.layers.18.self_attn.kv_a_layernorm",
+        "model.layers.34.mlp.gate",
+        "model.layers.55.post_attention_layernorm",
+        "model.layers.30.input_layernorm",
+        "model.layers.50.mlp.gate",
+        "model.layers.63.input_layernorm",
+        "model.layers.11.self_attn.kv_a_layernorm",
+        "model.layers.24.self_attn.kv_a_layernorm",
+        "model.layers.75.mlp.gate.e_score_correction_bias",
+        "model.layers.10.post_attention_layernorm",
+        "model.layers.1.self_attn.indexers_proj",
+        "model.layers.42.self_attn.indexers_proj",
+        "model.layers.46.input_layernorm",
+        "model.layers.23.self_attn.q_a_layernorm",
+        "model.layers.63.self_attn.q_a_layernorm",
+        "model.layers.14.self_attn.indexer.k_norm",
+        "model.layers.14.self_attn.indexers_proj",
+        "model.layers.60.mlp.gate",
+        "model.layers.70.mlp.gate.e_score_correction_bias",
+        "model.layers.53.self_attn.q_a_layernorm",
+        "model.layers.0.post_attention_layernorm",
+        "model.layers.35.mlp.gate.e_score_correction_bias",
+        "model.layers.75.self_attn.kv_a_layernorm",
+        "model.layers.1.input_layernorm",
+        "model.layers.42.post_attention_layernorm",
+        "model.layers.37.input_layernorm",
+        "model.layers.9.mlp.gate.e_score_correction_bias",
+        "model.layers.46.post_attention_layernorm",
+        "model.layers.26.mlp.gate",
+        "model.layers.65.mlp.gate.e_score_correction_bias",
+        "model.layers.67.self_attn.q_a_layernorm",
+        "model.layers.44.mlp.gate.e_score_correction_bias",
+        "model.layers.33.mlp.gate",
+        "model.layers.29.input_layernorm",
+        "model.layers.18.post_attention_layernorm",
+        "model.layers.75.post_attention_layernorm",
+        "model.layers.44.self_attn.q_a_layernorm",
+        "model.layers.10.mlp.gate",
+        "model.layers.21.mlp.gate",
+        "model.layers.58.mlp.gate.e_score_correction_bias",
+        "model.layers.7.post_attention_layernorm",
+        "model.layers.50.self_attn.q_a_layernorm",
+        "model.layers.9.self_attn.q_a_layernorm",
+        "model.layers.2.self_attn.indexers_proj",
+        "model.layers.0.self_attn.indexer.k_norm.bias",
+        "model.layers.74.self_attn.kv_a_layernorm",
+        "model.layers.74.mlp.gate.e_score_correction_bias",
+        "model.layers.49.mlp.gate.e_score_correction_bias",
+        "model.layers.62.post_attention_layernorm",
+        "model.layers.57.self_attn.kv_a_layernorm",
+        "model.layers.40.input_layernorm",
+        "model.layers.69.mlp.gate.e_score_correction_bias",
+        "model.layers.35.post_attention_layernorm",
+        "model.layers.74.self_attn.indexers_proj",
+        "model.layers.55.input_layernorm",
+        "model.layers.49.input_layernorm",
+        "model.layers.40.mlp.gate.e_score_correction_bias",
+        "model.layers.25.mlp.gate",
+        "model.layers.2.self_attn.indexer.k_norm.bias",
+        "model.layers.68.self_attn.kv_a_layernorm",
+        "model.layers.51.input_layernorm",
+        "model.layers.22.self_attn.indexers_proj",
+        "model.layers.10.input_layernorm",
+        "model.layers.42.self_attn.indexer.k_norm",
+        "model.layers.56.self_attn.kv_a_layernorm",
+        "model.layers.17.self_attn.q_a_layernorm",
+        "model.layers.59.self_attn.kv_a_layernorm",
+        "model.layers.3.input_layernorm",
+        "model.layers.57.input_layernorm",
+        "model.layers.38.input_layernorm",
+        "model.layers.62.self_attn.indexer.k_norm",
+        "model.layers.20.mlp.gate",
+        "model.layers.64.mlp.gate",
+        "model.layers.28.self_attn.q_a_layernorm",
+        "model.layers.32.self_attn.kv_a_layernorm",
+        "model.layers.10.mlp.gate.e_score_correction_bias",
+        "model.layers.5.self_attn.q_a_layernorm",
+        "model.layers.37.self_attn.kv_a_layernorm"
+      ]
+    }
+  },
+  "presentation_policy": {
+    "operator_sizing": "text length and visual complexity",
+    "alignment": "preserve lane centers and branch rows",
+    "font": "consistent body size; wrap before shrinking",
+    "reference": "Approved GLM-5.1 adaptive operator layout; shared core fields and pinned implementation rechecked."
+  },
+  "routing_summary": {
+    "straight": 62,
+    "one_bend": 7,
+    "kept": 2
+  }
+}

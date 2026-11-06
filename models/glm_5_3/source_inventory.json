@@ -1,0 +1,50 @@
+[
+  {
+    "id": "config",
+    "url": "https://huggingface.co/zai-org/GLM-5.3/resolve/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json",
+    "status": "downloaded",
+    "bytes": 29464,
+    "sha256": "3ac72612095574542f7fff847ada8e59d9199dd8af44bdf625d7e02615572e69",
+    "resolved_revision": "ba32f8c19c8738e2c57c71798c601d477a7bf844"
+  },
+  {
+    "id": "card",
+    "url": "https://huggingface.co/zai-org/GLM-5.3/resolve/ba32f8c19c8738e2c57c71798c601d477a7bf844/README.md",
+    "status": "downloaded",
+    "bytes": 14209,
+    "sha256": "ed1c0a4563c437a32f8953d637a1db9bd831de1b24bd3062a5ace9e04340b1cf",
+    "resolved_revision": "ba32f8c19c8738e2c57c71798c601d477a7bf844"
+  },
+  {
+    "id": "index",
+    "url": "https://huggingface.co/zai-org/GLM-5.3/resolve/ba32f8c19c8738e2c57c71798c601d477a7bf844/model.safetensors.index.json",
+    "status": "lfs_pointer_only_download_blocked",
+    "bytes": 133,
+    "sha256": "d6be5f2fd14479e7d6d39abcadab846c5cd09a2358f467c6ad0aa13d6d4c324d",
+    "resolved_revision": "ba32f8c19c8738e2c57c71798c601d477a7bf844"
+  },
+  {
+    "id": "model",
+    "url": "https://raw.githubusercontent.com/huggingface/transformers/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py",
+    "status": "downloaded",
+    "bytes": 37275,
+    "sha256": "226f5a24b6aa15eca90bcc74e6bf1e2e887687ccfeb0d1ae28da4bf4c216038f",
+    "resolved_revision": "8833c9181eec925f1b4e0096db516462044345df"
+  },
+  {
+    "id": "framework_config",
+    "url": "https://raw.githubusercontent.com/huggingface/transformers/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/configuration_glm_moe_dsa.py",
+    "status": "downloaded",
+    "bytes": 7663,
+    "sha256": "4e0581bbc950f19b2e9cc6e08f300e592f59564b4a34a57b1af670c8ec5bb4dd",
+    "resolved_revision": "8833c9181eec925f1b4e0096db516462044345df"
+  },
+  {
+    "id": "metadata",
+    "url": "https://huggingface.co/api/models/zai-org/GLM-5.3",
+    "status": "downloaded",
+    "bytes": 43171,
+    "sha256": "68631d1eccfe4fb8b084e8beb9b49dc739d21dfa2dd1ec3e21c5401155fe725d",
+    "resolved_revision": "ba32f8c19c8738e2c57c71798c601d477a7bf844"
+  }
+]

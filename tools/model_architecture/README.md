@@ -191,3 +191,7 @@ python tools/model_architecture/model_architecture.py export-png \
 ### GLM-5.2 / IndexShare 示例
 
 [GLM-5.2架构图](../../models/glm_5_2/README.md) 与 `examples/build_glm52.py` 展示同一模型家族的安全复用：先核对共享核心字段与固定实现，再显式加入目标配置的21 FULL /57 SHARED层、首层例外、1M上下文和theta8e6。IndexShare说明带表示同一次查询的位置传递，不是KV共享或额外主干层；MTP迭代共享仅按已核对范围标注。
+
+### GLM-5.3 / 相同基座与量化发布
+
+[GLM-5.3架构图](../../models/glm_5_3/README.md) 与 `examples/build_glm53.py` 示范：用完整核心配置和实现哈希断言复用，区分后训练能力、FP8发布配置与网络结构。目标权重索引获取失败时明确保留边界，基线索引不能改名冒充本版权重证据。

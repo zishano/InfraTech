@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "model": "zai-org/GLM-5.3",
+  "revision": "ba32f8c19c8738e2c57c71798c601d477a7bf844",
+  "status": "reviewed_with_limits",
+  "baseline": "zai-org/GLM-5.2@cf457fa734ab149ffef225f80893eb38c6ff5cdc",
+  "confirmed": [
+    "Official model card: same base as GLM-5.2; all gains from post-training",
+    "All config fields equal except quantization_config and transformers_version",
+    "Pinned model/config implementation bytes identical to previously reviewed GLM-5.2",
+    "FP8 e4m3 dynamic activations, 128x128 weight blocks, 541 exclusion entries"
+  ],
+  "unresolved": [
+    "5.3 weight index download blocked; no target tensor-name/module-presence verification",
+    "No full weight/header, GPU, numerical accuracy, performance, or Feishu import test"
+  ],
+  "presentation": [
+    "Approved adaptive GLM5.1 layout reused via reviewed GLM5.2 core",
+    "Bottom-up; short labels; native XML is sole formal PNG source"
+  ]
+}

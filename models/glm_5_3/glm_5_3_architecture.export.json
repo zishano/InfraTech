@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "drawio_file": "glm_5_3_architecture.drawio",
+  "png_file": "glm_5_3_architecture.png",
+  "drawio_sha256": "c7919b81ce061edcac6469feb140055f64187b1421f1d4eb2d36c7cbc703e310",
+  "png_sha256": "badc36c4d019bf487c50a4d0a1e0f420ed2ff121d86c7e6f141d5855ae8a1cab",
+  "renderer": "mxGraph 4.2.2 / Chromium",
+  "browser_version": "155.0.8059.79",
+  "scale": 2.0,
+  "width": 2400,
+  "height": 2700,
+  "vertices": 98,
+  "edges": 71,
+  "layout_file": "glm_5_3_architecture.layout.json",
+  "layout_sha256": "e18fdfc73d0f80336cb6d7d1d3317b14788419ee0e0866b7458c0cacb0535685",
+  "layout_check": {
+    "text_overflow": 0,
+    "tight_text": 0,
+    "nonorthogonal_segments": 0,
+    "edge_node_crossings": 0
+  }
+}
