@@ -116,6 +116,32 @@
 
 可复用 `operator_layout.fit_operators`：在构造器预留lane内按文本与视觉角色调整宽高，保持中心轴，先换行再考虑减小字号。共享张量输入／Split等分叉节点还需覆盖子分支接口跨度，不能仅按短名字收得过窄，导致本可直连的分支新增绕线。视觉角色只是排版判断，不是算法复杂度／性能证明。默认尺寸仅为起点，仍需逐图审阅，检查分叉、收敛、留白和实际文字边界。尺寸变化后重新计算端口和路线，不能沿用已经错位的折点。
 
+### 用户认可的排版参考
+
+用户已认可 GLM-5.1 的自适应算子框版本（提交 `f4caaa9`）。后续没有另行指定风格时，优先沿用这套**排版方法**：
+
+- 参考图：[GLM-5.1 PNG](../../models/glm_5_1/glm_5_1_architecture.png) / [原生 draw.io](../../models/glm_5_1/glm_5_1_architecture.drawio)。以该提交可查看当时认可的版本，后续文件可能继续更新。
+- 简单算子用紧凑框；Linear等投影按名称与维度分行；Matmul、聚合、缓存和复合模块分别留出合适空间，不机械统一宽高。
+- 相邻串行节点对齐中心轴；并行分支按计算层级对齐；分叉节点还考虑各子分支的接口跨度，使短名字节点也能合理分发数据。
+- 先调整框尺寸与换行，再考虑减小字体；保持正文可读、标题分层和节点留白，长解释移入description与证据文档。
+- 调整尺寸后重新选端口、简化走线并检查实际渲染。直线优先；必要的分叉与避让不为追求折点数量而删除。
+- 新模型复用此布局原则与工具函数，不复制GLM的DSA、RoPE、维度、层数或辅助模块假设，也不固定使用相同画布坐标。
+
+推荐调用顺序：
+
+```python
+from operator_layout import fit_operators
+from routing import simplify_connections
+
+# 图中的事实、分支和预留lane先由模型审阅与构造器确定。
+# roles只指定视觉角色，不用于证明算子的算法复杂度。
+fit_operators(graph, roles=reviewed_visual_roles, font=20)
+simplify_connections(graph)
+# 然后生成原生draw.io → export-png → verify-png，并放大／缩略审阅。
+```
+
+实现参考：`operator_layout.py` 与 `examples/build_glm51.py`。此认可仅针对显示效果；来源核验、结构正确性和同源交付要求仍独立适用。
+
 ## 7. 连线：先对齐端口，再选择最短清晰路径
 
 优先级：**单段直线 → 一个直角 → 必要避让**。
