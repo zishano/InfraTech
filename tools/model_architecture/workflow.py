@@ -32,6 +32,7 @@ def create_study(manifest,out,baseline=None):
       optimization_claims=[],
       claim_fields=['claim','classification: introduced/inherited/backend_specific/unverified','source_id','locator','applicable_backend_or_hardware','measurement_scope'],
       presentation=dict(flow='bottom-up',labels='operator + necessary dimensions; typically 1–2 lines',
+                        node_sizing='operator visual complexity + name/dimensions + branch interfaces; preserve lane centers',
                         routing_priority=['straight_if_clear','one_bend_if_clear','necessary_detour'],
                         long_notes='description / evidence / README',native_png_source='drawio'),
       checks={key:dict(status='pending',question=value,evidence=[],notes='') for key,value in CHECKS.items()},

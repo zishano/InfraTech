@@ -183,3 +183,5 @@ python tools/model_architecture/model_architecture.py export-png \
 ### GLM-5.1 示例
 
 [GLM-5.1 官方checkpoint核对图](../../models/glm_5_1/README.md) 由 `examples/build_glm51.py` 构建，沿用新的审阅模板与直线优先工具。覆盖78层、3 Dense +75 MoE、带interleaved RoPE的三路DSA Indexer、普通残差与SwiGLU，并将仅核对权重模块存在性的辅助MTP与主forward分开。不能将Kimi索引器的NoPE或DeepSeek压缩器假设套入本例。
+
+节点自适应排版使用 `operator_layout.fit_operators(graph, roles, font=20)`：构造器为Attention/MoE等明确指定composite角色，其余按算子名称选择简单算子／投影／聚合／缓存等视觉类别。在预留lane内调整宽高，保持中心对齐；长标签先换行，再视需要调整字号。它不改变计算边或证据，也不能替代逐图视觉判断和浏览器测量。GLM-5.1已使用该策略。

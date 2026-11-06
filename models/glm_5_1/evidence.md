@@ -93,7 +93,8 @@ Token IDs
 
 ## main_embed
 
-Embedding [154880,6144]
+Embedding
+[154880,6144]
 
 - [GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM](https://github.com/huggingface/transformers/blob/f262c71703eb138381d65ced86b3aaa496be0196/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
 
@@ -157,7 +158,8 @@ RMSNorm
 
 ## main_head
 
-LM head →154880
+LM head
+6144 →154880
 
 - [GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM](https://github.com/huggingface/transformers/blob/f262c71703eb138381d65ced86b3aaa496be0196/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
 
@@ -215,7 +217,8 @@ Linear Q down
 
 ## attn_qnorm
 
-RMSNorm → Qr [2048]
+RMSNorm
+Qr [2048]
 
 - [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/f262c71703eb138381d65ced86b3aaa496be0196/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
 
@@ -340,7 +343,7 @@ J: selected indices
 ## attn_core
 
 Sparse attention
-QKᵀ / sqrt(256) → Softmax → ×V
+Softmax(QKᵀ / sqrt(256)) V
 
 - [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/f262c71703eb138381d65ced86b3aaa496be0196/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
 
@@ -522,7 +525,8 @@ h [6144]
 
 ## moe_router
 
-FP32 Linear → Sigmoid
+Linear → Sigmoid
+FP32 routing
 
 - [GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572](https://github.com/huggingface/transformers/blob/f262c71703eb138381d65ced86b3aaa496be0196/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
 

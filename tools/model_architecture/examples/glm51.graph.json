@@ -400,10 +400,10 @@
       "label": "Token IDs",
       "description": "Token IDs",
       "box": [
-        90,
-        1730,
-        280,
-        40
+        170.0,
+        1728.0,
+        120,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -417,17 +417,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          90,
+          1730,
+          280,
+          40
+        ],
+        "lane_center": [
+          230.0,
+          1750.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "main_embed",
-      "label": "Embedding [154880,6144]",
+      "label": "Embedding\n[154880,6144]",
       "description": "Embedding [154880,6144]",
       "box": [
-        90,
-        1650,
-        280,
-        60
+        140.0,
+        1646.0,
+        180,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -441,17 +456,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          90,
+          1650,
+          280,
+          60
+        ],
+        "lane_center": [
+          230.0,
+          1680.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "main_x",
       "label": "Layer input h",
       "description": "Layer input h",
       "box": [
-        90,
-        1560,
-        280,
-        50
+        152.0,
+        1563.0,
+        156,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -465,17 +495,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          90,
+          1560,
+          280,
+          50
+        ],
+        "lane_center": [
+          230.0,
+          1585.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "main_n1",
       "label": "RMSNorm",
       "description": "RMSNorm",
       "box": [
-        90,
-        1480,
-        280,
-        50
+        172.0,
+        1483.0,
+        116,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -489,16 +534,31 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          90,
+          1480,
+          280,
+          50
+        ],
+        "lane_center": [
+          230.0,
+          1505.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "main_attn",
       "label": "DSA",
       "description": "DSA",
       "box": [
-        90,
-        1400,
-        280,
+        100.0,
+        1400.0,
+        260,
         60
       ],
       "kind": "operation",
@@ -513,17 +573,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "composite",
+        "reserved_slot": [
+          90,
+          1400,
+          280,
+          60
+        ],
+        "lane_center": [
+          230.0,
+          1430.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "main_n2",
       "label": "RMSNorm",
       "description": "RMSNorm",
       "box": [
-        90,
-        1240,
-        280,
-        50
+        172.0,
+        1243.0,
+        116,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -537,16 +612,31 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          90,
+          1240,
+          280,
+          50
+        ],
+        "lane_center": [
+          230.0,
+          1265.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "main_ffn",
       "label": "Dense FFN / MoE",
       "description": "Dense FFN / MoE",
       "box": [
-        90,
-        1160,
-        280,
+        100.0,
+        1160.0,
+        260,
         60
       ],
       "kind": "operation",
@@ -561,17 +651,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "composite",
+        "reserved_slot": [
+          90,
+          1160,
+          280,
+          60
+        ],
+        "lane_center": [
+          230.0,
+          1190.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "main_repeat",
       "label": "Repeat 78 layers",
       "description": "Repeat 78 layers",
       "box": [
-        90,
-        960,
-        280,
-        70
+        100.0,
+        965.0,
+        260,
+        60
       ],
       "kind": "operation",
       "status": "verified",
@@ -585,17 +690,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "composite",
+        "reserved_slot": [
+          90,
+          960,
+          280,
+          70
+        ],
+        "lane_center": [
+          230.0,
+          995.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "main_norm",
       "label": "RMSNorm",
       "description": "RMSNorm",
       "box": [
-        90,
-        840,
-        280,
-        60
+        172.0,
+        848.0,
+        116,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -609,17 +729,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          90,
+          840,
+          280,
+          60
+        ],
+        "lane_center": [
+          230.0,
+          870.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "main_head",
-      "label": "LM head →154880",
+      "label": "LM head\n6144 →154880",
       "description": "LM head →154880",
       "box": [
-        90,
-        740,
-        280,
-        60
+        140.0,
+        736.0,
+        180,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -633,17 +768,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          90,
+          740,
+          280,
+          60
+        ],
+        "lane_center": [
+          230.0,
+          770.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "main_out",
       "label": "Logits",
       "description": "Logits",
       "box": [
-        90,
-        640,
-        280,
-        60
+        180.0,
+        648.0,
+        100,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -657,7 +807,22 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          90,
+          640,
+          280,
+          60
+        ],
+        "lane_center": [
+          230.0,
+          670.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "main_add1",
@@ -736,10 +901,10 @@
       "label": "h [6144]",
       "description": "h [6144]",
       "box": [
-        650,
-        1650,
-        550,
-        65
+        657.0,
+        1660.5,
+        536,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -753,17 +918,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          650,
+          1650,
+          550,
+          65
+        ],
+        "lane_center": [
+          925.0,
+          1682.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_qa",
       "label": "Linear Q down\n6144 →2048",
       "description": "Linear Q down\n6144 →2048",
       "box": [
-        520,
-        1540,
-        300,
-        70
+        580.0,
+        1541.0,
+        180,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -777,17 +957,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          520,
+          1540,
+          300,
+          70
+        ],
+        "lane_center": [
+          670.0,
+          1575.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_qnorm",
-      "label": "RMSNorm → Qr [2048]",
+      "label": "RMSNorm\nQr [2048]",
       "description": "RMSNorm → Qr [2048]",
       "box": [
-        520,
-        1430,
-        300,
-        60
+        608.0,
+        1426.0,
+        124,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -801,17 +996,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          520,
+          1430,
+          300,
+          60
+        ],
+        "lane_center": [
+          670.0,
+          1460.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_qup",
       "label": "Linear Q up\n2048 →64×256",
       "description": "Linear Q up\n2048 →64×256",
       "box": [
-        520,
-        1320,
-        300,
-        70
+        580.0,
+        1321.0,
+        180,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -825,17 +1035,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          520,
+          1320,
+          300,
+          70
+        ],
+        "lane_center": [
+          670.0,
+          1355.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_qsplit",
       "label": "Split Q: 192 |64",
       "description": "Split Q: 192 |64",
       "box": [
-        520,
-        1210,
-        300,
-        60
+        538.0,
+        1214.0,
+        264,
+        52
       ],
       "kind": "operation",
       "status": "verified",
@@ -849,17 +1074,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          520,
+          1210,
+          300,
+          60
+        ],
+        "lane_center": [
+          670.0,
+          1240.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_qnope",
       "label": "Q content192",
       "description": "Q content192",
       "box": [
-        500,
-        1100,
-        170,
-        60
+        507.0,
+        1108.0,
+        156,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -873,17 +1113,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          500,
+          1100,
+          170,
+          60
+        ],
+        "lane_center": [
+          585.0,
+          1130.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_qrope",
       "label": "RoPE64",
       "description": "RoPE64",
       "box": [
-        710,
-        1100,
-        150,
-        60
+        731.0,
+        1108.0,
+        108,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -897,17 +1152,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          710,
+          1100,
+          150,
+          60
+        ],
+        "lane_center": [
+          785.0,
+          1130.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_qcat",
       "label": "Concat Q [64,256]",
       "description": "Concat Q [64,256]",
       "box": [
-        520,
-        980,
-        340,
-        60
+        584.0,
+        984.0,
+        212,
+        52
       ],
       "kind": "operation",
       "status": "verified",
@@ -921,17 +1191,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          520,
+          980,
+          340,
+          60
+        ],
+        "lane_center": [
+          690.0,
+          1010.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_kvdown",
       "label": "Linear KV down\n6144 →512+64",
       "description": "Linear KV down\n6144 →512+64",
       "box": [
-        990,
-        1540,
-        360,
-        70
+        1080.0,
+        1541.0,
+        180,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -945,17 +1230,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          990,
+          1540,
+          360,
+          70
+        ],
+        "lane_center": [
+          1170.0,
+          1575.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_kvsplit",
       "label": "Split c512 | k64",
       "description": "Split c512 | k64",
       "box": [
-        990,
-        1430,
-        360,
-        60
+        1048.0,
+        1434.0,
+        244,
+        52
       ],
       "kind": "operation",
       "status": "verified",
@@ -969,17 +1269,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          990,
+          1430,
+          360,
+          60
+        ],
+        "lane_center": [
+          1170.0,
+          1460.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_kvnorm",
       "label": "RMSNorm512",
       "description": "RMSNorm512",
       "box": [
-        990,
-        1320,
-        170,
-        60
+        1001.0,
+        1328.0,
+        148,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -993,17 +1308,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          990,
+          1320,
+          170,
+          60
+        ],
+        "lane_center": [
+          1075.0,
+          1350.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_kvrope",
       "label": "RoPE64",
       "description": "RoPE64",
       "box": [
-        1200,
-        1320,
-        150,
-        60
+        1221.0,
+        1328.0,
+        108,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1017,17 +1347,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          1200,
+          1320,
+          150,
+          60
+        ],
+        "lane_center": [
+          1275.0,
+          1350.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_cache",
       "label": "Latent KV cache\nc512 + positional key64",
       "description": "Latent KV cache\nc512 + positional key64",
       "box": [
-        990,
-        1210,
-        360,
-        70
+        1040.0,
+        1211.0,
+        260,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -1041,17 +1386,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff2f3;strokeColor=#bf5b66;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff2f3;strokeColor=#bf5b66;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "cache",
+        "reserved_slot": [
+          990,
+          1210,
+          360,
+          70
+        ],
+        "lane_center": [
+          1170.0,
+          1245.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_expand",
       "label": "Linear KV up: 512 →64×448\nK192 + kPE64 bypass; V256",
       "description": "Linear KV up: 512 →64×448\nK192 + kPE64 bypass; V256",
       "box": [
-        990,
-        1100,
-        360,
-        75
+        1020.0,
+        1103.5,
+        300,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -1065,17 +1425,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "composite",
+        "reserved_slot": [
+          990,
+          1100,
+          360,
+          75
+        ],
+        "lane_center": [
+          1170.0,
+          1137.5
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_k",
       "label": "K [64,256]",
       "description": "K [64,256]",
       "box": [
-        990,
-        980,
-        170,
-        60
+        1011.0,
+        988.0,
+        128,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1089,17 +1464,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          990,
+          980,
+          170,
+          60
+        ],
+        "lane_center": [
+          1075.0,
+          1010.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_v",
       "label": "V [64,256]",
       "description": "V [64,256]",
       "box": [
-        1200,
-        980,
-        170,
-        60
+        1221.0,
+        988.0,
+        128,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1113,17 +1503,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          1200,
+          980,
+          170,
+          60
+        ],
+        "lane_center": [
+          1285.0,
+          1010.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_indices",
       "label": "J: selected indices",
       "description": "J: selected indices",
       "box": [
-        490,
-        820,
-        230,
-        60
+        501.0,
+        828.0,
+        208,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1137,17 +1542,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          490,
+          820,
+          230,
+          60
+        ],
+        "lane_center": [
+          605.0,
+          850.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_core",
-      "label": "Sparse attention\nQKᵀ / sqrt(256) → Softmax → ×V",
+      "label": "Sparse attention\nSoftmax(QKᵀ / sqrt(256)) V",
       "description": "Sparse attention\nQKᵀ / sqrt(256) → Softmax → ×V",
       "box": [
-        610,
-        700,
-        740,
-        80
+        818.0,
+        706.0,
+        324,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -1161,17 +1581,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "composite",
+        "reserved_slot": [
+          610,
+          700,
+          740,
+          80
+        ],
+        "lane_center": [
+          980.0,
+          740.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_o",
       "label": "Linear O\n64×256 →6144",
       "description": "Linear O\n64×256 →6144",
       "box": [
-        850,
-        580,
-        360,
-        70
+        940.0,
+        581.0,
+        180,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -1185,17 +1620,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          850,
+          580,
+          360,
+          70
+        ],
+        "lane_center": [
+          1030.0,
+          615.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "attn_out",
       "label": "Attention output [6144]",
       "description": "Attention output [6144]",
       "box": [
-        850,
-        470,
-        360,
-        60
+        896.0,
+        478.0,
+        268,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1209,7 +1659,22 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          850,
+          470,
+          360,
+          60
+        ],
+        "lane_center": [
+          1030.0,
+          500.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "index_scope",
@@ -1240,10 +1705,10 @@
       "label": "Qr [2048]",
       "description": "Qr [2048]",
       "box": [
-        1490,
-        1030,
-        220,
-        60
+        1538.0,
+        1038.0,
+        124,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1257,17 +1722,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          1490,
+          1030,
+          220,
+          60
+        ],
+        "lane_center": [
+          1600.0,
+          1060.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "idx_h",
       "label": "h [6144]",
       "description": "h [6144]",
       "box": [
-        1790,
-        1030,
-        520,
-        60
+        1888.0,
+        1038.0,
+        324,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1281,17 +1761,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          1790,
+          1030,
+          520,
+          60
+        ],
+        "lane_center": [
+          2050.0,
+          1060.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "idx_qp",
       "label": "Linear Qᵢ\n2048 →32×128",
       "description": "Linear Qᵢ\n2048 →32×128",
       "box": [
-        1490,
-        950,
-        220,
-        60
+        1510.0,
+        946.0,
+        180,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -1305,17 +1800,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          1490,
+          950,
+          220,
+          60
+        ],
+        "lane_center": [
+          1600.0,
+          980.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "idx_qrpe",
       "label": "RoPE64 + Concat",
       "description": "RoPE64 + Concat",
       "box": [
-        1490,
-        870,
-        220,
-        55
+        1502.0,
+        871.5,
+        196,
+        52
       ],
       "kind": "operation",
       "status": "verified",
@@ -1329,17 +1839,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          1490,
+          870,
+          220,
+          55
+        ],
+        "lane_center": [
+          1600.0,
+          897.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "idx_q",
       "label": "Qᵢ [32,128]",
       "description": "Qᵢ [32,128]",
       "box": [
-        1490,
-        790,
-        220,
-        55
+        1530.0,
+        795.5,
+        140,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1353,17 +1878,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          1490,
+          790,
+          220,
+          55
+        ],
+        "lane_center": [
+          1600.0,
+          817.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "idx_kp",
       "label": "Linear Kᵢ\n6144 →128",
       "description": "Linear Kᵢ\n6144 →128",
       "box": [
-        1790,
-        950,
-        220,
-        60
+        1810.0,
+        946.0,
+        180,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -1377,17 +1917,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          1790,
+          950,
+          220,
+          60
+        ],
+        "lane_center": [
+          1900.0,
+          980.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "idx_kn",
       "label": "LayerNorm128",
       "description": "LayerNorm128",
       "box": [
-        1790,
-        870,
-        220,
-        55
+        1818.0,
+        875.5,
+        164,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1401,17 +1956,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          1790,
+          870,
+          220,
+          55
+        ],
+        "lane_center": [
+          1900.0,
+          897.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "idx_krpe",
       "label": "RoPE64 + Concat",
       "description": "RoPE64 + Concat",
       "box": [
-        1790,
-        790,
-        220,
-        55
+        1802.0,
+        791.5,
+        196,
+        52
       ],
       "kind": "operation",
       "status": "verified",
@@ -1425,17 +1995,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          1790,
+          790,
+          220,
+          55
+        ],
+        "lane_center": [
+          1900.0,
+          817.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "idx_cache",
       "label": "Index key cache\n[T,128]",
       "description": "Index key cache [T,128]",
       "box": [
-        1790,
-        710,
-        220,
-        55
+        1804.0,
+        703.5,
+        192,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -1449,17 +2034,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff2f3;strokeColor=#bf5b66;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff2f3;strokeColor=#bf5b66;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "cache",
+        "reserved_slot": [
+          1790,
+          710,
+          220,
+          55
+        ],
+        "lane_center": [
+          1900.0,
+          737.5
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "idx_wp",
       "label": "Linear (weights)\n6144 →32",
       "description": "Linear (weights)\n6144 →32",
       "box": [
-        2090,
-        950,
-        220,
-        60
+        2102.0,
+        946.0,
+        196,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -1473,17 +2073,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          2090,
+          950,
+          220,
+          60
+        ],
+        "lane_center": [
+          2200.0,
+          980.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "idx_scale",
       "label": "Scale: 32^-0.5",
       "description": "Scale: 32^-0.5",
       "box": [
-        2090,
-        870,
-        220,
-        55
+        2118.0,
+        875.5,
+        164,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1497,17 +2112,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          2090,
+          870,
+          220,
+          55
+        ],
+        "lane_center": [
+          2200.0,
+          897.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "idx_w",
       "label": "w [32]",
       "description": "w [32]",
       "box": [
-        2090,
-        790,
-        220,
-        55
+        2150.0,
+        795.5,
+        100,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1521,17 +2151,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          2090,
+          790,
+          220,
+          55
+        ],
+        "lane_center": [
+          2200.0,
+          817.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "idx_dot",
       "label": "Matmul (Qᵢ,Kᵢᵀ) / sqrt(128)",
       "description": "Matmul (Qᵢ,Kᵢᵀ) / sqrt(128)",
       "box": [
-        1500,
-        610,
-        510,
-        60
+        1593.0,
+        614.0,
+        324,
+        52
       ],
       "kind": "operation",
       "status": "verified",
@@ -1545,17 +2190,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          1500,
+          610,
+          510,
+          60
+        ],
+        "lane_center": [
+          1755.0,
+          640.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "idx_relu",
       "label": "ReLU",
       "description": "ReLU",
       "box": [
-        1500,
-        530,
-        510,
-        55
+        1701.0,
+        535.5,
+        108,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1569,17 +2229,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          1500,
+          530,
+          510,
+          55
+        ],
+        "lane_center": [
+          1755.0,
+          557.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "idx_sum",
       "label": "Weighted sum (heads)",
       "description": "Weighted sum (heads)",
       "box": [
-        1500,
-        450,
-        510,
-        55
+        1631.0,
+        451.5,
+        248,
+        52
       ],
       "kind": "operation",
       "status": "verified",
@@ -1593,17 +2268,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          1500,
+          450,
+          510,
+          55
+        ],
+        "lane_center": [
+          1755.0,
+          477.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "idx_mask",
       "label": "Causal mask",
       "description": "Causal mask",
       "box": [
-        1500,
-        370,
-        510,
-        55
+        1685.0,
+        375.5,
+        140,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1617,17 +2307,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          1500,
+          370,
+          510,
+          55
+        ],
+        "lane_center": [
+          1755.0,
+          397.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "idx_topk",
       "label": "TopK ≤2048 → J (int32)",
       "description": "TopK ≤2048 → J (int32)",
       "box": [
-        1500,
-        300,
-        510,
-        50
+        1625.0,
+        299.0,
+        260,
+        52
       ],
       "kind": "operation",
       "status": "verified",
@@ -1641,17 +2346,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          1500,
+          300,
+          510,
+          50
+        ],
+        "lane_center": [
+          1755.0,
+          325.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "moe_h",
       "label": "h [6144]",
       "description": "h [6144]",
       "box": [
-        1500,
-        1720,
-        800,
-        60
+        1572.0,
+        1728.0,
+        656,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1665,17 +2385,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          1500,
+          1720,
+          800,
+          60
+        ],
+        "lane_center": [
+          1900.0,
+          1750.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "moe_router",
-      "label": "FP32 Linear → Sigmoid",
+      "label": "Linear → Sigmoid\nFP32 routing",
       "description": "FP32 Linear → Sigmoid",
       "box": [
-        1500,
-        1640,
-        420,
-        60
+        1614.0,
+        1636.0,
+        192,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -1689,17 +2424,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          1500,
+          1640,
+          420,
+          60
+        ],
+        "lane_center": [
+          1710.0,
+          1670.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "moe_choice",
       "label": "+ correction bias → Top8",
       "description": "+ correction bias → Top8",
       "box": [
-        1500,
-        1560,
-        420,
-        60
+        1578.0,
+        1568.0,
+        264,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1713,17 +2463,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          1500,
+          1560,
+          420,
+          60
+        ],
+        "lane_center": [
+          1710.0,
+          1590.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "moe_weights",
       "label": "Gather original scores\nNormalize → ×2.5",
       "description": "Gather original scores\nNormalize → ×2.5",
       "box": [
-        1500,
-        1480,
-        420,
-        60
+        1584.0,
+        1476.0,
+        252,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -1737,17 +2502,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          1500,
+          1480,
+          420,
+          60
+        ],
+        "lane_center": [
+          1710.0,
+          1510.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "moe_experts",
       "label": "256 routed experts /8 active\nSwiGLU: 6144→2048→6144",
       "description": "256 routed experts /8 active\nSwiGLU: 6144→2048→6144",
       "box": [
-        1500,
-        1400,
-        420,
-        60
+        1548.0,
+        1396.0,
+        324,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -1761,17 +2541,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "composite",
+        "reserved_slot": [
+          1500,
+          1400,
+          420,
+          60
+        ],
+        "lane_center": [
+          1710.0,
+          1430.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "moe_weighted",
       "label": "Weight outputs → Sum",
       "description": "Weight outputs → Sum",
       "box": [
-        1500,
-        1320,
-        420,
-        60
+        1588.0,
+        1324.0,
+        244,
+        52
       ],
       "kind": "operation",
       "status": "verified",
@@ -1785,17 +2580,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "aggregation",
+        "reserved_slot": [
+          1500,
+          1320,
+          420,
+          60
+        ],
+        "lane_center": [
+          1710.0,
+          1350.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "moe_shared",
       "label": "Shared expert ×1\n6144→2048→6144",
       "description": "Shared expert ×1\n6144→2048→6144",
       "box": [
-        2100,
-        1400,
+        2100.0,
+        1411.0,
         230,
-        90
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -1809,7 +2619,22 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "composite",
+        "reserved_slot": [
+          2100,
+          1400,
+          230,
+          90
+        ],
+        "lane_center": [
+          2215.0,
+          1445.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "moe_add",
@@ -1840,10 +2665,10 @@
       "label": "x [6144]",
       "description": "x [6144]",
       "box": [
-        350,
-        2220,
-        400,
-        50
+        268.0,
+        2223.0,
+        564,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1857,17 +2682,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "interface",
+        "reserved_slot": [
+          230,
+          2220,
+          640,
+          50
+        ],
+        "lane_center": [
+          550.0,
+          2245.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "mlp_gate",
       "label": "Linear (gate)\n6144 →m",
       "description": "Linear (gate)\n6144 →m",
       "box": [
-        200,
-        2140,
-        240,
-        60
+        230.0,
+        2136.0,
+        180,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -1881,17 +2721,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          200,
+          2140,
+          240,
+          60
+        ],
+        "lane_center": [
+          320.0,
+          2170.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "mlp_up",
       "label": "Linear (up)\n6144 →m",
       "description": "Linear (up)\n6144 →m",
       "box": [
-        700,
-        2140,
-        240,
-        60
+        730.0,
+        2136.0,
+        180,
+        68
       ],
       "kind": "operation",
       "status": "verified",
@@ -1905,17 +2760,32 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          700,
+          2140,
+          240,
+          60
+        ],
+        "lane_center": [
+          820.0,
+          2170.0
+        ],
+        "text_lines": 2,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "mlp_silu",
       "label": "SiLU",
       "description": "SiLU",
       "box": [
-        200,
-        2060,
-        240,
-        50
+        266.0,
+        2063.0,
+        108,
+        44
       ],
       "kind": "operation",
       "status": "verified",
@@ -1929,7 +2799,22 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "primitive",
+        "reserved_slot": [
+          200,
+          2060,
+          240,
+          50
+        ],
+        "lane_center": [
+          320.0,
+          2085.0
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "mlp_mul",
@@ -1960,10 +2845,10 @@
       "label": "Linear (down): m →6144",
       "description": "Linear (down): m →6144",
       "box": [
-        380,
-        1900,
-        350,
-        55
+        427.0,
+        1897.5,
+        256,
+        60
       ],
       "kind": "operation",
       "status": "verified",
@@ -1977,7 +2862,22 @@
           "locator": "Pinned official GLM-5.1 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fontSize=20;spacing=6;",
+      "operator_layout": {
+        "role": "projection",
+        "reserved_slot": [
+          380,
+          1900,
+          350,
+          55
+        ],
+        "lane_center": [
+          555.0,
+          1927.5
+        ],
+        "text_lines": 1,
+        "sizing": "content + visual role + branch span + readable font"
+      }
     },
     {
       "id": "mlp_width",
@@ -2388,7 +3288,7 @@
       "source": "attn_h",
       "target": "attn_qa",
       "ports": [
-        0.03636363636363636,
+        0.024253731343283583,
         0,
         0.5,
         1
@@ -2436,7 +3336,7 @@
       "source": "attn_qsplit",
       "target": "attn_qnope",
       "ports": [
-        0.21666666666666667,
+        0.17803030303030304,
         0,
         0.5,
         1
@@ -2448,7 +3348,7 @@
       "source": "attn_qsplit",
       "target": "attn_qrope",
       "ports": [
-        0.8833333333333333,
+        0.9356060606060606,
         0,
         0.5,
         1
@@ -2462,7 +3362,7 @@
       "ports": [
         0.5,
         0,
-        0.19117647058823528,
+        0.0047169811320754715,
         1
       ],
       "routing": "straight"
@@ -2474,7 +3374,7 @@
       "ports": [
         0.5,
         0,
-        0.7794117647058824,
+        0.9481132075471698,
         1
       ],
       "routing": "straight"
@@ -2484,7 +3384,7 @@
       "source": "attn_h",
       "target": "attn_kvdown",
       "ports": [
-        0.9454545454545454,
+        0.957089552238806,
         0,
         0.5,
         1
@@ -2508,7 +3408,7 @@
       "source": "attn_kvsplit",
       "target": "attn_kvnorm",
       "ports": [
-        0.2361111111111111,
+        0.11065573770491803,
         0,
         0.5,
         1
@@ -2522,7 +3422,7 @@
       "ports": [
         0.5,
         0,
-        0.2361111111111111,
+        0.1346153846153846,
         1
       ],
       "routing": "straight"
@@ -2532,7 +3432,7 @@
       "source": "attn_kvsplit",
       "target": "attn_kvrope",
       "ports": [
-        0.7916666666666666,
+        0.930327868852459,
         0,
         0.5,
         1
@@ -2546,7 +3446,7 @@
       "ports": [
         0.5,
         0,
-        0.7916666666666666,
+        0.9038461538461539,
         1
       ],
       "routing": "straight"
@@ -2568,7 +3468,7 @@
       "source": "attn_expand",
       "target": "attn_k",
       "ports": [
-        0.2361111111111111,
+        0.18333333333333332,
         0,
         0.5,
         1
@@ -2580,7 +3480,7 @@
       "source": "attn_expand",
       "target": "attn_v",
       "ports": [
-        0.8194444444444444,
+        0.8833333333333333,
         0,
         0.5,
         1
@@ -2592,12 +3492,18 @@
       "source": "attn_qcat",
       "target": "attn_core",
       "ports": [
-        0.6323529411764706,
-        0,
-        0.16891891891891891,
+        1,
+        0.5,
+        0.5,
         1
       ],
-      "routing": "straight"
+      "routing": "straight",
+      "points": [
+        [
+          980.0,
+          1010.0
+        ]
+      ]
     },
     {
       "id": "e_attn_k__attn_core",
@@ -2606,7 +3512,7 @@
       "ports": [
         0.5,
         0,
-        0.6283783783783784,
+        0.7932098765432098,
         1
       ],
       "routing": "straight"
@@ -2618,29 +3524,41 @@
       "ports": [
         0.5,
         0,
-        0.9121621621621622,
-        1
+        1,
+        0.5
       ],
-      "routing": "straight"
+      "routing": "straight",
+      "points": [
+        [
+          1285.0,
+          740.0
+        ]
+      ]
     },
     {
       "id": "e_attn_indices__attn_core",
       "source": "attn_indices",
       "target": "attn_core",
       "ports": [
-        0.5260869565217391,
+        0.5,
         0,
-        0.0013513513513513514,
-        1
+        0,
+        0.5
       ],
-      "routing": "straight"
+      "routing": "straight",
+      "points": [
+        [
+          605.0,
+          740.0
+        ]
+      ]
     },
     {
       "id": "e_attn_core__attn_o",
       "source": "attn_core",
       "target": "attn_o",
       "ports": [
-        0.5675675675675675,
+        0.654320987654321,
         0,
         0.5,
         1
@@ -2700,7 +3618,7 @@
       "source": "idx_h",
       "target": "idx_kp",
       "ports": [
-        0.21153846153846154,
+        0.037037037037037035,
         0,
         0.5,
         1
@@ -2748,7 +3666,7 @@
       "source": "idx_h",
       "target": "idx_wp",
       "ports": [
-        0.7884615384615384,
+        0.9629629629629629,
         0,
         0.5,
         1
@@ -2786,7 +3704,7 @@
       "ports": [
         0.5,
         0,
-        0.19607843137254902,
+        0.021604938271604937,
         1
       ],
       "routing": "straight"
@@ -2798,7 +3716,7 @@
       "ports": [
         0.5,
         0,
-        0.7843137254901961,
+        0.9475308641975309,
         1
       ],
       "routing": "straight"
@@ -2874,7 +3792,7 @@
       "source": "moe_h",
       "target": "moe_router",
       "ports": [
-        0.2625,
+        0.21036585365853658,
         0,
         0.5,
         1
@@ -2946,7 +3864,7 @@
       "source": "moe_h",
       "target": "moe_shared",
       "ports": [
-        0.89375,
+        0.9801829268292683,
         0,
         0.5,
         1
@@ -2976,9 +3894,9 @@
       "source": "mlp_x",
       "target": "mlp_gate",
       "ports": [
-        0.0025,
+        0.09219858156028368,
         0,
-        0.6291666666666667,
+        0.5,
         1
       ],
       "routing": "straight"
@@ -3020,7 +3938,7 @@
       "ports": [
         0.5,
         0,
-        0.4857142857142857,
+        0.48046875,
         1
       ],
       "routing": "straight"
@@ -3030,9 +3948,9 @@
       "source": "mlp_x",
       "target": "mlp_up",
       "ports": [
-        0.9975,
+        0.9787234042553191,
         0,
-        0.20416666666666666,
+        0.5,
         1
       ],
       "routing": "straight"
@@ -3198,9 +4116,14 @@
     "auxiliary_layer_index": 78,
     "indexer_mode": "independent per checkpoint layer; all79 indexer prefixes present"
   },
+  "presentation_policy": {
+    "operator_sizing": "text length and visual complexity",
+    "alignment": "preserve lane centers and branch rows",
+    "font": "consistent body size; wrap before shrinking"
+  },
   "routing_summary": {
-    "straight": 62,
-    "one_bend": 4,
+    "straight": 59,
+    "one_bend": 7,
     "kept": 2
   }
 }

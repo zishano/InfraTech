@@ -4,6 +4,7 @@ import json,sys,textwrap
 ROOT=Path(__file__).resolve().parents[3]
 sys.path.insert(0,str(ROOT/'tools/model_architecture'))
 from routing import simplify_connections
+from operator_layout import fit_operators
 REV='26e1bd6e011feb778d25ae34b09b07074139d92d'
 TF='f262c71703eb138381d65ced86b3aaa496be0196'
 HF=f'https://huggingface.co/zai-org/GLM-5.1/blob/{REV}/'
@@ -123,6 +124,16 @@ def build():
  note('footer','Sources: official zai-org/GLM-5.1 @26e1bd6 · Transformers @f262c71 · explicit evidence and limitations in README / evidence.md',40,2318,2320,38,18)
  g['port_bindings']={'Qr':dict(source='attn_qnorm',target='idx_qr',shape=['B','T',2048]),'h_index':dict(source='attn_h',target='idx_h',shape=['B','T',6144]),'J':dict(source='idx_topk',target='attn_indices',shape=['B','T','min(2048,context)']),'attention':dict(source='main_n1',target='attn_h',shape=['B','T',6144]),'ffn':dict(source='main_n2',target='moe_h',shape=['B','T',6144])}
  g['checkpoint']=dict(revision=REV,main_layers=78,dense_ffn_layers=list(range(3)),moe_layers=list(range(3,78)),auxiliary_layer_index=78,indexer_mode='independent per checkpoint layer; all79 indexer prefixes present')
+ # Model-specific visual roles; topology and provenance are not changed.
+ short={'main_embed':'Embedding\n[154880,6144]','main_head':'LM head\n6144 →154880',
+        'attn_qnorm':'RMSNorm\nQr [2048]','attn_core':'Sparse attention\nSoftmax(QKᵀ / sqrt(256)) V',
+        'moe_router':'Linear → Sigmoid\nFP32 routing'}
+ for key,label in short.items():ns[key]['label']=label
+ roles={key:'composite' for key in ['main_attn','main_ffn','main_repeat','attn_core','attn_expand','moe_experts','moe_shared']}
+ roles.update(main_embed='projection',main_head='projection',moe_weights='aggregation')
+ # A shared tensor input reserves a fan-out span, not a uniform operator box.
+ ns['mlp_x']['box']=[230,2220,640,50]
+ fit_operators(g,roles,font=20)
  simplify_connections(g)
  return g
 

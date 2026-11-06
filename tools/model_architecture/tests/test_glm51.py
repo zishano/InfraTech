@@ -33,6 +33,20 @@ class GLM51Tests(unittest.TestCase):
         for l,r in itertools.combinations(ops,2):
             x,y,w,h=l['box'];xx,yy,ww,hh=r['box']
             self.assertFalse(min(x+w,xx+ww)-max(x,xx)>1 and min(y+h,yy+hh)-max(y,yy)>1,(l['id'],r['id']))
+    def test_operator_dimensions_reflect_roles_and_preserve_lane_centers(self):
+        g=self.graph();nodes={n['id']:n for n in g['nodes']}
+        self.assertLess(nodes['idx_relu']['box'][2],nodes['attn_core']['box'][2])
+        self.assertEqual(nodes['attn_core']['operator_layout']['role'],'composite')
+        self.assertEqual(nodes['attn_qa']['operator_layout']['role'],'projection')
+        self.assertEqual(nodes['attn_cache']['operator_layout']['role'],'cache')
+        for n in nodes.values():
+            layout=n.get('operator_layout')
+            if not layout:continue
+            x,y,w,h=n['box'];cx,cy=layout['lane_center']
+            self.assertAlmostEqual(x+w/2,cx);self.assertAlmostEqual(y+h/2,cy)
+            self.assertLessEqual(w,layout['reserved_slot'][2])
+            self.assertTrue(n.get('evidence'))
+
     def test_xml_png_layout_are_one_native_export(self):
         stem='glm_5_1_architecture';m=p.verify(self.folder/(stem+'.drawio'),self.folder/(stem+'.png'),self.folder/(stem+'.export.json'))
         g=self.graph();self.assertEqual((m['vertices'],m['edges']),(len(g['nodes']),len(g['edges'])))
