@@ -761,6 +761,119 @@ J is reused within the same forward query; it is not the previous decode token�
 
 - [Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398](https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
 
+## dim_title
+
+Tensor dimensions — transformations within one forward pass
+
+- [Attention.forward / expand_kv; Indexer.forward; MoE and MLP forward](https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Explicit projection dimensions and model sizes](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## dim_symbols
+
+B=batch · S=query length · T=KV length incl. cache · K=min(2048,T) · N=B×S · head axes shown before channel
+Prefill: S may be many tokens; decode: S=1, T grows. All network dimensions below also apply to GLM-5.2.
+
+- [Attention.forward / expand_kv; Indexer.forward; MoE and MLP forward](https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Explicit projection dimensions and model sizes](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## dim_dsa_title
+
+DSA / MLA  |  64 heads
+
+- [Attention.forward / expand_kv; Indexer.forward; MoE and MLP forward](https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Explicit projection dimensions and model sizes](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## dim_dsa
+
+h [B,S,6144]
+Q down → [B,S,2048]
+Q up / reshape → [B,S,64,256]
+Q split: content192 + RoPE64
+KV down → [B,S,512+64]
+Cache: c [B,T,1,512] + kPE [B,T,1,64]
+KV up: 512 → 64×(192+256)
+K [B,T,64,256] · V [B,T,64,256]
+Attention → [B,S,64,256]
+Flatten 16384 → O → [B,S,6144]
+
+- [Attention.forward / expand_kv; Indexer.forward; MoE and MLP forward](https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Explicit projection dimensions and model sizes](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## dim_index_title
+
+Indexer  |  32 heads
+
+- [Attention.forward / expand_kv; Indexer.forward; MoE and MLP forward](https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Explicit projection dimensions and model sizes](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## dim_index
+
+Qr [B,S,2048] → Qi [B,S,32,128]
+h [B,S,6144] → Ki [B,S,128]
+K cache → [B,T,128] (shared by heads)
+h → weights [B,S,32]
+Qi × Kiᵀ → scores [B,S,32,T]
+ReLU → weighted head sum
+Reduced scores [B,S,T]
+Causal mask → TopK → J [B,S,K]
+FULL: compute J; SHARED: reuse J
+K is read selection, not cache capacity
+
+- [Attention.forward / expand_kv; Indexer.forward; MoE and MLP forward](https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Explicit projection dimensions and model sizes](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## dim_moe_title
+
+FFN / MoE  |  256 experts, top-8
+
+- [Attention.forward / expand_kv; Indexer.forward; MoE and MLP forward](https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Explicit projection dimensions and model sizes](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## dim_moe
+
+h [B,S,6144] → flatten [N,6144]
+Router 6144 →256: scores [N,256]
+Top8 IDs / weights [N,8]
+Dispatch → each expert input [N_e,6144]
+Gate / Up → [N_e,2048] each
+SiLU(gate) × Up → Down → [N_e,6144]
+Weight / scatter-sum → [N,6144]
++ shared expert → [B,S,6144]
+Dense L0–2: m=12288 (no dispatch)
+LM head: [B,S,6144] → [B,S,154880]
+
+- [Attention.forward / expand_kv; Indexer.forward; MoE and MLP forward](https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Explicit projection dimensions and model sizes](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## dim_mqa_title
+
+Absorbed MQA correspondence — alternative algebraic view, not an additional model branch
+
+- [Attention.forward / expand_kv; Indexer.forward; MoE and MLP forward](https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Explicit projection dimensions and model sizes](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## dim_mqa
+
+Q content192 × W_Kᵀ →512; concat RoPE64 → Q_abs [B,S,64,576]
+Selected K_abs [B,S,K,1,576] = latent512 + positional64; selected V_abs [B,S,K,1,512]
+Softmax(Q_abs K_absᵀ / sqrt(256)) V_abs → [B,S,64,512]
+Per-head W_V: 512 →256 → [B,S,64,256]; flatten → Linear O: 16384 →6144
+MQA uses one shared latent KV head. This is the screenshot’s 512+64 view; the main diagram explicitly expands K/V.
+Selection is query-dependent (S axis); no materialized gather, fused kernel or quantized numerical equivalence is claimed.
+
+- [Algebra from Attention.__init__/expand_kv: kv_b_proj splits per-head W_K (512→192) and W_V (512→256); o_proj 64×256→6144](https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Explicit projection dimensions and model sizes](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
 ## 限制
 
 Official model card states the same base as GLM-5.2; core configuration and pinned implementation match.
@@ -768,3 +881,4 @@ GLM-5.3 weight-index download blocked by proxy at official CDN; baseline weight-
 FP8 overlay describes release configuration, not added model operators or a verified backend execution graph.
 MTP auxiliary structure inherited from matching config/base; no target tensor-name or backend-iteration verification.
 No tensor headers, full weights, GPU inference, benchmark or Feishu import tested.
+Dimension guide uses logical sequence-major axes; absorbed MQA is an algebraic correspondence, not a verified backend or quantized numeric execution graph.
