@@ -71,3 +71,9 @@ N_e是分派至某个专家的token数，不一定等于N/256。主干L0–2的D
 画布为白色，分组区域无填充，仅保留算子／模块框颜色；PNG直接从XML导出并保持白色背景。XML样式去除重复属性，避免部分draw.io导入器把早先填充色误当成最终底色。尚未实测飞书客户端导入。
 
 重复层使用包含Decoder模板的无填充矩形框，左上角标注×78；取消Repeat流程算子，直接连接层输出与框外最终RMSNorm。Embedding、最终RMSNorm和LM head均不在重复范围内。×78表示78层的模板，FFN与Indexer模式仍按逐层配置变化，参数不共享。
+
+## 当前布局与配色参考
+
+按用户指定参考[Kimi-K3.1-Pro图](../kimi_k_3_1_pro/kimi_k31_pro_architecture.png)，采用中央Decoder主干、左侧DSA展开、右侧Indexer/MoE展开，下方放IndexShare与辅助模块。标题条为蓝灰`#59718f`、白字；算子框为浅蓝灰`#f3f6fb`，边框`#8e9db0`。画布仍为白色，分组区域无填充，保留×78结构框和连线维度。
+
+展示层独立保存在`tools/model_architecture/examples/glm53_presentation.py`；它只移动模块并统一颜色，不引入参考模型的算子、尺寸或差异分类。图的事实、计算连接和来源仍由GLM-5.3构造器决定。此前GLM-5.1作为通用默认排版参考的记录保留，本图采用本次用户明确指定的参考。

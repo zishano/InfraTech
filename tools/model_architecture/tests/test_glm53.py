@@ -47,8 +47,8 @@ class GLM53Tests(unittest.TestCase):
    self.assertEqual(len(keys),len(set(keys)),cell.get('id'))
   for key in ['backbone','attention','indexer','moe','mlp','aux','sharing','title']:
    self.assertEqual(a.parse_style(cells[key].get('style'))['fillColor'],'none')
-  self.assertEqual(a.parse_style(cells['attn_qa'].get('style'))['fillColor'],'#fff6e8')
-  self.assertEqual(a.parse_style(cells['share_stage_0'].get('style'))['fillColor'],'#f5f0fc')
+  self.assertEqual(a.parse_style(cells['attn_qa'].get('style'))['fillColor'],'#f3f6fb')
+  self.assertEqual(a.parse_style(cells['share_stage_0'].get('style'))['fillColor'],'#f3f6fb')
  def test_repetition_frame_contains_only_decoder_template(self):
   g=a.read(BASE/'examples/glm53.graph.json');ns={n['id']:n for n in g['nodes']}
   self.assertNotIn('main_repeat',ns)
@@ -60,6 +60,18 @@ class GLM53Tests(unittest.TestCase):
   for key in ['main_embed','main_norm','main_head']:
    xx,yy,ww,hh=ns[key]['box'];self.assertTrue(yy+hh<y or yy>y+h,key)
   self.assertTrue(any(e['source']=='main_add2' and e['target']=='main_norm' for e in g['edges']))
+ def test_kimi_reference_layout_and_module_palette(self):
+  g=a.read(BASE/'examples/glm53.graph.json');ns={n['id']:n for n in g['nodes']}
+  x,y,w,h=ns['attention']['box'];bx,by,bw,bh=ns['backbone']['box'];ix,iy,iw,ih=ns['indexer']['box']
+  self.assertLess(x+w,bx);self.assertLess(bx+bw,ix)
+  for key in ['attention_title','backbone_title','indexer_title','moe_title','sharing_title']:
+   style=a.parse_style(ns[key]['style']);self.assertEqual(style['fillColor'],'#59718f');self.assertEqual(style['fontColor'],'#ffffff')
+  for n in g['nodes']:
+   if n.get('kind')!='decoration':self.assertEqual(a.parse_style(n['style'])['fillColor'],'#f3f6fb')
+  for n in g['nodes']:
+   if 'operator_layout' in n:
+    xx,yy,ww,hh=n['box'];cx,cy=n['operator_layout']['lane_center']
+    self.assertAlmostEqual(xx+ww/2,cx);self.assertAlmostEqual(yy+hh/2,cy)
  def test_native_pair_and_layout(self):
   f=REPO/'models/glm_5_3';s='glm_5_3_architecture'
   m=p.verify(f/(s+'.drawio'),f/(s+'.png'),f/(s+'.export.json'))

@@ -139,6 +139,7 @@ def build():
   g['nodes'].append(dict(id=key,label=label,box=box,style=style,kind='decoration',status='verified',description='Decoder layer template repeated 78 times, with distinct layer parameters; FFN and indexer modes vary according to layer schedule. Embedding, final norm and LM head are outside.',evidence=[dict(source='config',locator='/num_hidden_layers=78; /mlp_layer_types; /indexer_types')]))
  g['edges'].append(dict(id='e_main_add2__main_norm',source='main_add2',target='main_norm',ports=[.5,0,.5,1],routing='straight',label='[B,S,6144]',label_font_size=17,tensor_shape='[B,S,6144]',label_offset=[0,0]))
  g['repetition_groups']=[dict(frame='decoder_repeat_frame',count_label='decoder_repeat_count',count=c['num_hidden_layers'],members=members,scope='Decoder template; per-layer FFN/indexer schedule varies; parameters are not tied.')]
- return g
+ from glm53_presentation import present
+ return present(g)
 if __name__=='__main__':
  g=build();Path(__file__).with_name('glm53.graph.json').write_text(json.dumps(g,ensure_ascii=False,indent=2)+'\n');print(len(g['nodes']),'nodes',len(g['edges']),'edges')
