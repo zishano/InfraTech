@@ -90,3 +90,5 @@ python tools/model_architecture/model_architecture.py verify-png \
 ## 算子框尺寸与对齐
 
 使用通用 `operator_layout.py` 按名称／维度长度和模型构造器判断的视觉复杂度分配尺寸：简单激活与归一化紧凑显示，投影通常两行，聚合、缓存和复合模块适当放大。保持各lane原有中心轴及并行分支层级，尺寸变化后重新选择端口和直线／必要折线路径，并检查实际文字留白和节点避让。长说明保留在description／证据文档，不通过机械拉宽所有节点或一味缩字解决。
+
+后续 [GLM-5.2架构图](../glm_5_2/README.md) 沿用本图认可的自适应排版，并按目标checkpoint重新核对IndexShare、1M上下文与RoPE配置；本5.1图保持每层独立Indexer的正确结构。

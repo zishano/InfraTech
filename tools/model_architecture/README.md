@@ -187,3 +187,7 @@ python tools/model_architecture/model_architecture.py export-png \
 节点自适应排版使用 `operator_layout.fit_operators(graph, roles, font=20)`：构造器为Attention/MoE等明确指定composite角色，其余按算子名称选择简单算子／投影／聚合／缓存等视觉类别。在预留lane内调整宽高，保持中心对齐；长标签先换行，再视需要调整字号。它不改变计算边或证据，也不能替代逐图视觉判断和浏览器测量。GLM-5.1已使用该策略。
 
 **已认可的默认排版参考**：GLM-5.1 的 `f4caaa9` 版本。后续绘图优先采用“按算子复杂度与文本定框 → 主链／分支对齐 → 直线优先 → 实测导出检查”，详见 [WORKFLOW.md](WORKFLOW.md) 的“用户认可的排版参考”。通用实现为 `operator_layout.py`，模型构造示例为 `examples/build_glm51.py`。
+
+### GLM-5.2 / IndexShare 示例
+
+[GLM-5.2架构图](../../models/glm_5_2/README.md) 与 `examples/build_glm52.py` 展示同一模型家族的安全复用：先核对共享核心字段与固定实现，再显式加入目标配置的21 FULL /57 SHARED层、首层例外、1M上下文和theta8e6。IndexShare说明带表示同一次查询的位置传递，不是KV共享或额外主干层；MTP迭代共享仅按已核对范围标注。

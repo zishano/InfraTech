@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "model": "zai-org/GLM-5.2",
+  "revision": "cf457fa734ab149ffef225f80893eb38c6ff5cdc",
+  "sources": [
+    {
+      "id": "config",
+      "url": "https://huggingface.co/zai-org/GLM-5.2/resolve/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json",
+      "kind": "config",
+      "required": true
+    },
+    {
+      "id": "card",
+      "url": "https://huggingface.co/zai-org/GLM-5.2/resolve/cf457fa734ab149ffef225f80893eb38c6ff5cdc/README.md",
+      "kind": "documentation",
+      "required": true
+    },
+    {
+      "id": "index",
+      "url": "https://huggingface.co/zai-org/GLM-5.2/resolve/cf457fa734ab149ffef225f80893eb38c6ff5cdc/model.safetensors.index.json",
+      "kind": "weight_index",
+      "required": true
+    },
+    {
+      "id": "model",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py",
+      "kind": "implementation",
+      "required": true
+    },
+    {
+      "id": "framework_config",
+      "url": "https://raw.githubusercontent.com/huggingface/transformers/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/configuration_glm_moe_dsa.py",
+      "kind": "configuration_code",
+      "required": true
+    }
+  ]
+}

@@ -1,0 +1,738 @@
+{
+  "revision": "cf457fa734ab149ffef225f80893eb38c6ff5cdc",
+  "tensor_names": 59585,
+  "shards": 282,
+  "main_layers": 78,
+  "auxiliary_layers": 1,
+  "full_indexer_layers": [
+    0,
+    1,
+    2,
+    6,
+    10,
+    14,
+    18,
+    22,
+    26,
+    30,
+    34,
+    38,
+    42,
+    46,
+    50,
+    54,
+    58,
+    62,
+    66,
+    70,
+    74
+  ],
+  "shared_indexer_layers": [
+    3,
+    4,
+    5,
+    7,
+    8,
+    9,
+    11,
+    12,
+    13,
+    15,
+    16,
+    17,
+    19,
+    20,
+    21,
+    23,
+    24,
+    25,
+    27,
+    28,
+    29,
+    31,
+    32,
+    33,
+    35,
+    36,
+    37,
+    39,
+    40,
+    41,
+    43,
+    44,
+    45,
+    47,
+    48,
+    49,
+    51,
+    52,
+    53,
+    55,
+    56,
+    57,
+    59,
+    60,
+    61,
+    63,
+    64,
+    65,
+    67,
+    68,
+    69,
+    71,
+    72,
+    73,
+    75,
+    76,
+    77
+  ],
+  "per_layer": [
+    {
+      "layer_index": 0,
+      "auxiliary": false,
+      "tensors": 17,
+      "indexer": true,
+      "routed_experts": false,
+      "dense_ffn": true
+    },
+    {
+      "layer_index": 1,
+      "auxiliary": false,
+      "tensors": 17,
+      "indexer": true,
+      "routed_experts": false,
+      "dense_ffn": true
+    },
+    {
+      "layer_index": 2,
+      "auxiliary": false,
+      "tensors": 17,
+      "indexer": true,
+      "routed_experts": false,
+      "dense_ffn": true
+    },
+    {
+      "layer_index": 3,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 4,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 5,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 6,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 7,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 8,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 9,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 10,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 11,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 12,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 13,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 14,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 15,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 16,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 17,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 18,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 19,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 20,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 21,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 22,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 23,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 24,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 25,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 26,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 27,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 28,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 29,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 30,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 31,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 32,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 33,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 34,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 35,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 36,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 37,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 38,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 39,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 40,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 41,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 42,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 43,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 44,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 45,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 46,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 47,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 48,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 49,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 50,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 51,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 52,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 53,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 54,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 55,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 56,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 57,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 58,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 59,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 60,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 61,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 62,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 63,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 64,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 65,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 66,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 67,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 68,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 69,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 70,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 71,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 72,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 73,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 74,
+      "auxiliary": false,
+      "tensors": 787,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 75,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 76,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 77,
+      "auxiliary": false,
+      "tensors": 782,
+      "indexer": false,
+      "routed_experts": true,
+      "dense_ffn": false
+    },
+    {
+      "layer_index": 78,
+      "auxiliary": true,
+      "tensors": 791,
+      "indexer": true,
+      "routed_experts": true,
+      "dense_ffn": false
+    }
+  ],
+  "metadata": {
+    "parameters": {
+      "BF16": 753329921024,
+      "F32": 19456
+    },
+    "total": 753329940480
+  },
+  "scope": "Index verifies module names and shard mapping, not tensor headers/values or GPU execution.",
+  "indexer_reduction": {
+    "removed_main_indexers": 57,
+    "per_indexer_parameters": 9371904,
+    "source_derived_removed_parameters": 534198528,
+    "metadata_element_delta": -534198528,
+    "tensor_name_delta": -285
+  }
+}

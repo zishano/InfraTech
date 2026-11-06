@@ -1,0 +1,1118 @@
+{
+  "text_overflow": [],
+  "tight_text": [],
+  "nonorthogonal_segments": [],
+  "edge_node_crossings": [],
+  "routes": [
+    {
+      "id": "e_main_tokens__main_embed",
+      "source": "main_tokens",
+      "target": "main_embed",
+      "points": [
+        [
+          230,
+          1728
+        ],
+        [
+          230,
+          1714
+        ]
+      ]
+    },
+    {
+      "id": "e_main_embed__main_x",
+      "source": "main_embed",
+      "target": "main_x",
+      "points": [
+        [
+          230,
+          1646
+        ],
+        [
+          230,
+          1607
+        ]
+      ]
+    },
+    {
+      "id": "e_main_x__main_n1",
+      "source": "main_x",
+      "target": "main_n1",
+      "points": [
+        [
+          230,
+          1563
+        ],
+        [
+          230,
+          1527
+        ]
+      ]
+    },
+    {
+      "id": "e_main_n1__main_attn",
+      "source": "main_n1",
+      "target": "main_attn",
+      "points": [
+        [
+          230,
+          1483
+        ],
+        [
+          230,
+          1460
+        ]
+      ]
+    },
+    {
+      "id": "e_main_attn__main_add1",
+      "source": "main_attn",
+      "target": "main_add1",
+      "points": [
+        [
+          230,
+          1400
+        ],
+        [
+          230,
+          1364
+        ]
+      ]
+    },
+    {
+      "id": "e_main_add1__main_n2",
+      "source": "main_add1",
+      "target": "main_n2",
+      "points": [
+        [
+          230,
+          1320
+        ],
+        [
+          230,
+          1287
+        ]
+      ]
+    },
+    {
+      "id": "e_main_n2__main_ffn",
+      "source": "main_n2",
+      "target": "main_ffn",
+      "points": [
+        [
+          230,
+          1243
+        ],
+        [
+          230,
+          1220
+        ]
+      ]
+    },
+    {
+      "id": "e_main_ffn__main_add2",
+      "source": "main_ffn",
+      "target": "main_add2",
+      "points": [
+        [
+          230,
+          1160
+        ],
+        [
+          230,
+          1124
+        ]
+      ]
+    },
+    {
+      "id": "e_main_add2__main_repeat",
+      "source": "main_add2",
+      "target": "main_repeat",
+      "points": [
+        [
+          230,
+          1080
+        ],
+        [
+          230,
+          1025
+        ]
+      ]
+    },
+    {
+      "id": "e_main_repeat__main_norm",
+      "source": "main_repeat",
+      "target": "main_norm",
+      "points": [
+        [
+          230,
+          965
+        ],
+        [
+          230,
+          892
+        ]
+      ]
+    },
+    {
+      "id": "e_main_norm__main_head",
+      "source": "main_norm",
+      "target": "main_head",
+      "points": [
+        [
+          230,
+          848
+        ],
+        [
+          230,
+          804
+        ]
+      ]
+    },
+    {
+      "id": "e_main_head__main_out",
+      "source": "main_head",
+      "target": "main_out",
+      "points": [
+        [
+          230,
+          736
+        ],
+        [
+          230,
+          692
+        ]
+      ]
+    },
+    {
+      "id": "e_main_x__main_add1",
+      "source": "main_x",
+      "target": "main_add1",
+      "points": [
+        [
+          152,
+          1585
+        ],
+        [
+          70,
+          1585
+        ],
+        [
+          70,
+          1342
+        ],
+        [
+          208,
+          1342
+        ]
+      ]
+    },
+    {
+      "id": "e_main_add1__main_add2",
+      "source": "main_add1",
+      "target": "main_add2",
+      "points": [
+        [
+          252,
+          1342
+        ],
+        [
+          390,
+          1342
+        ],
+        [
+          390,
+          1102
+        ],
+        [
+          252,
+          1102
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_h__attn_qa",
+      "source": "attn_h",
+      "target": "attn_qa",
+      "points": [
+        [
+          669.9999999999985,
+          1660.5
+        ],
+        [
+          670,
+          1609
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_qa__attn_qnorm",
+      "source": "attn_qa",
+      "target": "attn_qnorm",
+      "points": [
+        [
+          670,
+          1541
+        ],
+        [
+          670,
+          1494
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_qnorm__attn_qup",
+      "source": "attn_qnorm",
+      "target": "attn_qup",
+      "points": [
+        [
+          670,
+          1426
+        ],
+        [
+          670,
+          1389
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_qup__attn_qsplit",
+      "source": "attn_qup",
+      "target": "attn_qsplit",
+      "points": [
+        [
+          670,
+          1321
+        ],
+        [
+          670,
+          1266
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_qsplit__attn_qnope",
+      "source": "attn_qsplit",
+      "target": "attn_qnope",
+      "points": [
+        [
+          585,
+          1214
+        ],
+        [
+          585,
+          1152
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_qsplit__attn_qrope",
+      "source": "attn_qsplit",
+      "target": "attn_qrope",
+      "points": [
+        [
+          785,
+          1214
+        ],
+        [
+          785,
+          1152
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_qnope__attn_qcat",
+      "source": "attn_qnope",
+      "target": "attn_qcat",
+      "points": [
+        [
+          585,
+          1108
+        ],
+        [
+          585,
+          1036
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_qrope__attn_qcat",
+      "source": "attn_qrope",
+      "target": "attn_qcat",
+      "points": [
+        [
+          785,
+          1108
+        ],
+        [
+          785,
+          1036
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_h__attn_kvdown",
+      "source": "attn_h",
+      "target": "attn_kvdown",
+      "points": [
+        [
+          1170.0000000000002,
+          1660.5
+        ],
+        [
+          1170,
+          1609
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_kvdown__attn_kvsplit",
+      "source": "attn_kvdown",
+      "target": "attn_kvsplit",
+      "points": [
+        [
+          1170,
+          1541
+        ],
+        [
+          1170,
+          1486
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_kvsplit__attn_kvnorm",
+      "source": "attn_kvsplit",
+      "target": "attn_kvnorm",
+      "points": [
+        [
+          1075,
+          1434
+        ],
+        [
+          1075,
+          1372
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_kvnorm__attn_cache",
+      "source": "attn_kvnorm",
+      "target": "attn_cache",
+      "points": [
+        [
+          1075,
+          1328
+        ],
+        [
+          1075,
+          1279
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_kvsplit__attn_kvrope",
+      "source": "attn_kvsplit",
+      "target": "attn_kvrope",
+      "points": [
+        [
+          1275,
+          1434
+        ],
+        [
+          1275,
+          1372
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_kvrope__attn_cache",
+      "source": "attn_kvrope",
+      "target": "attn_cache",
+      "points": [
+        [
+          1275,
+          1328
+        ],
+        [
+          1275,
+          1279
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_cache__attn_expand",
+      "source": "attn_cache",
+      "target": "attn_expand",
+      "points": [
+        [
+          1170,
+          1211
+        ],
+        [
+          1170,
+          1171.5
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_expand__attn_k",
+      "source": "attn_expand",
+      "target": "attn_k",
+      "points": [
+        [
+          1074.9999999999998,
+          1103.5
+        ],
+        [
+          1075,
+          1032
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_expand__attn_v",
+      "source": "attn_expand",
+      "target": "attn_v",
+      "points": [
+        [
+          1285,
+          1103.5
+        ],
+        [
+          1285,
+          1032
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_qcat__attn_core",
+      "source": "attn_qcat",
+      "target": "attn_core",
+      "points": [
+        [
+          796,
+          1010
+        ],
+        [
+          980,
+          1010
+        ],
+        [
+          980,
+          774
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_k__attn_core",
+      "source": "attn_k",
+      "target": "attn_core",
+      "points": [
+        [
+          1075,
+          988
+        ],
+        [
+          1075,
+          774
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_v__attn_core",
+      "source": "attn_v",
+      "target": "attn_core",
+      "points": [
+        [
+          1285,
+          988
+        ],
+        [
+          1285,
+          740
+        ],
+        [
+          1142,
+          740
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_indices__attn_core",
+      "source": "attn_indices",
+      "target": "attn_core",
+      "points": [
+        [
+          605,
+          828
+        ],
+        [
+          605,
+          740
+        ],
+        [
+          818,
+          740
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_core__attn_o",
+      "source": "attn_core",
+      "target": "attn_o",
+      "points": [
+        [
+          1030,
+          706
+        ],
+        [
+          1030,
+          649
+        ]
+      ]
+    },
+    {
+      "id": "e_attn_o__attn_out",
+      "source": "attn_o",
+      "target": "attn_out",
+      "points": [
+        [
+          1030,
+          581
+        ],
+        [
+          1030,
+          522
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_qr__idx_qp",
+      "source": "idx_qr",
+      "target": "idx_qp",
+      "points": [
+        [
+          1600,
+          1038
+        ],
+        [
+          1600,
+          1014
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_qp__idx_qrpe",
+      "source": "idx_qp",
+      "target": "idx_qrpe",
+      "points": [
+        [
+          1600,
+          946
+        ],
+        [
+          1600,
+          923.5
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_qrpe__idx_q",
+      "source": "idx_qrpe",
+      "target": "idx_q",
+      "points": [
+        [
+          1600,
+          871.5
+        ],
+        [
+          1600,
+          839.5
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_h__idx_kp",
+      "source": "idx_h",
+      "target": "idx_kp",
+      "points": [
+        [
+          1900.0000000000007,
+          1038
+        ],
+        [
+          1900,
+          1014
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_kp__idx_kn",
+      "source": "idx_kp",
+      "target": "idx_kn",
+      "points": [
+        [
+          1900,
+          946
+        ],
+        [
+          1900,
+          919.5
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_kn__idx_krpe",
+      "source": "idx_kn",
+      "target": "idx_krpe",
+      "points": [
+        [
+          1900,
+          875.5
+        ],
+        [
+          1900,
+          843.5
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_krpe__idx_cache",
+      "source": "idx_krpe",
+      "target": "idx_cache",
+      "points": [
+        [
+          1900,
+          791.5
+        ],
+        [
+          1900,
+          771.5
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_h__idx_wp",
+      "source": "idx_h",
+      "target": "idx_wp",
+      "points": [
+        [
+          2200,
+          1038
+        ],
+        [
+          2200,
+          1014
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_wp__idx_scale",
+      "source": "idx_wp",
+      "target": "idx_scale",
+      "points": [
+        [
+          2200,
+          946
+        ],
+        [
+          2200,
+          919.5
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_scale__idx_w",
+      "source": "idx_scale",
+      "target": "idx_w",
+      "points": [
+        [
+          2200,
+          875.5
+        ],
+        [
+          2200,
+          839.5
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_q__idx_dot",
+      "source": "idx_q",
+      "target": "idx_dot",
+      "points": [
+        [
+          1600,
+          795.5
+        ],
+        [
+          1600,
+          666
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_cache__idx_dot",
+      "source": "idx_cache",
+      "target": "idx_dot",
+      "points": [
+        [
+          1900,
+          703.5
+        ],
+        [
+          1900,
+          666
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_dot__idx_relu",
+      "source": "idx_dot",
+      "target": "idx_relu",
+      "points": [
+        [
+          1755,
+          614
+        ],
+        [
+          1755,
+          579.5
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_relu__idx_sum",
+      "source": "idx_relu",
+      "target": "idx_sum",
+      "points": [
+        [
+          1755,
+          535.5
+        ],
+        [
+          1755,
+          503.5
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_sum__idx_mask",
+      "source": "idx_sum",
+      "target": "idx_mask",
+      "points": [
+        [
+          1755,
+          451.5
+        ],
+        [
+          1755,
+          419.5
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_mask__idx_topk",
+      "source": "idx_mask",
+      "target": "idx_topk",
+      "points": [
+        [
+          1755,
+          375.5
+        ],
+        [
+          1755,
+          351
+        ]
+      ]
+    },
+    {
+      "id": "e_idx_w__idx_sum",
+      "source": "idx_w",
+      "target": "idx_sum",
+      "points": [
+        [
+          2200,
+          795.5
+        ],
+        [
+          2200,
+          477.5
+        ],
+        [
+          1879,
+          477.5
+        ]
+      ]
+    },
+    {
+      "id": "e_moe_h__moe_router",
+      "source": "moe_h",
+      "target": "moe_router",
+      "points": [
+        [
+          1710.0000000000011,
+          1728
+        ],
+        [
+          1710,
+          1704
+        ]
+      ]
+    },
+    {
+      "id": "e_moe_router__moe_choice",
+      "source": "moe_router",
+      "target": "moe_choice",
+      "points": [
+        [
+          1710,
+          1636
+        ],
+        [
+          1710,
+          1612
+        ]
+      ]
+    },
+    {
+      "id": "e_moe_choice__moe_weights",
+      "source": "moe_choice",
+      "target": "moe_weights",
+      "points": [
+        [
+          1710,
+          1568
+        ],
+        [
+          1710,
+          1544
+        ]
+      ]
+    },
+    {
+      "id": "e_moe_weights__moe_experts",
+      "source": "moe_weights",
+      "target": "moe_experts",
+      "points": [
+        [
+          1710,
+          1476
+        ],
+        [
+          1710,
+          1464
+        ]
+      ]
+    },
+    {
+      "id": "e_moe_experts__moe_weighted",
+      "source": "moe_experts",
+      "target": "moe_weighted",
+      "points": [
+        [
+          1710,
+          1396
+        ],
+        [
+          1710,
+          1376
+        ]
+      ]
+    },
+    {
+      "id": "e_moe_weighted__moe_add",
+      "source": "moe_weighted",
+      "target": "moe_add",
+      "points": [
+        [
+          1710,
+          1324
+        ],
+        [
+          1710,
+          1284
+        ]
+      ]
+    },
+    {
+      "id": "e_moe_h__moe_shared",
+      "source": "moe_h",
+      "target": "moe_shared",
+      "points": [
+        [
+          2215,
+          1728
+        ],
+        [
+          2215,
+          1479
+        ]
+      ]
+    },
+    {
+      "id": "e_moe_shared__moe_add",
+      "source": "moe_shared",
+      "target": "moe_add",
+      "points": [
+        [
+          2215,
+          1411
+        ],
+        [
+          2215,
+          1262
+        ],
+        [
+          1732,
+          1262
+        ]
+      ]
+    },
+    {
+      "id": "e_mlp_x__mlp_gate",
+      "source": "mlp_x",
+      "target": "mlp_gate",
+      "points": [
+        [
+          320,
+          2563
+        ],
+        [
+          320,
+          2544
+        ]
+      ]
+    },
+    {
+      "id": "e_mlp_gate__mlp_silu",
+      "source": "mlp_gate",
+      "target": "mlp_silu",
+      "points": [
+        [
+          320,
+          2476
+        ],
+        [
+          320,
+          2447
+        ]
+      ]
+    },
+    {
+      "id": "e_mlp_silu__mlp_mul",
+      "source": "mlp_silu",
+      "target": "mlp_mul",
+      "points": [
+        [
+          374,
+          2425
+        ],
+        [
+          550,
+          2425
+        ],
+        [
+          550,
+          2364
+        ]
+      ]
+    },
+    {
+      "id": "e_mlp_mul__mlp_down",
+      "source": "mlp_mul",
+      "target": "mlp_down",
+      "points": [
+        [
+          550,
+          2320
+        ],
+        [
+          550,
+          2297.5
+        ]
+      ]
+    },
+    {
+      "id": "e_mlp_x__mlp_up",
+      "source": "mlp_x",
+      "target": "mlp_up",
+      "points": [
+        [
+          820.0000000000005,
+          2563
+        ],
+        [
+          820,
+          2544
+        ]
+      ]
+    },
+    {
+      "id": "e_mlp_up__mlp_mul",
+      "source": "mlp_up",
+      "target": "mlp_mul",
+      "points": [
+        [
+          730,
+          2510
+        ],
+        [
+          550,
+          2510
+        ],
+        [
+          550,
+          2364
+        ]
+      ]
+    },
+    {
+      "id": "share_transfer_1",
+      "source": "share_stage_0",
+      "target": "share_stage_1",
+      "points": [
+        [
+          550,
+          1977.5
+        ],
+        [
+          680,
+          1977.5
+        ]
+      ]
+    },
+    {
+      "id": "share_transfer_2",
+      "source": "share_stage_1",
+      "target": "share_stage_2",
+      "points": [
+        [
+          1100,
+          1977.5
+        ],
+        [
+          1230,
+          1977.5
+        ]
+      ]
+    },
+    {
+      "id": "share_transfer_3",
+      "source": "share_stage_2",
+      "target": "share_stage_3",
+      "points": [
+        [
+          1650,
+          1977.5
+        ],
+        [
+          1780,
+          1977.5
+        ]
+      ]
+    }
+  ],
+  "drawio_sha256": "0361f77960992de056dc6db11c73be1cd12e8771295ecf42c0c4e79640bd18c9"
+}

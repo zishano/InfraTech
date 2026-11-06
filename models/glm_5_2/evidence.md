@@ -1,0 +1,773 @@
+# GLM-5.2 节点证据
+
+## title
+
+GLM-5.2  |  IndexShare DSA + Mixture of Experts
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## facts
+
+78 layers · hidden 6144 · 64 Q heads · 256 routed / top-8 + 1 shared · context 1M
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## scope
+
+BF16 checkpoint @cf457fa · explicit IndexShare schedule + weight-index checked · bottom-up flow
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## backbone_title
+
+Decoder backbone
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attention_title
+
+DSA / MLA — unabsorbed operator view
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## indexer_title
+
+DSA Indexer — FULL layers only (21 /78)
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## moe_title
+
+MoE — layers 3…77 (0-based)
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## mlp_title
+
+SwiGLU — dense / routed / shared expert
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## aux_title
+
+Auxiliary MTP and source scope
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## main_config
+
+L0–2: Dense FFN
+L3–77: MoE FFN
+DSA: 21 FULL +57 SHARED
+MTP: separate index78
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## main_tokens
+
+Token IDs
+
+- [GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## main_embed
+
+Embedding
+[154880,6144]
+
+- [GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## main_x
+
+Layer input h
+
+- [GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## main_n1
+
+RMSNorm
+
+- [GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## main_attn
+
+DSA
+
+- [GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## main_n2
+
+RMSNorm
+
+- [GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## main_ffn
+
+Dense FFN / MoE
+
+- [GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## main_repeat
+
+Repeat 78 layers
+
+- [GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## main_norm
+
+RMSNorm
+
+- [GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## main_head
+
+LM head
+6144 →154880
+
+- [GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## main_out
+
+Logits
+
+- [GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## main_add1
+
++
+
+- [Decoder residual add after attention, 607–609](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## main_add2
+
++
+
+- [Decoder residual add after MLP, 612–616](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_dims
+
+Q rank2048 · KV rank512 · Q/K256 =192+RoPE64 · V256
+Interleaved RoPE64, theta8e6 · per-layer KV cache
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_h
+
+h [6144]
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_qa
+
+Linear Q down
+6144 →2048
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_qnorm
+
+RMSNorm
+Qr [2048]
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_qup
+
+Linear Q up
+2048 →64×256
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_qsplit
+
+Split Q: 192 |64
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_qnope
+
+Q content192
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_qrope
+
+RoPE64
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_qcat
+
+Concat Q [64,256]
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_kvdown
+
+Linear KV down
+6144 →512+64
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_kvsplit
+
+Split c512 | k64
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_kvnorm
+
+RMSNorm512
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_kvrope
+
+RoPE64
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_cache
+
+Latent KV cache
+c512 + positional key64
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_expand
+
+Linear KV up: 512 →64×448
+K192 + kPE64 bypass; V256
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_k
+
+K [64,256]
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_v
+
+V [64,256]
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_indices
+
+J: new / shared
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_core
+
+Sparse attention
+Softmax(QKᵀ / sqrt(256)) V
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_o
+
+Linear O
+64×256 →6144
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## attn_out
+
+Attention output [6144]
+
+- [GlmMoeDsaAttention.__init__/forward/expand_kv, lines 297–450](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## index_scope
+
+32 heads ×128 · interleaved RoPE64 · LayerNorm on K
+SHARED layers reuse previous TopK; no new Q/K/weight projections
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_qr
+
+Qr [2048]
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_h
+
+h [6144]
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_qp
+
+Linear Qᵢ
+2048 →32×128
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_qrpe
+
+RoPE64 + Concat
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_q
+
+Qᵢ [32,128]
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_kp
+
+Linear Kᵢ
+6144 →128
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_kn
+
+LayerNorm128
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_krpe
+
+RoPE64 + Concat
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_cache
+
+Index key cache
+[T,128]
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_wp
+
+Linear (weights)
+6144 →32
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_scale
+
+Scale: 32^-0.5
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_w
+
+w [32]
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_dot
+
+Matmul (Qᵢ,Kᵢᵀ) / sqrt(128)
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_relu
+
+ReLU
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_sum
+
+Weighted sum (heads)
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_mask
+
+Causal mask
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## idx_topk
+
+TopK ≤2048 → J (int32)
+
+- [GlmMoeDsaIndexer.__init__/forward, lines 153–242](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## moe_h
+
+h [6144]
+
+- [GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## moe_router
+
+Linear → Sigmoid
+FP32 routing
+
+- [GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## moe_choice
+
++ correction bias → Top8
+
+- [GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## moe_weights
+
+Gather original scores
+Normalize → ×2.5
+
+- [GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## moe_experts
+
+256 routed experts /8 active
+SwiGLU: 6144→2048→6144
+
+- [GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## moe_weighted
+
+Weight outputs → Sum
+
+- [GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## moe_shared
+
+Shared expert ×1
+6144→2048→6144
+
+- [GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## moe_add
+
++
+
+- [GlmMoeDsaTopkRouter 469–508; Experts 511–547; MoE 550–572](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## mlp_x
+
+x [6144]
+
+- [GlmMoeDsaMLP.forward 453–466; Experts.forward 523–547](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## mlp_gate
+
+Linear (gate)
+6144 →m
+
+- [GlmMoeDsaMLP.forward 453–466; Experts.forward 523–547](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## mlp_up
+
+Linear (up)
+6144 →m
+
+- [GlmMoeDsaMLP.forward 453–466; Experts.forward 523–547](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## mlp_silu
+
+SiLU
+
+- [GlmMoeDsaMLP.forward 453–466; Experts.forward 523–547](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## mlp_mul
+
+×
+
+- [GlmMoeDsaMLP.forward 453–466; Experts.forward 523–547](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## mlp_down
+
+Linear (down): m →6144
+
+- [GlmMoeDsaMLP.forward 453–466; Experts.forward 523–547](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## mlp_width
+
+m=12288 for first3 dense layers; m=2048 for routed/shared experts
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## aux_modules
+
+MTP ×1 — auxiliary checkpoint index78
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## mtp_norms
+
+enorm / hnorm
+
+- [model.layers.78 auxiliary parameter names in official weight index](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/model.safetensors.index.json)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## mtp_projection
+
+eh_proj
+
+- [model.layers.78 auxiliary parameter names in official weight index](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/model.safetensors.index.json)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## mtp_block
+
+DSA / MoE
+
+- [model.layers.78 auxiliary parameter names in official weight index](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/model.safetensors.index.json)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## mtp_headnorm
+
+shared_head.norm
+
+- [model.layers.78.shared_head.norm.weight](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/model.safetensors.index.json)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## mtp_scope
+
+Own indexer; MTP-iteration share flag=true (backend)
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## aux_scope
+
+Checkpoint config and module names verified
+59,585 tensor names · 282 shards
+No tensor-header or GPU inference test
+IndexShare reuses positions, not per-layer KV
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## footer
+
+Sources: official GLM-5.2 @cf457fa · Transformers @bbe484b · IndexShare evidence and backend limits in README / evidence.md
+
+- [config.json](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+## sharing_title
+
+IndexShare — reuse token positions across layers; keep KV caches independent
+
+- [/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+- [Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+## share_stage_0
+
+L2: FULL
+compute J₂
+
+- [/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+- [Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+## share_stage_1
+
+L3: SHARED
+reuse J₂
+
+- [/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+- [Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+## share_stage_2
+
+L4: SHARED
+reuse J₂
+
+- [/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+- [Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+## share_stage_3
+
+L5: SHARED
+reuse J₂
+
+- [/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+- [Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+## sharing_note
+
+0-based: L0 /L1 also FULL. Next groups: L6 FULL →L7–9 SHARED; …; L74 FULL →L75–77 SHARED.
+J is reused within the same forward query; it is not the previous decode token’s selection.
+
+- [/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3](https://huggingface.co/zai-org/GLM-5.2/blob/cf457fa734ab149ffef225f80893eb38c6ff5cdc/config.json)
+
+- [Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398](https://github.com/huggingface/transformers/blob/bbe484b5680f9cdf4d51bafc6b775b136558ab43/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+## 限制
+
+Native module-level operator diagram, not an executed trace.
+Transformers unabsorbed MLA view; eager/SDPA uses a sparse mask, optimized flash-mla consumes sparse indices.
+BF16 checkpoint selected; FP8 distribution is a separate variant, not assumed here.
+Weight-index names/shards checked; tensor headers/values, GPU inference and Feishu import were not tested.
+MTP index78 is shown as auxiliary checkpoint modules; this Transformers main forward does not execute it.
+IndexShare inset illustrates per-query cross-layer propagation, not extra decoder layers.
+MTP iteration sharing is declared by checkpoint config; its backend-specific execution was not traced.
+Model-card FLOP/acceptance claims are not local throughput or inference measurements.
