@@ -33,7 +33,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=41;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=41;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fillColor=none;strokeColor=none;fillColor=none;"
     },
     {
       "id": "facts",
@@ -57,7 +57,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;fillColor=none;"
     },
     {
       "id": "scope",
@@ -81,7 +81,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;fillColor=none;"
     },
     {
       "id": "backbone",
@@ -105,7 +105,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;fillColor=none;"
     },
     {
       "id": "backbone_title",
@@ -129,7 +129,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#526ab8;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#526ab8;fillColor=none;"
     },
     {
       "id": "attention",
@@ -153,7 +153,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;fillColor=none;"
     },
     {
       "id": "attention_title",
@@ -177,7 +177,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#cf861d;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#cf861d;fillColor=none;"
     },
     {
       "id": "indexer",
@@ -201,7 +201,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;fillColor=none;"
     },
     {
       "id": "indexer_title",
@@ -225,7 +225,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#679336;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#679336;fillColor=none;"
     },
     {
       "id": "moe",
@@ -249,7 +249,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;fillColor=none;"
     },
     {
       "id": "moe_title",
@@ -273,7 +273,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#298c87;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#edf8f6;strokeColor=#298c87;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#298c87;fillColor=none;"
     },
     {
       "id": "mlp",
@@ -297,7 +297,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;fillColor=none;"
     },
     {
       "id": "mlp_title",
@@ -321,7 +321,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#679336;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#679336;fillColor=none;"
     },
     {
       "id": "aux",
@@ -345,7 +345,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;fillColor=none;"
     },
     {
       "id": "aux_title",
@@ -369,7 +369,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#75869d;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=28;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fontColor=#75869d;fillColor=none;"
     },
     {
       "id": "main_config",
@@ -393,7 +393,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fillColor=none;strokeColor=none;fillColor=none;"
     },
     {
       "id": "main_tokens",
@@ -894,7 +894,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=21;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=21;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#fff6e8;strokeColor=#cf861d;strokeWidth=1.2;fillColor=none;strokeColor=none;fillColor=none;"
     },
     {
       "id": "attn_h",
@@ -1698,7 +1698,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fillColor=none;strokeColor=none;fontSize=16;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=13;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f8ec;strokeColor=#679336;strokeWidth=1.2;fillColor=none;strokeColor=none;fontSize=16;fillColor=none;"
     },
     {
       "id": "idx_qr",
@@ -2901,7 +2901,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;fillColor=none;"
     },
     {
       "id": "aux_modules",
@@ -2925,7 +2925,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;fillColor=none;"
     },
     {
       "id": "mtp_norms",
@@ -3069,7 +3069,7 @@
           "locator": "Introduction: same base model as GLM-5.2; gains from post-training"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=21;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=21;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;fillColor=none;"
     },
     {
       "id": "footer",
@@ -3093,7 +3093,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f4f6fa;strokeColor=#75869d;strokeWidth=1.2;fillColor=none;strokeColor=none;fillColor=none;"
     },
     {
       "id": "sharing",
@@ -3107,7 +3107,7 @@
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#493366;align=center;verticalAlign=middle;spacing=8;fillColor=#fbfaff;strokeColor=#7356a6;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#493366;align=center;verticalAlign=middle;spacing=8;fillColor=#fbfaff;strokeColor=#7356a6;strokeWidth=1.2;fillColor=none;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;fillColor=none;",
       "evidence": [
         {
           "source": "config",
@@ -3131,7 +3131,7 @@
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#493366;align=center;verticalAlign=middle;spacing=8;fillColor=#fbfaff;strokeColor=#7356a6;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#493366;align=center;verticalAlign=middle;spacing=8;fillColor=#fbfaff;strokeColor=#7356a6;strokeWidth=1.2;fillColor=none;strokeColor=none;fontStyle=1;fillColor=none;",
       "evidence": [
         {
           "source": "config",
@@ -3251,7 +3251,7 @@
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#493366;align=center;verticalAlign=middle;spacing=8;fillColor=#fbfaff;strokeColor=#7356a6;strokeWidth=1.2;fontSize=19;fillColor=none;strokeColor=none;",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#493366;align=center;verticalAlign=middle;spacing=8;fillColor=#fbfaff;strokeColor=#7356a6;strokeWidth=1.2;fontSize=19;fillColor=none;strokeColor=none;fillColor=none;",
       "evidence": [
         {
           "source": "config",
@@ -5172,6 +5172,7 @@
     "one_bend": 7,
     "kept": 2
   },
+  "background": "none",
   "tensor_contracts": {
     "symbols": {
       "B": "batch",

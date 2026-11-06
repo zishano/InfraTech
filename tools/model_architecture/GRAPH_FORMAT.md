@@ -57,3 +57,5 @@
 `edges[].label` 是原生连接文字，可用于 `[B,S,64,256]` 等张量形状；`label_font_size` 可设为6–48（默认7，正式大图建议16–20），`label_offset: [dx,dy]` 控制相对连线中点的像素偏移。维度标签应跟随实际计算连接，避免用独立维度表替代；仅有排版变化不得改变source/target或删去计算边。长reshape可分两行并增加算子间距。维度语义与证据由模型构造器核对。
 
 原生导出新增实测 `edge_labels`、`edge_label_node_overlaps` 和 `edge_label_overlaps`；后两项非空时拒绝导出。旧布局报告兼容，但不据此宣称已执行新增标签检查。
+
+`background: "none"`指定透明画布，原生XML写入mxGraphModel.background，PNG同步保留alpha；也可使用六位十六进制背景色。省略时维持白色导出。节点XML样式每个属性仅输出最终值一次，避免导入器处理重复fillColor等属性时产生歧义。

@@ -237,6 +237,11 @@ def drawio(g, path):
     f=ET.Element('mxfile', host='app.diagrams.net', type='device')
     d=ET.SubElement(f,'diagram',id='architecture',name=g['title'])
     m=ET.SubElement(d,'mxGraphModel',grid='1',gridSize='10',page='1',pageScale='1',pageWidth=str(g['width']),pageHeight=str(g['height']))
+    if 'background' in g:
+        background=g['background']
+        if background!='none' and not re.fullmatch(r'#[0-9a-fA-F]{6}',background):
+            raise ValueError('Invalid graph background')
+        m.set('background',background)
     r=ET.SubElement(m,'root'); ET.SubElement(r,'mxCell',id='0'); ET.SubElement(r,'mxCell',id='1',parent='0')
     for n in g['nodes']:
         style=n.get('style',DEFAULT_STYLE)
@@ -244,6 +249,9 @@ def drawio(g, path):
             style+='architectureDecoration=1;'
         if n.get('status') == 'unverified' and n.get('kind') != 'decoration':
             style+='dashed=1;'
+        # Export one value per property: importers need not agree on duplicate keys.
+        named=[part for part in style.split(';') if part and '=' not in part]
+        style=';'.join(named+[f'{key}={value}' for key,value in parse_style(style).items()])+';'
         c=ET.SubElement(r,'mxCell',id=n['id'],value=n['label'],style=style,vertex='1',parent='1')
         if n.get('description'):
             c.set('tooltip',n['description'])

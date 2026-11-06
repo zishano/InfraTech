@@ -101,16 +101,20 @@ def export(drawio_path,png_path,*,mxgraph,scale=2,browser='/usr/bin/chromium'):
                 errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
                 page.goto(url+'/',wait_until='networkidle')
                 page.wait_for_function("typeof mxGraph === 'function'")
-                result=page.evaluate('''({xml,width,height})=>{
+                result=page.evaluate('''({xml,width,height,background})=>{
                     mxObjectCodec.allowEval=false;
                     const container=document.getElementById('graph');
                     container.style.width=width+'px';container.style.height=height+'px';
+                    const color=background==='none'?'transparent':background;
+                    document.documentElement.style.background=color;
+                    document.body.style.background=color;
+                    container.style.background=color;
                     const graph=new mxGraph(container);graph.setEnabled(false);
                     const doc=mxUtils.parseXml(xml);new mxCodec(doc).decode(doc.documentElement,graph.getModel());
                     graph.refresh();window.renderedGraph=graph;
                     const cells=Object.values(graph.getModel().cells);
                     return {vertices:cells.filter(c=>c.vertex).length,edges:cells.filter(c=>c.edge).length};
-                }''',dict(xml=ET.tostring(model,encoding='unicode'),width=width,height=height))
+                }''',dict(xml=ET.tostring(model,encoding='unicode'),width=width,height=height,background=model.get('background','#ffffff')))
                 if errors or result!=dict(vertices=vertices,edges=edges):
                     raise ValueError('mxGraph render failed or lost nodes/edges')
                 page.evaluate('document.fonts.ready')
@@ -164,7 +168,7 @@ def export(drawio_path,png_path,*,mxgraph,scale=2,browser='/usr/bin/chromium'):
                 layout['drawio_sha256']=digest(drawio_path)
                 png_path.with_suffix('.layout.json').write_text(json.dumps(layout,ensure_ascii=False,indent=2)+'\n')
                 validate_layout(layout)
-                page.locator('#graph').screenshot(path=str(png_path))
+                page.locator('#graph').screenshot(path=str(png_path),omit_background=model.get('background')=='none')
             finally:b.close()
     finally:
         server.shutdown();server.server_close();thread.join(timeout=5)

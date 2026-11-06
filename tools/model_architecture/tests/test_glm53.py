@@ -36,6 +36,17 @@ class GLM53Tests(unittest.TestCase):
    if e.get('tensor_shape'):
     self.assertEqual(cells[e['id']].get('value'),e['tensor_shape'])
     self.assertIn('fontSize=17;',cells[e['id']].get('style'))
+ def test_transparent_canvas_and_unambiguous_fills(self):
+  root=ET.parse(REPO/'models/glm_5_3/glm_5_3_architecture.drawio')
+  self.assertEqual(root.find('.//mxGraphModel').get('background'),'none')
+  cells={x.get('id'):x for x in root.iter('mxCell')}
+  for cell in cells.values():
+   keys=[part.split('=',1)[0] for part in cell.get('style','').split(';') if '=' in part]
+   self.assertEqual(len(keys),len(set(keys)),cell.get('id'))
+  for key in ['backbone','attention','indexer','moe','mlp','aux','sharing','title']:
+   self.assertEqual(a.parse_style(cells[key].get('style'))['fillColor'],'none')
+  self.assertEqual(a.parse_style(cells['attn_qa'].get('style'))['fillColor'],'#fff6e8')
+  self.assertEqual(a.parse_style(cells['share_stage_0'].get('style'))['fillColor'],'#f5f0fc')
  def test_native_pair_and_layout(self):
   f=REPO/'models/glm_5_3';s='glm_5_3_architecture'
   m=p.verify(f/(s+'.drawio'),f/(s+'.png'),f/(s+'.export.json'))

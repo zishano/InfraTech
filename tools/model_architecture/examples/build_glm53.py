@@ -14,6 +14,11 @@ def build():
  assert next(x['sha256'] for x in inv if x['id']=='framework_config')=='4e0581bbc950f19b2e9cc6e08f300e592f59564b4a34a57b1af670c8ec5bb4dd'
  q=c['quantization_config'];assert (q['quant_method'],q['fmt'],q['weight_block_size'],len(q['modules_to_not_convert']))==('fp8','e4m3',[128,128],541)
  g=build_reviewed_core();g['title']='GLM-5.3 — IndexShare DSA + MoE'
+ g['background']='none'
+ # Group frames and text have no fill; preserve colored operator/MTP/share boxes.
+ for node in g['nodes']:
+  if node['kind']=='decoration' and not node['id'].startswith(('share_stage_','mtp_')):
+   node['style']+='fillColor=none;'
  g['sources']['baseline_index']=g['sources']['index'];del g['sources']['index']
  for k in ('config','card'):g['sources'][k]=f'https://huggingface.co/zai-org/GLM-5.3/blob/{REV}/'+('config.json' if k=='config' else 'README.md')
  for k,name in [('model','modeling_glm_moe_dsa.py'),('framework_config','configuration_glm_moe_dsa.py')]:g['sources'][k]=f'https://github.com/huggingface/transformers/blob/{TF}/src/transformers/models/glm_moe_dsa/{name}'
