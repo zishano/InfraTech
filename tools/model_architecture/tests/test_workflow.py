@@ -59,6 +59,10 @@ class StudyWorkflowTests(unittest.TestCase):
                 self.assertEqual(review['checks'][key]['evidence'],[])
                 self.assertIn('- [ ] `'+key+'`',markdown)
             presentation=review['presentation']
+            self.assertEqual(presentation['style_reference']['commit'],'d8dc8ea')
+            self.assertFalse(presentation['show_color_legend'])
+            self.assertIn('central backbone',presentation['layout'])
+            self.assertIn('checkpoint config',presentation['parameter_notes'])
             self.assertEqual(presentation['background'],'#ffffff')
             self.assertEqual(presentation['group_fill'],'none')
             self.assertEqual(presentation['flow'],'bottom-up')
