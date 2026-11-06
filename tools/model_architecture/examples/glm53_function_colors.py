@@ -41,15 +41,6 @@ def present(g):
     for key,color in {'attention_title':'#a7773e','indexer_title':'#527d5d','sharing_title':'#527d5d',
                        'moe_title':'#3f7e78','mlp_title':'#3f7e78'}.items():
         style(ns[key],fillColor=color,fontColor='#ffffff')
-    # A compact legend after the existing panels; no standalone tensor-shape table.
-    ns['footer']['box'][1]+=140;g['height']+=140
-    base=dict(kind='decoration',status='verified',evidence=[dict(source='config',locator='Presentation legend only; functional categories of reviewed model operators')])
-    def legend(key,label,box,fill='none',stroke='none',text='#526171',font=18):
-        g['nodes'].append(dict(base,id=key,label=label,box=box,
-          style=f'rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize={font};align=center;verticalAlign=middle;spacing=6;fillColor={fill};strokeColor={stroke};fontColor={text};'))
-    legend('functional_legend_title','Function color key',[40,2590,2320,34],font=21)
-    for i,(role,c) in enumerate(FUNCTION_COLORS.items()):
-        legend('functional_legend_'+role,c['label'],[50+230*i,2635,220,44],c['fill'],c['stroke'],c['text'])
     g['presentation_policy']['functional_palette']=FUNCTION_COLORS
     g['presentation_policy']['color_meaning']='Operator function; current model overview, not a version-diff classification.'
     return g

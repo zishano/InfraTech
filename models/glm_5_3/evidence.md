@@ -74,14 +74,18 @@ Auxiliary MTP and source scope
 
 ## main_config
 
-L0–2: Dense FFN
-L3–77: MoE FFN
-DSA: 21 FULL +57 SHARED
-MTP: separate index78
+num_hidden_layers = 78
+hidden_size = 6144
+vocab_size = 154880
+max_position_embeddings = 1048576
 
-- [config.json](https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+- [/num_hidden_layers](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+- [/hidden_size](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+- [/vocab_size](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+- [/max_position_embeddings](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
 ## main_tokens
 
@@ -183,12 +187,37 @@ Logits
 
 ## attn_dims
 
-Q rank2048 · KV rank512 · Q/K256 =192+RoPE64 · V256
-Interleaved RoPE64, theta8e6 · per-layer KV cache
+DSA / MLA · config
+num_attention_heads = 64
+q_lora_rank = 2048
+kv_lora_rank = 512
+qk_nope_head_dim = 192
+qk_rope_head_dim = 64
+qk_head_dim = 256
+v_head_dim = 256
+rope_theta = 8000000
+rope_interleave = true
+attention_bias = false
 
-- [config.json](https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+- [/num_attention_heads](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+- [/q_lora_rank](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+- [/kv_lora_rank](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+- [/qk_nope_head_dim](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+- [/qk_rope_head_dim](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+- [/qk_head_dim](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+- [/v_head_dim](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+- [/rope_parameters/rope_theta](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+- [/rope_interleave](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+- [/attention_bias](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
 ## attn_h
 
@@ -683,14 +712,28 @@ Own indexer; MTP-iteration share flag=true (backend)
 
 ## aux_scope
 
-FP8 release / deployment config
-E4M3 · dynamic activation
-Weight blocks 128 ×128
-541 exclusions; no extra network branch
+MTP / precision · config
+num_nextn_predict_layers = 1
+index_share_for_mtp_iteration = true
+dtype = bfloat16
+quant_method = fp8
+fmt = e4m3
+weight_block_size = [128,128]
+activation_scheme = dynamic
 
-- [/quantization_config](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+- [/num_nextn_predict_layers](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-- [Introduction: same base model as GLM-5.2; gains from post-training](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/README.md)
+- [/index_share_for_mtp_iteration](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+- [/dtype](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+- [/quantization_config/quant_method](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+- [/quantization_config/fmt](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+- [/quantization_config/weight_block_size](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+- [/quantization_config/activation_scheme](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
 ## footer
 
@@ -742,6 +785,8 @@ L5 SHARED · reuse J₂
 
 ## sharing_note
 
+index_topk_freq = 4
+index_skip_topk_offset = 3
 FULL: L0,L1,L2,L6,…,L74
 Same query; share positions J
 Each layer keeps its own KV
@@ -750,77 +795,75 @@ Each layer keeps its own KV
 
 - [Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398](https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
 
+- [/index_topk_freq](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+- [/index_skip_topk_offset](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
 ## decoder_repeat_count
 
 ×78
 
 - [/num_hidden_layers=78; /mlp_layer_types; /indexer_types](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-## functional_legend_title
+## index_config_params
 
-Function color key
+Indexer · config
+index_n_heads = 32
+index_head_dim = 128
+index_topk = 2048
+indexer_rope_interleave = true
 
-- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+- [/index_n_heads](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-## functional_legend_projection
+- [/index_head_dim](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-Projection
+- [/index_topk](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+- [/indexer_rope_interleave](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-## functional_legend_normalization
+## moe_config_params
 
-Normalization
+MoE · config
+n_routed_experts = 256
+num_experts_per_tok = 8
+n_shared_experts = 1
+moe_intermediate_size = 2048
+routed_scaling_factor = 2.5
+scoring_func = sigmoid
+norm_topk_prob = true
 
-- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+- [/n_routed_experts](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-## functional_legend_position
+- [/num_experts_per_tok](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-RoPE / position
+- [/n_shared_experts](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+- [/moe_intermediate_size](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-## functional_legend_attention
+- [/routed_scaling_factor](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-Attention
+- [/scoring_func](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+- [/norm_topk_prob](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-## functional_legend_selection
+## mlp_config_params
 
-Index / select
+SwiGLU · config
+hidden_size = 6144
+intermediate_size = 12288
+moe_intermediate_size = 2048
+hidden_act = silu
+first_k_dense_replace = 3
 
-- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+- [/hidden_size](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-## functional_legend_cache
+- [/intermediate_size](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-Cache
+- [/moe_intermediate_size](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+- [/hidden_act](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-## functional_legend_routing
-
-MoE routing
-
-- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
-
-## functional_legend_expert
-
-FFN / experts
-
-- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
-
-## functional_legend_elementwise
-
-Activation / merge
-
-- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
-
-## functional_legend_tensor
-
-Tensor / layout
-
-- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+- [/first_k_dense_replace](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
 ## 限制
 

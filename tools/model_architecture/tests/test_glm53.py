@@ -85,10 +85,26 @@ class GLM53Tests(unittest.TestCase):
   self.assertLess(ns['main_tokens']['box'][1]-ns['main_out']['box'][1],1050)
   for i in range(3):self.assertGreater(ns[f'share_stage_{i}']['box'][1],ns[f'share_stage_{i+1}']['box'][1])
   self.assertLess(g['height'],2850)
+ def test_panel_parameters_come_from_checkpoint_config_without_legend(self):
+  g=a.read(BASE/'examples/glm53.graph.json');c=a.read(REPO/'models/glm_5_3/official_config.json')
+  self.assertFalse(any('legend' in n['id'] for n in g['nodes']))
+  count=0
+  for n in g['nodes']:
+   for entry in n.get('config_parameters',[]):
+    value=c
+    for key in entry['path'].strip('/').split('/'):value=value[key]
+    self.assertEqual(entry['value'],value)
+    self.assertTrue(any(e['source']=='config' and e['locator']==entry['path'] for e in n['evidence']))
+    count+=1
+  self.assertGreater(count,30)
+  ns={n['id']:n for n in g['nodes']}
+  self.assertEqual(ns['attn_dims']['config_parameters'][0]['path'],'/num_attention_heads')
+  self.assertIn('qk_head_dim = 256',ns['attn_dims']['label'])
+  self.assertIn('index_topk = 2048',ns['index_config_params']['label'])
  def test_native_pair_and_layout(self):
   f=REPO/'models/glm_5_3';s='glm_5_3_architecture'
   m=p.verify(f/(s+'.drawio'),f/(s+'.png'),f/(s+'.export.json'))
-  self.assertEqual((m['vertices'],m['edges']),(110,70));p.validate_layout(a.read(f/(s+'.layout.json')))
+  self.assertEqual((m['vertices'],m['edges']),(102,70));p.validate_layout(a.read(f/(s+'.layout.json')))
   layout=a.read(f/(s+'.layout.json'));self.assertGreaterEqual(len(layout['edge_labels']),45)
   self.assertEqual(layout['edge_label_node_overlaps'],[]);self.assertEqual(layout['edge_label_overlaps'],[])
 if __name__=='__main__':unittest.main()

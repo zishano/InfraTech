@@ -21,6 +21,7 @@
     "Compacted row spacing: canvas height 3780→3024 (-20%); operator box sizes and 17pt edge labels preserved, measured collisions zero.",
     "User-selected Kimi-K3.1-Pro layout: central backbone, flanking detail panels, dark slate-blue heading bars, pale blue-gray operators. Computational source/target connections unchanged.",
     "Compact central decoder chain with integrated IndexShare layer-position reuse inset; full-width sharing strip removed, bottom panels moved up; query-position reuse and independent KV semantics preserved.",
-    "Explicit functional roles and ten-color legend: projection, normalization, position, attention, selection, cache, routing, experts, elementwise and tensor/layout; same role uses same palette across panels."
+    "Explicit functional roles and ten-color legend: projection, normalization, position, attention, selection, cache, routing, experts, elementwise and tensor/layout; same role uses same palette across panels.",
+    "Removed color legend per user; important parameters are generated from pinned HF config into module whitespace with per-field paths/evidence."
   ]
 }

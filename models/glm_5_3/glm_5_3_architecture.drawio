@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mxfile host="app.diagrams.net" type="device">
   <diagram id="architecture" name="GLM-5.3 — IndexShare DSA + MoE">
-    <mxGraphModel grid="1" gridSize="10" page="1" pageScale="1" pageWidth="2400" pageHeight="2774" background="#ffffff">
+    <mxGraphModel grid="1" gridSize="10" page="1" pageScale="1" pageWidth="2400" pageHeight="2634" background="#ffffff">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -50,8 +50,8 @@
         <mxCell id="aux_title" value="Auxiliary MTP and source scope" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=6;fillColor=#59718f;strokeColor=none;strokeWidth=1.2;fontStyle=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="Auxiliary MTP and source scope">
           <mxGeometry as="geometry" x="1080" y="2050.4" width="1280" height="48" />
         </mxCell>
-        <mxCell id="main_config" value="L0–2: Dense FFN&#10;L3–77: MoE FFN&#10;DSA: 21 FULL +57 SHARED&#10;MTP: separate index78" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="L0–2: Dense FFN&#10;L3–77: MoE FFN&#10;DSA: 21 FULL +57 SHARED&#10;MTP: separate index78">
-          <mxGeometry as="geometry" x="1050" y="1360" width="340" height="90" />
+        <mxCell id="main_config" value="num_hidden_layers = 78&#10;hidden_size = 6144&#10;vocab_size = 154880&#10;max_position_embeddings = 1048576" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#526171;align=left;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="Hugging Face checkpoint config, pinned revision ba32f8c19c8738e2c57c71798c601d477a7bf844">
+          <mxGeometry as="geometry" x="1050" y="1355" width="340" height="100" />
         </mxCell>
         <mxCell id="main_tokens" value="Token IDs" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="Token IDs">
           <mxGeometry as="geometry" x="1160.0" y="1300" width="120" height="44" />
@@ -89,8 +89,8 @@
         <mxCell id="main_add2" value="+" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=24;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;shape=ellipse;perimeter=ellipsePerimeter;" vertex="1" parent="1" tooltip="+">
           <mxGeometry as="geometry" x="1198" y="600" width="44" height="44" />
         </mxCell>
-        <mxCell id="attn_dims" value="Q rank2048 · KV rank512 · Q/K256 =192+RoPE64 · V256&#10;Interleaved RoPE64, theta8e6 · per-layer KV cache" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="Q rank2048 · KV rank512 · Q/K256 =192+RoPE64 · V256&#10;Interleaved RoPE64, theta8e6 · per-layer KV cache">
-          <mxGeometry as="geometry" x="60" y="291.20000000000005" width="890" height="112.00000000000001" />
+        <mxCell id="attn_dims" value="DSA / MLA · config&#10;num_attention_heads = 64&#10;q_lora_rank = 2048&#10;kv_lora_rank = 512&#10;qk_nope_head_dim = 192&#10;qk_rope_head_dim = 64&#10;qk_head_dim = 256&#10;v_head_dim = 256&#10;rope_theta = 8000000&#10;rope_interleave = true&#10;attention_bias = false" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#526171;align=left;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="Hugging Face checkpoint config, pinned revision ba32f8c19c8738e2c57c71798c601d477a7bf844">
+          <mxGeometry as="geometry" x="65" y="290" width="370" height="400" />
         </mxCell>
         <mxCell id="attn_h" value="h [6144]" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="h [6144]">
           <mxGeometry as="geometry" x="227.0" y="1862.4" width="536" height="44" />
@@ -269,11 +269,11 @@
         <mxCell id="mtp_scope" value="Own indexer; MTP-iteration share flag=true (backend)" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="Own indexer; MTP-iteration share flag=true (backend)">
           <mxGeometry as="geometry" x="1100" y="2488.4" width="560" height="50.400000000000006" />
         </mxCell>
-        <mxCell id="aux_scope" value="FP8 release / deployment config&#10;E4M3 · dynamic activation&#10;Weight blocks 128 ×128&#10;541 exclusions; no extra network branch" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="FP8 release / deployment config&#10;E4M3 · dynamic activation&#10;Weight blocks 128 ×128&#10;541 exclusions; no extra network branch">
-          <mxGeometry as="geometry" x="1710" y="2152.4" width="620" height="291.20000000000005" />
+        <mxCell id="aux_scope" value="MTP / precision · config&#10;num_nextn_predict_layers = 1&#10;index_share_for_mtp_iteration = true&#10;dtype = bfloat16&#10;quant_method = fp8&#10;fmt = e4m3&#10;weight_block_size = [128,128]&#10;activation_scheme = dynamic" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=left;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="Hugging Face checkpoint config, pinned revision ba32f8c19c8738e2c57c71798c601d477a7bf844">
+          <mxGeometry as="geometry" x="1710" y="2140" width="620" height="300" />
         </mxCell>
         <mxCell id="footer" value="Sources: GLM-5.3 @ba32f8c · Transformers @8833c91 · same base as 5.2; target weight-index download blocked (see README)" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="Sources: GLM-5.3 @ba32f8c · Transformers @8833c91 · same base as 5.2; target weight-index download blocked (see README)">
-          <mxGeometry as="geometry" x="40" y="2726.9600000000005" width="2320" height="42.56" />
+          <mxGeometry as="geometry" x="40" y="2586.9600000000005" width="2320" height="42.56" />
         </mxCell>
         <mxCell id="sharing" value="" style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=#c3cedb;strokeWidth=1.2;dashed=1;dashPattern=6 4;architectureDecoration=1;" vertex="1" parent="1">
           <mxGeometry as="geometry" x="1030" y="1465" width="380" height="510" />
@@ -293,7 +293,7 @@
         <mxCell id="share_stage_3" value="L5 SHARED · reuse J₂" style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=8;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="L5: SHARED&#10;reuse J₂">
           <mxGeometry as="geometry" x="1050" y="1530" width="340" height="44" />
         </mxCell>
-        <mxCell id="sharing_note" value="FULL: L0,L1,L2,L6,…,L74&#10;Same query; share positions J&#10;Each layer keeps its own KV" style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="0-based: L0 /L1 also FULL. Next groups: L6 FULL →L7–9 SHARED; …; L74 FULL →L75–77 SHARED.&#10;J is reused within the same forward query; it is not the previous decode token’s selection.">
+        <mxCell id="sharing_note" value="index_topk_freq = 4&#10;index_skip_topk_offset = 3&#10;FULL: L0,L1,L2,L6,…,L74&#10;Same query; share positions J&#10;Each layer keeps its own KV" style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="0-based: L0 /L1 also FULL. Next groups: L6 FULL →L7–9 SHARED; …; L74 FULL →L75–77 SHARED.&#10;J is reused within the same forward query; it is not the previous decode token’s selection.">
           <mxGeometry as="geometry" x="1040" y="1810" width="360" height="110" />
         </mxCell>
         <mxCell id="decoder_repeat_frame" value="" style="rounded=0;fillColor=none;strokeColor=#59718f;strokeWidth=1.5;fontColor=#26384c;fontFamily=Arial;architectureDecoration=1;" vertex="1" parent="1" tooltip="Decoder layer template repeated 78 times, with distinct layer parameters; FFN and indexer modes vary according to layer schedule. Embedding, final norm and LM head are outside.">
@@ -302,38 +302,14 @@
         <mxCell id="decoder_repeat_count" value="×78" style="fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=27;fontStyle=1;fontColor=#59718f;align=left;verticalAlign=middle;spacing=6;architectureDecoration=1;" vertex="1" parent="1" tooltip="Decoder layer template repeated 78 times, with distinct layer parameters; FFN and indexer modes vary according to layer schedule. Embedding, final norm and LM head are outside.">
           <mxGeometry as="geometry" x="1050" y="579" width="100" height="42" />
         </mxCell>
-        <mxCell id="functional_legend_title" value="Function color key" style="rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=21;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;fontColor=#526171;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="40" y="2590" width="2320" height="34" />
+        <mxCell id="index_config_params" value="Indexer · config&#10;index_n_heads = 32&#10;index_head_dim = 128&#10;index_topk = 2048&#10;indexer_rope_interleave = true" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#526171;align=left;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="Hugging Face checkpoint config, pinned revision ba32f8c19c8738e2c57c71798c601d477a7bf844">
+          <mxGeometry as="geometry" x="1950" y="335" width="400" height="175" />
         </mxCell>
-        <mxCell id="functional_legend_projection" value="Projection" style="rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;fontColor=#294f80;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="50" y="2635" width="220" height="44" />
+        <mxCell id="moe_config_params" value="MoE · config&#10;n_routed_experts = 256&#10;num_experts_per_tok = 8&#10;n_shared_experts = 1&#10;moe_intermediate_size = 2048&#10;routed_scaling_factor = 2.5&#10;scoring_func = sigmoid&#10;norm_topk_prob = true" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#526171;align=left;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="Hugging Face checkpoint config, pinned revision ba32f8c19c8738e2c57c71798c601d477a7bf844">
+          <mxGeometry as="geometry" x="1895" y="1680" width="305" height="240" />
         </mxCell>
-        <mxCell id="functional_legend_normalization" value="Normalization" style="rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#f1eafb;strokeColor=#9b82be;fontColor=#604780;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="280" y="2635" width="220" height="44" />
-        </mxCell>
-        <mxCell id="functional_legend_position" value="RoPE / position" style="rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#e6f6fb;strokeColor=#6aa6b9;fontColor=#326a7d;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="510" y="2635" width="220" height="44" />
-        </mxCell>
-        <mxCell id="functional_legend_attention" value="Attention" style="rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#fff0df;strokeColor=#c49358;fontColor=#875c26;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="740" y="2635" width="220" height="44" />
-        </mxCell>
-        <mxCell id="functional_legend_selection" value="Index / select" style="rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;fontColor=#426b4e;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="970" y="2635" width="220" height="44" />
-        </mxCell>
-        <mxCell id="functional_legend_cache" value="Cache" style="rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#fbecef;strokeColor=#c28a96;fontColor=#895a67;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1200" y="2635" width="220" height="44" />
-        </mxCell>
-        <mxCell id="functional_legend_routing" value="MoE routing" style="rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#fff5d9;strokeColor=#bda05c;fontColor=#806a31;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1430" y="2635" width="220" height="44" />
-        </mxCell>
-        <mxCell id="functional_legend_expert" value="FFN / experts" style="rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#e5f5f3;strokeColor=#6baba4;fontColor=#386f69;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1660" y="2635" width="220" height="44" />
-        </mxCell>
-        <mxCell id="functional_legend_elementwise" value="Activation / merge" style="rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;fontColor=#805b77;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1890" y="2635" width="220" height="44" />
-        </mxCell>
-        <mxCell id="functional_legend_tensor" value="Tensor / layout" style="rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;fontColor=#526171;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="2120" y="2635" width="220" height="44" />
+        <mxCell id="mlp_config_params" value="SwiGLU · config&#10;hidden_size = 6144&#10;intermediate_size = 12288&#10;moe_intermediate_size = 2048&#10;hidden_act = silu&#10;first_k_dense_replace = 3" style="html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#526171;align=left;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;architectureDecoration=1;" vertex="1" parent="1" tooltip="Hugging Face checkpoint config, pinned revision ba32f8c19c8738e2c57c71798c601d477a7bf844">
+          <mxGeometry as="geometry" x="65" y="2110" width="350" height="170" />
         </mxCell>
         <mxCell id="e_main_tokens__main_embed" source="main_tokens" target="main_embed" value="[B,S]" edge="1" parent="1" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontFamily=Arial;fontSize=17;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
           <mxGeometry as="geometry" relative="1">

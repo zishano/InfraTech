@@ -2,7 +2,7 @@
   "version": 1,
   "title": "GLM-5.3 — IndexShare DSA + MoE",
   "width": 2400,
-  "height": 2774,
+  "height": 2634,
   "sources": {
     "config": "https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json",
     "card": "https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/README.md",
@@ -373,27 +373,53 @@
     },
     {
       "id": "main_config",
-      "label": "L0–2: Dense FFN\nL3–77: MoE FFN\nDSA: 21 FULL +57 SHARED\nMTP: separate index78",
-      "description": "L0–2: Dense FFN\nL3–77: MoE FFN\nDSA: 21 FULL +57 SHARED\nMTP: separate index78",
+      "label": "num_hidden_layers = 78\nhidden_size = 6144\nvocab_size = 154880\nmax_position_embeddings = 1048576",
+      "description": "Hugging Face checkpoint config, pinned revision ba32f8c19c8738e2c57c71798c601d477a7bf844",
       "box": [
         1050,
-        1360,
+        1355,
         340,
-        90
+        100
       ],
       "kind": "decoration",
       "status": "verified",
       "evidence": [
         {
-          "source": "model",
-          "locator": "config.json"
+          "source": "config",
+          "locator": "/num_hidden_layers"
         },
         {
           "source": "config",
-          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+          "locator": "/hidden_size"
+        },
+        {
+          "source": "config",
+          "locator": "/vocab_size"
+        },
+        {
+          "source": "config",
+          "locator": "/max_position_embeddings"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;fontSize=17;"
+      "style": "html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#526171;align=left;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;",
+      "config_parameters": [
+        {
+          "path": "/num_hidden_layers",
+          "value": 78
+        },
+        {
+          "path": "/hidden_size",
+          "value": 6144
+        },
+        {
+          "path": "/vocab_size",
+          "value": 154880
+        },
+        {
+          "path": "/max_position_embeddings",
+          "value": 1048576
+        }
+      ]
     },
     {
       "id": "main_tokens",
@@ -847,27 +873,101 @@
     },
     {
       "id": "attn_dims",
-      "label": "Q rank2048 · KV rank512 · Q/K256 =192+RoPE64 · V256\nInterleaved RoPE64, theta8e6 · per-layer KV cache",
-      "description": "Q rank2048 · KV rank512 · Q/K256 =192+RoPE64 · V256\nInterleaved RoPE64, theta8e6 · per-layer KV cache",
+      "label": "DSA / MLA · config\nnum_attention_heads = 64\nq_lora_rank = 2048\nkv_lora_rank = 512\nqk_nope_head_dim = 192\nqk_rope_head_dim = 64\nqk_head_dim = 256\nv_head_dim = 256\nrope_theta = 8000000\nrope_interleave = true\nattention_bias = false",
+      "description": "Hugging Face checkpoint config, pinned revision ba32f8c19c8738e2c57c71798c601d477a7bf844",
       "box": [
-        60,
-        291.20000000000005,
-        890,
-        112.00000000000001
+        65,
+        290,
+        370,
+        400
       ],
       "kind": "decoration",
       "status": "verified",
       "evidence": [
         {
-          "source": "model",
-          "locator": "config.json"
+          "source": "config",
+          "locator": "/num_attention_heads"
         },
         {
           "source": "config",
-          "locator": "Pinned official GLM-5.2 config; see official_config.json"
+          "locator": "/q_lora_rank"
+        },
+        {
+          "source": "config",
+          "locator": "/kv_lora_rank"
+        },
+        {
+          "source": "config",
+          "locator": "/qk_nope_head_dim"
+        },
+        {
+          "source": "config",
+          "locator": "/qk_rope_head_dim"
+        },
+        {
+          "source": "config",
+          "locator": "/qk_head_dim"
+        },
+        {
+          "source": "config",
+          "locator": "/v_head_dim"
+        },
+        {
+          "source": "config",
+          "locator": "/rope_parameters/rope_theta"
+        },
+        {
+          "source": "config",
+          "locator": "/rope_interleave"
+        },
+        {
+          "source": "config",
+          "locator": "/attention_bias"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;"
+      "style": "html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#526171;align=left;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;",
+      "config_parameters": [
+        {
+          "path": "/num_attention_heads",
+          "value": 64
+        },
+        {
+          "path": "/q_lora_rank",
+          "value": 2048
+        },
+        {
+          "path": "/kv_lora_rank",
+          "value": 512
+        },
+        {
+          "path": "/qk_nope_head_dim",
+          "value": 192
+        },
+        {
+          "path": "/qk_rope_head_dim",
+          "value": 64
+        },
+        {
+          "path": "/qk_head_dim",
+          "value": 256
+        },
+        {
+          "path": "/v_head_dim",
+          "value": 256
+        },
+        {
+          "path": "/rope_parameters/rope_theta",
+          "value": 8000000
+        },
+        {
+          "path": "/rope_interleave",
+          "value": true
+        },
+        {
+          "path": "/attention_bias",
+          "value": false
+        }
+      ]
     },
     {
       "id": "attn_h",
@@ -3077,27 +3177,80 @@
     },
     {
       "id": "aux_scope",
-      "label": "FP8 release / deployment config\nE4M3 · dynamic activation\nWeight blocks 128 ×128\n541 exclusions; no extra network branch",
-      "description": "FP8 release / deployment config\nE4M3 · dynamic activation\nWeight blocks 128 ×128\n541 exclusions; no extra network branch",
+      "label": "MTP / precision · config\nnum_nextn_predict_layers = 1\nindex_share_for_mtp_iteration = true\ndtype = bfloat16\nquant_method = fp8\nfmt = e4m3\nweight_block_size = [128,128]\nactivation_scheme = dynamic",
+      "description": "Hugging Face checkpoint config, pinned revision ba32f8c19c8738e2c57c71798c601d477a7bf844",
       "box": [
         1710,
-        2152.4,
+        2140,
         620,
-        291.20000000000005
+        300
       ],
       "kind": "decoration",
       "status": "verified",
       "evidence": [
         {
           "source": "config",
-          "locator": "/quantization_config"
+          "locator": "/num_nextn_predict_layers"
         },
         {
-          "source": "card",
-          "locator": "Introduction: same base model as GLM-5.2; gains from post-training"
+          "source": "config",
+          "locator": "/index_share_for_mtp_iteration"
+        },
+        {
+          "source": "config",
+          "locator": "/dtype"
+        },
+        {
+          "source": "config",
+          "locator": "/quantization_config/quant_method"
+        },
+        {
+          "source": "config",
+          "locator": "/quantization_config/fmt"
+        },
+        {
+          "source": "config",
+          "locator": "/quantization_config/weight_block_size"
+        },
+        {
+          "source": "config",
+          "locator": "/quantization_config/activation_scheme"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;"
+      "style": "html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=left;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;",
+      "config_parameters": [
+        {
+          "path": "/num_nextn_predict_layers",
+          "value": 1
+        },
+        {
+          "path": "/index_share_for_mtp_iteration",
+          "value": true
+        },
+        {
+          "path": "/dtype",
+          "value": "bfloat16"
+        },
+        {
+          "path": "/quantization_config/quant_method",
+          "value": "fp8"
+        },
+        {
+          "path": "/quantization_config/fmt",
+          "value": "e4m3"
+        },
+        {
+          "path": "/quantization_config/weight_block_size",
+          "value": [
+            128,
+            128
+          ]
+        },
+        {
+          "path": "/quantization_config/activation_scheme",
+          "value": "dynamic"
+        }
+      ]
     },
     {
       "id": "footer",
@@ -3105,7 +3258,7 @@
       "description": "Sources: GLM-5.3 @ba32f8c · Transformers @8833c91 · same base as 5.2; target weight-index download blocked (see README)",
       "box": [
         40,
-        2726.9600000000005,
+        2586.9600000000005,
         2320,
         42.56
       ],
@@ -3273,7 +3426,7 @@
     },
     {
       "id": "sharing_note",
-      "label": "FULL: L0,L1,L2,L6,…,L74\nSame query; share positions J\nEach layer keeps its own KV",
+      "label": "index_topk_freq = 4\nindex_skip_topk_offset = 3\nFULL: L0,L1,L2,L6,…,L74\nSame query; share positions J\nEach layer keeps its own KV",
       "description": "0-based: L0 /L1 also FULL. Next groups: L6 FULL →L7–9 SHARED; …; L74 FULL →L75–77 SHARED.\nJ is reused within the same forward query; it is not the previous decode token’s selection.",
       "box": [
         1040,
@@ -3292,6 +3445,24 @@
         {
           "source": "model",
           "locator": "Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398"
+        },
+        {
+          "source": "config",
+          "locator": "/index_topk_freq"
+        },
+        {
+          "source": "config",
+          "locator": "/index_skip_topk_offset"
+        }
+      ],
+      "config_parameters": [
+        {
+          "path": "/index_topk_freq",
+          "value": 4
+        },
+        {
+          "path": "/index_skip_topk_offset",
+          "value": 3
         }
       ]
     },
@@ -3336,213 +3507,186 @@
       ]
     },
     {
+      "id": "index_config_params",
       "kind": "decoration",
       "status": "verified",
+      "label": "Indexer · config\nindex_n_heads = 32\nindex_head_dim = 128\nindex_topk = 2048\nindexer_rope_interleave = true",
+      "description": "Hugging Face checkpoint config, pinned revision ba32f8c19c8738e2c57c71798c601d477a7bf844",
+      "box": [
+        1950,
+        335,
+        400,
+        175
+      ],
       "evidence": [
         {
           "source": "config",
-          "locator": "Presentation legend only; functional categories of reviewed model operators"
+          "locator": "/index_n_heads"
+        },
+        {
+          "source": "config",
+          "locator": "/index_head_dim"
+        },
+        {
+          "source": "config",
+          "locator": "/index_topk"
+        },
+        {
+          "source": "config",
+          "locator": "/indexer_rope_interleave"
         }
       ],
-      "id": "functional_legend_title",
-      "label": "Function color key",
-      "box": [
-        40,
-        2590,
-        2320,
-        34
+      "config_parameters": [
+        {
+          "path": "/index_n_heads",
+          "value": 32
+        },
+        {
+          "path": "/index_head_dim",
+          "value": 128
+        },
+        {
+          "path": "/index_topk",
+          "value": 2048
+        },
+        {
+          "path": "/indexer_rope_interleave",
+          "value": true
+        }
       ],
-      "style": "rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=21;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;fontColor=#526171;"
+      "style": "html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#526171;align=left;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;"
     },
     {
+      "id": "moe_config_params",
       "kind": "decoration",
       "status": "verified",
+      "label": "MoE · config\nn_routed_experts = 256\nnum_experts_per_tok = 8\nn_shared_experts = 1\nmoe_intermediate_size = 2048\nrouted_scaling_factor = 2.5\nscoring_func = sigmoid\nnorm_topk_prob = true",
+      "description": "Hugging Face checkpoint config, pinned revision ba32f8c19c8738e2c57c71798c601d477a7bf844",
+      "box": [
+        1895,
+        1680,
+        305,
+        240
+      ],
       "evidence": [
         {
           "source": "config",
-          "locator": "Presentation legend only; functional categories of reviewed model operators"
+          "locator": "/n_routed_experts"
+        },
+        {
+          "source": "config",
+          "locator": "/num_experts_per_tok"
+        },
+        {
+          "source": "config",
+          "locator": "/n_shared_experts"
+        },
+        {
+          "source": "config",
+          "locator": "/moe_intermediate_size"
+        },
+        {
+          "source": "config",
+          "locator": "/routed_scaling_factor"
+        },
+        {
+          "source": "config",
+          "locator": "/scoring_func"
+        },
+        {
+          "source": "config",
+          "locator": "/norm_topk_prob"
         }
       ],
-      "id": "functional_legend_projection",
-      "label": "Projection",
-      "box": [
-        50,
-        2635,
-        220,
-        44
+      "config_parameters": [
+        {
+          "path": "/n_routed_experts",
+          "value": 256
+        },
+        {
+          "path": "/num_experts_per_tok",
+          "value": 8
+        },
+        {
+          "path": "/n_shared_experts",
+          "value": 1
+        },
+        {
+          "path": "/moe_intermediate_size",
+          "value": 2048
+        },
+        {
+          "path": "/routed_scaling_factor",
+          "value": 2.5
+        },
+        {
+          "path": "/scoring_func",
+          "value": "sigmoid"
+        },
+        {
+          "path": "/norm_topk_prob",
+          "value": true
+        }
       ],
-      "style": "rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;fontColor=#294f80;"
+      "style": "html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#526171;align=left;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;"
     },
     {
+      "id": "mlp_config_params",
       "kind": "decoration",
       "status": "verified",
+      "label": "SwiGLU · config\nhidden_size = 6144\nintermediate_size = 12288\nmoe_intermediate_size = 2048\nhidden_act = silu\nfirst_k_dense_replace = 3",
+      "description": "Hugging Face checkpoint config, pinned revision ba32f8c19c8738e2c57c71798c601d477a7bf844",
+      "box": [
+        65,
+        2110,
+        350,
+        170
+      ],
       "evidence": [
         {
           "source": "config",
-          "locator": "Presentation legend only; functional categories of reviewed model operators"
-        }
-      ],
-      "id": "functional_legend_normalization",
-      "label": "Normalization",
-      "box": [
-        280,
-        2635,
-        220,
-        44
-      ],
-      "style": "rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#f1eafb;strokeColor=#9b82be;fontColor=#604780;"
-    },
-    {
-      "kind": "decoration",
-      "status": "verified",
-      "evidence": [
+          "locator": "/hidden_size"
+        },
         {
           "source": "config",
-          "locator": "Presentation legend only; functional categories of reviewed model operators"
-        }
-      ],
-      "id": "functional_legend_position",
-      "label": "RoPE / position",
-      "box": [
-        510,
-        2635,
-        220,
-        44
-      ],
-      "style": "rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#e6f6fb;strokeColor=#6aa6b9;fontColor=#326a7d;"
-    },
-    {
-      "kind": "decoration",
-      "status": "verified",
-      "evidence": [
+          "locator": "/intermediate_size"
+        },
         {
           "source": "config",
-          "locator": "Presentation legend only; functional categories of reviewed model operators"
-        }
-      ],
-      "id": "functional_legend_attention",
-      "label": "Attention",
-      "box": [
-        740,
-        2635,
-        220,
-        44
-      ],
-      "style": "rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#fff0df;strokeColor=#c49358;fontColor=#875c26;"
-    },
-    {
-      "kind": "decoration",
-      "status": "verified",
-      "evidence": [
+          "locator": "/moe_intermediate_size"
+        },
         {
           "source": "config",
-          "locator": "Presentation legend only; functional categories of reviewed model operators"
-        }
-      ],
-      "id": "functional_legend_selection",
-      "label": "Index / select",
-      "box": [
-        970,
-        2635,
-        220,
-        44
-      ],
-      "style": "rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;fontColor=#426b4e;"
-    },
-    {
-      "kind": "decoration",
-      "status": "verified",
-      "evidence": [
+          "locator": "/hidden_act"
+        },
         {
           "source": "config",
-          "locator": "Presentation legend only; functional categories of reviewed model operators"
+          "locator": "/first_k_dense_replace"
         }
       ],
-      "id": "functional_legend_cache",
-      "label": "Cache",
-      "box": [
-        1200,
-        2635,
-        220,
-        44
-      ],
-      "style": "rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#fbecef;strokeColor=#c28a96;fontColor=#895a67;"
-    },
-    {
-      "kind": "decoration",
-      "status": "verified",
-      "evidence": [
+      "config_parameters": [
         {
-          "source": "config",
-          "locator": "Presentation legend only; functional categories of reviewed model operators"
-        }
-      ],
-      "id": "functional_legend_routing",
-      "label": "MoE routing",
-      "box": [
-        1430,
-        2635,
-        220,
-        44
-      ],
-      "style": "rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#fff5d9;strokeColor=#bda05c;fontColor=#806a31;"
-    },
-    {
-      "kind": "decoration",
-      "status": "verified",
-      "evidence": [
+          "path": "/hidden_size",
+          "value": 6144
+        },
         {
-          "source": "config",
-          "locator": "Presentation legend only; functional categories of reviewed model operators"
-        }
-      ],
-      "id": "functional_legend_expert",
-      "label": "FFN / experts",
-      "box": [
-        1660,
-        2635,
-        220,
-        44
-      ],
-      "style": "rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#e5f5f3;strokeColor=#6baba4;fontColor=#386f69;"
-    },
-    {
-      "kind": "decoration",
-      "status": "verified",
-      "evidence": [
+          "path": "/intermediate_size",
+          "value": 12288
+        },
         {
-          "source": "config",
-          "locator": "Presentation legend only; functional categories of reviewed model operators"
-        }
-      ],
-      "id": "functional_legend_elementwise",
-      "label": "Activation / merge",
-      "box": [
-        1890,
-        2635,
-        220,
-        44
-      ],
-      "style": "rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;fontColor=#805b77;"
-    },
-    {
-      "kind": "decoration",
-      "status": "verified",
-      "evidence": [
+          "path": "/moe_intermediate_size",
+          "value": 2048
+        },
         {
-          "source": "config",
-          "locator": "Presentation legend only; functional categories of reviewed model operators"
+          "path": "/hidden_act",
+          "value": "silu"
+        },
+        {
+          "path": "/first_k_dense_replace",
+          "value": 3
         }
       ],
-      "id": "functional_legend_tensor",
-      "label": "Tensor / layout",
-      "box": [
-        2120,
-        2635,
-        220,
-        44
-      ],
-      "style": "rounded=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;fontColor=#526171;"
+      "style": "html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#526171;align=left;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;"
     }
   ],
   "edges": [
@@ -5513,7 +5657,9 @@
         "text": "#526171"
       }
     },
-    "color_meaning": "Operator function; current model overview, not a version-diff classification."
+    "color_meaning": "Operator function; current model overview, not a version-diff classification.",
+    "config_notes": "Pinned HF config values generated into unfilled panel whitespace; full JSON paths in metadata/evidence.",
+    "legend": "omitted per user preference; same function retains the same color"
   },
   "routing_summary": {
     "straight": 62,
