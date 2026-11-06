@@ -1,0 +1,213 @@
+{
+  "version": 1,
+  "model": "zai-org/GLM-5.1",
+  "requested_revision": "26e1bd6e011feb778d25ae34b09b07074139d92d",
+  "status": "reviewed_with_limits",
+  "workflow": "tools/model_architecture/WORKFLOW.md",
+  "baseline": {
+    "model": "zai-org/GLM-5",
+    "requested_revision": "c183ef8c61faee82855eca1ed9bb3a9a7ce3b0b2"
+  },
+  "source_policy": {
+    "pin_revisions": true,
+    "unique_source_ids": true,
+    "execute_remote_code": false,
+    "download_full_weights": false
+  },
+  "architecture": {
+    "main_layers": 78,
+    "auxiliary_layers": 1,
+    "layer_numbering": "0-based: main0–77, auxiliary78",
+    "attention_paths": [
+      "Q low-rank→split192/64→interleavedRoPE→concat",
+      "KV compression512 + RoPE64→latent cache→unabsorbed expand",
+      "Indexer: Qr2048→Q; hidden→K+LayerNorm+RoPE; hidden→head weights→ReLU scores→causalTopK2048"
+    ],
+    "cache_contracts": [
+      "MLA latent c512 / positional key64",
+      "Independent index K128; top-k limits reads, not cache capacity"
+    ],
+    "unresolved": [
+      "Full MTP forward topology is not drawn; only declared checkpoint module names are shown."
+    ]
+  },
+  "version_diff": {
+    "themes": {
+      "added": "red",
+      "removed": "green",
+      "parameter_changed": "yellow",
+      "unchanged": "neutral"
+    },
+    "additions": [],
+    "removals": [],
+    "parameter_changes": [],
+    "baseline_clarifications": [
+      "GLM-5 and GLM-5.1 configs differ only in transformers_version; no new layer expansion inferred."
+    ]
+  },
+  "optimization_claims": [
+    {
+      "claim": "Sparse selection controls attention positions; eager/SDPA implementation uses a sparse mask, flash-mla can consume indices directly.",
+      "classification": "backend_specific",
+      "source_id": "model",
+      "locator": "Attention.forward, 420–447",
+      "measurement_scope": "Source review only; no speed or memory benchmark."
+    }
+  ],
+  "claim_fields": [
+    "claim",
+    "classification: introduced/inherited/backend_specific/unverified",
+    "source_id",
+    "locator",
+    "applicable_backend_or_hardware",
+    "measurement_scope"
+  ],
+  "presentation": {
+    "flow": "bottom-up",
+    "labels": "operator + necessary dimensions; typically 1–2 lines",
+    "routing_priority": [
+      "straight_if_clear",
+      "one_bend_if_clear",
+      "necessary_detour"
+    ],
+    "long_notes": "description / evidence / README",
+    "native_png_source": "drawio"
+  },
+  "checks": {
+    "identity_and_sources": {
+      "status": "reviewed_with_limits",
+      "question": "Target/baseline identity, pinned revisions, source IDs, hashes, observed failures.",
+      "evidence": [
+        "official_config.json",
+        "checkpoint_summary.json",
+        "evidence.md"
+      ],
+      "notes": "See README for per-topic evidence and scope; model inference and Feishu-client import not run."
+    },
+    "checkpoint_parameters": {
+      "status": "reviewed_with_limits",
+      "question": "Actual checkpoint values; text/vision scopes; class defaults and rounding kept separate.",
+      "evidence": [
+        "official_config.json",
+        "checkpoint_summary.json",
+        "evidence.md"
+      ],
+      "notes": "See README for per-topic evidence and scope; model inference and Feishu-client import not run."
+    },
+    "layer_schedule": {
+      "status": "reviewed_with_limits",
+      "question": "Exact main/auxiliary counts and 0-based versus 1-based numbering.",
+      "evidence": [
+        "official_config.json",
+        "checkpoint_summary.json",
+        "evidence.md"
+      ],
+      "notes": "See README for per-topic evidence and scope; model inference and Feishu-client import not run."
+    },
+    "attention_and_gates": {
+      "status": "reviewed_with_limits",
+      "question": "Q/K/V, recurrent controls, output gates, normalization and positional operations.",
+      "evidence": [
+        "official_config.json",
+        "checkpoint_summary.json",
+        "evidence.md"
+      ],
+      "notes": "See README for per-topic evidence and scope; model inference and Feishu-client import not run."
+    },
+    "cache_and_visibility": {
+      "status": "reviewed_with_limits",
+      "question": "KV/index/state buffers, prefill/decode writes, causal masks, top-k reads versus storage.",
+      "evidence": [
+        "official_config.json",
+        "checkpoint_summary.json",
+        "evidence.md"
+      ],
+      "notes": "See README for per-topic evidence and scope; model inference and Feishu-client import not run."
+    },
+    "moe_residual_vision_auxiliary": {
+      "status": "reviewed_with_limits",
+      "question": "Routed/shared experts, latent paths, weight placement, residuals, vision, MTP.",
+      "evidence": [
+        "official_config.json",
+        "checkpoint_summary.json",
+        "evidence.md"
+      ],
+      "notes": "See README for per-topic evidence and scope; model inference and Feishu-client import not run."
+    },
+    "version_diff": {
+      "status": "reviewed_with_limits",
+      "question": "Source-reviewed structural additions/removals versus parameter/config-only changes.",
+      "evidence": [
+        "official_config.json",
+        "checkpoint_summary.json",
+        "evidence.md"
+      ],
+      "notes": "See README for per-topic evidence and scope; model inference and Feishu-client import not run."
+    },
+    "software_hardware_scope": {
+      "status": "reviewed_with_limits",
+      "question": "Introduced/inherited/backend-specific optimizations; weight/activation/cache precision.",
+      "evidence": [
+        "official_config.json",
+        "checkpoint_summary.json",
+        "evidence.md"
+      ],
+      "notes": "See README for per-topic evidence and scope; model inference and Feishu-client import not run."
+    },
+    "visual_expression": {
+      "status": "reviewed_with_limits",
+      "question": "Short operator labels, readable type hierarchy, adjacent panels, tensor-state insets.",
+      "evidence": [
+        "official_config.json",
+        "checkpoint_summary.json",
+        "evidence.md"
+      ],
+      "notes": "See README for per-topic evidence and scope; model inference and Feishu-client import not run."
+    },
+    "routing_and_layout": {
+      "status": "reviewed_with_limits",
+      "question": "Aligned straight edges first; required branches preserved; actual renderer checks.",
+      "evidence": [
+        "official_config.json",
+        "checkpoint_summary.json",
+        "evidence.md"
+      ],
+      "notes": "See README for per-topic evidence and scope; model inference and Feishu-client import not run."
+    },
+    "native_delivery": {
+      "status": "reviewed_with_limits",
+      "question": "Direct draw.io→PNG export, paired manifests and detailed-page consistency.",
+      "evidence": [
+        "official_config.json",
+        "checkpoint_summary.json",
+        "evidence.md"
+      ],
+      "notes": "See README for per-topic evidence and scope; model inference and Feishu-client import not run."
+    },
+    "validation_and_sync": {
+      "status": "reviewed_with_limits",
+      "question": "Relevant checks, honest limitations, user-authorized branch commit/push.",
+      "evidence": [
+        "official_config.json",
+        "checkpoint_summary.json",
+        "evidence.md"
+      ],
+      "notes": "See README for per-topic evidence and scope; model inference and Feishu-client import not run."
+    }
+  },
+  "delivery": {
+    "graph": "tools/model_architecture/examples/glm51.graph.json",
+    "drawio": "glm_5_1_architecture.drawio",
+    "png": "glm_5_1_architecture.png",
+    "export_manifest": "glm_5_1_architecture.export.json",
+    "layout_report": "glm_5_1_architecture.layout.json",
+    "authorized_branch": "model_dev"
+  },
+  "limitations": [
+    "Native module-level operator diagram, not an executed trace.",
+    "Transformers unabsorbed MLA view; eager/SDPA uses a sparse mask, optimized flash-mla consumes sparse indices.",
+    "BF16 checkpoint selected; FP8 distribution is a separate variant, not assumed here.",
+    "Weight-index names/shards checked; tensor headers/values, GPU inference and Feishu import were not tested.",
+    "MTP index78 is shown as auxiliary checkpoint modules; this Transformers main forward does not execute it."
+  ]
+}

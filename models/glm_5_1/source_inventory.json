@@ -1,0 +1,42 @@
+[
+  {
+    "id": "config",
+    "url": "https://huggingface.co/zai-org/GLM-5.1/resolve/26e1bd6e011feb778d25ae34b09b07074139d92d/config.json",
+    "status": "downloaded",
+    "bytes": 1379,
+    "sha256": "726e45e28d1be1636a5834048a4101a2cfe384819ad2ebe08d41f6fe04656526",
+    "resolved_revision": "26e1bd6e011feb778d25ae34b09b07074139d92d"
+  },
+  {
+    "id": "card",
+    "url": "https://huggingface.co/zai-org/GLM-5.1/resolve/26e1bd6e011feb778d25ae34b09b07074139d92d/README.md",
+    "status": "downloaded",
+    "bytes": 10751,
+    "sha256": "2cb148b732f596716f8c9366edf072e35746de6d06fe69c92301ddb492557077",
+    "resolved_revision": "26e1bd6e011feb778d25ae34b09b07074139d92d"
+  },
+  {
+    "id": "index",
+    "url": "https://huggingface.co/zai-org/GLM-5.1/resolve/26e1bd6e011feb778d25ae34b09b07074139d92d/model.safetensors.index.json",
+    "status": "downloaded",
+    "bytes": 5433823,
+    "sha256": "8c05186d79110d64c68ec6045ef93c4807aad09c8bc8b78b2d741316bff03bb0",
+    "resolved_revision": "26e1bd6e011feb778d25ae34b09b07074139d92d"
+  },
+  {
+    "id": "tf_model",
+    "url": "https://raw.githubusercontent.com/huggingface/transformers/f262c71703eb138381d65ced86b3aaa496be0196/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py",
+    "status": "downloaded",
+    "bytes": 37275,
+    "sha256": "226f5a24b6aa15eca90bcc74e6bf1e2e887687ccfeb0d1ae28da4bf4c216038f",
+    "resolved_revision": "f262c71703eb138381d65ced86b3aaa496be0196"
+  },
+  {
+    "id": "tf_config",
+    "url": "https://raw.githubusercontent.com/huggingface/transformers/f262c71703eb138381d65ced86b3aaa496be0196/src/transformers/models/glm_moe_dsa/configuration_glm_moe_dsa.py",
+    "status": "downloaded",
+    "bytes": 7663,
+    "sha256": "4e0581bbc950f19b2e9cc6e08f300e592f59564b4a34a57b1af670c8ec5bb4dd",
+    "resolved_revision": "f262c71703eb138381d65ced86b3aaa496be0196"
+  }
+]

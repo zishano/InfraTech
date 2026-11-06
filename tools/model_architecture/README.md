@@ -179,3 +179,7 @@ python tools/model_architecture/model_architecture.py export-png \
 
 
 连线简化可调用 `routing.simplify_connections(graph)`，优先对齐端口直连，再寻找无障碍的单折点路径；不会增删模型计算边。图中 `routing: "straight"` 表示让 draw.io 按显式端口及可选 waypoint 绘制，关闭自动增加的绕线。必须继续通过 mxGraph 实测布局检查。Kimi 的展示层示例见 `examples/kimi_k31_presentation.py`。
+
+### GLM-5.1 示例
+
+[GLM-5.1 官方checkpoint核对图](../../models/glm_5_1/README.md) 由 `examples/build_glm51.py` 构建，沿用新的审阅模板与直线优先工具。覆盖78层、3 Dense +75 MoE、带interleaved RoPE的三路DSA Indexer、普通残差与SwiGLU，并将仅核对权重模块存在性的辅助MTP与主forward分开。不能将Kimi索引器的NoPE或DeepSeek压缩器假设套入本例。

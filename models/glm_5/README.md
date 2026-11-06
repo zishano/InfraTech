@@ -29,3 +29,6 @@ DSA模块细节参考: [deepseek_v3_2](../deepseek_v3_2)
 - [整体介绍（官方博客）](https://docs.bigmodel.cn/cn/guide/models/text/glm-5)
 - [模型配置文件](https://huggingface.co/zai-org/GLM-5/blob/main/config.json)
 - [Transformer模型定义](https://github.com/huggingface/transformers/tree/main/src/transformers/models/glm_moe_dsa)
+
+
+GLM-5.1 的已核对原生架构图见 [GLM-5.1](../glm_5_1/README.md)，包含同源PNG、可编辑draw.io、来源与权重索引核对摘要。
