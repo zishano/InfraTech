@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <mxfile host="app.diagrams.net" type="device">
   <diagram id="architecture" name="GLM-5.3 — IndexShare DSA + MoE">
-    <mxGraphModel grid="1" gridSize="10" page="1" pageScale="1" pageWidth="2400" pageHeight="3024" background="#ffffff">
+    <mxGraphModel grid="1" gridSize="10" page="1" pageScale="1" pageWidth="2400" pageHeight="2634" background="#ffffff">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -39,55 +39,55 @@
           <mxGeometry as="geometry" x="1470" y="1286.8000000000002" width="900" height="48" />
         </mxCell>
         <mxCell id="mlp" value="" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=#c3cedb;strokeWidth=1.2;dashed=1;dashPattern=6 4;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="30" y="2430.4" width="1000" height="526.4000000000001" />
+          <mxGeometry as="geometry" x="30" y="2040.4" width="1000" height="526.4000000000001" />
         </mxCell>
         <mxCell id="mlp_title" value="SwiGLU — dense / routed / shared expert" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=6;fillColor=#59718f;strokeColor=none;strokeWidth=1.2;fontStyle=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="SwiGLU — dense / routed / shared expert">
-          <mxGeometry as="geometry" x="40" y="2440.4" width="980" height="48" />
+          <mxGeometry as="geometry" x="40" y="2050.4" width="980" height="48" />
         </mxCell>
         <mxCell id="aux" value="" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=#c3cedb;strokeWidth=1.2;dashed=1;dashPattern=6 4;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="1070" y="2430.4" width="1300" height="526.4000000000001" />
+          <mxGeometry as="geometry" x="1070" y="2040.4" width="1300" height="526.4000000000001" />
         </mxCell>
         <mxCell id="aux_title" value="Auxiliary MTP and source scope" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=6;fillColor=#59718f;strokeColor=none;strokeWidth=1.2;fontStyle=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="Auxiliary MTP and source scope">
-          <mxGeometry as="geometry" x="1080" y="2440.4" width="1280" height="48" />
+          <mxGeometry as="geometry" x="1080" y="2050.4" width="1280" height="48" />
         </mxCell>
-        <mxCell id="main_config" value="L0–2: Dense FFN&#10;L3–77: MoE FFN&#10;DSA: 21 FULL +57 SHARED&#10;MTP: separate index78" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="L0–2: Dense FFN&#10;L3–77: MoE FFN&#10;DSA: 21 FULL +57 SHARED&#10;MTP: separate index78">
-          <mxGeometry as="geometry" x="1055" y="313.6" width="330" height="280.0" />
+        <mxCell id="main_config" value="L0–2: Dense FFN&#10;L3–77: MoE FFN&#10;DSA: 21 FULL +57 SHARED&#10;MTP: separate index78" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="L0–2: Dense FFN&#10;L3–77: MoE FFN&#10;DSA: 21 FULL +57 SHARED&#10;MTP: separate index78">
+          <mxGeometry as="geometry" x="1050" y="1360" width="340" height="90" />
         </mxCell>
         <mxCell id="main_tokens" value="Token IDs" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="Token IDs">
-          <mxGeometry as="geometry" x="1160.0" y="1938.0000000000002" width="120" height="44" />
+          <mxGeometry as="geometry" x="1160.0" y="1300" width="120" height="44" />
         </mxCell>
         <mxCell id="main_embed" value="Embedding&#10;[154880,6144]" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="Embedding [154880,6144]">
-          <mxGeometry as="geometry" x="1130.0" y="1847.6000000000001" width="180" height="68" />
+          <mxGeometry as="geometry" x="1130.0" y="1195" width="180" height="68" />
         </mxCell>
         <mxCell id="main_x" value="Layer input h" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="Layer input h">
-          <mxGeometry as="geometry" x="1142.0" y="1753.2000000000003" width="156" height="44" />
+          <mxGeometry as="geometry" x="1142.0" y="1100" width="156" height="44" />
         </mxCell>
         <mxCell id="main_n1" value="RMSNorm" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="RMSNorm">
-          <mxGeometry as="geometry" x="1162.0" y="1663.6000000000001" width="116" height="44" />
+          <mxGeometry as="geometry" x="1162.0" y="1030" width="116" height="44" />
         </mxCell>
         <mxCell id="main_attn" value="DSA" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="DSA">
-          <mxGeometry as="geometry" x="1090.0" y="1571.6000000000001" width="260" height="60" />
+          <mxGeometry as="geometry" x="1090.0" y="935" width="260" height="60" />
         </mxCell>
         <mxCell id="main_n2" value="RMSNorm" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="RMSNorm">
-          <mxGeometry as="geometry" x="1162.0" y="1394.8000000000002" width="116" height="44" />
+          <mxGeometry as="geometry" x="1162.0" y="780" width="116" height="44" />
         </mxCell>
         <mxCell id="main_ffn" value="Dense FFN / MoE" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="Dense FFN / MoE">
-          <mxGeometry as="geometry" x="1090.0" y="1302.8000000000002" width="260" height="60" />
+          <mxGeometry as="geometry" x="1090.0" y="685" width="260" height="60" />
         </mxCell>
         <mxCell id="main_norm" value="RMSNorm" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="RMSNorm">
-          <mxGeometry as="geometry" x="1162.0" y="1072.4" width="116" height="44" />
+          <mxGeometry as="geometry" x="1162.0" y="495" width="116" height="44" />
         </mxCell>
         <mxCell id="main_head" value="LM head&#10;6144 →154880" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="LM head →154880">
-          <mxGeometry as="geometry" x="1130.0" y="948.4000000000001" width="180" height="68" />
+          <mxGeometry as="geometry" x="1130.0" y="390" width="180" height="68" />
         </mxCell>
         <mxCell id="main_out" value="Logits" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="Logits">
-          <mxGeometry as="geometry" x="1170.0" y="848.4000000000001" width="100" height="44" />
+          <mxGeometry as="geometry" x="1170.0" y="310" width="100" height="44" />
         </mxCell>
         <mxCell id="main_add1" value="+" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=24;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;shape=ellipse;perimeter=ellipsePerimeter;" vertex="1" parent="1" tooltip="+">
-          <mxGeometry as="geometry" x="1198" y="1481.0400000000002" width="44" height="44" />
+          <mxGeometry as="geometry" x="1198" y="855" width="44" height="44" />
         </mxCell>
         <mxCell id="main_add2" value="+" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=24;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;shape=ellipse;perimeter=ellipsePerimeter;" vertex="1" parent="1" tooltip="+">
-          <mxGeometry as="geometry" x="1198" y="1212.24" width="44" height="44" />
+          <mxGeometry as="geometry" x="1198" y="600" width="44" height="44" />
         </mxCell>
         <mxCell id="attn_dims" value="Q rank2048 · KV rank512 · Q/K256 =192+RoPE64 · V256&#10;Interleaved RoPE64, theta8e6 · per-layer KV cache" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="Q rank2048 · KV rank512 · Q/K256 =192+RoPE64 · V256&#10;Interleaved RoPE64, theta8e6 · per-layer KV cache">
           <mxGeometry as="geometry" x="60" y="291.20000000000005" width="890" height="112.00000000000001" />
@@ -231,76 +231,76 @@
           <mxGeometry as="geometry" x="1698" y="1391.44" width="44" height="44" />
         </mxCell>
         <mxCell id="mlp_x" value="x [6144]" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="x [6144]">
-          <mxGeometry as="geometry" x="268.0" y="2873.2000000000003" width="564" height="44" />
+          <mxGeometry as="geometry" x="268.0" y="2483.2000000000003" width="564" height="44" />
         </mxCell>
         <mxCell id="mlp_gate" value="Linear (gate)&#10;6144 →m" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="Linear (gate)&#10;6144 →m">
-          <mxGeometry as="geometry" x="230.0" y="2777.2000000000003" width="180" height="68" />
+          <mxGeometry as="geometry" x="230.0" y="2387.2000000000003" width="180" height="68" />
         </mxCell>
         <mxCell id="mlp_up" value="Linear (up)&#10;6144 →m" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="Linear (up)&#10;6144 →m">
-          <mxGeometry as="geometry" x="730.0" y="2777.2000000000003" width="180" height="68" />
+          <mxGeometry as="geometry" x="730.0" y="2387.2000000000003" width="180" height="68" />
         </mxCell>
         <mxCell id="mlp_silu" value="SiLU" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="SiLU">
-          <mxGeometry as="geometry" x="266.0" y="2694.0000000000005" width="108" height="44" />
+          <mxGeometry as="geometry" x="266.0" y="2304.0000000000005" width="108" height="44" />
         </mxCell>
         <mxCell id="mlp_mul" value="×" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=24;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;shape=ellipse;perimeter=ellipsePerimeter;" vertex="1" parent="1" tooltip="×">
-          <mxGeometry as="geometry" x="528" y="2601.0400000000004" width="44" height="44" />
+          <mxGeometry as="geometry" x="528" y="2211.0400000000004" width="44" height="44" />
         </mxCell>
         <mxCell id="mlp_down" value="Linear (down): m →6144" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=20;" vertex="1" parent="1" tooltip="Linear (down): m →6144&#10;Output [N_e,6144]. Routed/shared expert m=2048; dense m=12288.">
-          <mxGeometry as="geometry" x="427.0" y="2509.6000000000004" width="256" height="60" />
+          <mxGeometry as="geometry" x="427.0" y="2119.6000000000004" width="256" height="60" />
         </mxCell>
         <mxCell id="mlp_width" value="m=12288 Dense /2048 expert · N_e=tokens per expert (Dense: N_e=N)" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="m=12288 Dense /2048 expert · N_e=tokens per expert (Dense: N_e=N)">
-          <mxGeometry as="geometry" x="70" y="2928.8" width="920" height="42.56" />
+          <mxGeometry as="geometry" x="70" y="2538.8" width="920" height="42.56" />
         </mxCell>
         <mxCell id="aux_modules" value="MTP ×1 — inherited base view; target config verified" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="MTP ×1 — inherited base view; target config verified">
-          <mxGeometry as="geometry" x="1100" y="2520.0000000000005" width="560" height="67.2" />
+          <mxGeometry as="geometry" x="1100" y="2130.0000000000005" width="560" height="67.2" />
         </mxCell>
         <mxCell id="mtp_norms" value="enorm / hnorm" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="enorm / hnorm">
-          <mxGeometry as="geometry" x="1110" y="2632.0000000000005" width="170" height="84.00000000000001" />
+          <mxGeometry as="geometry" x="1110" y="2242.0000000000005" width="170" height="84.00000000000001" />
         </mxCell>
         <mxCell id="mtp_projection" value="eh_proj" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="eh_proj">
-          <mxGeometry as="geometry" x="1300" y="2632.0000000000005" width="150" height="84.00000000000001" />
+          <mxGeometry as="geometry" x="1300" y="2242.0000000000005" width="150" height="84.00000000000001" />
         </mxCell>
         <mxCell id="mtp_block" value="DSA / MoE" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="DSA / MoE">
-          <mxGeometry as="geometry" x="1470" y="2632.0000000000005" width="170" height="84.00000000000001" />
+          <mxGeometry as="geometry" x="1470" y="2242.0000000000005" width="170" height="84.00000000000001" />
         </mxCell>
         <mxCell id="mtp_headnorm" value="shared_head.norm" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="shared_head.norm">
-          <mxGeometry as="geometry" x="1200" y="2777.6000000000004" width="360" height="61.60000000000001" />
+          <mxGeometry as="geometry" x="1200" y="2387.6000000000004" width="360" height="61.60000000000001" />
         </mxCell>
         <mxCell id="mtp_scope" value="Own indexer; MTP-iteration share flag=true (backend)" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="Own indexer; MTP-iteration share flag=true (backend)">
-          <mxGeometry as="geometry" x="1100" y="2878.4" width="560" height="50.400000000000006" />
+          <mxGeometry as="geometry" x="1100" y="2488.4" width="560" height="50.400000000000006" />
         </mxCell>
         <mxCell id="aux_scope" value="FP8 release / deployment config&#10;E4M3 · dynamic activation&#10;Weight blocks 128 ×128&#10;541 exclusions; no extra network branch" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=21;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="FP8 release / deployment config&#10;E4M3 · dynamic activation&#10;Weight blocks 128 ×128&#10;541 exclusions; no extra network branch">
-          <mxGeometry as="geometry" x="1710" y="2542.4" width="620" height="291.20000000000005" />
+          <mxGeometry as="geometry" x="1710" y="2152.4" width="620" height="291.20000000000005" />
         </mxCell>
         <mxCell id="footer" value="Sources: GLM-5.3 @ba32f8c · Transformers @8833c91 · same base as 5.2; target weight-index download blocked (see README)" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="Sources: GLM-5.3 @ba32f8c · Transformers @8833c91 · same base as 5.2; target weight-index download blocked (see README)">
-          <mxGeometry as="geometry" x="40" y="2976.9600000000005" width="2320" height="42.56" />
+          <mxGeometry as="geometry" x="40" y="2586.9600000000005" width="2320" height="42.56" />
         </mxCell>
         <mxCell id="sharing" value="" style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=#c3cedb;strokeWidth=1.2;dashed=1;dashPattern=6 4;architectureDecoration=1;" vertex="1" parent="1">
-          <mxGeometry as="geometry" x="30" y="2049.6000000000004" width="2340" height="336.00000000000006" />
+          <mxGeometry as="geometry" x="1030" y="1465" width="380" height="510" />
         </mxCell>
-        <mxCell id="sharing_title" value="IndexShare — reuse token positions across layers; keep KV caches independent" style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=8;fillColor=#59718f;strokeColor=none;strokeWidth=1.2;fontStyle=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="IndexShare — reuse token positions across layers; keep KV caches independent">
-          <mxGeometry as="geometry" x="40" y="2059.6000000000004" width="2320" height="48" />
+        <mxCell id="sharing_title" value="IndexShare · 21 FULL /57 SHARED" style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=8;fillColor=#59718f;strokeColor=none;strokeWidth=1.2;fontStyle=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="IndexShare — reuse token positions across layers; keep KV caches independent">
+          <mxGeometry as="geometry" x="1040" y="1475" width="360" height="40" />
         </mxCell>
-        <mxCell id="share_stage_0" value="L2: FULL&#10;compute J₂" style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="L2: FULL&#10;compute J₂">
-          <mxGeometry as="geometry" x="130" y="2172.8" width="420" height="84.00000000000001" />
+        <mxCell id="share_stage_0" value="L2 FULL · compute J₂" style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="L2: FULL&#10;compute J₂">
+          <mxGeometry as="geometry" x="1050" y="1740" width="340" height="44" />
         </mxCell>
-        <mxCell id="share_stage_1" value="L3: SHARED&#10;reuse J₂" style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="L3: SHARED&#10;reuse J₂">
-          <mxGeometry as="geometry" x="680" y="2172.8" width="420" height="84.00000000000001" />
+        <mxCell id="share_stage_1" value="L3 SHARED · reuse J₂" style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="L3: SHARED&#10;reuse J₂">
+          <mxGeometry as="geometry" x="1050" y="1670" width="340" height="44" />
         </mxCell>
-        <mxCell id="share_stage_2" value="L4: SHARED&#10;reuse J₂" style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="L4: SHARED&#10;reuse J₂">
-          <mxGeometry as="geometry" x="1230" y="2172.8" width="420" height="84.00000000000001" />
+        <mxCell id="share_stage_2" value="L4 SHARED · reuse J₂" style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="L4: SHARED&#10;reuse J₂">
+          <mxGeometry as="geometry" x="1050" y="1600" width="340" height="44" />
         </mxCell>
-        <mxCell id="share_stage_3" value="L5: SHARED&#10;reuse J₂" style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="L5: SHARED&#10;reuse J₂">
-          <mxGeometry as="geometry" x="1780" y="2172.8" width="420" height="84.00000000000001" />
+        <mxCell id="share_stage_3" value="L5 SHARED · reuse J₂" style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;architectureDecoration=1;" vertex="1" parent="1" tooltip="L5: SHARED&#10;reuse J₂">
+          <mxGeometry as="geometry" x="1050" y="1530" width="340" height="44" />
         </mxCell>
-        <mxCell id="sharing_note" value="0-based: L0 /L1 also FULL. Next groups: L6 FULL →L7–9 SHARED; …; L74 FULL →L75–77 SHARED.&#10;J is reused within the same forward query; it is not the previous decode token’s selection." style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="0-based: L0 /L1 also FULL. Next groups: L6 FULL →L7–9 SHARED; …; L74 FULL →L75–77 SHARED.&#10;J is reused within the same forward query; it is not the previous decode token’s selection.">
-          <mxGeometry as="geometry" x="70" y="2273.6000000000004" width="2260" height="89.60000000000001" />
+        <mxCell id="sharing_note" value="FULL: L0,L1,L2,L6,…,L74&#10;Same query; share positions J&#10;Each layer keeps its own KV" style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="0-based: L0 /L1 also FULL. Next groups: L6 FULL →L7–9 SHARED; …; L74 FULL →L75–77 SHARED.&#10;J is reused within the same forward query; it is not the previous decode token’s selection.">
+          <mxGeometry as="geometry" x="1040" y="1810" width="360" height="110" />
         </mxCell>
         <mxCell id="decoder_repeat_frame" value="" style="rounded=0;fillColor=none;strokeColor=#59718f;strokeWidth=1.5;fontColor=#26384c;fontFamily=Arial;architectureDecoration=1;" vertex="1" parent="1" tooltip="Decoder layer template repeated 78 times, with distinct layer parameters; FFN and indexer modes vary according to layer schedule. Embedding, final norm and LM head are outside.">
-          <mxGeometry as="geometry" x="1040" y="1158" width="360" height="662" />
+          <mxGeometry as="geometry" x="1040" y="575" width="360" height="595" />
         </mxCell>
         <mxCell id="decoder_repeat_count" value="×78" style="fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=27;fontStyle=1;fontColor=#59718f;align=left;verticalAlign=middle;spacing=6;architectureDecoration=1;" vertex="1" parent="1" tooltip="Decoder layer template repeated 78 times, with distinct layer parameters; FFN and indexer modes vary according to layer schedule. Embedding, final norm and LM head are outside.">
-          <mxGeometry as="geometry" x="1050" y="1162" width="100" height="42" />
+          <mxGeometry as="geometry" x="1050" y="579" width="100" height="42" />
         </mxCell>
         <mxCell id="e_main_tokens__main_embed" source="main_tokens" target="main_embed" value="[B,S]" edge="1" parent="1" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontFamily=Arial;fontSize=17;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
           <mxGeometry as="geometry" relative="1">
@@ -347,16 +347,16 @@
         <mxCell id="e_main_x__main_add1" source="main_x" target="main_add1" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontFamily=Arial;fontSize=7;labelBackgroundColor=#ffffff;exitX=0;exitY=0.5;entryX=0;entryY=0.5;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1060" y="1775.2000000000003" />
-              <mxPoint x="1060" y="1503.0400000000002" />
+              <mxPoint x="1060" y="1122" />
+              <mxPoint x="1060" y="877" />
             </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="e_main_add1__main_add2" source="main_add1" target="main_add2" value="" edge="1" parent="1" style="edgeStyle=segmentEdgeStyle;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontFamily=Arial;fontSize=7;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=1;entryY=0.5;">
           <mxGeometry as="geometry" relative="1">
             <Array as="points">
-              <mxPoint x="1380" y="1503.0400000000002" />
-              <mxPoint x="1380" y="1234.24" />
+              <mxPoint x="1380" y="877" />
+              <mxPoint x="1380" y="622" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -609,7 +609,7 @@
           <mxGeometry as="geometry" relative="1">
             <mxPoint as="offset" x="0" y="0" />
             <Array as="points">
-              <mxPoint x="550.0" y="2716.0000000000005" />
+              <mxPoint x="550.0" y="2326.0000000000005" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -627,17 +627,17 @@
           <mxGeometry as="geometry" relative="1">
             <mxPoint as="offset" x="0" y="0" />
             <Array as="points">
-              <mxPoint x="550.0" y="2811.2000000000003" />
+              <mxPoint x="550.0" y="2421.2000000000003" />
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="share_transfer_1" source="share_stage_0" target="share_stage_1" value="" edge="1" parent="1" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#59718f;fontColor=#59718f;strokeWidth=1;fontFamily=Arial;fontSize=7;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
+        <mxCell id="share_transfer_1" source="share_stage_0" target="share_stage_1" value="" edge="1" parent="1" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#59718f;fontColor=#59718f;strokeWidth=1;fontFamily=Arial;fontSize=7;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="share_transfer_2" source="share_stage_1" target="share_stage_2" value="" edge="1" parent="1" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#59718f;fontColor=#59718f;strokeWidth=1;fontFamily=Arial;fontSize=7;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
+        <mxCell id="share_transfer_2" source="share_stage_1" target="share_stage_2" value="" edge="1" parent="1" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#59718f;fontColor=#59718f;strokeWidth=1;fontFamily=Arial;fontSize=7;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
-        <mxCell id="share_transfer_3" source="share_stage_2" target="share_stage_3" value="" edge="1" parent="1" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#59718f;fontColor=#59718f;strokeWidth=1;fontFamily=Arial;fontSize=7;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
+        <mxCell id="share_transfer_3" source="share_stage_2" target="share_stage_3" value="" edge="1" parent="1" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#59718f;fontColor=#59718f;strokeWidth=1;fontFamily=Arial;fontSize=7;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
         <mxCell id="e_main_add2__main_norm" source="main_add2" target="main_norm" value="[B,S,6144]" edge="1" parent="1" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontFamily=Arial;fontSize=17;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">

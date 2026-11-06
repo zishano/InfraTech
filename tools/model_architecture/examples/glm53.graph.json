@@ -2,7 +2,7 @@
   "version": 1,
   "title": "GLM-5.3 — IndexShare DSA + MoE",
   "width": 2400,
-  "height": 3024,
+  "height": 2634,
   "sources": {
     "config": "https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json",
     "card": "https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/README.md",
@@ -281,7 +281,7 @@
       "description": "",
       "box": [
         30,
-        2430.4,
+        2040.4,
         1000,
         526.4000000000001
       ],
@@ -305,7 +305,7 @@
       "description": "SwiGLU — dense / routed / shared expert",
       "box": [
         40,
-        2440.4,
+        2050.4,
         980,
         48
       ],
@@ -329,7 +329,7 @@
       "description": "",
       "box": [
         1070,
-        2430.4,
+        2040.4,
         1300,
         526.4000000000001
       ],
@@ -353,7 +353,7 @@
       "description": "Auxiliary MTP and source scope",
       "box": [
         1080,
-        2440.4,
+        2050.4,
         1280,
         48
       ],
@@ -376,10 +376,10 @@
       "label": "L0–2: Dense FFN\nL3–77: MoE FFN\nDSA: 21 FULL +57 SHARED\nMTP: separate index78",
       "description": "L0–2: Dense FFN\nL3–77: MoE FFN\nDSA: 21 FULL +57 SHARED\nMTP: separate index78",
       "box": [
-        1055,
-        313.6,
-        330,
-        280.0
+        1050,
+        1360,
+        340,
+        90
       ],
       "kind": "decoration",
       "status": "verified",
@@ -393,7 +393,7 @@
           "locator": "Pinned official GLM-5.2 config; see official_config.json"
         }
       ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;"
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=6;fillColor=none;strokeColor=none;strokeWidth=1.2;fontSize=17;"
     },
     {
       "id": "main_tokens",
@@ -401,7 +401,7 @@
       "description": "Token IDs",
       "box": [
         1160.0,
-        1938.0000000000002,
+        1300,
         120,
         44
       ],
@@ -421,14 +421,14 @@
       "operator_layout": {
         "role": "interface",
         "reserved_slot": [
-          1080,
-          1937.6000000000001,
-          280,
-          44.800000000000004
+          1160.0,
+          1300,
+          120,
+          44
         ],
         "lane_center": [
           1220.0,
-          1960.0000000000002
+          1322.0
         ],
         "text_lines": 1,
         "sizing": "content + visual role + branch span + readable font"
@@ -440,7 +440,7 @@
       "description": "Embedding [154880,6144]",
       "box": [
         1130.0,
-        1847.6000000000001,
+        1195,
         180,
         68
       ],
@@ -460,14 +460,14 @@
       "operator_layout": {
         "role": "projection",
         "reserved_slot": [
-          1080,
-          1848.0000000000002,
-          280,
-          67.2
+          1130.0,
+          1195,
+          180,
+          68
         ],
         "lane_center": [
           1220.0,
-          1881.6000000000001
+          1229.0
         ],
         "text_lines": 2,
         "sizing": "content + visual role + branch span + readable font"
@@ -479,7 +479,7 @@
       "description": "Layer input h",
       "box": [
         1142.0,
-        1753.2000000000003,
+        1100,
         156,
         44
       ],
@@ -499,14 +499,14 @@
       "operator_layout": {
         "role": "interface",
         "reserved_slot": [
-          1080,
-          1747.2000000000003,
-          280,
-          56.00000000000001
+          1142.0,
+          1100,
+          156,
+          44
         ],
         "lane_center": [
           1220.0,
-          1775.2000000000003
+          1122.0
         ],
         "text_lines": 1,
         "sizing": "content + visual role + branch span + readable font"
@@ -518,7 +518,7 @@
       "description": "RMSNorm",
       "box": [
         1162.0,
-        1663.6000000000001,
+        1030,
         116,
         44
       ],
@@ -538,14 +538,14 @@
       "operator_layout": {
         "role": "primitive",
         "reserved_slot": [
-          1080,
-          1657.6000000000001,
-          280,
-          56.00000000000001
+          1162.0,
+          1030,
+          116,
+          44
         ],
         "lane_center": [
           1220.0,
-          1685.6000000000001
+          1052.0
         ],
         "text_lines": 1,
         "sizing": "content + visual role + branch span + readable font"
@@ -557,7 +557,7 @@
       "description": "DSA",
       "box": [
         1090.0,
-        1571.6000000000001,
+        935,
         260,
         60
       ],
@@ -577,14 +577,14 @@
       "operator_layout": {
         "role": "composite",
         "reserved_slot": [
-          1080,
-          1568.0000000000002,
-          280,
-          67.2
+          1090.0,
+          935,
+          260,
+          60
         ],
         "lane_center": [
           1220.0,
-          1601.6000000000001
+          965.0
         ],
         "text_lines": 1,
         "sizing": "content + visual role + branch span + readable font"
@@ -596,7 +596,7 @@
       "description": "RMSNorm",
       "box": [
         1162.0,
-        1394.8000000000002,
+        780,
         116,
         44
       ],
@@ -616,14 +616,14 @@
       "operator_layout": {
         "role": "primitive",
         "reserved_slot": [
-          1080,
-          1388.8000000000002,
-          280,
-          56.00000000000001
+          1162.0,
+          780,
+          116,
+          44
         ],
         "lane_center": [
           1220.0,
-          1416.8000000000002
+          802.0
         ],
         "text_lines": 1,
         "sizing": "content + visual role + branch span + readable font"
@@ -635,7 +635,7 @@
       "description": "Dense FFN / MoE",
       "box": [
         1090.0,
-        1302.8000000000002,
+        685,
         260,
         60
       ],
@@ -655,14 +655,14 @@
       "operator_layout": {
         "role": "composite",
         "reserved_slot": [
-          1080,
-          1299.2,
-          280,
-          67.2
+          1090.0,
+          685,
+          260,
+          60
         ],
         "lane_center": [
           1220.0,
-          1332.8000000000002
+          715.0
         ],
         "text_lines": 1,
         "sizing": "content + visual role + branch span + readable font"
@@ -674,7 +674,7 @@
       "description": "RMSNorm",
       "box": [
         1162.0,
-        1072.4,
+        495,
         116,
         44
       ],
@@ -694,14 +694,14 @@
       "operator_layout": {
         "role": "primitive",
         "reserved_slot": [
-          1080,
-          1060.8000000000002,
-          280,
-          67.2
+          1162.0,
+          495,
+          116,
+          44
         ],
         "lane_center": [
           1220.0,
-          1094.4
+          517.0
         ],
         "text_lines": 1,
         "sizing": "content + visual role + branch span + readable font"
@@ -713,7 +713,7 @@
       "description": "LM head →154880",
       "box": [
         1130.0,
-        948.4000000000001,
+        390,
         180,
         68
       ],
@@ -733,14 +733,14 @@
       "operator_layout": {
         "role": "projection",
         "reserved_slot": [
-          1080,
-          948.8000000000001,
-          280,
-          67.2
+          1130.0,
+          390,
+          180,
+          68
         ],
         "lane_center": [
           1220.0,
-          982.4000000000001
+          424.0
         ],
         "text_lines": 2,
         "sizing": "content + visual role + branch span + readable font"
@@ -752,7 +752,7 @@
       "description": "Logits",
       "box": [
         1170.0,
-        848.4000000000001,
+        310,
         100,
         44
       ],
@@ -772,14 +772,14 @@
       "operator_layout": {
         "role": "interface",
         "reserved_slot": [
-          1080,
-          836.8000000000001,
-          280,
-          67.2
+          1170.0,
+          310,
+          100,
+          44
         ],
         "lane_center": [
           1220.0,
-          870.4000000000001
+          332.0
         ],
         "text_lines": 1,
         "sizing": "content + visual role + branch span + readable font"
@@ -791,7 +791,7 @@
       "description": "+",
       "box": [
         1198,
-        1481.0400000000002,
+        855,
         44,
         44
       ],
@@ -815,7 +815,7 @@
       "description": "+",
       "box": [
         1198,
-        1212.24,
+        600,
         44,
         44
       ],
@@ -2627,7 +2627,7 @@
       "description": "x [6144]",
       "box": [
         268.0,
-        2873.2000000000003,
+        2483.2000000000003,
         564,
         44
       ],
@@ -2648,13 +2648,13 @@
         "role": "interface",
         "reserved_slot": [
           230,
-          2867.2000000000003,
+          2477.2000000000003,
           640,
           56.00000000000001
         ],
         "lane_center": [
           550.0,
-          2895.2000000000003
+          2505.2000000000003
         ],
         "text_lines": 1,
         "sizing": "content + visual role + branch span + readable font"
@@ -2666,7 +2666,7 @@
       "description": "Linear (gate)\n6144 →m",
       "box": [
         230.0,
-        2777.2000000000003,
+        2387.2000000000003,
         180,
         68
       ],
@@ -2687,13 +2687,13 @@
         "role": "projection",
         "reserved_slot": [
           200,
-          2777.6000000000004,
+          2387.6000000000004,
           240,
           67.2
         ],
         "lane_center": [
           320.0,
-          2811.2000000000003
+          2421.2000000000003
         ],
         "text_lines": 2,
         "sizing": "content + visual role + branch span + readable font"
@@ -2705,7 +2705,7 @@
       "description": "Linear (up)\n6144 →m",
       "box": [
         730.0,
-        2777.2000000000003,
+        2387.2000000000003,
         180,
         68
       ],
@@ -2726,13 +2726,13 @@
         "role": "projection",
         "reserved_slot": [
           700,
-          2777.6000000000004,
+          2387.6000000000004,
           240,
           67.2
         ],
         "lane_center": [
           820.0,
-          2811.2000000000003
+          2421.2000000000003
         ],
         "text_lines": 2,
         "sizing": "content + visual role + branch span + readable font"
@@ -2744,7 +2744,7 @@
       "description": "SiLU",
       "box": [
         266.0,
-        2694.0000000000005,
+        2304.0000000000005,
         108,
         44
       ],
@@ -2765,13 +2765,13 @@
         "role": "primitive",
         "reserved_slot": [
           200,
-          2688.0000000000005,
+          2298.0000000000005,
           240,
           56.00000000000001
         ],
         "lane_center": [
           320.0,
-          2716.0000000000005
+          2326.0000000000005
         ],
         "text_lines": 1,
         "sizing": "content + visual role + branch span + readable font"
@@ -2783,7 +2783,7 @@
       "description": "×",
       "box": [
         528,
-        2601.0400000000004,
+        2211.0400000000004,
         44,
         44
       ],
@@ -2807,7 +2807,7 @@
       "description": "Linear (down): m →6144\nOutput [N_e,6144]. Routed/shared expert m=2048; dense m=12288.",
       "box": [
         427.0,
-        2509.6000000000004,
+        2119.6000000000004,
         256,
         60
       ],
@@ -2828,13 +2828,13 @@
         "role": "projection",
         "reserved_slot": [
           380,
-          2508.8,
+          2118.8,
           350,
           61.60000000000001
         ],
         "lane_center": [
           555.0,
-          2539.6000000000004
+          2149.6000000000004
         ],
         "text_lines": 1,
         "sizing": "content + visual role + branch span + readable font"
@@ -2846,7 +2846,7 @@
       "description": "m=12288 Dense /2048 expert · N_e=tokens per expert (Dense: N_e=N)",
       "box": [
         70,
-        2928.8,
+        2538.8,
         920,
         42.56
       ],
@@ -2870,7 +2870,7 @@
       "description": "MTP ×1 — inherited base view; target config verified",
       "box": [
         1100,
-        2520.0000000000005,
+        2130.0000000000005,
         560,
         67.2
       ],
@@ -2894,7 +2894,7 @@
       "description": "enorm / hnorm",
       "box": [
         1110,
-        2632.0000000000005,
+        2242.0000000000005,
         170,
         84.00000000000001
       ],
@@ -2918,7 +2918,7 @@
       "description": "eh_proj",
       "box": [
         1300,
-        2632.0000000000005,
+        2242.0000000000005,
         150,
         84.00000000000001
       ],
@@ -2942,7 +2942,7 @@
       "description": "DSA / MoE",
       "box": [
         1470,
-        2632.0000000000005,
+        2242.0000000000005,
         170,
         84.00000000000001
       ],
@@ -2966,7 +2966,7 @@
       "description": "shared_head.norm",
       "box": [
         1200,
-        2777.6000000000004,
+        2387.6000000000004,
         360,
         61.60000000000001
       ],
@@ -2990,7 +2990,7 @@
       "description": "Own indexer; MTP-iteration share flag=true (backend)",
       "box": [
         1100,
-        2878.4,
+        2488.4,
         560,
         50.400000000000006
       ],
@@ -3014,7 +3014,7 @@
       "description": "FP8 release / deployment config\nE4M3 · dynamic activation\nWeight blocks 128 ×128\n541 exclusions; no extra network branch",
       "box": [
         1710,
-        2542.4,
+        2152.4,
         620,
         291.20000000000005
       ],
@@ -3038,7 +3038,7 @@
       "description": "Sources: GLM-5.3 @ba32f8c · Transformers @8833c91 · same base as 5.2; target weight-index download blocked (see README)",
       "box": [
         40,
-        2976.9600000000005,
+        2586.9600000000005,
         2320,
         42.56
       ],
@@ -3061,10 +3061,10 @@
       "label": "",
       "description": "",
       "box": [
-        30,
-        2049.6000000000004,
-        2340,
-        336.00000000000006
+        1030,
+        1465,
+        380,
+        510
       ],
       "kind": "decoration",
       "status": "verified",
@@ -3082,17 +3082,17 @@
     },
     {
       "id": "sharing_title",
-      "label": "IndexShare — reuse token positions across layers; keep KV caches independent",
+      "label": "IndexShare · 21 FULL /57 SHARED",
       "description": "IndexShare — reuse token positions across layers; keep KV caches independent",
       "box": [
-        40,
-        2059.6000000000004,
-        2320,
-        48
+        1040,
+        1475,
+        360,
+        40
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=8;fillColor=#59718f;strokeColor=none;strokeWidth=1.2;fontStyle=1;",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#ffffff;align=center;verticalAlign=middle;spacing=8;fillColor=#59718f;strokeColor=none;strokeWidth=1.2;fontStyle=1;fontSize=18;",
       "evidence": [
         {
           "source": "config",
@@ -3106,17 +3106,17 @@
     },
     {
       "id": "share_stage_0",
-      "label": "L2: FULL\ncompute J₂",
+      "label": "L2 FULL · compute J₂",
       "description": "L2: FULL\ncompute J₂",
       "box": [
-        130,
-        2172.8,
-        420,
-        84.00000000000001
+        1050,
+        1740,
+        340,
+        44
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=18;",
       "evidence": [
         {
           "source": "config",
@@ -3130,17 +3130,17 @@
     },
     {
       "id": "share_stage_1",
-      "label": "L3: SHARED\nreuse J₂",
+      "label": "L3 SHARED · reuse J₂",
       "description": "L3: SHARED\nreuse J₂",
       "box": [
-        680,
-        2172.8,
-        420,
-        84.00000000000001
+        1050,
+        1670,
+        340,
+        44
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=18;",
       "evidence": [
         {
           "source": "config",
@@ -3154,17 +3154,17 @@
     },
     {
       "id": "share_stage_2",
-      "label": "L4: SHARED\nreuse J₂",
+      "label": "L4 SHARED · reuse J₂",
       "description": "L4: SHARED\nreuse J₂",
       "box": [
-        1230,
-        2172.8,
-        420,
-        84.00000000000001
+        1050,
+        1600,
+        340,
+        44
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=18;",
       "evidence": [
         {
           "source": "config",
@@ -3178,17 +3178,17 @@
     },
     {
       "id": "share_stage_3",
-      "label": "L5: SHARED\nreuse J₂",
+      "label": "L5 SHARED · reuse J₂",
       "description": "L5: SHARED\nreuse J₂",
       "box": [
-        1780,
-        2172.8,
-        420,
-        84.00000000000001
+        1050,
+        1530,
+        340,
+        44
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=22;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=#f3f6fb;strokeColor=#8e9db0;strokeWidth=1;fontSize=18;",
       "evidence": [
         {
           "source": "config",
@@ -3202,17 +3202,17 @@
     },
     {
       "id": "sharing_note",
-      "label": "0-based: L0 /L1 also FULL. Next groups: L6 FULL →L7–9 SHARED; …; L74 FULL →L75–77 SHARED.\nJ is reused within the same forward query; it is not the previous decode token’s selection.",
+      "label": "FULL: L0,L1,L2,L6,…,L74\nSame query; share positions J\nEach layer keeps its own KV",
       "description": "0-based: L0 /L1 also FULL. Next groups: L6 FULL →L7–9 SHARED; …; L74 FULL →L75–77 SHARED.\nJ is reused within the same forward query; it is not the previous decode token’s selection.",
       "box": [
-        70,
-        2273.6000000000004,
-        2260,
-        89.60000000000001
+        1040,
+        1810,
+        360,
+        110
       ],
       "kind": "decoration",
       "status": "verified",
-      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;strokeWidth=1.2;",
+      "style": "rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#26384c;align=center;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;strokeWidth=1.2;fontSize=16;",
       "evidence": [
         {
           "source": "config",
@@ -3229,9 +3229,9 @@
       "label": "",
       "box": [
         1040,
-        1158,
+        575,
         360,
-        662
+        595
       ],
       "style": "rounded=0;fillColor=none;strokeColor=#59718f;strokeWidth=1.5;fontColor=#26384c;fontFamily=Arial;",
       "kind": "decoration",
@@ -3249,7 +3249,7 @@
       "label": "×78",
       "box": [
         1050,
-        1162,
+        579,
         100,
         42
       ],
@@ -3441,11 +3441,11 @@
       "points": [
         [
           1060,
-          1775.2000000000003
+          1122
         ],
         [
           1060,
-          1503.0400000000002
+          877
         ]
       ]
     },
@@ -3462,11 +3462,11 @@
       "points": [
         [
           1380,
-          1503.0400000000002
+          877
         ],
         [
           1380,
-          1234.24
+          622
         ]
       ]
     },
@@ -4394,7 +4394,7 @@
       "points": [
         [
           550.0,
-          2716.0000000000005
+          2326.0000000000005
         ]
       ],
       "label": "[N_e,m]",
@@ -4457,7 +4457,7 @@
       "points": [
         [
           550.0,
-          2811.2000000000003
+          2421.2000000000003
         ]
       ],
       "label": "[N_e,m]",
@@ -4473,10 +4473,10 @@
       "source": "share_stage_0",
       "target": "share_stage_1",
       "ports": [
-        1,
         0.5,
         0,
-        0.5
+        0.5,
+        1
       ],
       "routing": "straight",
       "color": "#59718f",
@@ -4487,10 +4487,10 @@
       "source": "share_stage_1",
       "target": "share_stage_2",
       "ports": [
-        1,
         0.5,
         0,
-        0.5
+        0.5,
+        1
       ],
       "routing": "straight",
       "color": "#59718f",
@@ -4501,10 +4501,10 @@
       "source": "share_stage_2",
       "target": "share_stage_3",
       "ports": [
-        1,
         0.5,
         0,
-        0.5
+        0.5,
+        1
       ],
       "routing": "straight",
       "color": "#59718f",
@@ -5162,7 +5162,7 @@
     "font": "consistent body size; wrap before shrinking",
     "reference": "Kimi-K3.1-Pro architecture layout and neutral module palette",
     "spacing": "Compact 1.12× baseline row positions; preserve operator sizes and 17pt edge labels.",
-    "layout": "DSA detail left; decoder backbone center; Indexer / MoE right; sharing and auxiliary details below",
+    "layout": "DSA detail left; compact decoder + integrated IndexShare center; Indexer / MoE right; FFN and auxiliary details below",
     "palette": {
       "header": "#59718f",
       "fill": "#f3f6fb",

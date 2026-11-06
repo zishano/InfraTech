@@ -14,7 +14,7 @@ class GLM53Tests(unittest.TestCase):
   self.assertEqual(len(c['quantization_config']['modules_to_not_convert']),541)
   g=a.read(BASE/'examples/glm53.graph.json');a.validate(g)
   old=a.read(BASE/'examples/glm52.graph.json')
-  expected=[(e['source'],e['target'],e.get('ports')) for e in old['edges'] if 'main_repeat' not in (e['source'],e['target'])]
+  expected=[(e['source'],e['target'],[.5,0,.5,1] if e.get('role')=='index_share_illustration' else e.get('ports')) for e in old['edges'] if 'main_repeat' not in (e['source'],e['target'])]
   expected.append(('main_add2','main_norm',[.5,0,.5,1]))
   self.assertEqual(sorted((e['source'],e['target'],e.get('ports')) for e in g['edges']),sorted(expected))
   self.assertFalse(g['checkpoint']['weight_index_verified'])
@@ -72,6 +72,15 @@ class GLM53Tests(unittest.TestCase):
    if 'operator_layout' in n:
     xx,yy,ww,hh=n['box'];cx,cy=n['operator_layout']['lane_center']
     self.assertAlmostEqual(xx+ww/2,cx);self.assertAlmostEqual(yy+hh/2,cy)
+ def test_indexshare_is_inside_compact_backbone(self):
+  g=a.read(BASE/'examples/glm53.graph.json');ns={n['id']:n for n in g['nodes']}
+  x,y,w,h=ns['backbone']['box']
+  for key in ['sharing','sharing_title','sharing_note']+[f'share_stage_{i}' for i in range(4)]:
+   xx,yy,ww,hh=ns[key]['box'];self.assertTrue(x<=xx and y<=yy and xx+ww<=x+w and yy+hh<=y+h,key)
+  self.assertLess(ns['main_tokens']['box'][1],ns['sharing']['box'][1])
+  self.assertLess(ns['main_tokens']['box'][1]-ns['main_out']['box'][1],1050)
+  for i in range(3):self.assertGreater(ns[f'share_stage_{i}']['box'][1],ns[f'share_stage_{i+1}']['box'][1])
+  self.assertLess(g['height'],2700)
  def test_native_pair_and_layout(self):
   f=REPO/'models/glm_5_3';s='glm_5_3_architecture'
   m=p.verify(f/(s+'.drawio'),f/(s+'.png'),f/(s+'.export.json'))

@@ -702,7 +702,7 @@ Sources: GLM-5.3 @ba32f8c · Transformers @8833c91 · same base as 5.2; target w
 
 ## sharing_title
 
-IndexShare — reuse token positions across layers; keep KV caches independent
+IndexShare · 21 FULL /57 SHARED
 
 - [/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
@@ -710,8 +710,7 @@ IndexShare — reuse token positions across layers; keep KV caches independent
 
 ## share_stage_0
 
-L2: FULL
-compute J₂
+L2 FULL · compute J₂
 
 - [/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
@@ -719,8 +718,7 @@ compute J₂
 
 ## share_stage_1
 
-L3: SHARED
-reuse J₂
+L3 SHARED · reuse J₂
 
 - [/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
@@ -728,8 +726,7 @@ reuse J₂
 
 ## share_stage_2
 
-L4: SHARED
-reuse J₂
+L4 SHARED · reuse J₂
 
 - [/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
@@ -737,8 +734,7 @@ reuse J₂
 
 ## share_stage_3
 
-L5: SHARED
-reuse J₂
+L5 SHARED · reuse J₂
 
 - [/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
@@ -746,8 +742,9 @@ reuse J₂
 
 ## sharing_note
 
-0-based: L0 /L1 also FULL. Next groups: L6 FULL →L7–9 SHARED; …; L74 FULL →L75–77 SHARED.
-J is reused within the same forward query; it is not the previous decode token’s selection.
+FULL: L0,L1,L2,L6,…,L74
+Same query; share positions J
+Each layer keeps its own KV
 
 - [/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
