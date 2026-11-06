@@ -48,6 +48,24 @@ class StudyWorkflowTests(unittest.TestCase):
             self.assertEqual(result.returncode,0,result.stderr)
             self.assertEqual(a.read(out/'review.json')['requested_revision'],'main')
             self.assertIsNone(a.read(out/'review.json')['baseline'])
+            review=a.read(out/'review.json')
+            policy=review['drawing_policy']
+            self.assertEqual(len(policy['rule_ids']),12)
+            self.assertEqual(len(set(policy['rule_ids'])),12)
+            markdown=(out/'architecture_review.md').read_text()
+            for rule in policy['rule_ids']:
+                key='drawing_'+rule
+                self.assertEqual(review['checks'][key]['status'],'pending')
+                self.assertEqual(review['checks'][key]['evidence'],[])
+                self.assertIn('- [ ] `'+key+'`',markdown)
+            presentation=review['presentation']
+            self.assertEqual(presentation['background'],'#ffffff')
+            self.assertEqual(presentation['group_fill'],'none')
+            self.assertEqual(presentation['flow'],'bottom-up')
+            self.assertIn('×N',presentation['repetition'])
+            self.assertIn('native edge labels',presentation['edge_dimensions'])
+            self.assertIn('compact',presentation['spacing'])
+            self.assertIsNone(presentation['implementation_view'])
             self.assertFalse((out/'baseline.sources.json').exists())
             invalid=Path(directory)/'invalid'
             result=subprocess.run([sys.executable,str(BASE/'model_architecture.py'),'init-study','example/Model','--baseline-revision','old-revision','--out',str(invalid)],capture_output=True,text=True)

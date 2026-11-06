@@ -18,6 +18,22 @@ CHECKS={
     'validation_and_sync':'Relevant checks, honest limitations, user-authorized branch commit/push.'
 }
 
+# Defaults for future studies, not evidence that a diagram has been reviewed.
+DRAWING_RULES={
+    '01_repetition':'完整重复结构用无填充矩形包围，左上角×N；非重复部分在框外；不使用Repeat计算算子。',
+    '02_edge_dimensions':'输入输出形状标在对应原生计算连线上，覆盖投影、拆分、拼接、reshape、缓存及路由。',
+    '03_dimension_symbols':'定义B/S/T/K等符号及轴顺序，区分查询长度、含缓存KV长度、读取数量和存储容量。',
+    '04_compact_spacing':'算子与模块紧凑排列，缩短空白线段；保留可读字体，不靠缩字压缩。',
+    '05_operator_sizing':'按名称、视觉复杂度与接口选择框尺寸，主链居中、并行分支对齐，避免机械等宽等高。',
+    '06_background':'白色画布，分组无填充，仅算子模块保留颜色；XML样式属性去重。',
+    '07_routing':'优先直线，其次单直角，必要时避让；保留全部计算边和分支。',
+    '08_flow':'默认自下而上推理，输入在下、输出在上；残差、门控与并行分支方向清晰。',
+    '09_implementation_views':'明确所画实现视图，未吸收MLA与吸收式MQA等不可混接，注明后端及等价核验边界。',
+    '10_version_evidence':'先核对官方配置、实现及权重资料，区分架构变化、后训练、量化配置与存储精度。',
+    '11_native_pair':'先生成原生可编辑draw.io，再直接导出同名PNG；同步更新layout/export并verify-png。',
+    '12_layout_compatibility':'原生测量文字溢出、标签重叠、穿框与对齐，缩略/放大检查；不冒称已实测导入。',
+}
+
 def create_study(manifest,out,baseline=None):
     """Scaffold review records, never approve facts or overwrite existing work."""
     out=Path(out)
@@ -33,9 +49,17 @@ def create_study(manifest,out,baseline=None):
       claim_fields=['claim','classification: introduced/inherited/backend_specific/unverified','source_id','locator','applicable_backend_or_hardware','measurement_scope'],
       presentation=dict(flow='bottom-up',labels='operator + necessary dimensions; typically 1–2 lines',
                         node_sizing='operator visual complexity + name/dimensions + branch interfaces; preserve lane centers',
+                        repetition='unfilled rectangle around complete repeated unit; ×N in upper-left; nonrepeated operators outside',
+                        edge_dimensions='native edge labels on actual computational connections; no standalone dimension panel',
+                        dimension_symbols=dict(B='batch',S='current query length',T='KV length including cache',K='selected positions; model-specific'),
+                        spacing='compact; preserve readable fonts and operator sizes; measure collisions',
+                        background='#ffffff',group_fill='none',module_colors='preserve reviewed semantic palette',
+                        implementation_view=None,
                         routing_priority=['straight_if_clear','one_bend_if_clear','necessary_detour'],
                         long_notes='description / evidence / README',native_png_source='drawio'),
-      checks={key:dict(status='pending',question=value,evidence=[],notes='') for key,value in CHECKS.items()},
+      drawing_policy=dict(version=1,document='tools/model_architecture/DRAWING_RULES.md',rule_ids=list(DRAWING_RULES)),
+      checks={key:dict(status='pending',question=value,evidence=[],notes='') for key,value in
+              {**CHECKS,**{'drawing_'+key:value for key,value in DRAWING_RULES.items()}}.items()},
       delivery=dict(graph=None,drawio=None,png=None,export_manifest=None,layout_report=None,authorized_branch=None),
       limitations=['Scaffold only: no sources collected, topology reviewed, renderer run or model inference executed.'])
     lines=['# '+model+' 架构审阅记录','',
@@ -47,6 +71,9 @@ def create_study(manifest,out,baseline=None):
            '- 来源获取、哈希、失败／未公开内容：待填写','',
            '## 结构审阅','']
     for key,text in CHECKS.items():lines.append('- [ ] `'+key+'`：'+text)
+    lines.extend(['','## 绘图规则（12项，逐项审阅）','',
+                  '详见工具目录 `DRAWING_RULES.md`。默认值不是已通过的检查；不适用项须说明原因。',''])
+    for key,text in DRAWING_RULES.items():lines.append('- [ ] `drawing_'+key+'`：'+text)
     lines.extend(['','## 主要计算与状态','',
        '| 模块 | 输入／分支 | 算子顺序 | 状态写入／读取 | 来源及定位 | 未确认项 |',
        '| --- | --- | --- | --- | --- | --- |',
