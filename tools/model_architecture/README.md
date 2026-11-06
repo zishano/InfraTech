@@ -2,15 +2,34 @@
 
 把模型资料、证据、结构描述和绘图分开保存。资料收集、提取及 draw.io/SVG 使用 Python 3.10+ 标准库；正式 PNG 导出另需 Playwright、Chromium 和固定版本 mxGraph。不运行远端模型代码，不下载完整权重，不要求绘图 API key。
 
+## 后续模型从这里开始
+
+先阅读 [绘图规范与经验](WORKFLOW.md)：它将来源核验、具体算子审阅、版本差异、软硬协同口径、字体布局、直线优先及同源交付整理成统一流程。Kimi／DeepSeek 的特定参数与计算不能直接套用到其他模型。
+
+```bash
+python tools/model_architecture/model_architecture.py init-study org/NewModel \
+  --revision CHECKED_REVISION --out /workspace/new-model-study
+
+# 有旧版基线时：
+python tools/model_architecture/model_architecture.py init-study org/NewModel \
+  --revision NEW_REVISION --baseline org/OldModel \
+  --baseline-revision OLD_REVISION --out /workspace/model-diff-study
+```
+
+生成 `sources.json`、`review.json`、`architecture_review.md`；有基线时另生成 `baseline.sources.json`。所有检查均为 `pending`，不会联网、执行模型、自动认定结构或覆盖已有文件。`main` 仅作发现入口，正式证据需要固定版本。
+
+随后按本文的 `collect → extract → draft → validate/render → export-png → verify-png` 流程执行。基线和目标的资料应分别收集到不同目录，防止同名文件／source ID 覆盖。`review.json` 保存结构、缓存、版本差异与新增／沿用／后端优化的审阅记录，不能替代真实源码核对。
+
 ## 已支持的自动化
 
-1. `init`：根据 Hugging Face `owner/model` 创建资料清单，包含 config、模型卡、safetensors 索引，可附官方 GitHub README。
-2. `collect`：下载清单明确指定的公开 HTTPS 资料，保留最终 URL、SHA-256、可用时的 HF commit；每文件上限 32 MiB。失败写入 inventory，不伪造成功。
-3. `extract`：从 config 提取嵌套作用域中的参数、JSON Pointer 和来源；保留同名/冲突字段。从权重索引提取张量名数量、模块前缀、分片数量。
-4. `draft`：生成明确标注“不完整”的参数摘要与结构审阅骨架。
-5. **人工/AI 审阅源码与报告，补全 graph JSON。** 这一环节不能用 config 字段或权重名代替；五路 KDA、输出门、MoE 路由都是此次实际遇到的例子。
-6. `validate` / `render`：检查证据、几何及连接引用，输出 `.drawio`、`.svg` 和证据报告。
-7. **正式 PNG 只从 draw.io XML 导出**：使用 `export-png`，保存来源/图片 SHA-256、节点数、连线数及渲染版本，再用 `verify-png` 检查配对。禁止独立生成正式 PNG 的计算结构。
+1. `init-study`：创建带来源、拓扑、差异、优化声明及交付检查项的新模型审阅工作区，所有项目保留待核对状态。
+2. `init`：根据 Hugging Face `owner/model` 创建资料清单，包含 config、模型卡、safetensors 索引，可附官方 GitHub README。
+3. `collect`：下载清单明确指定的公开 HTTPS 资料，保留最终 URL、SHA-256、可用时的 HF commit；每文件上限 32 MiB。失败写入 inventory，不伪造成功。
+4. `extract`：从 config 提取嵌套作用域中的参数、JSON Pointer 和来源；保留同名/冲突字段。从权重索引提取张量名数量、模块前缀、分片数量。
+5. `draft`：生成明确标注“不完整”的参数摘要与结构审阅骨架。
+6. **人工/AI 审阅源码与报告，补全 graph JSON。** 这一环节不能用 config 字段或权重名代替；五路 KDA、输出门、MoE 路由都是此次实际遇到的例子。
+7. `validate` / `render`：检查证据、几何及连接引用，输出 `.drawio`、`.svg` 和证据报告。
+8. **正式 PNG 只从 draw.io XML 导出**：使用 `export-png`，保存来源/图片 SHA-256、节点数、连线数及渲染版本，再用 `verify-png` 检查配对。禁止独立生成正式 PNG 的计算结构。
 
 **不会声称仅输入模型名就能无误地恢复任意模型完整计算图。** 配置声明、报告结构、实际 `forward()`、部署框架的融合实现可能不同；渲染器不负责替你裁决差异。
 

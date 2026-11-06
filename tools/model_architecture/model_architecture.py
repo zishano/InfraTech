@@ -334,6 +334,7 @@ def render(g, out):
 def main():
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='command',required=True)
     a=sub.add_parser('init');a.add_argument('model');a.add_argument('--revision',default='main');a.add_argument('--github');a.add_argument('--out',required=True)
+    a=sub.add_parser('init-study');a.add_argument('model');a.add_argument('--revision',default='main');a.add_argument('--github');a.add_argument('--baseline');a.add_argument('--baseline-revision');a.add_argument('--out',required=True)
     a=sub.add_parser('collect');a.add_argument('manifest');a.add_argument('--out',required=True)
     a=sub.add_parser('extract');a.add_argument('directory');a.add_argument('--out',required=True)
     a=sub.add_parser('validate');a.add_argument('graph')
@@ -344,6 +345,15 @@ def main():
     a=p.parse_args()
     try:
         if a.command=='init':write(a.out,init_manifest(a.model,a.revision,a.github))
+        elif a.command=='init-study':
+            from workflow import create_study
+            if a.baseline_revision and not a.baseline:
+                raise ValueError('--baseline-revision requires --baseline')
+            manifest=init_manifest(a.model,a.revision,a.github)
+            baseline=init_manifest(a.baseline,a.baseline_revision or 'main') if a.baseline else None
+            paths=create_study(manifest,a.out,baseline)
+            print('Created pending architecture study; read WORKFLOW.md before source/topology review:')
+            print('\n'.join(paths))
         elif a.command=='collect':return 0 if collect(read(a.manifest),a.out) else 2
         elif a.command=='extract':write(a.out,extract(a.directory))
         elif a.command=='draft':write(a.out,draft(read(a.facts)))

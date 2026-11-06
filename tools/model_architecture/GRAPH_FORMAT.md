@@ -36,3 +36,18 @@
 本格式只保存模块级结构、证据和布局，不能执行模型，不能验证数值等价。使用前应阅读 README 中的审阅步骤。
 
 正式 PNG 必须经 `export-png` 直接读取已保存的 draw.io XML 生成；不能由另一套图像提示词独立作图。PNG 与 draw.io 的配对记录使用 `.export.json`。SVG 是辅助预览，不是正式 PNG 导出的中间结构引擎。
+
+
+## 显示、版本差异与实现边界
+
+构造新模型前先阅读 [WORKFLOW.md](WORKFLOW.md)。建议保持事实与展示分离，以下元数据供已审阅构造器／工具使用，**不表示通用校验器能验证模型语义**：
+
+- `nodes[].description`：长说明，draw.io写入节点tooltip；图上 `label` 主要保留算子和必要维度。
+- `nodes[].change`：`added` / `removed` / `parameter_changed` / `unchanged`。配色由 `model_diff.mark` 应用，必须附来源。绿色退役节点不接入当前推理；旧图澄清不标新增。
+- `edges[].color`：六位十六进制颜色，如 `#c62828`，用于新增路径的红色连线。
+- `edges[].routing: "straight"`：原生XML关闭额外自动绕线。无waypoint时直接连接；有一个waypoint时按显式单直角连接。源／目标端口必须对齐，仍需通过实际渲染的正交和穿框检查。
+- `port_bindings`：命名张量端口到真实来源的映射，例如 `{"Qr":{"source":"q_norm","target":"index_q_input","shape":["T",1536]}}`。建图者核对端点、形状和同一张量含义，不能据此添加复制操作。
+- `comparison`、`presentation`、`routing_summary`：保存基线与目标版本、显示规则及走线策略。折点数量以 `.layout.json` 的实际routes为准。
+- `review.json` 的 `optimization_claims`：将优化按introduced / inherited / backend_specific / unverified记录，附来源、硬件／后端范围及实测边界；不是将所有实现kernel串进模型主干。
+
+标准图形检查只负责结构合法性、证据引用及原生几何；颜色含义、端口语义、softmax轴、缓存读写和模型优化归属仍需模型专属审阅／验证。
