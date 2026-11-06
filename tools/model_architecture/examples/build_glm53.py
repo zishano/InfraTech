@@ -124,6 +124,21 @@ def build():
  ns['mlp_down']['description']+='\nOutput [N_e,6144]. Routed/shared expert m=2048; dense m=12288.'
  g['edge_dimension_policy']='Native edge labels on actual computational connections; logical shapes, batch included; no standalone dimension panel.'
  g['limitations'].append('Edge dimensions use logical sequence-major axes; MoE selected-expert results need not be physically materialized. Absorbed MQA correspondence is documentation only.')
+ # Repetition is a container annotation, never a forward operator.
+ g['nodes']=[n for n in g['nodes'] if n['id']!='main_repeat']
+ g['edges']=[e for e in g['edges'] if 'main_repeat' not in (e['source'],e['target'])]
+ for key in ('main_norm','main_head','main_out'):
+  node=ns[key];node['box'][1]+=120
+  if 'operator_layout' in node:
+   node['operator_layout']['lane_center'][1]+=120
+   node['operator_layout']['reserved_slot'][1]+=120
+ members=['main_x','main_n1','main_attn','main_add1','main_n2','main_ffn','main_add2']
+ for key,label,box,style in [
+  ('decoder_repeat_frame','',[50,1158,360,662],'rounded=0;fillColor=none;strokeColor=#526ab8;strokeWidth=1.5;'),
+  ('decoder_repeat_count','×78',[60,1162,100,42],'fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=27;fontStyle=1;fontColor=#526ab8;align=left;verticalAlign=middle;spacing=6;')]:
+  g['nodes'].append(dict(id=key,label=label,box=box,style=style,kind='decoration',status='verified',description='Decoder layer template repeated 78 times, with distinct layer parameters; FFN and indexer modes vary according to layer schedule. Embedding, final norm and LM head are outside.',evidence=[dict(source='config',locator='/num_hidden_layers=78; /mlp_layer_types; /indexer_types')]))
+ g['edges'].append(dict(id='e_main_add2__main_norm',source='main_add2',target='main_norm',ports=[.5,0,.5,1],routing='straight',label='[B,S,6144]',label_font_size=17,tensor_shape='[B,S,6144]',label_offset=[0,0]))
+ g['repetition_groups']=[dict(frame='decoder_repeat_frame',count_label='decoder_repeat_count',count=c['num_hidden_layers'],members=members,scope='Decoder template; per-layer FFN/indexer schedule varies; parameters are not tied.')]
  return g
 if __name__=='__main__':
  g=build();Path(__file__).with_name('glm53.graph.json').write_text(json.dumps(g,ensure_ascii=False,indent=2)+'\n');print(len(g['nodes']),'nodes',len(g['edges']),'edges')

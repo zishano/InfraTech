@@ -669,51 +669,12 @@
       }
     },
     {
-      "id": "main_repeat",
-      "label": "Repeat 78 layers",
-      "description": "Repeat 78 layers",
-      "box": [
-        100.0,
-        1084.4,
-        260,
-        60
-      ],
-      "kind": "operation",
-      "status": "verified",
-      "evidence": [
-        {
-          "source": "model",
-          "locator": "GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM"
-        },
-        {
-          "source": "config",
-          "locator": "Pinned official GLM-5.2 config; see official_config.json"
-        }
-      ],
-      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;spacing=6;",
-      "operator_layout": {
-        "role": "composite",
-        "reserved_slot": [
-          90,
-          1075.2,
-          280,
-          78.4
-        ],
-        "lane_center": [
-          230.0,
-          1114.4
-        ],
-        "text_lines": 1,
-        "sizing": "content + visual role + branch span + readable font"
-      }
-    },
-    {
       "id": "main_norm",
       "label": "RMSNorm",
       "description": "RMSNorm",
       "box": [
         172.0,
-        952.4000000000001,
+        1072.4,
         116,
         44
       ],
@@ -734,13 +695,13 @@
         "role": "primitive",
         "reserved_slot": [
           90,
-          940.8000000000001,
+          1060.8000000000002,
           280,
           67.2
         ],
         "lane_center": [
           230.0,
-          974.4000000000001
+          1094.4
         ],
         "text_lines": 1,
         "sizing": "content + visual role + branch span + readable font"
@@ -752,7 +713,7 @@
       "description": "LM head →154880",
       "box": [
         140.0,
-        828.4000000000001,
+        948.4000000000001,
         180,
         68
       ],
@@ -773,13 +734,13 @@
         "role": "projection",
         "reserved_slot": [
           90,
-          828.8000000000001,
+          948.8000000000001,
           280,
           67.2
         ],
         "lane_center": [
           230.0,
-          862.4000000000001
+          982.4000000000001
         ],
         "text_lines": 2,
         "sizing": "content + visual role + branch span + readable font"
@@ -791,7 +752,7 @@
       "description": "Logits",
       "box": [
         180.0,
-        728.4000000000001,
+        848.4000000000001,
         100,
         44
       ],
@@ -812,13 +773,13 @@
         "role": "interface",
         "reserved_slot": [
           90,
-          716.8000000000001,
+          836.8000000000001,
           280,
           67.2
         ],
         "lane_center": [
           230.0,
-          750.4000000000001
+          870.4000000000001
         ],
         "text_lines": 1,
         "sizing": "content + visual role + branch span + readable font"
@@ -3262,6 +3223,46 @@
           "locator": "Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398"
         }
       ]
+    },
+    {
+      "id": "decoder_repeat_frame",
+      "label": "",
+      "box": [
+        50,
+        1158,
+        360,
+        662
+      ],
+      "style": "rounded=0;fillColor=none;strokeColor=#526ab8;strokeWidth=1.5;",
+      "kind": "decoration",
+      "status": "verified",
+      "description": "Decoder layer template repeated 78 times, with distinct layer parameters; FFN and indexer modes vary according to layer schedule. Embedding, final norm and LM head are outside.",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/num_hidden_layers=78; /mlp_layer_types; /indexer_types"
+        }
+      ]
+    },
+    {
+      "id": "decoder_repeat_count",
+      "label": "×78",
+      "box": [
+        60,
+        1162,
+        100,
+        42
+      ],
+      "style": "fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=27;fontStyle=1;fontColor=#526ab8;align=left;verticalAlign=middle;spacing=6;",
+      "kind": "decoration",
+      "status": "verified",
+      "description": "Decoder layer template repeated 78 times, with distinct layer parameters; FFN and indexer modes vary according to layer schedule. Embedding, final norm and LM head are outside.",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/num_hidden_layers=78; /mlp_layer_types; /indexer_types"
+        }
+      ]
     }
   ],
   "edges": [
@@ -3381,30 +3382,6 @@
       "id": "e_main_ffn__main_add2",
       "source": "main_ffn",
       "target": "main_add2",
-      "ports": [
-        0.5,
-        0,
-        0.5,
-        1
-      ],
-      "routing": "straight"
-    },
-    {
-      "id": "e_main_add2__main_repeat",
-      "source": "main_add2",
-      "target": "main_repeat",
-      "ports": [
-        0.5,
-        0,
-        0.5,
-        1
-      ],
-      "routing": "straight"
-    },
-    {
-      "id": "e_main_repeat__main_norm",
-      "source": "main_repeat",
-      "target": "main_norm",
       "ports": [
         0.5,
         0,
@@ -4532,6 +4509,25 @@
       "routing": "straight",
       "color": "#7356a6",
       "role": "index_share_illustration"
+    },
+    {
+      "id": "e_main_add2__main_norm",
+      "source": "main_add2",
+      "target": "main_norm",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ],
+      "routing": "straight",
+      "label": "[B,S,6144]",
+      "label_font_size": 17,
+      "tensor_shape": "[B,S,6144]",
+      "label_offset": [
+        0,
+        0
+      ]
     }
   ],
   "limitations": [
@@ -5331,5 +5327,22 @@
       "scope": "algebraic correspondence only; no backend execution or numeric equivalence test"
     }
   },
-  "edge_dimension_policy": "Native edge labels on actual computational connections; logical shapes, batch included; no standalone dimension panel."
+  "edge_dimension_policy": "Native edge labels on actual computational connections; logical shapes, batch included; no standalone dimension panel.",
+  "repetition_groups": [
+    {
+      "frame": "decoder_repeat_frame",
+      "count_label": "decoder_repeat_count",
+      "count": 78,
+      "members": [
+        "main_x",
+        "main_n1",
+        "main_attn",
+        "main_add1",
+        "main_n2",
+        "main_ffn",
+        "main_add2"
+      ],
+      "scope": "Decoder template; per-layer FFN/indexer schedule varies; parameters are not tied."
+    }
+  ]
 }

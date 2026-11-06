@@ -2,7 +2,7 @@
 
 [PNG 架构图](glm_5_3_architecture.png) · [可编辑 draw.io](glm_5_3_architecture.drawio) · [节点证据](evidence.md) · [布局实测](glm_5_3_architecture.layout.json) · [配对记录](glm_5_3_architecture.export.json)
 
-**GLM-5.3 沿用 GLM-5.2 的基座，官方明确表示全部能力提升来自后训练。** 本图保留已认可的自下而上、自适应算子框布局，展开 DSA、Indexer 的 Q/K/head-weight 三路、IndexShare、MoE 路由与 SwiGLU。共98个原生图元、71条连接；正式 PNG 直接从同名 draw.io XML 导出。
+**GLM-5.3 沿用 GLM-5.2 的基座，官方明确表示全部能力提升来自后训练。** 本图保留已认可的自下而上、自适应算子框布局，展开 DSA、Indexer 的 Q/K/head-weight 三路、IndexShare、MoE 路由与 SwiGLU。共99个原生图元、70条连接；正式 PNG 直接从同名 draw.io XML 导出。
 
 ## 核心结构
 
@@ -69,3 +69,5 @@ N_e是分派至某个专家的token数，不一定等于N/256。主干L0–2的D
 本段MQA对照只保留在文档，不作为独立图中说明区。该说明来自已审阅源码的线性投影代数关系，用于解释两种视图；它不是额外分支，不表示已验证某个后端的融合/物理gather实现，也没有验证FP8下的数值等价。正式主图仍采用所读Transformers未吸收视图。
 
 画布为白色，分组区域无填充，仅保留算子／模块框颜色；PNG直接从XML导出并保持白色背景。XML样式去除重复属性，避免部分draw.io导入器把早先填充色误当成最终底色。尚未实测飞书客户端导入。
+
+重复层使用包含Decoder模板的无填充矩形框，左上角标注×78；取消Repeat流程算子，直接连接层输出与框外最终RMSNorm。Embedding、最终RMSNorm和LM head均不在重复范围内。×78表示78层的模板，FFN与Indexer模式仍按逐层配置变化，参数不共享。

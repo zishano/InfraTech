@@ -74,17 +74,14 @@
         <mxCell id="main_ffn" value="Dense FFN / MoE" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;" vertex="1" parent="1" tooltip="Dense FFN / MoE">
           <mxGeometry as="geometry" x="100.0" y="1302.8000000000002" width="260" height="60" />
         </mxCell>
-        <mxCell id="main_repeat" value="Repeat 78 layers" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;" vertex="1" parent="1" tooltip="Repeat 78 layers">
-          <mxGeometry as="geometry" x="100.0" y="1084.4" width="260" height="60" />
-        </mxCell>
         <mxCell id="main_norm" value="RMSNorm" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;" vertex="1" parent="1" tooltip="RMSNorm">
-          <mxGeometry as="geometry" x="172.0" y="952.4000000000001" width="116" height="44" />
+          <mxGeometry as="geometry" x="172.0" y="1072.4" width="116" height="44" />
         </mxCell>
         <mxCell id="main_head" value="LM head&#10;6144 →154880" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;" vertex="1" parent="1" tooltip="LM head →154880">
-          <mxGeometry as="geometry" x="140.0" y="828.4000000000001" width="180" height="68" />
+          <mxGeometry as="geometry" x="140.0" y="948.4000000000001" width="180" height="68" />
         </mxCell>
         <mxCell id="main_out" value="Logits" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;fontSize=20;" vertex="1" parent="1" tooltip="Logits">
-          <mxGeometry as="geometry" x="180.0" y="728.4000000000001" width="100" height="44" />
+          <mxGeometry as="geometry" x="180.0" y="848.4000000000001" width="100" height="44" />
         </mxCell>
         <mxCell id="main_add1" value="+" style="rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=24;fontColor=#25384f;align=center;verticalAlign=middle;spacing=6;fillColor=#f0f4ff;strokeColor=#526ab8;strokeWidth=1.2;shape=ellipse;perimeter=ellipsePerimeter;" vertex="1" parent="1" tooltip="+">
           <mxGeometry as="geometry" x="208" y="1481.0400000000002" width="44" height="44" />
@@ -299,6 +296,12 @@
         <mxCell id="sharing_note" value="0-based: L0 /L1 also FULL. Next groups: L6 FULL →L7–9 SHARED; …; L74 FULL →L75–77 SHARED.&#10;J is reused within the same forward query; it is not the previous decode token’s selection." style="rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#493366;align=center;verticalAlign=middle;spacing=8;fillColor=none;strokeColor=none;strokeWidth=1.2;architectureDecoration=1;" vertex="1" parent="1" tooltip="0-based: L0 /L1 also FULL. Next groups: L6 FULL →L7–9 SHARED; …; L74 FULL →L75–77 SHARED.&#10;J is reused within the same forward query; it is not the previous decode token’s selection.">
           <mxGeometry as="geometry" x="70" y="2273.6000000000004" width="2260" height="89.60000000000001" />
         </mxCell>
+        <mxCell id="decoder_repeat_frame" value="" style="rounded=0;fillColor=none;strokeColor=#526ab8;strokeWidth=1.5;architectureDecoration=1;" vertex="1" parent="1" tooltip="Decoder layer template repeated 78 times, with distinct layer parameters; FFN and indexer modes vary according to layer schedule. Embedding, final norm and LM head are outside.">
+          <mxGeometry as="geometry" x="50" y="1158" width="360" height="662" />
+        </mxCell>
+        <mxCell id="decoder_repeat_count" value="×78" style="fillColor=none;strokeColor=none;fontFamily=Arial;fontSize=27;fontStyle=1;fontColor=#526ab8;align=left;verticalAlign=middle;spacing=6;architectureDecoration=1;" vertex="1" parent="1" tooltip="Decoder layer template repeated 78 times, with distinct layer parameters; FFN and indexer modes vary according to layer schedule. Embedding, final norm and LM head are outside.">
+          <mxGeometry as="geometry" x="60" y="1162" width="100" height="42" />
+        </mxCell>
         <mxCell id="e_main_tokens__main_embed" source="main_tokens" target="main_embed" value="[B,S]" edge="1" parent="1" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontFamily=Arial;fontSize=17;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
           <mxGeometry as="geometry" relative="1">
             <mxPoint as="offset" x="0" y="0" />
@@ -329,12 +332,6 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="e_main_ffn__main_add2" source="main_ffn" target="main_add2" value="" edge="1" parent="1" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontFamily=Arial;fontSize=7;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="e_main_add2__main_repeat" source="main_add2" target="main_repeat" value="" edge="1" parent="1" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontFamily=Arial;fontSize=7;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
-          <mxGeometry as="geometry" relative="1" />
-        </mxCell>
-        <mxCell id="e_main_repeat__main_norm" source="main_repeat" target="main_norm" value="" edge="1" parent="1" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontFamily=Arial;fontSize=7;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
           <mxGeometry as="geometry" relative="1" />
         </mxCell>
         <mxCell id="e_main_norm__main_head" source="main_norm" target="main_head" value="[B,S,6144]" edge="1" parent="1" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontFamily=Arial;fontSize=17;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
@@ -642,6 +639,11 @@
         </mxCell>
         <mxCell id="share_transfer_3" source="share_stage_2" target="share_stage_3" value="" edge="1" parent="1" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#7356a6;fontColor=#7356a6;strokeWidth=1;fontFamily=Arial;fontSize=7;labelBackgroundColor=#ffffff;exitX=1;exitY=0.5;entryX=0;entryY=0.5;">
           <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e_main_add2__main_norm" source="main_add2" target="main_norm" value="[B,S,6144]" edge="1" parent="1" style="edgeStyle=none;html=0;endArrow=block;endFill=1;strokeColor=#333333;fontColor=#333333;strokeWidth=1;fontFamily=Arial;fontSize=17;labelBackgroundColor=#ffffff;exitX=0.5;exitY=0;entryX=0.5;entryY=1;">
+          <mxGeometry as="geometry" relative="1">
+            <mxPoint as="offset" x="0" y="0" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>

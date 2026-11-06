@@ -140,14 +140,6 @@ Dense FFN / MoE
 
 - [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
-## main_repeat
-
-Repeat 78 layers
-
-- [GlmMoeDsaDecoderLayer.forward 585–616; GlmMoeDsaModel / ForCausalLM](https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
-
-- [Pinned official GLM-5.2 config; see official_config.json](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
-
 ## main_norm
 
 RMSNorm
@@ -760,6 +752,12 @@ J is reused within the same forward query; it is not the previous decode token�
 - [/indexer_types (0-based), /index_topk_freq=4, /index_skip_topk_offset=3](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
 - [Attention.forward, 404–417: shared layers consume prev_topk_indices; KV update remains per layer at 395–398](https://github.com/huggingface/transformers/blob/8833c9181eec925f1b4e0096db516462044345df/src/transformers/models/glm_moe_dsa/modeling_glm_moe_dsa.py)
+
+## decoder_repeat_count
+
+×78
+
+- [/num_hidden_layers=78; /mlp_layer_types; /indexer_types](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
 ## 限制
 

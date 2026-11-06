@@ -14,7 +14,9 @@ class GLM53Tests(unittest.TestCase):
   self.assertEqual(len(c['quantization_config']['modules_to_not_convert']),541)
   g=a.read(BASE/'examples/glm53.graph.json');a.validate(g)
   old=a.read(BASE/'examples/glm52.graph.json')
-  self.assertEqual([(e['source'],e['target'],e.get('ports')) for e in g['edges']],[(e['source'],e['target'],e.get('ports')) for e in old['edges']])
+  expected=[(e['source'],e['target'],e.get('ports')) for e in old['edges'] if 'main_repeat' not in (e['source'],e['target'])]
+  expected.append(('main_add2','main_norm',[.5,0,.5,1]))
+  self.assertEqual(sorted((e['source'],e['target'],e.get('ports')) for e in g['edges']),sorted(expected))
   self.assertFalse(g['checkpoint']['weight_index_verified'])
   self.assertNotIn('index',g['sources']);self.assertIn('baseline_index',g['sources'])
   self.assertTrue(all(e['source']!='index' for n in g['nodes'] for e in n.get('evidence',[])))
@@ -47,10 +49,21 @@ class GLM53Tests(unittest.TestCase):
    self.assertEqual(a.parse_style(cells[key].get('style'))['fillColor'],'none')
   self.assertEqual(a.parse_style(cells['attn_qa'].get('style'))['fillColor'],'#fff6e8')
   self.assertEqual(a.parse_style(cells['share_stage_0'].get('style'))['fillColor'],'#f5f0fc')
+ def test_repetition_frame_contains_only_decoder_template(self):
+  g=a.read(BASE/'examples/glm53.graph.json');ns={n['id']:n for n in g['nodes']}
+  self.assertNotIn('main_repeat',ns)
+  group=g['repetition_groups'][0];self.assertEqual(group['count'],78)
+  self.assertEqual(ns[group['count_label']]['label'],'×78')
+  x,y,w,h=ns[group['frame']]['box']
+  for key in group['members']:
+   xx,yy,ww,hh=ns[key]['box'];self.assertTrue(x<=xx and y<=yy and xx+ww<=x+w and yy+hh<=y+h,key)
+  for key in ['main_embed','main_norm','main_head']:
+   xx,yy,ww,hh=ns[key]['box'];self.assertTrue(yy+hh<y or yy>y+h,key)
+  self.assertTrue(any(e['source']=='main_add2' and e['target']=='main_norm' for e in g['edges']))
  def test_native_pair_and_layout(self):
   f=REPO/'models/glm_5_3';s='glm_5_3_architecture'
   m=p.verify(f/(s+'.drawio'),f/(s+'.png'),f/(s+'.export.json'))
-  self.assertEqual((m['vertices'],m['edges']),(98,71));p.validate_layout(a.read(f/(s+'.layout.json')))
+  self.assertEqual((m['vertices'],m['edges']),(99,70));p.validate_layout(a.read(f/(s+'.layout.json')))
   layout=a.read(f/(s+'.layout.json'));self.assertGreaterEqual(len(layout['edge_labels']),45)
   self.assertEqual(layout['edge_label_node_overlaps'],[]);self.assertEqual(layout['edge_label_overlaps'],[])
 if __name__=='__main__':unittest.main()
