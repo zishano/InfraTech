@@ -1263,3 +1263,553 @@ Reference quantizers simulate quantize/dequantize in floating cache buffers; pac
 Weight index verifies names, not tensor shapes/values. No full weights, GPU inference, benchmark, numerical equivalence or Feishu import test.
 Technical-report PDF download blocked by proxy; card and pinned reference sources were read.
 
+# DeepSeek-V4.1-Flash — expanded Block and expert paths
+
+## title
+
+DeepSeek-V4.1-Flash  |  Expanded operators: residuals · normalization · routing
+
+- [Reviewed module semantics](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## symbols
+
+Same40-layer model as the overview · B=batch · S=query length · N=B×S · Ne=tokens dispatched to one expert
+
+- [Reviewed module semantics](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## architecture_map_title
+
+Whole-model map
+
+- [Reviewed module semantics](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## block_title
+
+One main Block — explicit single-pass mHC
+
+- [Reviewed module semantics](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## experts_title
+
+MoE / routed expert — explicit SwiGLU
+
+- [Reviewed module semantics](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## map_ids
+
+Text / image IDs
+
+- [Transformer.forward 1240–1276](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## map_embed
+
+Embedding / image-span merge
+
+- [Transformer.forward 1240–1276](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## map_expand
+
+Broadcast HC4
+
+- [Transformer.forward 1240–1276](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## map_enc
+
+Encoder Block
+L0–19
+
+- [Transformer.forward 1240–1276](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## map_h20
+
+Encoder boundary H20
+
+- [Transformer.forward 1240–1276](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## map_dec
+
+Decoder Block
+L20–39
+
+- [Transformer.forward 1240–1276](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## map_collapse
+
+HC weighted collapse
+
+- [Transformer.forward 1240–1276](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## map_norm
+
+RMSNorm5120
+
+- [Transformer.forward 1240–1276](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## map_head
+
+LM head
+
+- [Transformer.forward 1240–1276](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## map_logits
+
+Logits / sample
+
+- [Transformer.forward 1240–1276](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## map_encoder_count
+
+×20
+
+- [Reviewed module semantics](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## map_decoder_count
+
+×20
+
+- [Reviewed module semantics](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## map_params
+
+HF text_config
+num_hidden_layers = 40
+hidden_size = 5120
+engram_layer_ids = [1,14]
+
+- [/text_config/num_hidden_layers; /text_config/hidden_size; /text_config/engram_layer_ids](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/config.json)
+
+## map_scope
+
+Encoder: SWA L0–1, CSA2 r=2 L2–19
+Decoder: CSA2 r=1 L20–39
+Both use the Block expansion at right.
+CSA2 internals: separate detailed diagram.
+
+- [Reviewed module semantics](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## b_input
+
+Input HC stream
+
+- [Block.forward 967–996; Engram at Transformer.forward before Block](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## b_engram
+
+Conditional Engram · L1 /L14
+
+- [Block.forward 967–996; Engram at Transformer.forward before Block](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## b_pre_a
+
+mHC pre: weighted sum
+
+- [Block.forward 967–996; Engram at Transformer.forward before Block](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## b_norm_a
+
+RMSNorm5120
+
+- [Block.forward 967–996; Engram at Transformer.forward before Block](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## b_attention
+
+SWA / CSA2 attention
+
+- [Block.forward 967–996; Engram at Transformer.forward before Block](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## b_post_a
+
+post × attention output
+
+- [Block.forward 967–996; Engram at Transformer.forward before Block](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## b_add_a
+
++
+
+- [Block.forward 967–996; Engram at Transformer.forward before Block](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## b_pre_f
+
+mHC pre: weighted sum
+
+- [Block.forward 967–996; Engram at Transformer.forward before Block](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## b_norm_f
+
+RMSNorm5120
+
+- [Block.forward 967–996; Engram at Transformer.forward before Block](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## b_moe
+
+MoE
+
+- [Block.forward 967–996; Engram at Transformer.forward before Block](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## b_post_f
+
+post × FFN output
+
+- [Block.forward 967–996; Engram at Transformer.forward before Block](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## b_add_f
+
++
+
+- [Block.forward 967–996; Engram at Transformer.forward before Block](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## b_output
+
+Output HC stream
+
+- [Block.forward 967–996; Engram at Transformer.forward before Block](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## incoming_pre
+
+prev pre
+
+- [Block.forward pre_mix argument; previous layer FFN output](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## a_flat
+
+Flatten HC streams
+
+- [Block.hc_mixes: flatten(2)](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## a_linear
+
+FP32 Linear
+20480→24
+
+- [Block.hc_mixes: F.linear](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## a_rstd
+
+RMS statistic: rsqrt
+
+- [Block.hc_mixes: rsqrt(mean(x²)+eps)](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## a_scale
+
+×
+
+- [Attention / Block / Transformer.forward](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## a_split
+
+Split pre4 / post4 / comb16
+
+- [hc_split_sinkhorn kernel](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## a_pre
+
+Sigmoid + eps
+
+- [hc_split_sinkhorn pre branch](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## a_post
+
+2 × Sigmoid
+
+- [hc_split_sinkhorn post branch](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## a_comb
+
+Softmax
+
+- [hc_split_sinkhorn comb branch](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## a_sink
+
+Sinkhorn ×20
+
+- [hc_split_sinkhorn comb row/column normalization](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## a_residual
+
+combᵀ × residual
+
+- [Block.hc_post: sum over input stream axis](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## a_pre_affine
+
+Scale + bias
+
+- [hc_split_sinkhorn: mixes * learned hc_scale + hc_base](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## a_post_affine
+
+Scale + bias
+
+- [hc_split_sinkhorn: mixes * learned hc_scale + hc_base](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## a_comb_affine
+
+Scale + bias
+
+- [hc_split_sinkhorn: mixes * learned hc_scale + hc_base](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## f_flat
+
+Flatten HC streams
+
+- [Block.hc_mixes: flatten(2)](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## f_linear
+
+FP32 Linear
+20480→24
+
+- [Block.hc_mixes: F.linear](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## f_rstd
+
+RMS statistic: rsqrt
+
+- [Block.hc_mixes: rsqrt(mean(x²)+eps)](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## f_scale
+
+×
+
+- [Attention / Block / Transformer.forward](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## f_split
+
+Split pre4 / post4 / comb16
+
+- [hc_split_sinkhorn kernel](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## f_pre
+
+Sigmoid + eps
+
+- [hc_split_sinkhorn pre branch](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## f_post
+
+2 × Sigmoid
+
+- [hc_split_sinkhorn post branch](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## f_comb
+
+Softmax
+
+- [hc_split_sinkhorn comb branch](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## f_sink
+
+Sinkhorn ×20
+
+- [hc_split_sinkhorn comb row/column normalization](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## f_residual
+
+combᵀ × residual
+
+- [Block.hc_post: sum over input stream axis](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## f_pre_affine
+
+Scale + bias
+
+- [hc_split_sinkhorn: mixes * learned hc_scale + hc_base](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## f_post_affine
+
+Scale + bias
+
+- [hc_split_sinkhorn: mixes * learned hc_scale + hc_base](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## f_comb_affine
+
+Scale + bias
+
+- [hc_split_sinkhorn: mixes * learned hc_scale + hc_base](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## next_pre
+
+pre for next Block
+
+- [Block.forward returns ffn_pre](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## block_repeat_count
+
+×40
+
+- [Reviewed module semantics](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## block_scope
+
+×40 is the shared Block template: 20 encoder +20 decoder layers.
+Engram and CSA2 modes vary by layer; parameters are not tied.
+
+- [/text_config/num_hidden_layers; engram_layer_ids; compress_ratios](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/config.json)
+
+## block_params
+
+HF text_config
+hc_mult = 4
+hc_sinkhorn_iters = 20
+hc_eps = 1e-06
+rms_norm_eps = 1e-20
+
+- [/text_config/hc_mult; /text_config/hc_sinkhorn_iters; /text_config/hc_eps; /text_config/rms_norm_eps](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/config.json)
+
+## r_h
+
+MoE input
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_linear
+
+FP32 Linear
+5120→384
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_scores
+
+sqrt(Softplus)
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_bias
+
++ selection bias (text /image)
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_top
+
+Top6 expert IDs
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_gather
+
+Gather original scores
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_norm
+
+Normalize weights ×1.5
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_dispatch
+
+Dispatch selected experts
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_gate
+
+Linear gate
+5120→2304
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_up
+
+Linear up
+5120→2304
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_gclip
+
+Clamp max10
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_uclip
+
+Clamp [-10,+10]
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_silu
+
+SiLU
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_mul
+
+×
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_route
+
+×
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_down
+
+Linear down
+2304→5120
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_sum
+
+Scatter / sum routed outputs
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_shared
+
+Shared SwiGLU
+no route weight
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_add
+
++
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## r_output
+
+MoE output
+
+- [Gate / Expert / MoE 794–906](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## expert_repeat_count
+
+×384
+
+- [Reviewed module semantics](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## expert_params
+
+HF text_config
+n_routed_experts = 384
+num_experts_per_tok = 6
+moe_intermediate_size = 2304
+
+- [/text_config/n_routed_experts; /text_config/num_experts_per_tok; /text_config/moe_intermediate_size](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/config.json)
+
+## footer
+
+Operator expansion of the same official @314113f model · CSA2 dataflow remains in its separate paired detail figure · no new model layers
+
+- [Reviewed module semantics](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py)
+
+## 核验边界
+
+Official unsuffixed checkpoint, not -1017.
+Shapes are logical global dimensions; tensor-parallel ranks may shard heads/experts.
+Official minimal implementation loops through all 40 layers; optimized CED prefill, bounded replay and DSpark verification scheduler are model-card designs, not locally executed paths.
+Reference quantizers simulate quantize/dequantize in floating cache buffers; packed cache bytes are official claims.
+Weight index verifies names, not tensor shapes/values. No full weights, GPU inference, benchmark, numerical equivalence or Feishu import test.
+Technical-report PDF download blocked by proxy; card and pinned reference sources were read.
+

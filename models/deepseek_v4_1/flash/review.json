@@ -84,7 +84,8 @@
       "necessary_detour"
     ],
     "long_notes": "description / evidence / README",
-    "native_png_source": "drawio"
+    "native_png_source": "drawio",
+    "delivery_levels": "Overview with permitted grouping; operator expansion with explicit mHC/norm/residual/expert control paths; supplementary CSA2 detail."
   },
   "drawing_policy": {
     "version": 1,
@@ -259,7 +260,27 @@
     "authorized_branch": "model_dev",
     "additional_pairs": [
       "deepseek_v41_flash_csa2"
-    ]
+    ],
+    "required_views": [
+      "overview",
+      "operator_expansion"
+    ],
+    "views": {
+      "overview": {
+        "drawio": "deepseek_v41_flash_architecture.drawio",
+        "png": "deepseek_v41_flash_architecture.png",
+        "export_manifest": "deepseek_v41_flash_architecture.export.json",
+        "layout_report": "deepseek_v41_flash_architecture.layout.json",
+        "status": "verified_with_limits"
+      },
+      "operator_expansion": {
+        "drawio": "deepseek_v41_flash_expanded.drawio",
+        "png": "deepseek_v41_flash_expanded.png",
+        "export_manifest": "deepseek_v41_flash_expanded.export.json",
+        "layout_report": "deepseek_v41_flash_expanded.layout.json",
+        "status": "verified_with_limits"
+      }
+    }
   },
   "limitations": [
     "No remote model code executed; no full weights/tensor headers, GPU inference, benchmarks, numeric equivalence or Feishu import test.",
@@ -268,8 +289,8 @@
   ],
   "requested_variant": "exact unsuffixed official repository; not -1017",
   "verification": {
-    "unit_tests": 57,
-    "native_layout": "Both diagrams: zero measured overflow/tight text/nonorthogonal edges/crossings/edge-label overlaps.",
+    "unit_tests": 59,
+    "native_layout": "All three paired figures: zero measured overflow/tight text/nonorthogonal edges/crossings/edge-label overlaps.",
     "source_trace": "Pinned official config+reference implementations+weight index; report failed and recorded.",
     "not_executed": [
       "remote model code",

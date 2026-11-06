@@ -63,6 +63,10 @@ class StudyWorkflowTests(unittest.TestCase):
             self.assertFalse(presentation['show_color_legend'])
             self.assertIn('central backbone',presentation['layout'])
             self.assertIn('checkpoint config',presentation['parameter_notes'])
+            self.assertEqual(review['delivery']['required_views'],['overview','operator_expansion'])
+            for view in review['delivery']['views'].values():
+                self.assertEqual(view['status'],'pending')
+                self.assertIsNone(view['drawio']);self.assertIsNone(view['png'])
             self.assertEqual(presentation['background'],'#ffffff')
             self.assertEqual(presentation['group_fill'],'none')
             self.assertEqual(presentation['flow'],'bottom-up')

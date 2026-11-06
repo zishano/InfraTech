@@ -1,7 +1,8 @@
 # DeepSeek-V4.1-Flash 模型架构
 
 - **[PNG 总览图](deepseek_v41_flash_architecture.png)** / [同源可编辑 draw.io](deepseek_v41_flash_architecture.drawio)：137个原生图元、98条连接。
-- **[CSA2 详细图](deepseek_v41_flash_csa2.png)** / [同源可编辑 draw.io](deepseek_v41_flash_csa2.drawio)：64个原生图元、43条连接。
+- **[算子展开图](deepseek_v41_flash_expanded.png)** / [同源可编辑 draw.io](deepseek_v41_flash_expanded.drawio)：93个原生图元、82条连接；拆开主干mHC、Norm、注意力、MoE和专家内部路径。
+- 补充：**[CSA2 详细图](deepseek_v41_flash_csa2.png)** / [同源可编辑 draw.io](deepseek_v41_flash_csa2.drawio)：64个原生图元、43条连接。
 - [逐节点证据](evidence.md)、[官方配置](official_config.json)、[配套推理配置](official_inference_config.json)。
 - [权重索引核对摘要](checkpoint_summary.json)、[来源清单](sources.json)、[下载结果与哈希](source_inventory.json)、[审阅记录](review.json)。
 
@@ -93,3 +94,14 @@ python tools/model_architecture/model_architecture.py verify-png models/deepseek
 整体由文本/图像输入、DeepSeek-ViT与图像投影、20层因果encoder＋20层decoder、词表输出头构成；主干每层使用CSA2、MoE和single-pass mHC，L1/L14另有Engram记忆。独立DSpark为草稿预测辅助路径，不计入40层。
 
 官方分别报告552B backbone与196B Engram，**已公布主体组件合计约748B（7480亿）**；这个合计不是已经独立核验、包含全部视觉/DSpark等参数的精确整模总量。模型卡没有明确逐项计入这些附加组件的精确总参，不能自行补齐。官方每token激活参数为prefill8B、decode16B。HF元数据报告763,205,315,794个存储元素，包含不同dtype与量化布局，不能将其直接称为独立核验的763.2B逻辑参数。
+
+## 两张主交付的关系
+
+总览图允许合并一串操作以表达模块关系；算子展开图按同一官方checkpoint拆开关键运算。展开图左侧是整模映射，中央是同一个Block模板的细化，右侧是MoE/专家细化，三者不是额外叠加的网络层。中央×40对应原来的20 encoder＋20 decoder；Engram和注意力模式按层变化。
+
+展开图明确incoming pre→attention collapse→RMSNorm→attention→post expand→残差合并→FFN collapse→RMSNorm→MoE→post expand→残差合并。当前attention新pre用于FFN，FFN新pre传下一个Block；两路combᵀ residual mixing均保留。专家展开包括gate/up、不同clamp、SiLU、逐元素乘法、路由权重、down和共享专家旁路。CSA2专项图继续补充压缩与索引细节。
+
+```bash
+python tools/model_architecture/model_architecture.py export-png models/deepseek_v4_1/flash/deepseek_v41_flash_expanded.drawio --out models/deepseek_v4_1/flash/deepseek_v41_flash_expanded.png --scale 2
+python tools/model_architecture/model_architecture.py verify-png models/deepseek_v4_1/flash/deepseek_v41_flash_expanded.drawio models/deepseek_v4_1/flash/deepseek_v41_flash_expanded.png models/deepseek_v4_1/flash/deepseek_v41_flash_expanded.export.json
+```

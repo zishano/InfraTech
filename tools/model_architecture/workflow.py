@@ -15,6 +15,7 @@ CHECKS={
     'visual_expression':'Short operator labels, readable type hierarchy, adjacent panels, tensor-state insets.',
     'routing_and_layout':'Aligned straight edges first; required branches preserved; actual renderer checks.',
     'native_delivery':'Direct draw.io→PNG export, paired manifests and detailed-page consistency.',
+    'two_level_views':'Deliver overview plus operator_expansion, each native XML/PNG pair; preserve critical edges, residuals and view mappings.',
     'delivery_summary':'Brief overall composition/dataflow and module roles; total/active parameters with component scope, source and uncertainty.',
     'validation_and_sync':'Relevant checks, honest limitations, user-authorized branch commit/push.'
 }
@@ -66,7 +67,9 @@ def create_study(manifest,out,baseline=None):
       drawing_policy=dict(version=1,document='tools/model_architecture/DRAWING_RULES.md',rule_ids=list(DRAWING_RULES)),
       checks={key:dict(status='pending',question=value,evidence=[],notes='') for key,value in
               {**CHECKS,**{'drawing_'+key:value for key,value in DRAWING_RULES.items()}}.items()},
-      delivery=dict(graph=None,drawio=None,png=None,export_manifest=None,layout_report=None,authorized_branch=None),
+      delivery=dict(required_views=['overview','operator_expansion'],
+                    views={name:dict(graph=None,drawio=None,png=None,export_manifest=None,layout_report=None,status='pending') for name in ['overview','operator_expansion']},
+                    graph=None,drawio=None,png=None,export_manifest=None,layout_report=None,authorized_branch=None),
       limitations=['Scaffold only: no sources collected, topology reviewed, renderer run or model inference executed.'])
     lines=['# '+model+' 架构审阅记录','',
            '先阅读仓库工具目录的 `WORKFLOW.md`。此文件是待填写模板，不表示资料已收集或结构已核实。','',
@@ -97,7 +100,9 @@ def create_study(manifest,out,baseline=None):
        '- 每token激活参数（prefill／decode）：待核对。',
        '- 未公开或未独立核验的范围：待填写，不能用存储元素数冒充逻辑参数量。','',
        '## 交付','',
-       '- 原生 draw.io、直接导出的 PNG、layout / export 记录：待生成。',
+       '- 架构总览图 overview：允许适度合并；原生draw.io /同源PNG /layout /export待生成。',
+       '- 算子展开图 operator_expansion：关键算子独立、顺序／分支／残差完整；独立配对文件待生成。',
+       '- 两图模块映射与参数口径一致；专项细节图另作补充。',
        '- GPU推理、数值等价、完整权重形状与飞书导入：未执行，不得声称通过。',
        '- 用户已授权的提交分支：待按会话填写。',''])
     files={

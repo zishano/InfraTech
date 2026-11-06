@@ -64,9 +64,30 @@ class DeepseekV41Tests(unittest.TestCase):
   for pair in [('i_dot','i_relu'),('i_sum','i_causal'),('i_causal','i_candidate'),('i_candidate','i_top'),('b_max','b_newest'),('b_newest','b_top'),('r_score','r_mask'),('r_mask','r_top')]:self.assertIn(pair,pairs)
   self.assertIn('16384',ns['candidate_scope']['label']);self.assertIn('dense scoring',ns['candidate_scope']['label'])
   self.assertFalse(any('Hadamard' in n['label'] for n in g['nodes']))
+ def test_expanded_block_preserves_order_and_residual_dependencies(self):
+  g=a.read(BASE/'examples/deepseek_v41_flash_expanded.graph.json');pairs={(e['source'],e['target']) for e in g['edges']}
+  order=['b_pre_a','b_norm_a','b_attention','b_post_a','b_add_a','b_pre_f','b_norm_f','b_moe','b_post_f','b_add_f']
+  for pair in zip(order,order[1:]):self.assertIn(pair,pairs)
+  for pair in [('incoming_pre','b_pre_a'),('a_pre','b_pre_f'),('f_pre','next_pre'),('b_engram','a_residual'),('a_residual','b_add_a'),('b_add_a','f_residual'),('f_residual','b_add_f'),('r_mul','r_route'),('r_route','r_down'),('r_scores','r_gather')]:self.assertIn(pair,pairs)
+  for prefix in ['a','f']:
+   for branch in ['pre','post','comb']:
+    self.assertIn((prefix+'_split',prefix+'_'+branch+'_affine'),pairs)
+    self.assertIn((prefix+'_'+branch+'_affine',prefix+'_'+branch),pairs)
+  self.assertNotIn(('a_pre','b_pre_a'),pairs);self.assertNotIn(('f_pre','b_pre_f'),pairs)
+  self.assertEqual(g['checkpoint']['revision'],self.graph()['checkpoint']['revision'])
+  self.assertEqual(g['diagram_level'],'operator_expansion')
+ def test_expanded_geometry_and_group_members(self):
+  g=a.read(BASE/'examples/deepseek_v41_flash_expanded.graph.json');a.validate(g);ns={n['id']:n for n in g['nodes']}
+  for group in g['repetition_groups']:
+   x,y,w,h=ns[group['frame']]['box']
+   for key in group['members']:
+    xx,yy,ww,hh=ns[key]['box'];self.assertTrue(x<=xx and y<=yy and xx+ww<=x+w and yy+hh<=y+h,key)
+  ops=[n for n in g['nodes'] if n.get('kind')!='decoration']
+  for l,r in itertools.combinations(ops,2):
+   x,y,w,h=l['box'];xx,yy,ww,hh=r['box'];self.assertFalse(min(x+w,xx+ww)-max(x,xx)>1 and min(y+h,yy+hh)-max(y,yy)>1,(l['id'],r['id']))
  def test_native_pairs_and_actual_layout(self):
-  for stem,detail in [('deepseek_v41_flash_architecture',False),('deepseek_v41_flash_csa2',True)]:
-   f=self.folder;m=p.verify(f/(stem+'.drawio'),f/(stem+'.png'),f/(stem+'.export.json'));g=self.graph(detail)
+  for stem,g in [('deepseek_v41_flash_architecture',self.graph()),('deepseek_v41_flash_csa2',self.graph(True)),('deepseek_v41_flash_expanded',a.read(BASE/'examples/deepseek_v41_flash_expanded.graph.json'))]:
+   f=self.folder;m=p.verify(f/(stem+'.drawio'),f/(stem+'.png'),f/(stem+'.export.json'))
    self.assertEqual((m['vertices'],m['edges']),(len(g['nodes']),len(g['edges'])))
    layout=a.read(f/(stem+'.layout.json'));p.validate_layout(layout)
    self.assertIn('edge_label_node_overlaps',layout);self.assertEqual(layout['edge_label_node_overlaps'],[])

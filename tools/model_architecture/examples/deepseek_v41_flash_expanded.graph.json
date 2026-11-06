@@ -1,0 +1,3435 @@
+{
+  "version": 1,
+  "title": "DeepSeek-V4.1-Flash — expanded Block and expert paths",
+  "width": 3000,
+  "height": 2500,
+  "background": "#ffffff",
+  "sources": {
+    "config": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/config.json",
+    "model": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py",
+    "kernel": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/kernel.py",
+    "engram": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/engram.py",
+    "vision": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/vision.py",
+    "card": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/README.md",
+    "index": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/model.safetensors.index.json",
+    "runtime": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/README.md"
+  },
+  "nodes": [
+    {
+      "id": "title",
+      "label": "DeepSeek-V4.1-Flash  |  Expanded operators: residuals · normalization · routing",
+      "box": [
+        30.0,
+        10,
+        2940,
+        70
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=36;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "symbols",
+      "label": "Same40-layer model as the overview · B=batch · S=query length · N=B×S · Ne=tokens dispatched to one expert",
+      "box": [
+        30.0,
+        95,
+        2940,
+        50
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "architecture_map",
+      "label": "",
+      "box": [
+        30.0,
+        180,
+        600,
+        2250
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "architecture_map_title",
+      "label": "Whole-model map",
+      "box": [
+        40.0,
+        190,
+        580,
+        48
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;fillColor=#59718f;fontColor=#ffffff;fontStyle=1;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "block",
+      "label": "",
+      "box": [
+        660.0,
+        180,
+        1250,
+        2250
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "block_title",
+      "label": "One main Block — explicit single-pass mHC",
+      "box": [
+        670.0,
+        190,
+        1230,
+        48
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;fillColor=#7a6794;fontColor=#ffffff;fontStyle=1;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "experts",
+      "label": "",
+      "box": [
+        1940.0,
+        180,
+        1030,
+        2250
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "experts_title",
+      "label": "MoE / routed expert — explicit SwiGLU",
+      "box": [
+        1950.0,
+        190,
+        1010,
+        48
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;fillColor=#3f7e78;fontColor=#ffffff;fontStyle=1;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "map_ids",
+      "label": "Text / image IDs",
+      "box": [
+        90.0,
+        2220,
+        480,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Transformer.forward 1240–1276"
+        }
+      ]
+    },
+    {
+      "id": "map_embed",
+      "label": "Embedding / image-span merge",
+      "box": [
+        90.0,
+        2090,
+        480,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Transformer.forward 1240–1276"
+        }
+      ]
+    },
+    {
+      "id": "map_expand",
+      "label": "Broadcast HC4",
+      "box": [
+        90.0,
+        1960,
+        480,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Transformer.forward 1240–1276"
+        }
+      ]
+    },
+    {
+      "id": "map_enc",
+      "label": "Encoder Block\nL0–19",
+      "box": [
+        90.0,
+        1700,
+        480,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#875c26;align=center;verticalAlign=middle;spacing=6;fillColor=#fff0df;strokeColor=#c49358;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "attention",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Transformer.forward 1240–1276"
+        }
+      ]
+    },
+    {
+      "id": "map_h20",
+      "label": "Encoder boundary H20",
+      "box": [
+        90.0,
+        1530,
+        480,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Transformer.forward 1240–1276"
+        }
+      ]
+    },
+    {
+      "id": "map_dec",
+      "label": "Decoder Block\nL20–39",
+      "box": [
+        90.0,
+        1270,
+        480,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#875c26;align=center;verticalAlign=middle;spacing=6;fillColor=#fff0df;strokeColor=#c49358;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "attention",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Transformer.forward 1240–1276"
+        }
+      ]
+    },
+    {
+      "id": "map_collapse",
+      "label": "HC weighted collapse",
+      "box": [
+        90.0,
+        1080,
+        480,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Transformer.forward 1240–1276"
+        }
+      ]
+    },
+    {
+      "id": "map_norm",
+      "label": "RMSNorm5120",
+      "box": [
+        90.0,
+        950,
+        480,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#604780;align=center;verticalAlign=middle;spacing=6;fillColor=#f1eafb;strokeColor=#9b82be;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "normalization",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Transformer.forward 1240–1276"
+        }
+      ]
+    },
+    {
+      "id": "map_head",
+      "label": "LM head",
+      "box": [
+        90.0,
+        820,
+        480,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Transformer.forward 1240–1276"
+        }
+      ]
+    },
+    {
+      "id": "map_logits",
+      "label": "Logits / sample",
+      "box": [
+        90.0,
+        690,
+        480,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Transformer.forward 1240–1276"
+        }
+      ]
+    },
+    {
+      "id": "map_encoder",
+      "label": "",
+      "box": [
+        60.0,
+        1650,
+        540,
+        160
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;rounded=0;strokeColor=#59718f;strokeWidth=1.5;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "map_encoder_count",
+      "label": "×20",
+      "box": [
+        70.0,
+        1655,
+        90,
+        40
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;align=left;fontStyle=1;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "map_decoder",
+      "label": "",
+      "box": [
+        60.0,
+        1220,
+        540,
+        160
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;rounded=0;strokeColor=#59718f;strokeWidth=1.5;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "map_decoder_count",
+      "label": "×20",
+      "box": [
+        70.0,
+        1225,
+        90,
+        40
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;align=left;fontStyle=1;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "map_params",
+      "label": "HF text_config\nnum_hidden_layers = 40\nhidden_size = 5120\nengram_layer_ids = [1,14]",
+      "box": [
+        65.0,
+        275,
+        520,
+        190
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;align=left;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/text_config/num_hidden_layers; /text_config/hidden_size; /text_config/engram_layer_ids"
+        }
+      ],
+      "config_parameters": [
+        {
+          "path": "/text_config/num_hidden_layers",
+          "value": 40
+        },
+        {
+          "path": "/text_config/hidden_size",
+          "value": 5120
+        },
+        {
+          "path": "/text_config/engram_layer_ids",
+          "value": [
+            1,
+            14
+          ]
+        }
+      ]
+    },
+    {
+      "id": "map_scope",
+      "label": "Encoder: SWA L0–1, CSA2 r=2 L2–19\nDecoder: CSA2 r=1 L20–39\nBoth use the Block expansion at right.\nCSA2 internals: separate detailed diagram.",
+      "box": [
+        65.0,
+        475,
+        520,
+        170
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "b_input",
+      "label": "Input HC stream",
+      "box": [
+        1455.0,
+        2280,
+        350,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.forward 967–996; Engram at Transformer.forward before Block"
+        }
+      ]
+    },
+    {
+      "id": "b_engram",
+      "label": "Conditional Engram · L1 /L14",
+      "box": [
+        1455.0,
+        2160,
+        350,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.forward 967–996; Engram at Transformer.forward before Block"
+        }
+      ]
+    },
+    {
+      "id": "b_pre_a",
+      "label": "mHC pre: weighted sum",
+      "box": [
+        1455.0,
+        2020,
+        350,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.forward 967–996; Engram at Transformer.forward before Block"
+        }
+      ]
+    },
+    {
+      "id": "b_norm_a",
+      "label": "RMSNorm5120",
+      "box": [
+        1455.0,
+        1910,
+        350,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#604780;align=center;verticalAlign=middle;spacing=6;fillColor=#f1eafb;strokeColor=#9b82be;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "normalization",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.forward 967–996; Engram at Transformer.forward before Block"
+        }
+      ]
+    },
+    {
+      "id": "b_attention",
+      "label": "SWA / CSA2 attention",
+      "box": [
+        1455.0,
+        1800,
+        350,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#875c26;align=center;verticalAlign=middle;spacing=6;fillColor=#fff0df;strokeColor=#c49358;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "attention",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.forward 967–996; Engram at Transformer.forward before Block"
+        }
+      ]
+    },
+    {
+      "id": "b_post_a",
+      "label": "post × attention output",
+      "box": [
+        1455.0,
+        1680,
+        350,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.forward 967–996; Engram at Transformer.forward before Block"
+        }
+      ]
+    },
+    {
+      "id": "b_add_a",
+      "label": "+",
+      "box": [
+        1607.0,
+        1550,
+        46,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;shape=ellipse;fontSize=27;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.forward 967–996; Engram at Transformer.forward before Block"
+        }
+      ]
+    },
+    {
+      "id": "b_pre_f",
+      "label": "mHC pre: weighted sum",
+      "box": [
+        1455.0,
+        1410,
+        350,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.forward 967–996; Engram at Transformer.forward before Block"
+        }
+      ]
+    },
+    {
+      "id": "b_norm_f",
+      "label": "RMSNorm5120",
+      "box": [
+        1455.0,
+        1300,
+        350,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#604780;align=center;verticalAlign=middle;spacing=6;fillColor=#f1eafb;strokeColor=#9b82be;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "normalization",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.forward 967–996; Engram at Transformer.forward before Block"
+        }
+      ]
+    },
+    {
+      "id": "b_moe",
+      "label": "MoE",
+      "box": [
+        1455.0,
+        1190,
+        350,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#386f69;align=center;verticalAlign=middle;spacing=6;fillColor=#e5f5f3;strokeColor=#6baba4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "expert",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.forward 967–996; Engram at Transformer.forward before Block"
+        }
+      ]
+    },
+    {
+      "id": "b_post_f",
+      "label": "post × FFN output",
+      "box": [
+        1455.0,
+        1030,
+        350,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.forward 967–996; Engram at Transformer.forward before Block"
+        }
+      ]
+    },
+    {
+      "id": "b_add_f",
+      "label": "+",
+      "box": [
+        1607.0,
+        940,
+        46,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;shape=ellipse;fontSize=27;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.forward 967–996; Engram at Transformer.forward before Block"
+        }
+      ]
+    },
+    {
+      "id": "b_output",
+      "label": "Output HC stream",
+      "box": [
+        1455.0,
+        690,
+        350,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.forward 967–996; Engram at Transformer.forward before Block"
+        }
+      ]
+    },
+    {
+      "id": "incoming_pre",
+      "label": "prev pre",
+      "box": [
+        1760.0,
+        2110,
+        140,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.forward pre_mix argument; previous layer FFN output"
+        }
+      ]
+    },
+    {
+      "id": "a_flat",
+      "label": "Flatten HC streams",
+      "box": [
+        820.0,
+        2120,
+        360,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.hc_mixes: flatten(2)"
+        }
+      ]
+    },
+    {
+      "id": "a_linear",
+      "label": "FP32 Linear\n20480→24",
+      "box": [
+        755.0,
+        2020,
+        290,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.hc_mixes: F.linear"
+        }
+      ]
+    },
+    {
+      "id": "a_rstd",
+      "label": "RMS statistic: rsqrt",
+      "box": [
+        1100.0,
+        2020,
+        300,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#604780;align=center;verticalAlign=middle;spacing=6;fillColor=#f1eafb;strokeColor=#9b82be;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "normalization",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.hc_mixes: rsqrt(mean(x²)+eps)"
+        }
+      ]
+    },
+    {
+      "id": "a_scale",
+      "label": "×",
+      "box": [
+        977.0,
+        1930,
+        46,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;shape=ellipse;fontSize=27;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention / Block / Transformer.forward"
+        }
+      ]
+    },
+    {
+      "id": "a_split",
+      "label": "Split pre4 / post4 / comb16",
+      "box": [
+        745.0,
+        1850,
+        510,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "hc_split_sinkhorn kernel"
+        }
+      ]
+    },
+    {
+      "id": "a_pre",
+      "label": "Sigmoid + eps",
+      "box": [
+        690.0,
+        1750,
+        220,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "hc_split_sinkhorn pre branch"
+        }
+      ]
+    },
+    {
+      "id": "a_post",
+      "label": "2 × Sigmoid",
+      "box": [
+        935.0,
+        1750,
+        210,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "hc_split_sinkhorn post branch"
+        }
+      ]
+    },
+    {
+      "id": "a_comb",
+      "label": "Softmax",
+      "box": [
+        1175.0,
+        1750,
+        210,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "hc_split_sinkhorn comb branch"
+        }
+      ]
+    },
+    {
+      "id": "a_sink",
+      "label": "Sinkhorn ×20",
+      "box": [
+        1165.0,
+        1630,
+        230,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#604780;align=center;verticalAlign=middle;spacing=6;fillColor=#f1eafb;strokeColor=#9b82be;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "normalization",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "hc_split_sinkhorn comb row/column normalization"
+        }
+      ]
+    },
+    {
+      "id": "a_residual",
+      "label": "combᵀ × residual",
+      "box": [
+        1145.0,
+        1550,
+        270,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.hc_post: sum over input stream axis"
+        }
+      ]
+    },
+    {
+      "id": "a_pre_affine",
+      "label": "Scale + bias",
+      "box": [
+        695.0,
+        1805,
+        210,
+        34
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "hc_split_sinkhorn: mixes * learned hc_scale + hc_base"
+        }
+      ]
+    },
+    {
+      "id": "a_post_affine",
+      "label": "Scale + bias",
+      "box": [
+        935.0,
+        1805,
+        210,
+        34
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "hc_split_sinkhorn: mixes * learned hc_scale + hc_base"
+        }
+      ]
+    },
+    {
+      "id": "a_comb_affine",
+      "label": "Scale + bias",
+      "box": [
+        1175.0,
+        1805,
+        210,
+        34
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "hc_split_sinkhorn: mixes * learned hc_scale + hc_base"
+        }
+      ]
+    },
+    {
+      "id": "f_flat",
+      "label": "Flatten HC streams",
+      "box": [
+        820.0,
+        1460,
+        360,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.hc_mixes: flatten(2)"
+        }
+      ]
+    },
+    {
+      "id": "f_linear",
+      "label": "FP32 Linear\n20480→24",
+      "box": [
+        755.0,
+        1360,
+        290,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.hc_mixes: F.linear"
+        }
+      ]
+    },
+    {
+      "id": "f_rstd",
+      "label": "RMS statistic: rsqrt",
+      "box": [
+        1100.0,
+        1360,
+        300,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#604780;align=center;verticalAlign=middle;spacing=6;fillColor=#f1eafb;strokeColor=#9b82be;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "normalization",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.hc_mixes: rsqrt(mean(x²)+eps)"
+        }
+      ]
+    },
+    {
+      "id": "f_scale",
+      "label": "×",
+      "box": [
+        977.0,
+        1270,
+        46,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;shape=ellipse;fontSize=27;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention / Block / Transformer.forward"
+        }
+      ]
+    },
+    {
+      "id": "f_split",
+      "label": "Split pre4 / post4 / comb16",
+      "box": [
+        745.0,
+        1190,
+        510,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "hc_split_sinkhorn kernel"
+        }
+      ]
+    },
+    {
+      "id": "f_pre",
+      "label": "Sigmoid + eps",
+      "box": [
+        690.0,
+        1090,
+        220,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "hc_split_sinkhorn pre branch"
+        }
+      ]
+    },
+    {
+      "id": "f_post",
+      "label": "2 × Sigmoid",
+      "box": [
+        935.0,
+        1090,
+        210,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "hc_split_sinkhorn post branch"
+        }
+      ]
+    },
+    {
+      "id": "f_comb",
+      "label": "Softmax",
+      "box": [
+        1175.0,
+        1090,
+        210,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "hc_split_sinkhorn comb branch"
+        }
+      ]
+    },
+    {
+      "id": "f_sink",
+      "label": "Sinkhorn ×20",
+      "box": [
+        1165.0,
+        970,
+        230,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#604780;align=center;verticalAlign=middle;spacing=6;fillColor=#f1eafb;strokeColor=#9b82be;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "normalization",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "hc_split_sinkhorn comb row/column normalization"
+        }
+      ]
+    },
+    {
+      "id": "f_residual",
+      "label": "combᵀ × residual",
+      "box": [
+        1145.0,
+        900,
+        270,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.hc_post: sum over input stream axis"
+        }
+      ]
+    },
+    {
+      "id": "f_pre_affine",
+      "label": "Scale + bias",
+      "box": [
+        695.0,
+        1145,
+        210,
+        34
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "hc_split_sinkhorn: mixes * learned hc_scale + hc_base"
+        }
+      ]
+    },
+    {
+      "id": "f_post_affine",
+      "label": "Scale + bias",
+      "box": [
+        935.0,
+        1145,
+        210,
+        34
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "hc_split_sinkhorn: mixes * learned hc_scale + hc_base"
+        }
+      ]
+    },
+    {
+      "id": "f_comb_affine",
+      "label": "Scale + bias",
+      "box": [
+        1175.0,
+        1145,
+        210,
+        34
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=17;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "hc_split_sinkhorn: mixes * learned hc_scale + hc_base"
+        }
+      ]
+    },
+    {
+      "id": "next_pre",
+      "label": "pre for next Block",
+      "box": [
+        660.0,
+        740,
+        280,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Block.forward returns ffn_pre"
+        }
+      ]
+    },
+    {
+      "id": "block_repeat",
+      "label": "",
+      "box": [
+        680.0,
+        880,
+        1210,
+        1375
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;rounded=0;strokeColor=#59718f;strokeWidth=1.5;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "block_repeat_count",
+      "label": "×40",
+      "box": [
+        690.0,
+        885,
+        90,
+        40
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;align=left;fontStyle=1;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "block_scope",
+      "label": "×40 is the shared Block template: 20 encoder +20 decoder layers.\nEngram and CSA2 modes vary by layer; parameters are not tied.",
+      "box": [
+        700.0,
+        270,
+        1160,
+        95
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/text_config/num_hidden_layers; engram_layer_ids; compress_ratios"
+        }
+      ]
+    },
+    {
+      "id": "block_params",
+      "label": "HF text_config\nhc_mult = 4\nhc_sinkhorn_iters = 20\nhc_eps = 1e-06\nrms_norm_eps = 1e-20",
+      "box": [
+        720.0,
+        385,
+        1100,
+        210
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;align=left;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/text_config/hc_mult; /text_config/hc_sinkhorn_iters; /text_config/hc_eps; /text_config/rms_norm_eps"
+        }
+      ],
+      "config_parameters": [
+        {
+          "path": "/text_config/hc_mult",
+          "value": 4
+        },
+        {
+          "path": "/text_config/hc_sinkhorn_iters",
+          "value": 20
+        },
+        {
+          "path": "/text_config/hc_eps",
+          "value": 1e-06
+        },
+        {
+          "path": "/text_config/rms_norm_eps",
+          "value": 1e-20
+        }
+      ]
+    },
+    {
+      "id": "r_h",
+      "label": "MoE input",
+      "box": [
+        1990.0,
+        2280,
+        900,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_linear",
+      "label": "FP32 Linear\n5120→384",
+      "box": [
+        1995.0,
+        2160,
+        350,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_scores",
+      "label": "sqrt(Softplus)",
+      "box": [
+        1995.0,
+        2040,
+        350,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#806a31;align=center;verticalAlign=middle;spacing=6;fillColor=#fff5d9;strokeColor=#bda05c;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "routing",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_bias",
+      "label": "+ selection bias (text /image)",
+      "box": [
+        1985.0,
+        1920,
+        370,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#806a31;align=center;verticalAlign=middle;spacing=6;fillColor=#fff5d9;strokeColor=#bda05c;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "routing",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_top",
+      "label": "Top6 expert IDs",
+      "box": [
+        1995.0,
+        1800,
+        350,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#806a31;align=center;verticalAlign=middle;spacing=6;fillColor=#fff5d9;strokeColor=#bda05c;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "routing",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_gather",
+      "label": "Gather original scores",
+      "box": [
+        1985.0,
+        1680,
+        370,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#806a31;align=center;verticalAlign=middle;spacing=6;fillColor=#fff5d9;strokeColor=#bda05c;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "routing",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_norm",
+      "label": "Normalize weights ×1.5",
+      "box": [
+        1985.0,
+        1560,
+        370,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#806a31;align=center;verticalAlign=middle;spacing=6;fillColor=#fff5d9;strokeColor=#bda05c;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "routing",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_dispatch",
+      "label": "Dispatch selected experts",
+      "box": [
+        2010.0,
+        1440,
+        400,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_gate",
+      "label": "Linear gate\n5120→2304",
+      "box": [
+        2000.0,
+        1320,
+        280,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_up",
+      "label": "Linear up\n5120→2304",
+      "box": [
+        2620.0,
+        1320,
+        280,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_gclip",
+      "label": "Clamp max10",
+      "box": [
+        2000.0,
+        1200,
+        280,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_uclip",
+      "label": "Clamp [-10,+10]",
+      "box": [
+        2620.0,
+        1200,
+        280,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_silu",
+      "label": "SiLU",
+      "box": [
+        2020.0,
+        1080,
+        240,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_mul",
+      "label": "×",
+      "box": [
+        2437.0,
+        960,
+        46,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;shape=ellipse;fontSize=27;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_route",
+      "label": "×",
+      "box": [
+        2437.0,
+        840,
+        46,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;shape=ellipse;fontSize=27;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_down",
+      "label": "Linear down\n2304→5120",
+      "box": [
+        2280.0,
+        720,
+        360,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_sum",
+      "label": "Scatter / sum routed outputs",
+      "box": [
+        2245.0,
+        610,
+        430,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_shared",
+      "label": "Shared SwiGLU\nno route weight",
+      "box": [
+        2700.0,
+        1680,
+        240,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#386f69;align=center;verticalAlign=middle;spacing=6;fillColor=#e5f5f3;strokeColor=#6baba4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "expert",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_add",
+      "label": "+",
+      "box": [
+        2437.0,
+        460,
+        46,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;shape=ellipse;fontSize=27;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "r_output",
+      "label": "MoE output",
+      "box": [
+        2300.0,
+        300,
+        320,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=19;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Gate / Expert / MoE 794–906"
+        }
+      ]
+    },
+    {
+      "id": "expert_repeat",
+      "label": "",
+      "box": [
+        1970.0,
+        675,
+        950,
+        760
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;rounded=0;strokeColor=#59718f;strokeWidth=1.5;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "expert_repeat_count",
+      "label": "×384",
+      "box": [
+        1980.0,
+        680,
+        90,
+        40
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;align=left;fontStyle=1;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "expert_params",
+      "label": "HF text_config\nn_routed_experts = 384\nnum_experts_per_tok = 6\nmoe_intermediate_size = 2304",
+      "box": [
+        1960.0,
+        270,
+        320,
+        170
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;align=left;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/text_config/n_routed_experts; /text_config/num_experts_per_tok; /text_config/moe_intermediate_size"
+        }
+      ],
+      "config_parameters": [
+        {
+          "path": "/text_config/n_routed_experts",
+          "value": 384
+        },
+        {
+          "path": "/text_config/num_experts_per_tok",
+          "value": 6
+        },
+        {
+          "path": "/text_config/moe_intermediate_size",
+          "value": 2304
+        }
+      ]
+    },
+    {
+      "id": "footer",
+      "label": "Operator expansion of the same official @314113f model · CSA2 dataflow remains in its separate paired detail figure · no new model layers",
+      "box": [
+        40.0,
+        2450,
+        2920,
+        40
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_map_ids__map_embed",
+      "source": "map_ids",
+      "target": "map_embed",
+      "routing": "straight",
+      "label": "[B,S]",
+      "tensor_shape": "[B,S]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_map_embed__map_expand",
+      "source": "map_embed",
+      "target": "map_expand",
+      "routing": "straight",
+      "label": "[B,S,5120]",
+      "tensor_shape": "[B,S,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_map_expand__map_enc",
+      "source": "map_expand",
+      "target": "map_enc",
+      "routing": "straight",
+      "label": "[B,S,4,5120]",
+      "tensor_shape": "[B,S,4,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_map_enc__map_h20",
+      "source": "map_enc",
+      "target": "map_h20",
+      "routing": "straight",
+      "label": "[B,S,4,5120]",
+      "tensor_shape": "[B,S,4,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_map_h20__map_dec",
+      "source": "map_h20",
+      "target": "map_dec",
+      "routing": "straight",
+      "label": "[B,S,4,5120]",
+      "tensor_shape": "[B,S,4,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_map_dec__map_collapse",
+      "source": "map_dec",
+      "target": "map_collapse",
+      "routing": "straight",
+      "label": "[B,S,4,5120]",
+      "tensor_shape": "[B,S,4,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_map_collapse__map_norm",
+      "source": "map_collapse",
+      "target": "map_norm",
+      "routing": "straight",
+      "label": "[B,S,5120]",
+      "tensor_shape": "[B,S,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_map_norm__map_head",
+      "source": "map_norm",
+      "target": "map_head",
+      "routing": "straight",
+      "label": "[B,S,5120]",
+      "tensor_shape": "[B,S,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_map_head__map_logits",
+      "source": "map_head",
+      "target": "map_logits",
+      "routing": "straight",
+      "label": "[B,129280]",
+      "tensor_shape": "[B,129280]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_b_input__b_engram",
+      "source": "b_input",
+      "target": "b_engram",
+      "routing": "straight",
+      "label": "[B,S,4,5120]",
+      "tensor_shape": "[B,S,4,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_b_engram__b_pre_a",
+      "source": "b_engram",
+      "target": "b_pre_a",
+      "routing": "straight",
+      "label": "[B,S,4,5120]",
+      "tensor_shape": "[B,S,4,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_b_pre_a__b_norm_a",
+      "source": "b_pre_a",
+      "target": "b_norm_a",
+      "routing": "straight",
+      "label": "[B,S,5120]",
+      "tensor_shape": "[B,S,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_b_norm_a__b_attention",
+      "source": "b_norm_a",
+      "target": "b_attention",
+      "routing": "straight",
+      "label": "[B,S,5120]",
+      "tensor_shape": "[B,S,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_b_attention__b_post_a",
+      "source": "b_attention",
+      "target": "b_post_a",
+      "routing": "straight",
+      "label": "[B,S,5120]",
+      "tensor_shape": "[B,S,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_b_post_a__b_add_a",
+      "source": "b_post_a",
+      "target": "b_add_a",
+      "routing": "straight",
+      "label": "[B,S,4,5120]",
+      "tensor_shape": "[B,S,4,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_b_add_a__b_pre_f",
+      "source": "b_add_a",
+      "target": "b_pre_f",
+      "routing": "straight",
+      "label": "[B,S,4,5120]",
+      "tensor_shape": "[B,S,4,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_b_pre_f__b_norm_f",
+      "source": "b_pre_f",
+      "target": "b_norm_f",
+      "routing": "straight",
+      "label": "[B,S,5120]",
+      "tensor_shape": "[B,S,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_b_norm_f__b_moe",
+      "source": "b_norm_f",
+      "target": "b_moe",
+      "routing": "straight",
+      "label": "[B,S,5120]",
+      "tensor_shape": "[B,S,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_b_moe__b_post_f",
+      "source": "b_moe",
+      "target": "b_post_f",
+      "routing": "straight",
+      "label": "[B,S,5120]",
+      "tensor_shape": "[B,S,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_b_post_f__b_add_f",
+      "source": "b_post_f",
+      "target": "b_add_f",
+      "routing": "straight",
+      "label": "[B,S,4,5120]",
+      "tensor_shape": "[B,S,4,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_b_add_f__b_output",
+      "source": "b_add_f",
+      "target": "b_output",
+      "routing": "straight",
+      "label": "[B,S,4,5120]",
+      "tensor_shape": "[B,S,4,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_incoming_pre__b_pre_a",
+      "source": "incoming_pre",
+      "target": "b_pre_a",
+      "routing": "straight",
+      "label": "[B,S,4]",
+      "tensor_shape": "[B,S,4]",
+      "label_font_size": 17,
+      "ports": [
+        0.3142857142857143,
+        0,
+        0.9971428571428571,
+        1
+      ]
+    },
+    {
+      "id": "e_a_flat__a_linear",
+      "source": "a_flat",
+      "target": "a_linear",
+      "routing": "straight",
+      "label": "[B,S,20480]",
+      "tensor_shape": "[B,S,20480]",
+      "label_font_size": 17,
+      "ports": [
+        0.2222222222222222,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_a_flat__a_rstd",
+      "source": "a_flat",
+      "target": "a_rstd",
+      "routing": "straight",
+      "label": "[B,S,20480]",
+      "tensor_shape": "[B,S,20480]",
+      "label_font_size": 17,
+      "ports": [
+        0.9972222222222222,
+        0,
+        0.2633333333333333,
+        1
+      ]
+    },
+    {
+      "id": "e_a_linear__a_scale",
+      "source": "a_linear",
+      "target": "a_scale",
+      "routing": "straight",
+      "label": "[B,S,24]",
+      "tensor_shape": "[B,S,24]",
+      "label_font_size": 17,
+      "ports": [
+        0.8448275862068966,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_a_rstd__a_scale",
+      "source": "a_rstd",
+      "target": "a_scale",
+      "routing": "straight",
+      "label": "[B,S,1]",
+      "tensor_shape": "[B,S,1]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          1250.0,
+          1953.0
+        ]
+      ]
+    },
+    {
+      "id": "e_a_scale__a_split",
+      "source": "a_scale",
+      "target": "a_split",
+      "routing": "straight",
+      "label": "[B,S,24]",
+      "tensor_shape": "[B,S,24]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_a_split__a_pre_affine",
+      "source": "a_split",
+      "target": "a_pre_affine",
+      "routing": "straight",
+      "ports": [
+        0.10784313725490197,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_a_pre_affine__a_pre",
+      "source": "a_pre_affine",
+      "target": "a_pre",
+      "routing": "straight",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_a_split__a_post_affine",
+      "source": "a_split",
+      "target": "a_post_affine",
+      "routing": "straight",
+      "ports": [
+        0.5784313725490197,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_a_post_affine__a_post",
+      "source": "a_post_affine",
+      "target": "a_post",
+      "routing": "straight",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_a_split__a_comb_affine",
+      "source": "a_split",
+      "target": "a_comb_affine",
+      "routing": "straight",
+      "ports": [
+        0.9980392156862745,
+        0,
+        0.3761904761904762,
+        1
+      ]
+    },
+    {
+      "id": "e_a_comb_affine__a_comb",
+      "source": "a_comb_affine",
+      "target": "a_comb",
+      "routing": "straight",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_a_comb__a_sink",
+      "source": "a_comb",
+      "target": "a_sink",
+      "routing": "straight",
+      "label": "[B,S,4,4]",
+      "tensor_shape": "[B,S,4,4]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_a_sink__a_residual",
+      "source": "a_sink",
+      "target": "a_residual",
+      "routing": "straight",
+      "label": "[B,S,4,4]",
+      "tensor_shape": "[B,S,4,4]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_f_flat__f_linear",
+      "source": "f_flat",
+      "target": "f_linear",
+      "routing": "straight",
+      "label": "[B,S,20480]",
+      "tensor_shape": "[B,S,20480]",
+      "label_font_size": 17,
+      "ports": [
+        0.2222222222222222,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_f_flat__f_rstd",
+      "source": "f_flat",
+      "target": "f_rstd",
+      "routing": "straight",
+      "label": "[B,S,20480]",
+      "tensor_shape": "[B,S,20480]",
+      "label_font_size": 17,
+      "ports": [
+        0.9972222222222222,
+        0,
+        0.2633333333333333,
+        1
+      ]
+    },
+    {
+      "id": "e_f_linear__f_scale",
+      "source": "f_linear",
+      "target": "f_scale",
+      "routing": "straight",
+      "label": "[B,S,24]",
+      "tensor_shape": "[B,S,24]",
+      "label_font_size": 17,
+      "ports": [
+        0.8448275862068966,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_f_rstd__f_scale",
+      "source": "f_rstd",
+      "target": "f_scale",
+      "routing": "straight",
+      "label": "[B,S,1]",
+      "tensor_shape": "[B,S,1]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          1250.0,
+          1293.0
+        ]
+      ]
+    },
+    {
+      "id": "e_f_scale__f_split",
+      "source": "f_scale",
+      "target": "f_split",
+      "routing": "straight",
+      "label": "[B,S,24]",
+      "tensor_shape": "[B,S,24]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_f_split__f_pre_affine",
+      "source": "f_split",
+      "target": "f_pre_affine",
+      "routing": "straight",
+      "ports": [
+        0.10784313725490197,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_f_pre_affine__f_pre",
+      "source": "f_pre_affine",
+      "target": "f_pre",
+      "routing": "straight",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_f_split__f_post_affine",
+      "source": "f_split",
+      "target": "f_post_affine",
+      "routing": "straight",
+      "ports": [
+        0.5784313725490197,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_f_post_affine__f_post",
+      "source": "f_post_affine",
+      "target": "f_post",
+      "routing": "straight",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_f_split__f_comb_affine",
+      "source": "f_split",
+      "target": "f_comb_affine",
+      "routing": "straight",
+      "ports": [
+        0.9980392156862745,
+        0,
+        0.3761904761904762,
+        1
+      ]
+    },
+    {
+      "id": "e_f_comb_affine__f_comb",
+      "source": "f_comb_affine",
+      "target": "f_comb",
+      "routing": "straight",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_f_comb__f_sink",
+      "source": "f_comb",
+      "target": "f_sink",
+      "routing": "straight",
+      "label": "[B,S,4,4]",
+      "tensor_shape": "[B,S,4,4]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_f_sink__f_residual",
+      "source": "f_sink",
+      "target": "f_residual",
+      "routing": "straight",
+      "label": "[B,S,4,4]",
+      "tensor_shape": "[B,S,4,4]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_b_engram__a_flat",
+      "source": "b_engram",
+      "target": "a_flat",
+      "routing": "straight",
+      "label": "current x",
+      "tensor_shape": "current x",
+      "label_font_size": 17,
+      "ports": [
+        0,
+        0.021739130434782608,
+        1,
+        0.8913043478260869
+      ]
+    },
+    {
+      "id": "e_b_engram__a_residual",
+      "source": "b_engram",
+      "target": "a_residual",
+      "routing": "straight",
+      "label": "residual",
+      "tensor_shape": "residual",
+      "label_font_size": 17,
+      "ports": [
+        0,
+        0.5,
+        0,
+        0.5
+      ],
+      "points": [
+        [
+          675,
+          2183
+        ],
+        [
+          675,
+          1573
+        ]
+      ]
+    },
+    {
+      "id": "e_a_post__b_post_a",
+      "source": "a_post",
+      "target": "b_post_a",
+      "routing": "straight",
+      "label": "[B,S,4]",
+      "tensor_shape": "[B,S,4]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0,
+        0.5
+      ],
+      "label_offset": [
+        -100,
+        0
+      ],
+      "points": [
+        [
+          1040.0,
+          1703.0
+        ]
+      ]
+    },
+    {
+      "id": "e_a_residual__b_add_a",
+      "source": "a_residual",
+      "target": "b_add_a",
+      "routing": "straight",
+      "label": "[B,S,4,5120]",
+      "tensor_shape": "[B,S,4,5120]",
+      "label_font_size": 17,
+      "ports": [
+        1,
+        0.5,
+        0,
+        0.5
+      ]
+    },
+    {
+      "id": "e_a_pre__b_pre_f",
+      "source": "a_pre",
+      "target": "b_pre_f",
+      "routing": "straight",
+      "label": "pre for FFN",
+      "tensor_shape": "pre for FFN",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0,
+        0.5
+      ],
+      "label_offset": [
+        350,
+        0
+      ],
+      "points": [
+        [
+          800.0,
+          1433.0
+        ]
+      ]
+    },
+    {
+      "id": "e_b_add_a__f_flat",
+      "source": "b_add_a",
+      "target": "f_flat",
+      "routing": "straight",
+      "label": "current x",
+      "tensor_shape": "current x",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          1630.0,
+          1483.0
+        ]
+      ]
+    },
+    {
+      "id": "e_b_add_a__f_residual",
+      "source": "b_add_a",
+      "target": "f_residual",
+      "routing": "straight",
+      "label": "residual",
+      "tensor_shape": "residual",
+      "label_font_size": 17,
+      "ports": [
+        1,
+        0.5,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          1875,
+          1573
+        ],
+        [
+          1875,
+          923
+        ]
+      ]
+    },
+    {
+      "id": "e_f_post__b_post_f",
+      "source": "f_post",
+      "target": "b_post_f",
+      "routing": "straight",
+      "label": "[B,S,4]",
+      "tensor_shape": "[B,S,4]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0,
+        0.5
+      ],
+      "label_offset": [
+        -100,
+        0
+      ],
+      "points": [
+        [
+          1040.0,
+          1053.0
+        ]
+      ]
+    },
+    {
+      "id": "e_f_residual__b_add_f",
+      "source": "f_residual",
+      "target": "b_add_f",
+      "routing": "straight",
+      "ports": [
+        1,
+        0.5,
+        0.5,
+        0
+      ],
+      "points": [
+        [
+          1630.0,
+          923.0
+        ]
+      ]
+    },
+    {
+      "id": "e_f_pre__next_pre",
+      "source": "f_pre",
+      "target": "next_pre",
+      "routing": "straight",
+      "label": "[B,S,4]",
+      "tensor_shape": "[B,S,4]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_h__r_linear",
+      "source": "r_h",
+      "target": "r_linear",
+      "routing": "straight",
+      "label": "[N,5120]",
+      "tensor_shape": "[N,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.2,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_linear__r_scores",
+      "source": "r_linear",
+      "target": "r_scores",
+      "routing": "straight",
+      "label": "[N,384]",
+      "tensor_shape": "[N,384]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_scores__r_bias",
+      "source": "r_scores",
+      "target": "r_bias",
+      "routing": "straight",
+      "label": "[N,384]",
+      "tensor_shape": "[N,384]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_bias__r_top",
+      "source": "r_bias",
+      "target": "r_top",
+      "routing": "straight",
+      "label": "[N,384]",
+      "tensor_shape": "[N,384]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_top__r_gather",
+      "source": "r_top",
+      "target": "r_gather",
+      "routing": "straight",
+      "label": "IDs [N,6]",
+      "tensor_shape": "IDs [N,6]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_gather__r_norm",
+      "source": "r_gather",
+      "target": "r_norm",
+      "routing": "straight",
+      "label": "w [N,6]",
+      "tensor_shape": "w [N,6]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_norm__r_dispatch",
+      "source": "r_norm",
+      "target": "r_dispatch",
+      "routing": "straight",
+      "label": "IDs / dispatch",
+      "tensor_shape": "IDs / dispatch",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.4,
+        1
+      ]
+    },
+    {
+      "id": "e_r_scores__r_gather",
+      "source": "r_scores",
+      "target": "r_gather",
+      "routing": "straight",
+      "label": "raw scores",
+      "tensor_shape": "raw scores",
+      "label_font_size": 17,
+      "ports": [
+        0,
+        0.5,
+        0,
+        0.5
+      ],
+      "points": [
+        [
+          1950,
+          2063
+        ],
+        [
+          1950,
+          1703
+        ]
+      ]
+    },
+    {
+      "id": "e_r_h__r_dispatch",
+      "source": "r_h",
+      "target": "r_dispatch",
+      "routing": "straight",
+      "label": "x",
+      "tensor_shape": "x",
+      "label_font_size": 17,
+      "ports": [
+        0.4577777777777778,
+        0,
+        0.98,
+        1
+      ]
+    },
+    {
+      "id": "e_r_dispatch__r_gate",
+      "source": "r_dispatch",
+      "target": "r_gate",
+      "routing": "straight",
+      "label": "[Ne,5120]",
+      "tensor_shape": "[Ne,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.325,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_dispatch__r_up",
+      "source": "r_dispatch",
+      "target": "r_up",
+      "routing": "straight",
+      "label": "[Ne,5120]",
+      "tensor_shape": "[Ne,5120]",
+      "label_font_size": 17,
+      "ports": [
+        1,
+        0.5,
+        0.5,
+        1
+      ],
+      "points": [
+        [
+          2760.0,
+          1463.0
+        ]
+      ]
+    },
+    {
+      "id": "e_r_gate__r_gclip",
+      "source": "r_gate",
+      "target": "r_gclip",
+      "routing": "straight",
+      "label": "[Ne,2304]",
+      "tensor_shape": "[Ne,2304]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_gclip__r_silu",
+      "source": "r_gclip",
+      "target": "r_silu",
+      "routing": "straight",
+      "label": "[Ne,2304]",
+      "tensor_shape": "[Ne,2304]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_silu__r_mul",
+      "source": "r_silu",
+      "target": "r_mul",
+      "routing": "straight",
+      "label": "[Ne,2304]",
+      "tensor_shape": "[Ne,2304]",
+      "label_font_size": 17,
+      "ports": [
+        1,
+        0.5,
+        0.5,
+        1
+      ],
+      "points": [
+        [
+          2460.0,
+          1103.0
+        ]
+      ]
+    },
+    {
+      "id": "e_r_mul__r_route",
+      "source": "r_mul",
+      "target": "r_route",
+      "routing": "straight",
+      "label": "[Ne,2304]",
+      "tensor_shape": "[Ne,2304]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_route__r_down",
+      "source": "r_route",
+      "target": "r_down",
+      "routing": "straight",
+      "label": "[Ne,2304]",
+      "tensor_shape": "[Ne,2304]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_down__r_sum",
+      "source": "r_down",
+      "target": "r_sum",
+      "routing": "straight",
+      "label": "[Ne,5120]",
+      "tensor_shape": "[Ne,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_sum__r_add",
+      "source": "r_sum",
+      "target": "r_add",
+      "routing": "straight",
+      "label": "[N,5120]",
+      "tensor_shape": "[N,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_add__r_output",
+      "source": "r_add",
+      "target": "r_output",
+      "routing": "straight",
+      "label": "[N,5120]",
+      "tensor_shape": "[N,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_up__r_uclip",
+      "source": "r_up",
+      "target": "r_uclip",
+      "routing": "straight",
+      "label": "[Ne,2304]",
+      "tensor_shape": "[Ne,2304]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_uclip__r_mul",
+      "source": "r_uclip",
+      "target": "r_mul",
+      "routing": "straight",
+      "label": "[Ne,2304]",
+      "tensor_shape": "[Ne,2304]",
+      "label_font_size": 17,
+      "ports": [
+        0,
+        0.5,
+        0.5,
+        1
+      ],
+      "points": [
+        [
+          2460.0,
+          1223.0
+        ]
+      ]
+    },
+    {
+      "id": "e_r_norm__r_route",
+      "source": "r_norm",
+      "target": "r_route",
+      "routing": "straight",
+      "label": "dispatch w_e",
+      "tensor_shape": "dispatch w_e",
+      "label_font_size": 17,
+      "ports": [
+        1,
+        0.5,
+        0,
+        0.5
+      ],
+      "points": [
+        [
+          2410,
+          1583
+        ],
+        [
+          2410,
+          863
+        ]
+      ]
+    },
+    {
+      "id": "e_r_h__r_shared",
+      "source": "r_h",
+      "target": "r_shared",
+      "routing": "straight",
+      "label": "[N,5120]",
+      "tensor_shape": "[N,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.9222222222222223,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_shared__r_add",
+      "source": "r_shared",
+      "target": "r_add",
+      "routing": "straight",
+      "label": "shared",
+      "tensor_shape": "shared",
+      "label_font_size": 17,
+      "ports": [
+        1,
+        0.5,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          2950,
+          1712
+        ],
+        [
+          2950,
+          483
+        ]
+      ]
+    }
+  ],
+  "limitations": [
+    "Official unsuffixed checkpoint, not -1017.",
+    "Shapes are logical global dimensions; tensor-parallel ranks may shard heads/experts.",
+    "Official minimal implementation loops through all 40 layers; optimized CED prefill, bounded replay and DSpark verification scheduler are model-card designs, not locally executed paths.",
+    "Reference quantizers simulate quantize/dequantize in floating cache buffers; packed cache bytes are official claims.",
+    "Weight index verifies names, not tensor shapes/values. No full weights, GPU inference, benchmark, numerical equivalence or Feishu import test.",
+    "Technical-report PDF download blocked by proxy; card and pinned reference sources were read."
+  ],
+  "checkpoint": {
+    "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "text_layers": 40,
+    "mtp_layers": 3,
+    "vision_layers": 32
+  },
+  "repetition_groups": [
+    {
+      "frame": "map_encoder",
+      "count": 20,
+      "members": [
+        "map_enc"
+      ],
+      "scope": "Layer template; per-layer modes/parameters may differ."
+    },
+    {
+      "frame": "map_decoder",
+      "count": 20,
+      "members": [
+        "map_dec"
+      ],
+      "scope": "Layer template; per-layer modes/parameters may differ."
+    },
+    {
+      "frame": "block_repeat",
+      "count": 40,
+      "members": [
+        "b_engram",
+        "b_pre_a",
+        "b_norm_a",
+        "b_attention",
+        "b_post_a",
+        "b_add_a",
+        "b_pre_f",
+        "b_norm_f",
+        "b_moe",
+        "b_post_f",
+        "b_add_f",
+        "a_flat",
+        "a_linear",
+        "a_rstd",
+        "a_scale",
+        "a_split",
+        "a_pre",
+        "a_post",
+        "a_comb",
+        "a_sink",
+        "a_residual",
+        "a_pre_affine",
+        "a_post_affine",
+        "a_comb_affine",
+        "f_flat",
+        "f_linear",
+        "f_rstd",
+        "f_scale",
+        "f_split",
+        "f_pre",
+        "f_post",
+        "f_comb",
+        "f_sink",
+        "f_residual",
+        "f_pre_affine",
+        "f_post_affine",
+        "f_comb_affine"
+      ],
+      "scope": "Layer template; per-layer modes/parameters may differ."
+    },
+    {
+      "frame": "expert_repeat",
+      "count": 384,
+      "members": [
+        "r_gate",
+        "r_up",
+        "r_gclip",
+        "r_uclip",
+        "r_silu",
+        "r_mul",
+        "r_route",
+        "r_down"
+      ],
+      "scope": "Layer template; per-layer modes/parameters may differ."
+    }
+  ],
+  "port_bindings": {
+    "Block": {
+      "source": "map_enc",
+      "target": "b_input",
+      "meaning": "Representative expansion; not an extra layer"
+    },
+    "DecoderBlock": {
+      "source": "map_dec",
+      "target": "b_input",
+      "meaning": "Same template with decoder mode and no Engram"
+    },
+    "previous_pre": {
+      "source": "next_pre",
+      "target": "incoming_pre",
+      "meaning": "Previous Block FFN pre is next Block attention pre; same-Block attention pre feeds FFN"
+    },
+    "MoE": {
+      "source": "b_moe",
+      "target": "r_h",
+      "shape": [
+        "B",
+        "S",
+        5120
+      ]
+    }
+  },
+  "diagram_level": "operator_expansion",
+  "routing_summary": {
+    "straight": 67,
+    "one_bend": 10,
+    "kept": 5
+  },
+  "presentation_policy": {
+    "reference": "GLM-5.3 d8dc8ea confirmed workflow",
+    "flow": "bottom-up",
+    "functional_palette": {
+      "projection": {
+        "label": "Projection",
+        "fill": "#eaf2ff",
+        "stroke": "#6c91c9",
+        "text": "#294f80"
+      },
+      "normalization": {
+        "label": "Normalization",
+        "fill": "#f1eafb",
+        "stroke": "#9b82be",
+        "text": "#604780"
+      },
+      "position": {
+        "label": "RoPE / position",
+        "fill": "#e6f6fb",
+        "stroke": "#6aa6b9",
+        "text": "#326a7d"
+      },
+      "attention": {
+        "label": "Attention",
+        "fill": "#fff0df",
+        "stroke": "#c49358",
+        "text": "#875c26"
+      },
+      "selection": {
+        "label": "Index / select",
+        "fill": "#eaf6ed",
+        "stroke": "#78a485",
+        "text": "#426b4e"
+      },
+      "cache": {
+        "label": "Cache",
+        "fill": "#fbecef",
+        "stroke": "#c28a96",
+        "text": "#895a67"
+      },
+      "routing": {
+        "label": "MoE routing",
+        "fill": "#fff5d9",
+        "stroke": "#bda05c",
+        "text": "#806a31"
+      },
+      "expert": {
+        "label": "FFN / experts",
+        "fill": "#e5f5f3",
+        "stroke": "#6baba4",
+        "text": "#386f69"
+      },
+      "elementwise": {
+        "label": "Activation / merge",
+        "fill": "#f8ebf5",
+        "stroke": "#b18da9",
+        "text": "#805b77"
+      },
+      "tensor": {
+        "label": "Tensor / layout",
+        "fill": "#f2f4f7",
+        "stroke": "#9aa6b4",
+        "text": "#526171"
+      }
+    },
+    "legend": false,
+    "parameter_notes": "Pinned HF config fields in module whitespace",
+    "implementation_view": "Official minimal reference, plus separately labeled model-card runtime claims"
+  }
+}
