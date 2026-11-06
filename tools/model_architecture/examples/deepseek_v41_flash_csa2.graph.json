@@ -1,0 +1,2149 @@
+{
+  "version": 1,
+  "title": "DeepSeek-V4.1-Flash — CSA2 detailed dataflow",
+  "width": 3000,
+  "height": 2690,
+  "background": "#ffffff",
+  "sources": {
+    "config": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/config.json",
+    "model": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py",
+    "kernel": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/kernel.py",
+    "engram": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/engram.py",
+    "vision": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/vision.py",
+    "card": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/README.md",
+    "index": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/model.safetensors.index.json",
+    "runtime": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/README.md"
+  },
+  "nodes": [
+    {
+      "id": "title",
+      "label": "DeepSeek-V4.1-Flash  |  CSA2: compressor · hierarchical indexer · cross-layer reuse",
+      "box": [
+        30.0,
+        10,
+        2940,
+        75
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=36;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "symbols",
+      "label": "B=batch · S=query length · Tg=floor(T/r) · r=2 at sources2/8/14, r=1 at source20 · I=shared index K · C=candidates",
+      "box": [
+        30.0,
+        100,
+        2940,
+        50
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "compressor",
+      "label": "",
+      "box": [
+        30.0,
+        180,
+        880,
+        1760
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "compressor_title",
+      "label": "Full mode — main KV compressor",
+      "box": [
+        40.0,
+        190,
+        860,
+        48
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;fillColor=#a7773e;fontColor=#ffffff;fontStyle=1;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "indexer",
+      "label": "",
+      "box": [
+        940.0,
+        180,
+        1280,
+        1760
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "indexer_title",
+      "label": "Full / Reindex — three-path indexer",
+      "box": [
+        950.0,
+        190,
+        1260,
+        48
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;fillColor=#527d5d;fontColor=#ffffff;fontStyle=1;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "modes",
+      "label": "",
+      "box": [
+        2250.0,
+        180,
+        720,
+        1760
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "modes_title",
+      "label": "Source ownership / reuse",
+      "box": [
+        2260.0,
+        190,
+        700,
+        48
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;fillColor=#59718f;fontColor=#ffffff;fontStyle=1;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "candidates",
+      "label": "",
+      "box": [
+        30.0,
+        1980,
+        2940,
+        660
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;strokeColor=#c3cedb;dashed=1;dashPattern=6 4;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "candidates_title",
+      "label": "Hierarchical candidate blocks — decoder L20 → L24 /28 /32 /36",
+      "box": [
+        40.0,
+        1990,
+        2920,
+        48
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=26;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;fillColor=#527d5d;fontColor=#ffffff;fontStyle=1;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    },
+    {
+      "id": "c_input",
+      "label": "Source-layer attention input h",
+      "box": [
+        85.0,
+        1830,
+        730,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor 429–485; Attention._compress_kv 741–768"
+        }
+      ]
+    },
+    {
+      "id": "c_wkv",
+      "label": "Linear Wkv\n5120→512",
+      "box": [
+        105.0,
+        1710,
+        270,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor 429–485; Attention._compress_kv 741–768"
+        }
+      ]
+    },
+    {
+      "id": "c_wgate",
+      "label": "Linear Wgate · r=2 only\n5120→512",
+      "box": [
+        495.0,
+        1710,
+        330,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor 429–485; Attention._compress_kv 741–768"
+        }
+      ]
+    },
+    {
+      "id": "c_values",
+      "label": "Group values: r=2 slots",
+      "box": [
+        90.0,
+        1590,
+        300,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor 429–485; Attention._compress_kv 741–768"
+        }
+      ]
+    },
+    {
+      "id": "c_scores",
+      "label": "Group gate scores: r=2 slots",
+      "box": [
+        485.0,
+        1590,
+        350,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor 429–485; Attention._compress_kv 741–768"
+        }
+      ]
+    },
+    {
+      "id": "c_softmax",
+      "label": "Softmax over token slots\nindependent per channel",
+      "box": [
+        485.0,
+        1470,
+        350,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor 429–485; Attention._compress_kv 741–768"
+        }
+      ]
+    },
+    {
+      "id": "c_product",
+      "label": "gate × KV values",
+      "box": [
+        280.0,
+        1350,
+        340,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor 429–485; Attention._compress_kv 741–768"
+        }
+      ]
+    },
+    {
+      "id": "c_sum",
+      "label": "Sum over2 token slots",
+      "box": [
+        275.0,
+        1230,
+        350,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor 429–485; Attention._compress_kv 741–768"
+        }
+      ]
+    },
+    {
+      "id": "c_norm",
+      "label": "RMSNorm512",
+      "box": [
+        325.0,
+        1110,
+        250,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#604780;align=center;verticalAlign=middle;spacing=6;fillColor=#f1eafb;strokeColor=#9b82be;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "normalization",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor 429–485; Attention._compress_kv 741–768"
+        }
+      ]
+    },
+    {
+      "id": "c_latent",
+      "label": "Pre-RoPE latent L\nindex K is generated first",
+      "box": [
+        255.0,
+        990,
+        390,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor 429–485; Attention._compress_kv 741–768"
+        }
+      ]
+    },
+    {
+      "id": "c_rope",
+      "label": "RoPE tail64\ngroup position = j×r",
+      "box": [
+        285.0,
+        870,
+        330,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#326a7d;align=center;verticalAlign=middle;spacing=6;fillColor=#e6f6fb;strokeColor=#6aa6b9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "position",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor 429–485; Attention._compress_kv 741–768"
+        }
+      ]
+    },
+    {
+      "id": "c_fp4",
+      "label": "FP4 Q/DQ · E2M1\nblock16, E4M3 scale",
+      "box": [
+        275.0,
+        750,
+        350,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#895a67;align=center;verticalAlign=middle;spacing=6;fillColor=#fbecef;strokeColor=#c28a96;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "cache",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor 429–485; Attention._compress_kv 741–768"
+        }
+      ]
+    },
+    {
+      "id": "c_cache",
+      "label": "Shared global KV cache\n[B,Tg,512]",
+      "box": [
+        270.0,
+        630,
+        360,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#895a67;align=center;verticalAlign=middle;spacing=6;fillColor=#fbecef;strokeColor=#c28a96;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "cache",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor 429–485; Attention._compress_kv 741–768"
+        }
+      ]
+    },
+    {
+      "id": "compressor_params",
+      "label": "HF text_config\nkv_source_layer_ids = [2,8,14,20]\nhead_dim = 512\nrms_norm_eps = 1e-20\ncompress_rope_theta = 160000",
+      "box": [
+        65.0,
+        270,
+        780,
+        205
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;align=left;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/text_config/kv_source_layer_ids; /text_config/head_dim; /text_config/rms_norm_eps; /text_config/compress_rope_theta"
+        }
+      ],
+      "config_parameters": [
+        {
+          "path": "/text_config/kv_source_layer_ids",
+          "value": [
+            2,
+            8,
+            14,
+            20
+          ]
+        },
+        {
+          "path": "/text_config/head_dim",
+          "value": 512
+        },
+        {
+          "path": "/text_config/rms_norm_eps",
+          "value": 1e-20
+        },
+        {
+          "path": "/text_config/compress_rope_theta",
+          "value": 160000
+        }
+      ]
+    },
+    {
+      "id": "compressor_state",
+      "label": "r=2 decode: keep partial group; emit only on completion\nr=1: no Wgate / pooling · plain projection + RMSNorm",
+      "box": [
+        65.0,
+        490,
+        780,
+        85
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Compressor.forward 459–485"
+        }
+      ]
+    },
+    {
+      "id": "i_qr",
+      "label": "Qr [1280]",
+      "box": [
+        1000.0,
+        1830,
+        260,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_latent",
+      "label": "L [512] · Full only",
+      "box": [
+        1410.0,
+        1830,
+        320,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_h",
+      "label": "h [5120]",
+      "box": [
+        1880.0,
+        1830,
+        280,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_wq",
+      "label": "Linear Qi\n1280→32×128",
+      "box": [
+        980.0,
+        1710,
+        300,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_wk",
+      "label": "Linear Ki\n512→128",
+      "box": [
+        1420.0,
+        1710,
+        300,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_ww",
+      "label": "Linear head weights\n5120→32",
+      "box": [
+        1855.0,
+        1710,
+        330,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#294f80;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf2ff;strokeColor=#6c91c9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "projection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_ropeq",
+      "label": "RoPE tail64",
+      "box": [
+        990.0,
+        1590,
+        280,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#326a7d;align=center;verticalAlign=middle;spacing=6;fillColor=#e6f6fb;strokeColor=#6aa6b9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "position",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_normk",
+      "label": "RMSNorm128",
+      "box": [
+        1435.0,
+        1590,
+        270,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#604780;align=center;verticalAlign=middle;spacing=6;fillColor=#f1eafb;strokeColor=#9b82be;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "normalization",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_scale",
+      "label": "Scale 1 /sqrt(32×128)\n=1/64",
+      "box": [
+        1855.0,
+        1590,
+        330,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_fp4q",
+      "label": "FP4 Q/DQ\nblock32, E8M0 scale",
+      "box": [
+        975.0,
+        1470,
+        310,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#895a67;align=center;verticalAlign=middle;spacing=6;fillColor=#fbecef;strokeColor=#c28a96;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "cache",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_ropek",
+      "label": "RoPE tail64\ngroup position = j×r",
+      "box": [
+        1405.0,
+        1470,
+        330,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#326a7d;align=center;verticalAlign=middle;spacing=6;fillColor=#e6f6fb;strokeColor=#6aa6b9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "position",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_fp4k",
+      "label": "FP4 Q/DQ\nblock32, E8M0 scale",
+      "box": [
+        1415.0,
+        1350,
+        310,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#895a67;align=center;verticalAlign=middle;spacing=6;fillColor=#fbecef;strokeColor=#c28a96;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "cache",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_q",
+      "label": "Qi [B,S,32,128]",
+      "box": [
+        980.0,
+        1350,
+        300,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_cache",
+      "label": "Shared index K cache I\n[B,Tg,128]",
+      "box": [
+        1390.0,
+        1230,
+        360,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#895a67;align=center;verticalAlign=middle;spacing=6;fillColor=#fbecef;strokeColor=#c28a96;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "cache",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_dot",
+      "label": "Dot(Qi,Iᵀ)",
+      "box": [
+        1130.0,
+        1110,
+        760,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_relu",
+      "label": "ReLU",
+      "box": [
+        1410.0,
+        990,
+        200,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#805b77;align=center;verticalAlign=middle;spacing=6;fillColor=#f8ebf5;strokeColor=#b18da9;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "elementwise",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_sum",
+      "label": "Multiply head weights → sum\nTP all-reduce",
+      "box": [
+        1205.0,
+        870,
+        610,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_causal",
+      "label": "Causal mask: completed groups only",
+      "box": [
+        1200.0,
+        750,
+        620,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_candidate",
+      "label": "L20: create C\nLater Reindex: apply shared C mask",
+      "box": [
+        1200.0,
+        630,
+        620,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_top",
+      "label": "TopK ≤512",
+      "box": [
+        1335.0,
+        510,
+        350,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_sort",
+      "label": "Sort positions → add KV offset\nunreachable positions → -1",
+      "box": [
+        1200.0,
+        390,
+        620,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "i_j",
+      "label": "Publish J for Reuse layers",
+      "box": [
+        1260.0,
+        280,
+        500,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Indexer 488–581; attention runtime sharing"
+        }
+      ]
+    },
+    {
+      "id": "source_params",
+      "label": "HF text_config\nkv_source_layer_ids = [2,8,14,20]\nindex_source_layer_ids = [2,8,14,20,24,28,32,36]\nindex_topk = 512",
+      "box": [
+        2290.0,
+        265,
+        640,
+        260
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;align=left;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/text_config/kv_source_layer_ids; /text_config/index_source_layer_ids; /text_config/index_topk"
+        }
+      ],
+      "config_parameters": [
+        {
+          "path": "/text_config/kv_source_layer_ids",
+          "value": [
+            2,
+            8,
+            14,
+            20
+          ]
+        },
+        {
+          "path": "/text_config/index_source_layer_ids",
+          "value": [
+            2,
+            8,
+            14,
+            20,
+            24,
+            28,
+            32,
+            36
+          ]
+        },
+        {
+          "path": "/text_config/index_topk",
+          "value": 512
+        }
+      ]
+    },
+    {
+      "id": "mode_full",
+      "label": "L20 · Full\nnew global KV, index K and J",
+      "box": [
+        2305.0,
+        1450,
+        610,
+        90
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#895a67;align=center;verticalAlign=middle;spacing=6;fillColor=#fbecef;strokeColor=#c28a96;strokeWidth=1;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "cache",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.__init__; _compress_topk_idxs; SharedAttentionRuntime"
+        }
+      ]
+    },
+    {
+      "id": "mode_reindex",
+      "label": "L24 · Reindex\nreuse KV/K; new Qi, weights and J",
+      "box": [
+        2305.0,
+        1150,
+        610,
+        90
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.__init__; _compress_topk_idxs; SharedAttentionRuntime"
+        }
+      ]
+    },
+    {
+      "id": "mode_reuse",
+      "label": "L25 · Reuse\nno compressor / indexer; reuse KV,K,J",
+      "box": [
+        2305.0,
+        850,
+        610,
+        90
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention.__init__; _compress_topk_idxs; SharedAttentionRuntime"
+        }
+      ]
+    },
+    {
+      "id": "mode_scope",
+      "label": "L0–1: pure SWA\nEncoder: Full L2/L8/L14, r=2\nDecoder: Full L20, r=1\nAll40 layers keep independent SWA128",
+      "box": [
+        2290.0,
+        560,
+        640,
+        190
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/text_config/compress_ratios; kv/index source lists"
+        }
+      ]
+    },
+    {
+      "id": "kv_scope",
+      "label": "Global decoder KV is projected from\nthe final encoder state at L20 input.\nSWA KV remains layer-specific.\nTopK limits reads, not stored history.",
+      "box": [
+        2290.0,
+        1640,
+        640,
+        220
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Attention._window_kv / _compress_kv; model card CED"
+        }
+      ]
+    },
+    {
+      "id": "b_scores",
+      "label": "L20 index scores",
+      "box": [
+        190.0,
+        2500,
+        540,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "select_candidate_blocks 584–611; Indexer.forward 549–581"
+        }
+      ]
+    },
+    {
+      "id": "b_max",
+      "label": "Pad -inf → blocks of8\nblock score = max(position scores)",
+      "box": [
+        95.0,
+        2375,
+        730,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "select_candidate_blocks 584–611; Indexer.forward 549–581"
+        }
+      ]
+    },
+    {
+      "id": "b_newest",
+      "label": "Pin newest visible block\nscore = +inf",
+      "box": [
+        130.0,
+        2250,
+        660,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "select_candidate_blocks 584–611; Indexer.forward 549–581"
+        }
+      ]
+    },
+    {
+      "id": "b_top",
+      "label": "Top ≤2048 reachable blocks\nexpand to position mask C",
+      "box": [
+        95.0,
+        2110,
+        730,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "select_candidate_blocks 584–611; Indexer.forward 549–581"
+        }
+      ]
+    },
+    {
+      "id": "r_score",
+      "label": "Current Reindex scores\nfrom own Qi / head weights",
+      "box": [
+        2080.0,
+        2500,
+        780,
+        64
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "select_candidate_blocks 584–611; Indexer.forward 549–581"
+        }
+      ]
+    },
+    {
+      "id": "r_mask",
+      "label": "Apply shared C + causal mask",
+      "box": [
+        2105.0,
+        2375,
+        730,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "select_candidate_blocks 584–611; Indexer.forward 549–581"
+        }
+      ]
+    },
+    {
+      "id": "r_top",
+      "label": "Top ≤512 positions → sort → J",
+      "box": [
+        2080.0,
+        2250,
+        780,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "select_candidate_blocks 584–611; Indexer.forward 549–581"
+        }
+      ]
+    },
+    {
+      "id": "r_output",
+      "label": "Fresh J for following Reuse layers",
+      "box": [
+        2080.0,
+        2110,
+        780,
+        46
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#426b4e;align=center;verticalAlign=middle;spacing=6;fillColor=#eaf6ed;strokeColor=#78a485;strokeWidth=1;",
+      "kind": "operation",
+      "status": "verified",
+      "functional_role": "selection",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "select_candidate_blocks 584–611; Indexer.forward 549–581"
+        }
+      ]
+    },
+    {
+      "id": "candidate_params",
+      "label": "HF text_config\ncandidate_source_layer_id = 20\ncandidate_topk_blocks = 2048\ncandidate_block_size = 8\nindex_topk = 512",
+      "box": [
+        1050.0,
+        2080,
+        760,
+        230
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=18;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;align=left;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "config",
+          "locator": "/text_config/candidate_source_layer_id; /text_config/candidate_topk_blocks; /text_config/candidate_block_size; /text_config/index_topk"
+        }
+      ],
+      "config_parameters": [
+        {
+          "path": "/text_config/candidate_source_layer_id",
+          "value": 20
+        },
+        {
+          "path": "/text_config/candidate_topk_blocks",
+          "value": 2048
+        },
+        {
+          "path": "/text_config/candidate_block_size",
+          "value": 8
+        },
+        {
+          "path": "/text_config/index_topk",
+          "value": 512
+        }
+      ]
+    },
+    {
+      "id": "candidate_scope",
+      "label": "Candidate cap ≤2048×8 =16384 positions\nCausal / partial blocks handled before selection\nReference: dense scoring → candidate mask",
+      "box": [
+        1050.0,
+        2350,
+        760,
+        220
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=20;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "select_candidate_blocks; Indexer.forward: global einsum before mask"
+        }
+      ]
+    },
+    {
+      "id": "footer",
+      "label": "Official HF @314113f · FP4 cache/index operations shown as reference Q/DQ · no executed GPU inference / packed cache benchmark",
+      "box": [
+        40.0,
+        2640,
+        2920,
+        40
+      ],
+      "style": "rounded=1;arcSize=10;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize=16;fontColor=#526171;align=center;verticalAlign=middle;spacing=6;fillColor=#f2f4f7;strokeColor=#9aa6b4;strokeWidth=1;fillColor=none;strokeColor=none;fontColor=#526171;",
+      "kind": "decoration",
+      "status": "verified",
+      "functional_role": "tensor",
+      "evidence": [
+        {
+          "source": "model",
+          "locator": "Reviewed module semantics"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "e_c_input__c_wkv",
+      "source": "c_input",
+      "target": "c_wkv",
+      "routing": "straight",
+      "label": "[B,S,5120]",
+      "tensor_shape": "[B,S,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.21232876712328766,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_c_input__c_wgate",
+      "source": "c_input",
+      "target": "c_wgate",
+      "routing": "straight",
+      "label": "[B,S,5120]",
+      "tensor_shape": "[B,S,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.7876712328767124,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_c_wkv__c_values",
+      "source": "c_wkv",
+      "target": "c_values",
+      "routing": "straight",
+      "label": "[B,S,512]",
+      "tensor_shape": "[B,S,512]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_c_values__c_product",
+      "source": "c_values",
+      "target": "c_product",
+      "routing": "straight",
+      "label": "[B,Tg,2,512]",
+      "tensor_shape": "[B,Tg,2,512]",
+      "label_font_size": 17,
+      "ports": [
+        0.6366666666666667,
+        0,
+        0.0029411764705882353,
+        1
+      ]
+    },
+    {
+      "id": "e_c_product__c_sum",
+      "source": "c_product",
+      "target": "c_sum",
+      "routing": "straight",
+      "label": "[B,Tg,2,512]",
+      "tensor_shape": "[B,Tg,2,512]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_c_sum__c_norm",
+      "source": "c_sum",
+      "target": "c_norm",
+      "routing": "straight",
+      "label": "[B,Tg,512]",
+      "tensor_shape": "[B,Tg,512]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_c_norm__c_latent",
+      "source": "c_norm",
+      "target": "c_latent",
+      "routing": "straight",
+      "label": "[B,Tg,512]",
+      "tensor_shape": "[B,Tg,512]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_c_latent__c_rope",
+      "source": "c_latent",
+      "target": "c_rope",
+      "routing": "straight",
+      "label": "[B,Tg,512]",
+      "tensor_shape": "[B,Tg,512]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_c_rope__c_fp4",
+      "source": "c_rope",
+      "target": "c_fp4",
+      "routing": "straight",
+      "label": "[B,Tg,512]",
+      "tensor_shape": "[B,Tg,512]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_c_fp4__c_cache",
+      "source": "c_fp4",
+      "target": "c_cache",
+      "routing": "straight",
+      "label": "[B,Tg,512]",
+      "tensor_shape": "[B,Tg,512]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_c_wgate__c_scores",
+      "source": "c_wgate",
+      "target": "c_scores",
+      "routing": "straight",
+      "label": "[B,S,512]",
+      "tensor_shape": "[B,S,512]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_c_scores__c_softmax",
+      "source": "c_scores",
+      "target": "c_softmax",
+      "routing": "straight",
+      "label": "[B,Tg,2,512]",
+      "tensor_shape": "[B,Tg,2,512]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_c_softmax__c_product",
+      "source": "c_softmax",
+      "target": "c_product",
+      "routing": "straight",
+      "label": "[B,Tg,2,512]",
+      "tensor_shape": "[B,Tg,2,512]",
+      "label_font_size": 17,
+      "ports": [
+        0.002857142857142857,
+        0,
+        0.6058823529411764,
+        1
+      ]
+    },
+    {
+      "id": "e_c_wkv__c_norm",
+      "source": "c_wkv",
+      "target": "c_norm",
+      "routing": "straight",
+      "label": "r=1 bypass",
+      "tensor_shape": "r=1 bypass",
+      "label_font_size": 17,
+      "ports": [
+        0,
+        0.5,
+        0,
+        0.5
+      ],
+      "points": [
+        [
+          65,
+          1742
+        ],
+        [
+          65,
+          1133
+        ]
+      ]
+    },
+    {
+      "id": "e_i_qr__i_wq",
+      "source": "i_qr",
+      "target": "i_wq",
+      "routing": "straight",
+      "label": "[B,S,1280]",
+      "tensor_shape": "[B,S,1280]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_wq__i_ropeq",
+      "source": "i_wq",
+      "target": "i_ropeq",
+      "routing": "straight",
+      "label": "[B,S,32,128]",
+      "tensor_shape": "[B,S,32,128]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_ropeq__i_fp4q",
+      "source": "i_ropeq",
+      "target": "i_fp4q",
+      "routing": "straight",
+      "label": "[B,S,32,128]",
+      "tensor_shape": "[B,S,32,128]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_fp4q__i_q",
+      "source": "i_fp4q",
+      "target": "i_q",
+      "routing": "straight",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_q__i_dot",
+      "source": "i_q",
+      "target": "i_dot",
+      "routing": "straight",
+      "label": "[B,S,32,128]",
+      "tensor_shape": "[B,S,32,128]",
+      "label_font_size": 17,
+      "ports": [
+        0.5033333333333333,
+        0,
+        0.0013157894736842105,
+        1
+      ]
+    },
+    {
+      "id": "e_i_dot__i_relu",
+      "source": "i_dot",
+      "target": "i_relu",
+      "routing": "straight",
+      "label": "[B,S,32,Tg]",
+      "tensor_shape": "[B,S,32,Tg]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_relu__i_sum",
+      "source": "i_relu",
+      "target": "i_sum",
+      "routing": "straight",
+      "label": "[B,S,32,Tg]",
+      "tensor_shape": "[B,S,32,Tg]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_sum__i_causal",
+      "source": "i_sum",
+      "target": "i_causal",
+      "routing": "straight",
+      "label": "[B,S,Tg]",
+      "tensor_shape": "[B,S,Tg]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_causal__i_candidate",
+      "source": "i_causal",
+      "target": "i_candidate",
+      "routing": "straight",
+      "label": "[B,S,Tg]",
+      "tensor_shape": "[B,S,Tg]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_candidate__i_top",
+      "source": "i_candidate",
+      "target": "i_top",
+      "routing": "straight",
+      "label": "[B,S,Tg]",
+      "tensor_shape": "[B,S,Tg]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_top__i_sort",
+      "source": "i_top",
+      "target": "i_sort",
+      "routing": "straight",
+      "label": "[B,S,≤512]",
+      "tensor_shape": "[B,S,≤512]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_sort__i_j",
+      "source": "i_sort",
+      "target": "i_j",
+      "routing": "straight",
+      "label": "[B,S,≤512]",
+      "tensor_shape": "[B,S,≤512]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_latent__i_wk",
+      "source": "i_latent",
+      "target": "i_wk",
+      "routing": "straight",
+      "label": "[B,Tg,512]",
+      "tensor_shape": "[B,Tg,512]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_wk__i_normk",
+      "source": "i_wk",
+      "target": "i_normk",
+      "routing": "straight",
+      "label": "[B,Tg,128]",
+      "tensor_shape": "[B,Tg,128]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_normk__i_ropek",
+      "source": "i_normk",
+      "target": "i_ropek",
+      "routing": "straight",
+      "label": "[B,Tg,128]",
+      "tensor_shape": "[B,Tg,128]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_ropek__i_fp4k",
+      "source": "i_ropek",
+      "target": "i_fp4k",
+      "routing": "straight",
+      "label": "[B,Tg,128]",
+      "tensor_shape": "[B,Tg,128]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_fp4k__i_cache",
+      "source": "i_fp4k",
+      "target": "i_cache",
+      "routing": "straight",
+      "label": "[B,Tg,128]",
+      "tensor_shape": "[B,Tg,128]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_cache__i_dot",
+      "source": "i_cache",
+      "target": "i_dot",
+      "routing": "straight",
+      "label": "[B,Tg,128]",
+      "tensor_shape": "[B,Tg,128]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5789473684210527,
+        1
+      ]
+    },
+    {
+      "id": "e_i_h__i_ww",
+      "source": "i_h",
+      "target": "i_ww",
+      "routing": "straight",
+      "label": "[B,S,5120]",
+      "tensor_shape": "[B,S,5120]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_ww__i_scale",
+      "source": "i_ww",
+      "target": "i_scale",
+      "routing": "straight",
+      "label": "[B,S,32]",
+      "tensor_shape": "[B,S,32]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_i_scale__i_sum",
+      "source": "i_scale",
+      "target": "i_sum",
+      "routing": "straight",
+      "label": "w [B,S,32]",
+      "tensor_shape": "w [B,S,32]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        1,
+        0.5
+      ],
+      "points": [
+        [
+          2020.0,
+          902.0
+        ]
+      ]
+    },
+    {
+      "id": "e_mode_full__mode_reindex",
+      "source": "mode_full",
+      "target": "mode_reindex",
+      "routing": "straight",
+      "label": "L21–23 reuse J20",
+      "tensor_shape": "L21–23 reuse J20",
+      "label_font_size": 17,
+      "role": "mode_illustration",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_mode_reindex__mode_reuse",
+      "source": "mode_reindex",
+      "target": "mode_reuse",
+      "routing": "straight",
+      "label": "J24",
+      "tensor_shape": "J24",
+      "label_font_size": 17,
+      "role": "mode_illustration",
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_b_scores__b_max",
+      "source": "b_scores",
+      "target": "b_max",
+      "routing": "straight",
+      "label": "[B,S,Tg]",
+      "tensor_shape": "[B,S,Tg]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_b_max__b_newest",
+      "source": "b_max",
+      "target": "b_newest",
+      "routing": "straight",
+      "label": "[B,S,ceil(Tg/8)]",
+      "tensor_shape": "[B,S,ceil(Tg/8)]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_b_newest__b_top",
+      "source": "b_newest",
+      "target": "b_top",
+      "routing": "straight",
+      "label": "[B,S,ceil(Tg/8)]",
+      "tensor_shape": "[B,S,ceil(Tg/8)]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_score__r_mask",
+      "source": "r_score",
+      "target": "r_mask",
+      "routing": "straight",
+      "label": "[B,S,Tg]",
+      "tensor_shape": "[B,S,Tg]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_mask__r_top",
+      "source": "r_mask",
+      "target": "r_top",
+      "routing": "straight",
+      "label": "[B,S,Tg]",
+      "tensor_shape": "[B,S,Tg]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    },
+    {
+      "id": "e_r_top__r_output",
+      "source": "r_top",
+      "target": "r_output",
+      "routing": "straight",
+      "label": "[B,S,≤512]",
+      "tensor_shape": "[B,S,≤512]",
+      "label_font_size": 17,
+      "ports": [
+        0.5,
+        0,
+        0.5,
+        1
+      ]
+    }
+  ],
+  "limitations": [
+    "Official unsuffixed checkpoint, not -1017.",
+    "Shapes are logical global dimensions; tensor-parallel ranks may shard heads/experts.",
+    "Official minimal implementation loops through all 40 layers; optimized CED prefill, bounded replay and DSpark verification scheduler are model-card designs, not locally executed paths.",
+    "Reference quantizers simulate quantize/dequantize in floating cache buffers; packed cache bytes are official claims.",
+    "Weight index verifies names, not tensor shapes/values. No full weights, GPU inference, benchmark, numerical equivalence or Feishu import test.",
+    "Technical-report PDF download blocked by proxy; card and pinned reference sources were read."
+  ],
+  "checkpoint": {
+    "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "text_layers": 40,
+    "mtp_layers": 3,
+    "vision_layers": 32
+  },
+  "repetition_groups": [],
+  "port_bindings": {
+    "L": {
+      "source": "c_latent",
+      "target": "i_latent",
+      "shape": [
+        "B",
+        "Tg",
+        512
+      ],
+      "condition": "Full owners only; index K produced before main latent is rotated/quantized"
+    },
+    "C": {
+      "source": "b_top",
+      "target": "r_mask",
+      "shape": [
+        "B",
+        "S",
+        "Tg"
+      ]
+    },
+    "I": {
+      "source": "i_cache",
+      "target": "mode_reindex",
+      "shape": [
+        "B",
+        "Tg",
+        128
+      ]
+    }
+  },
+  "routing_summary": {
+    "straight": 41,
+    "one_bend": 1,
+    "kept": 1
+  },
+  "presentation_policy": {
+    "reference": "GLM-5.3 d8dc8ea confirmed workflow",
+    "flow": "bottom-up",
+    "functional_palette": {
+      "projection": {
+        "label": "Projection",
+        "fill": "#eaf2ff",
+        "stroke": "#6c91c9",
+        "text": "#294f80"
+      },
+      "normalization": {
+        "label": "Normalization",
+        "fill": "#f1eafb",
+        "stroke": "#9b82be",
+        "text": "#604780"
+      },
+      "position": {
+        "label": "RoPE / position",
+        "fill": "#e6f6fb",
+        "stroke": "#6aa6b9",
+        "text": "#326a7d"
+      },
+      "attention": {
+        "label": "Attention",
+        "fill": "#fff0df",
+        "stroke": "#c49358",
+        "text": "#875c26"
+      },
+      "selection": {
+        "label": "Index / select",
+        "fill": "#eaf6ed",
+        "stroke": "#78a485",
+        "text": "#426b4e"
+      },
+      "cache": {
+        "label": "Cache",
+        "fill": "#fbecef",
+        "stroke": "#c28a96",
+        "text": "#895a67"
+      },
+      "routing": {
+        "label": "MoE routing",
+        "fill": "#fff5d9",
+        "stroke": "#bda05c",
+        "text": "#806a31"
+      },
+      "expert": {
+        "label": "FFN / experts",
+        "fill": "#e5f5f3",
+        "stroke": "#6baba4",
+        "text": "#386f69"
+      },
+      "elementwise": {
+        "label": "Activation / merge",
+        "fill": "#f8ebf5",
+        "stroke": "#b18da9",
+        "text": "#805b77"
+      },
+      "tensor": {
+        "label": "Tensor / layout",
+        "fill": "#f2f4f7",
+        "stroke": "#9aa6b4",
+        "text": "#526171"
+      }
+    },
+    "legend": false,
+    "parameter_notes": "Pinned HF config fields in module whitespace",
+    "implementation_view": "Official minimal reference, plus separately labeled model-card runtime claims"
+  }
+}

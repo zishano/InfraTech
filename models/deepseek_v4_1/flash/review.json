@@ -1,0 +1,282 @@
+{
+  "version": 1,
+  "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+  "requested_revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+  "status": "reviewed_with_limits",
+  "workflow": "tools/model_architecture/WORKFLOW.md",
+  "baseline": {
+    "model": "deepseek-ai/DeepSeek-V4-Flash",
+    "requested_revision": "60d8d70770c6776ff598c94bb586a859a38244f1"
+  },
+  "source_policy": {
+    "pin_revisions": true,
+    "unique_source_ids": true,
+    "execute_remote_code": false,
+    "download_full_weights": false
+  },
+  "architecture": {
+    "main_layers": 40,
+    "auxiliary_layers": 3,
+    "layer_numbering": "0-based: encoder0–19, decoder20–39; auxiliary40–42",
+    "attention_paths": [
+      "CSA2 shared K=V512, SWA128, Full/Reindex/Reuse",
+      "Compressor ratio2 on encoder KV sources; ratio1 on decoder source20",
+      "Hierarchical candidates from20; reindex24/28/32/36"
+    ],
+    "cache_contracts": [
+      "KV and index K sources2,8,14,20; top-k refreshed at2,8,14,20,24,28,32,36",
+      "Per-layer local SWA ring; global compressed KV shared by source group"
+    ],
+    "unresolved": [
+      "Technical-report PDF blocked; card and complete reference sources reviewed",
+      "Optimized CED prefill, SWA bounded replay and confidence-verification scheduler are not implemented by the minimal generation loop",
+      "Quantization functions simulate quantize/dequantize; runtime cache buffers are floating tensors"
+    ]
+  },
+  "version_diff": {
+    "themes": {
+      "added": "red",
+      "removed": "green",
+      "parameter_changed": "yellow",
+      "unchanged": "neutral"
+    },
+    "additions": [],
+    "removals": [],
+    "parameter_changes": [],
+    "baseline_clarifications": []
+  },
+  "optimization_claims": [],
+  "claim_fields": [
+    "claim",
+    "classification: introduced/inherited/backend_specific/unverified",
+    "source_id",
+    "locator",
+    "applicable_backend_or_hardware",
+    "measurement_scope"
+  ],
+  "presentation": {
+    "style_reference": {
+      "model": "GLM-5.3",
+      "commit": "d8dc8ea"
+    },
+    "layout": "Central CED backbone and mode inset; flanking attention/Indexer/MoE/Engram/mHC; vision and DSpark below.",
+    "show_color_legend": false,
+    "flow": "bottom-up",
+    "labels": "operator + necessary dimensions; typically 1–2 lines",
+    "node_sizing": "operator visual complexity + name/dimensions + branch interfaces; preserve lane centers",
+    "repetition": "unfilled rectangle around complete repeated unit; ×N in upper-left; nonrepeated operators outside",
+    "edge_dimensions": "native edge labels on actual computational connections; no standalone dimension panel",
+    "dimension_symbols": {
+      "B": "batch",
+      "S": "current query length",
+      "T": "KV length including cache",
+      "K": "selected positions; model-specific"
+    },
+    "spacing": "compact; preserve readable fonts and operator sizes; measure collisions",
+    "background": "#ffffff",
+    "group_fill": "none",
+    "module_colors": "function-specific palette; same role across panels uses same color; omit legend by default; version-diff colors have separate meanings",
+    "parameter_notes": "Per-node config_parameters generated from exact nested text/vision checkpoint scopes.",
+    "implementation_view": null,
+    "routing_priority": [
+      "straight_if_clear",
+      "one_bend_if_clear",
+      "necessary_detour"
+    ],
+    "long_notes": "description / evidence / README",
+    "native_png_source": "drawio"
+  },
+  "drawing_policy": {
+    "version": 1,
+    "document": "tools/model_architecture/DRAWING_RULES.md",
+    "rule_ids": [
+      "01_repetition",
+      "02_edge_dimensions",
+      "03_dimension_symbols",
+      "04_compact_spacing",
+      "05_operator_sizing",
+      "06_background",
+      "07_routing",
+      "08_flow",
+      "09_implementation_views",
+      "10_version_evidence",
+      "11_native_pair",
+      "12_layout_compatibility"
+    ]
+  },
+  "checks": {
+    "identity_and_sources": {
+      "status": "reviewed_with_limits",
+      "question": "Target/baseline identity, pinned revisions, source IDs, hashes, observed failures.",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "checkpoint_parameters": {
+      "status": "reviewed_with_limits",
+      "question": "Actual checkpoint values; text/vision scopes; class defaults and rounding kept separate.",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "layer_schedule": {
+      "status": "reviewed_with_limits",
+      "question": "Exact main/auxiliary counts and 0-based versus 1-based numbering.",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "attention_and_gates": {
+      "status": "reviewed_with_limits",
+      "question": "Q/K/V, recurrent controls, output gates, normalization and positional operations.",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "cache_and_visibility": {
+      "status": "reviewed_with_limits",
+      "question": "KV/index/state buffers, prefill/decode writes, causal masks, top-k reads versus storage.",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "moe_residual_vision_auxiliary": {
+      "status": "reviewed_with_limits",
+      "question": "Routed/shared experts, latent paths, weight placement, residuals, vision, MTP.",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "version_diff": {
+      "status": "reviewed_with_limits",
+      "question": "Source-reviewed structural additions/removals versus parameter/config-only changes.",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "software_hardware_scope": {
+      "status": "reviewed_with_limits",
+      "question": "Introduced/inherited/backend-specific optimizations; weight/activation/cache precision.",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "visual_expression": {
+      "status": "reviewed_with_limits",
+      "question": "Short operator labels, readable type hierarchy, adjacent panels, tensor-state insets.",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "routing_and_layout": {
+      "status": "reviewed_with_limits",
+      "question": "Aligned straight edges first; required branches preserved; actual renderer checks.",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "native_delivery": {
+      "status": "reviewed_with_limits",
+      "question": "Direct draw.io→PNG export, paired manifests and detailed-page consistency.",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "validation_and_sync": {
+      "status": "reviewed_with_limits",
+      "question": "Relevant checks, honest limitations, user-authorized branch commit/push.",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "drawing_01_repetition": {
+      "status": "reviewed_with_limits",
+      "question": "完整重复结构用无填充矩形包围，左上角×N；非重复部分在框外；不使用Repeat计算算子。",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "drawing_02_edge_dimensions": {
+      "status": "reviewed_with_limits",
+      "question": "输入输出形状标在对应原生计算连线上，覆盖投影、拆分、拼接、reshape、缓存及路由。",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "drawing_03_dimension_symbols": {
+      "status": "reviewed_with_limits",
+      "question": "定义B/S/T/K等符号及轴顺序，区分查询长度、含缓存KV长度、读取数量和存储容量。",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "drawing_04_compact_spacing": {
+      "status": "reviewed_with_limits",
+      "question": "算子与模块紧凑排列，缩短空白线段；保留可读字体，不靠缩字压缩。",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "drawing_05_operator_sizing": {
+      "status": "reviewed_with_limits",
+      "question": "按名称、视觉复杂度与接口选择框尺寸，主链居中、并行分支对齐，避免机械等宽等高。",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "drawing_06_background": {
+      "status": "reviewed_with_limits",
+      "question": "白色画布，分组无填充；同功能算子同色、不同功能异色，默认不加图例；XML样式属性去重。",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "drawing_07_routing": {
+      "status": "reviewed_with_limits",
+      "question": "优先直线，其次单直角，必要时避让；保留全部计算边和分支。",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "drawing_08_flow": {
+      "status": "reviewed_with_limits",
+      "question": "默认自下而上推理，输入在下、输出在上；残差、门控与并行分支方向清晰。",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "drawing_09_implementation_views": {
+      "status": "reviewed_with_limits",
+      "question": "明确所画实现视图，未吸收MLA与吸收式MQA等不可混接，注明后端及等价核验边界。",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "drawing_10_version_evidence": {
+      "status": "reviewed_with_limits",
+      "question": "先核对官方配置、实现及权重资料，区分架构变化、后训练、量化配置与存储精度。",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "drawing_11_native_pair": {
+      "status": "reviewed_with_limits",
+      "question": "先生成原生可编辑draw.io，再直接导出同名PNG；同步更新layout/export并verify-png。",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    },
+    "drawing_12_layout_compatibility": {
+      "status": "reviewed_with_limits",
+      "question": "原生测量文字溢出、标签重叠、穿框与对齐，缩略/放大检查；不冒称已实测导入。",
+      "evidence": [],
+      "notes": "See README and evidence; source and rendered checks apply within stated limits."
+    }
+  },
+  "delivery": {
+    "graph": "tools/model_architecture/examples/deepseek_v41_flash.graph.json",
+    "drawio": "deepseek_v41_flash_architecture.drawio",
+    "png": "deepseek_v41_flash_architecture.png",
+    "export_manifest": "deepseek_v41_flash_architecture.export.json",
+    "layout_report": "deepseek_v41_flash_architecture.layout.json",
+    "authorized_branch": "model_dev",
+    "additional_pairs": [
+      "deepseek_v41_flash_csa2"
+    ]
+  },
+  "limitations": [
+    "No remote model code executed; no full weights/tensor headers, GPU inference, benchmarks, numeric equivalence or Feishu import test.",
+    "Official README source claims 552B backbone +196B Engram; provider packed element totals are not independently counted logical parameters.",
+    "Date-suffixed -1017 variant discovered but not substituted for requested exact model."
+  ],
+  "requested_variant": "exact unsuffixed official repository; not -1017",
+  "verification": {
+    "unit_tests": 57,
+    "native_layout": "Both diagrams: zero measured overflow/tight text/nonorthogonal edges/crossings/edge-label overlaps.",
+    "source_trace": "Pinned official config+reference implementations+weight index; report failed and recorded.",
+    "not_executed": [
+      "remote model code",
+      "full weight/tensor-header scan",
+      "GPU inference/benchmark",
+      "numeric equivalence",
+      "Feishu import"
+    ]
+  }
+}

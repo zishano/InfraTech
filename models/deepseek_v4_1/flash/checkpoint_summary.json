@@ -1,0 +1,465 @@
+{
+  "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+  "tensor_names": 96085,
+  "shards": 48,
+  "metadata": {
+    "total_size": 510286023000
+  },
+  "provider_safetensors_metadata": {
+    "parameters": {
+      "BF16": 1976441856,
+      "F32": 42307282,
+      "F8_E4M3": 204015223296,
+      "I8": 557171343360
+    },
+    "total": 763205315794
+  },
+  "main_layers": 40,
+  "mode_counts": {
+    "SWA": 2,
+    "Full": 4,
+    "Reuse": 30,
+    "Reindex": 4
+  },
+  "per_layer": [
+    {
+      "layer": 0,
+      "ratio": 0,
+      "mode": "SWA",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 1,
+      "ratio": 0,
+      "mode": "SWA",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": true,
+      "tensor_names": 2340
+    },
+    {
+      "layer": 2,
+      "ratio": 2,
+      "mode": "Full",
+      "kv_source": true,
+      "index_source": true,
+      "index_key_owner": true,
+      "engram": false,
+      "tensor_names": 2342
+    },
+    {
+      "layer": 3,
+      "ratio": 2,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 4,
+      "ratio": 2,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 5,
+      "ratio": 2,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 6,
+      "ratio": 2,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 7,
+      "ratio": 2,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 8,
+      "ratio": 2,
+      "mode": "Full",
+      "kv_source": true,
+      "index_source": true,
+      "index_key_owner": true,
+      "engram": false,
+      "tensor_names": 2342
+    },
+    {
+      "layer": 9,
+      "ratio": 2,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 10,
+      "ratio": 2,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 11,
+      "ratio": 2,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 12,
+      "ratio": 2,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 13,
+      "ratio": 2,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 14,
+      "ratio": 2,
+      "mode": "Full",
+      "kv_source": true,
+      "index_source": true,
+      "index_key_owner": true,
+      "engram": true,
+      "tensor_names": 2348
+    },
+    {
+      "layer": 15,
+      "ratio": 2,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 16,
+      "ratio": 2,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 17,
+      "ratio": 2,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 18,
+      "ratio": 2,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 19,
+      "ratio": 2,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 20,
+      "ratio": 1,
+      "mode": "Full",
+      "kv_source": true,
+      "index_source": true,
+      "index_key_owner": true,
+      "engram": false,
+      "tensor_names": 2341
+    },
+    {
+      "layer": 21,
+      "ratio": 1,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 22,
+      "ratio": 1,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 23,
+      "ratio": 1,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 24,
+      "ratio": 1,
+      "mode": "Reindex",
+      "kv_source": false,
+      "index_source": true,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2337
+    },
+    {
+      "layer": 25,
+      "ratio": 1,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 26,
+      "ratio": 1,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 27,
+      "ratio": 1,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 28,
+      "ratio": 1,
+      "mode": "Reindex",
+      "kv_source": false,
+      "index_source": true,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2337
+    },
+    {
+      "layer": 29,
+      "ratio": 1,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 30,
+      "ratio": 1,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 31,
+      "ratio": 1,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 32,
+      "ratio": 1,
+      "mode": "Reindex",
+      "kv_source": false,
+      "index_source": true,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2337
+    },
+    {
+      "layer": 33,
+      "ratio": 1,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 34,
+      "ratio": 1,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 35,
+      "ratio": 1,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 36,
+      "ratio": 1,
+      "mode": "Reindex",
+      "kv_source": false,
+      "index_source": true,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2337
+    },
+    {
+      "layer": 37,
+      "ratio": 1,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 38,
+      "ratio": 1,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    },
+    {
+      "layer": 39,
+      "ratio": 1,
+      "mode": "Reuse",
+      "kv_source": false,
+      "index_source": false,
+      "index_key_owner": false,
+      "engram": false,
+      "tensor_names": 2334
+    }
+  ],
+  "kv_source_layers": [
+    2,
+    8,
+    14,
+    20
+  ],
+  "index_source_layers": [
+    2,
+    8,
+    14,
+    20,
+    24,
+    28,
+    32,
+    36
+  ],
+  "engram_layers": [
+    1,
+    14
+  ],
+  "mtp": [
+    {
+      "stage": 0,
+      "tensor_names": 801,
+      "experts": 128
+    },
+    {
+      "stage": 1,
+      "tensor_names": 798,
+      "experts": 128
+    },
+    {
+      "stage": 2,
+      "tensor_names": 802,
+      "experts": 128
+    }
+  ],
+  "vision_blocks": 32,
+  "verification_scope": "Tensor names/shards only, not headers or numerical weights"
+}

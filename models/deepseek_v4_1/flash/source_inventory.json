@@ -1,0 +1,100 @@
+[
+  {
+    "id": "config",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/config.json",
+    "resolved_revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "status": "downloaded",
+    "kind": "config",
+    "bytes": 3311,
+    "sha256": "8be45ce0476004a3f529fd896115a4a2e800a129ad2d3ec05b16050f52e21879"
+  },
+  {
+    "id": "inference_config",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/config.json",
+    "resolved_revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "status": "downloaded",
+    "kind": "config",
+    "bytes": 1982,
+    "sha256": "2e84f45cf1dac8c7fcbb200e96667d4b913275690668ed496f24c7747207a809"
+  },
+  {
+    "id": "card",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/README.md",
+    "resolved_revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "status": "downloaded",
+    "kind": "documentation",
+    "bytes": 13110,
+    "sha256": "347c9db4e5506acb531cbc3b724407ab88e9af8781679152f0823d7bac16d251"
+  },
+  {
+    "id": "model",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py",
+    "resolved_revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "status": "downloaded",
+    "kind": "implementation",
+    "bytes": 61669,
+    "sha256": "e5decd76fe70fd56ef2f10124d245c6f64fb6a0003cc9068a1d3182a168b8d2d"
+  },
+  {
+    "id": "kernel",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/kernel.py",
+    "resolved_revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "status": "downloaded",
+    "kind": "implementation",
+    "bytes": 23790,
+    "sha256": "1236c3507019ed176f5dba5e04bcea58867cf654818c6cf138ed4845398c2455"
+  },
+  {
+    "id": "index",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/model.safetensors.index.json",
+    "resolved_revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "status": "downloaded",
+    "kind": "weight_index",
+    "bytes": 7470294,
+    "sha256": "74b0686a3d2891980d5e303251b075a3bccae2c2ff650747db2620a649b98fa8"
+  },
+  {
+    "id": "engram",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/engram.py",
+    "resolved_revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "status": "downloaded",
+    "kind": "implementation",
+    "bytes": 8138,
+    "sha256": "11f35ecbead8150c35aa002b3d180ef290b05a25afe883a11884f94d476d3897"
+  },
+  {
+    "id": "vision",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/vision.py",
+    "resolved_revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "status": "downloaded",
+    "kind": "implementation",
+    "bytes": 4457,
+    "sha256": "5d49edc196a4ef22384abe76d35a40098cbe1e74b586c8f66a2edff4f076b26c"
+  },
+  {
+    "id": "generate",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/generate.py",
+    "resolved_revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "status": "downloaded",
+    "kind": "implementation",
+    "bytes": 8722,
+    "sha256": "8668d67f7d108e32b90d50cb0d8606889ceb2219bfe95741d84e22f70768e9f0"
+  },
+  {
+    "id": "inference_readme",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/README.md",
+    "resolved_revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "status": "downloaded",
+    "kind": "documentation",
+    "bytes": 2029,
+    "sha256": "2834402823199ee24e9a42bdf36a0fc6daf94448f444cb062c042a057a798f1c"
+  },
+  {
+    "id": "report",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/DeepSeek_V41_Tech_Report.pdf",
+    "resolved_revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+    "status": "failed",
+    "kind": "documentation",
+    "error": "Official report redirect blocked by proxy (403); no report text reviewed."
+  }
+]

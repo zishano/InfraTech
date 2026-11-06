@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "model": "deepseek-ai/DeepSeek-V4.1-Flash",
+  "revision": "314113f8a7dadb388215396ba5fbee2c610a04d6",
+  "sources": [
+    {
+      "id": "config",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/config.json",
+      "kind": "config",
+      "required": true
+    },
+    {
+      "id": "inference_config",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/config.json",
+      "kind": "config",
+      "required": true
+    },
+    {
+      "id": "card",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/README.md",
+      "kind": "documentation",
+      "required": true
+    },
+    {
+      "id": "model",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/model.py",
+      "kind": "implementation",
+      "required": true
+    },
+    {
+      "id": "kernel",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/kernel.py",
+      "kind": "implementation",
+      "required": true
+    },
+    {
+      "id": "index",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/model.safetensors.index.json",
+      "kind": "weight_index",
+      "required": true
+    },
+    {
+      "id": "engram",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/engram.py",
+      "kind": "implementation",
+      "required": true
+    },
+    {
+      "id": "vision",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/vision.py",
+      "kind": "implementation",
+      "required": true
+    },
+    {
+      "id": "generate",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/generate.py",
+      "kind": "implementation",
+      "required": true
+    },
+    {
+      "id": "inference_readme",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/inference/README.md",
+      "kind": "documentation",
+      "required": true
+    },
+    {
+      "id": "report",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/resolve/314113f8a7dadb388215396ba5fbee2c610a04d6/DeepSeek_V41_Tech_Report.pdf",
+      "kind": "documentation",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "drawio_file": "deepseek_v41_flash_csa2.drawio",
+  "png_file": "deepseek_v41_flash_csa2.png",
+  "drawio_sha256": "7d03d7675aaa31056f1b3cd7f8fb5da72766788038d3f3d0935d18edf769e60a",
+  "png_sha256": "6a2aa1f7df58b45fc8641e491b2d0e447e4d88e58ade79ec78474d416144b1f9",
+  "renderer": "mxGraph 4.2.2 / Chromium",
+  "browser_version": "155.0.8059.79",
+  "scale": 2.0,
+  "width": 3000,
+  "height": 2690,
+  "vertices": 64,
+  "edges": 43,
+  "layout_file": "deepseek_v41_flash_csa2.layout.json",
+  "layout_sha256": "c15b87e873d066b671ba46d99e06f16628891858b47f462dfa5abc7c8f08fc6d",
+  "layout_check": {
+    "text_overflow": 0,
+    "tight_text": 0,
+    "nonorthogonal_segments": 0,
+    "edge_node_crossings": 0,
+    "edge_label_node_overlaps": 0,
+    "edge_label_overlaps": 0
+  }
+}
