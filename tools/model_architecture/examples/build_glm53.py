@@ -140,6 +140,7 @@ def build():
  g['edges'].append(dict(id='e_main_add2__main_norm',source='main_add2',target='main_norm',ports=[.5,0,.5,1],routing='straight',label='[B,S,6144]',label_font_size=17,tensor_shape='[B,S,6144]',label_offset=[0,0]))
  g['repetition_groups']=[dict(frame='decoder_repeat_frame',count_label='decoder_repeat_count',count=c['num_hidden_layers'],members=members,scope='Decoder template; per-layer FFN/indexer schedule varies; parameters are not tied.')]
  from glm53_presentation import present
- return present(g)
+ from glm53_function_colors import present as color_by_function
+ return color_by_function(present(g))
 if __name__=='__main__':
  g=build();Path(__file__).with_name('glm53.graph.json').write_text(json.dumps(g,ensure_ascii=False,indent=2)+'\n');print(len(g['nodes']),'nodes',len(g['edges']),'edges')

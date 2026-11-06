@@ -756,6 +756,72 @@ Each layer keeps its own KV
 
 - [/num_hidden_layers=78; /mlp_layer_types; /indexer_types](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
 
+## functional_legend_title
+
+Function color key
+
+- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## functional_legend_projection
+
+Projection
+
+- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## functional_legend_normalization
+
+Normalization
+
+- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## functional_legend_position
+
+RoPE / position
+
+- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## functional_legend_attention
+
+Attention
+
+- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## functional_legend_selection
+
+Index / select
+
+- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## functional_legend_cache
+
+Cache
+
+- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## functional_legend_routing
+
+MoE routing
+
+- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## functional_legend_expert
+
+FFN / experts
+
+- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## functional_legend_elementwise
+
+Activation / merge
+
+- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
+## functional_legend_tensor
+
+Tensor / layout
+
+- [Presentation legend only; functional categories of reviewed model operators](https://huggingface.co/zai-org/GLM-5.3/blob/ba32f8c19c8738e2c57c71798c601d477a7bf844/config.json)
+
 ## 限制
 
 Official model card states the same base as GLM-5.2; core configuration and pinned implementation match.

@@ -2,7 +2,7 @@
 
 [PNG 架构图](glm_5_3_architecture.png) · [可编辑 draw.io](glm_5_3_architecture.drawio) · [节点证据](evidence.md) · [布局实测](glm_5_3_architecture.layout.json) · [配对记录](glm_5_3_architecture.export.json)
 
-**GLM-5.3 沿用 GLM-5.2 的基座，官方明确表示全部能力提升来自后训练。** 本图保留已认可的自下而上、自适应算子框布局，展开 DSA、Indexer 的 Q/K/head-weight 三路、IndexShare、MoE 路由与 SwiGLU。共99个原生图元、70条连接；正式 PNG 直接从同名 draw.io XML 导出。
+**GLM-5.3 沿用 GLM-5.2 的基座，官方明确表示全部能力提升来自后训练。** 本图保留已认可的自下而上、自适应算子框布局，展开 DSA、Indexer 的 Q/K/head-weight 三路、IndexShare、MoE 路由与 SwiGLU。共110个原生图元、70条连接；正式 PNG 直接从同名 draw.io XML 导出。
 
 ## 核心结构
 
@@ -47,7 +47,7 @@ python tools/model_architecture/model_architecture.py verify-png models/glm_5_3/
 
 ## 输入输出维度与吸收式 MQA 对照
 
-关键张量维度直接标注于原生流程连线：Q/K/V、KV缓存、输出reshape、Indexer及MoE/SwiGLU路径；不再保留独立维度说明区。标签属于draw.io的edge value，编辑／移动连接时可跟随连线。行距采用紧凑布局：画布高度从3780压缩至2634（约30%），保留原算子尺寸和17pt连线文字，通过实测检查避免标签遮挡。`tensor_contracts`同时保存在构造器与graph JSON中。这里的“变化”指**算子前后的维度变换**；GLM-5.2→5.3没有这些网络尺寸变化。
+关键张量维度直接标注于原生流程连线：Q/K/V、KV缓存、输出reshape、Indexer及MoE/SwiGLU路径；不再保留独立维度说明区。标签属于draw.io的edge value，编辑／移动连接时可跟随连线。行距采用紧凑布局：画布高度从3780压缩至2774（约27%，含功能图例），保留原算子尺寸和17pt连线文字，通过实测检查避免标签遮挡。`tensor_contracts`同时保存在构造器与graph JSON中。这里的“变化”指**算子前后的维度变换**；GLM-5.2→5.3没有这些网络尺寸变化。
 
 统一使用逻辑序列优先轴：B为batch，S为本次查询长度，T为含历史缓存的KV长度，K=min(2048,T)，N=B×S。实现可将heads轴置于序列前；表中的transpose是表示方式，不改变维度含义。Prefill可有多个查询token，decode通常S=1，T随生成增长。TopK输出有K个槽位；因果及padding屏蔽后有效可读位置可能更少。
 
@@ -74,8 +74,10 @@ N_e是分派至某个专家的token数，不一定等于N/256。主干L0–2的D
 
 ## 当前布局与配色参考
 
-按用户指定参考[Kimi-K3.1-Pro图](../kimi_k_3_1_pro/kimi_k31_pro_architecture.png)，采用中央Decoder主干、左侧DSA展开、右侧Indexer/MoE展开，IndexShare整合至中间主干栏内，下方放SwiGLU与辅助模块。标题条为蓝灰`#59718f`、白字；算子框为浅蓝灰`#f3f6fb`，边框`#8e9db0`。画布仍为白色，分组区域无填充，保留×78结构框和连线维度。
+按用户指定参考[Kimi-K3.1-Pro图](../kimi_k_3_1_pro/kimi_k31_pro_architecture.png)，采用中央Decoder主干、左侧DSA展开、右侧Indexer/MoE展开，IndexShare整合至中间主干栏内，下方放SwiGLU与辅助模块。保留参考图的标题条和轻填充框样式，颜色按本次用户要求改为功能分类：投影蓝、归一化紫、位置编码青、注意力橙、索引筛选绿、缓存玫瑰色、路由金色、专家青绿、激活／合并淡粉、张量布局灰。相同功能跨面板复用相同颜色；底部提供图例。画布仍为白色，分组区域无填充，保留×78结构框和连线维度。
 
-展示层独立保存在`tools/model_architecture/examples/glm53_presentation.py`；它只移动模块并统一颜色，不引入参考模型的算子、尺寸或差异分类。图的事实、计算连接和来源仍由GLM-5.3构造器决定。此前GLM-5.1作为通用默认排版参考的记录保留，本图采用本次用户明确指定的参考。
+布局层独立保存在`tools/model_architecture/examples/glm53_presentation.py`，功能配色层在`glm53_function_colors.py`；两者只调整展示，不引入参考模型的算子、尺寸或差异分类。图的事实、计算连接和来源仍由GLM-5.3构造器决定。此前GLM-5.1作为通用默认排版参考的记录保留，本图采用本次用户明确指定的参考。
 
 中央Decoder计算链已压缩，IndexShare说明嵌入同栏剩余空间，取消独立全宽横条。L2 FULL→L3/L4/L5 SHARED按自下而上排列；此处是层间位置复用的说明，不是新增计算层，也不是Embedding之后的独立执行步骤。每层KV仍独立，详细索引计算仍在右侧Indexer面板。
+
+功能色用于当前架构总览，不表示本版新增／删除／参数变化；版本差异图仍遵循独立的红绿黄差异主题，避免混淆。颜色分组由模型专属节点角色明确指定，不据名称自动推断计算结构或复杂度。

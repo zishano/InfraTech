@@ -47,8 +47,8 @@ class GLM53Tests(unittest.TestCase):
    self.assertEqual(len(keys),len(set(keys)),cell.get('id'))
   for key in ['backbone','attention','indexer','moe','mlp','aux','sharing','title']:
    self.assertEqual(a.parse_style(cells[key].get('style'))['fillColor'],'none')
-  self.assertEqual(a.parse_style(cells['attn_qa'].get('style'))['fillColor'],'#f3f6fb')
-  self.assertEqual(a.parse_style(cells['share_stage_0'].get('style'))['fillColor'],'#f3f6fb')
+  self.assertEqual(a.parse_style(cells['attn_qa'].get('style'))['fillColor'],'#eaf2ff')
+  self.assertEqual(a.parse_style(cells['share_stage_0'].get('style'))['fillColor'],'#eaf6ed')
  def test_repetition_frame_contains_only_decoder_template(self):
   g=a.read(BASE/'examples/glm53.graph.json');ns={n['id']:n for n in g['nodes']}
   self.assertNotIn('main_repeat',ns)
@@ -64,10 +64,14 @@ class GLM53Tests(unittest.TestCase):
   g=a.read(BASE/'examples/glm53.graph.json');ns={n['id']:n for n in g['nodes']}
   x,y,w,h=ns['attention']['box'];bx,by,bw,bh=ns['backbone']['box'];ix,iy,iw,ih=ns['indexer']['box']
   self.assertLess(x+w,bx);self.assertLess(bx+bw,ix)
-  for key in ['attention_title','backbone_title','indexer_title','moe_title','sharing_title']:
-   style=a.parse_style(ns[key]['style']);self.assertEqual(style['fillColor'],'#59718f');self.assertEqual(style['fontColor'],'#ffffff')
+  for key,color in {'attention_title':'#a7773e','backbone_title':'#59718f','indexer_title':'#527d5d','moe_title':'#3f7e78','sharing_title':'#527d5d'}.items():
+   style=a.parse_style(ns[key]['style']);self.assertEqual(style['fillColor'],color);self.assertEqual(style['fontColor'],'#ffffff')
   for n in g['nodes']:
-   if n.get('kind')!='decoration':self.assertEqual(a.parse_style(n['style'])['fillColor'],'#f3f6fb')
+   if n.get('kind')!='decoration':
+    role=n['functional_role'];self.assertEqual(a.parse_style(n['style'])['fillColor'],g['presentation_policy']['functional_palette'][role]['fill'])
+  self.assertNotEqual(a.parse_style(ns['attn_qa']['style'])['fillColor'],a.parse_style(ns['attn_qnorm']['style'])['fillColor'])
+  self.assertEqual(ns['attn_cache']['functional_role'],ns['idx_cache']['functional_role'])
+  self.assertEqual(ns['attn_qnorm']['functional_role'],ns['idx_kn']['functional_role'])
   for n in g['nodes']:
    if 'operator_layout' in n:
     xx,yy,ww,hh=n['box'];cx,cy=n['operator_layout']['lane_center']
@@ -80,11 +84,11 @@ class GLM53Tests(unittest.TestCase):
   self.assertLess(ns['main_tokens']['box'][1],ns['sharing']['box'][1])
   self.assertLess(ns['main_tokens']['box'][1]-ns['main_out']['box'][1],1050)
   for i in range(3):self.assertGreater(ns[f'share_stage_{i}']['box'][1],ns[f'share_stage_{i+1}']['box'][1])
-  self.assertLess(g['height'],2700)
+  self.assertLess(g['height'],2850)
  def test_native_pair_and_layout(self):
   f=REPO/'models/glm_5_3';s='glm_5_3_architecture'
   m=p.verify(f/(s+'.drawio'),f/(s+'.png'),f/(s+'.export.json'))
-  self.assertEqual((m['vertices'],m['edges']),(99,70));p.validate_layout(a.read(f/(s+'.layout.json')))
+  self.assertEqual((m['vertices'],m['edges']),(110,70));p.validate_layout(a.read(f/(s+'.layout.json')))
   layout=a.read(f/(s+'.layout.json'));self.assertGreaterEqual(len(layout['edge_labels']),45)
   self.assertEqual(layout['edge_label_node_overlaps'],[]);self.assertEqual(layout['edge_label_overlaps'],[])
 if __name__=='__main__':unittest.main()
