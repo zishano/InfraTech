@@ -5172,7 +5172,7 @@
     "one_bend": 7,
     "kept": 2
   },
-  "background": "none",
+  "background": "#ffffff",
   "tensor_contracts": {
     "symbols": {
       "B": "batch",

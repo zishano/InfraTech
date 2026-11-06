@@ -36,9 +36,9 @@ class GLM53Tests(unittest.TestCase):
    if e.get('tensor_shape'):
     self.assertEqual(cells[e['id']].get('value'),e['tensor_shape'])
     self.assertIn('fontSize=17;',cells[e['id']].get('style'))
- def test_transparent_canvas_and_unambiguous_fills(self):
+ def test_white_canvas_and_unambiguous_fills(self):
   root=ET.parse(REPO/'models/glm_5_3/glm_5_3_architecture.drawio')
-  self.assertEqual(root.find('.//mxGraphModel').get('background'),'none')
+  self.assertEqual(root.find('.//mxGraphModel').get('background'),'#ffffff')
   cells={x.get('id'):x for x in root.iter('mxCell')}
   for cell in cells.values():
    keys=[part.split('=',1)[0] for part in cell.get('style','').split(';') if '=' in part]
