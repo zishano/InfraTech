@@ -17,6 +17,7 @@
   "presentation": [
     "Approved adaptive GLM5.1 layout reused via reviewed GLM5.2 core",
     "Bottom-up; short labels; native XML is sole formal PNG source",
-    "Tensor dimensions appear on native computational edge labels; standalone dimension panels removed. Measured label-node and label-label overlaps must be zero."
+    "Tensor dimensions appear on native computational edge labels; standalone dimension panels removed. Measured label-node and label-label overlaps must be zero.",
+    "Compacted row spacing: canvas height 3780→3024 (-20%); operator box sizes and 17pt edge labels preserved, measured collisions zero."
   ]
 }

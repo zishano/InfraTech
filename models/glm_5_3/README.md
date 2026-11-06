@@ -47,7 +47,7 @@ python tools/model_architecture/model_architecture.py verify-png models/glm_5_3/
 
 ## 输入输出维度与吸收式 MQA 对照
 
-关键张量维度直接标注于原生流程连线：Q/K/V、KV缓存、输出reshape、Indexer及MoE/SwiGLU路径；不再保留独立维度说明区。标签属于draw.io的edge value，编辑／移动连接时可跟随连线。`tensor_contracts`同时保存在构造器与graph JSON中。这里的“变化”指**算子前后的维度变换**；GLM-5.2→5.3没有这些网络尺寸变化。
+关键张量维度直接标注于原生流程连线：Q/K/V、KV缓存、输出reshape、Indexer及MoE/SwiGLU路径；不再保留独立维度说明区。标签属于draw.io的edge value，编辑／移动连接时可跟随连线。行距采用紧凑布局：画布高度从3780压缩至3024（约20%），保留原算子尺寸和17pt连线文字，通过实测检查避免标签遮挡。`tensor_contracts`同时保存在构造器与graph JSON中。这里的“变化”指**算子前后的维度变换**；GLM-5.2→5.3没有这些网络尺寸变化。
 
 统一使用逻辑序列优先轴：B为batch，S为本次查询长度，T为含历史缓存的KV长度，K=min(2048,T)，N=B×S。实现可将heads轴置于序列前；表中的transpose是表示方式，不改变维度含义。Prefill可有多个查询token，decode通常S=1，T随生成增长。TopK输出有K个槽位；因果及padding屏蔽后有效可读位置可能更少。
 

@@ -96,8 +96,8 @@ def build():
   pair=(edge['source'],edge['target'])
   if pair in labels:
    edge.update(label=labels[pair],label_font_size=17,tensor_shape=labels[pair],label_offset=[0,0])
- # More whitespace between operator rows accommodates edge text without tiny type.
- scale=1.4
+ # Compact row spacing while retaining room for native edge dimensions.
+ scale=1.12
  for n in g['nodes']:
   x,y,w,h=n['box']
   if n['kind']=='decoration':n['box']=[x,y*scale,w,h*scale]
@@ -107,7 +107,8 @@ def build():
    slot=n['operator_layout']['reserved_slot'];slot[1]*=scale;slot[3]*=scale
  for edge in g['edges']:
   if 'points' in edge:edge['points']=[[x,y*scale] for x,y in edge['points']]
- g['height']=3780
+ g['height']=3024
+ g['presentation_policy']['spacing']='Compact 1.12× baseline row positions; preserve operator sizes and 17pt edge labels.'
  edit('scope','FP8 @ba32f8c · B=batch, S=query, T=KV incl. cache, K=min(2048,T), N=B×S · dimensions label the arrows')
  edit('mlp_width','m=12288 Dense /2048 expert · N_e=tokens per expert (Dense: N_e=N)')
  edit('idx_topk','TopK ≤2048 → J [B,S,K]')
