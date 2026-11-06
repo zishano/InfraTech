@@ -19,6 +19,9 @@ def validate_layout(layout):
         if layout.get(key):
             names=', '.join(item['id'] for item in layout[key][:8])
             raise ValueError(f'Layout check failed ({key}): {names}')
+    for key in ('edge_label_node_overlaps', 'edge_label_overlaps'):
+        if layout.get(key):
+            raise ValueError(f'Layout check failed ({key}): {layout[key][:8]}')
 
 
 def inspect_drawio(path):
@@ -112,7 +115,7 @@ def export(drawio_path,png_path,*,mxgraph,scale=2,browser='/usr/bin/chromium'):
                     raise ValueError('mxGraph render failed or lost nodes/edges')
                 page.evaluate('document.fonts.ready')
                 layout=page.evaluate('''()=>{
-                    const graph=window.renderedGraph, overflow=[], tight=[], routes=[], boxes=[];
+                    const graph=window.renderedGraph, overflow=[], tight=[], routes=[], boxes=[], edgeLabels=[];
                     const base=document.getElementById('graph').getBoundingClientRect();
                     for(const cell of Object.values(graph.getModel().cells)){
                         const state=graph.view.getState(cell);
@@ -127,6 +130,10 @@ def export(drawio_path,png_path,*,mxgraph,scale=2,browser='/usr/bin/chromium'):
                             if(margin<2)tight.push({id:cell.id,margin,text:cell.value,box:{x:state.x,y:state.y,width:state.width,height:state.height},textBox:r});
                         }
                         if(cell.edge && state.absolutePoints){
+                            if(cell.value && state.text && state.text.node){
+                                const b=state.text.node.getBoundingClientRect();
+                                edgeLabels.push({id:cell.id,text:cell.value,x:b.x-base.x,y:b.y-base.y,width:b.width,height:b.height});
+                            }
                             const points=state.absolutePoints.filter(Boolean).map(p=>[p.x,p.y]);
                             routes.push({id:cell.id,source:cell.source.id,target:cell.target.id,points});
                         }
@@ -148,7 +155,11 @@ def export(drawio_path,png_path,*,mxgraph,scale=2,browser='/usr/bin/chromium'):
                             if(vertical || horizontal)crossings.push({id:route.id,source:route.source,target:route.target,crossed_node:box.id});
                         }
                     }
-                    return {text_overflow:overflow,tight_text:tight,nonorthogonal_segments:nonorthogonal,edge_node_crossings:crossings,routes};
+                    const intersects=(a,b)=>Math.min(a.x+a.width,b.x+b.width)-Math.max(a.x,b.x)>1 && Math.min(a.y+a.height,b.y+b.height)-Math.max(a.y,b.y)>1;
+                    const labelNodes=[],labelPairs=[];
+                    for(const l of edgeLabels)for(const b of boxes)if(intersects(l,b))labelNodes.push({id:l.id,node:b.id});
+                    for(let i=0;i<edgeLabels.length;i++)for(let j=i+1;j<edgeLabels.length;j++)if(intersects(edgeLabels[i],edgeLabels[j]))labelPairs.push({id:edgeLabels[i].id,other:edgeLabels[j].id});
+                    return {text_overflow:overflow,tight_text:tight,nonorthogonal_segments:nonorthogonal,edge_node_crossings:crossings,edge_label_node_overlaps:labelNodes,edge_label_overlaps:labelPairs,edge_labels:edgeLabels,routes};
                 }''')
                 layout['drawio_sha256']=digest(drawio_path)
                 png_path.with_suffix('.layout.json').write_text(json.dumps(layout,ensure_ascii=False,indent=2)+'\n')
@@ -164,7 +175,7 @@ def export(drawio_path,png_path,*,mxgraph,scale=2,browser='/usr/bin/chromium'):
                   vertices=vertices,edges=edges)
     manifest.update(layout_file=png_path.with_suffix('.layout.json').name,
                     layout_sha256=digest(png_path.with_suffix('.layout.json')),
-                    layout_check={'text_overflow':0,'tight_text':0,'nonorthogonal_segments':0,'edge_node_crossings':0})
+                    layout_check={'text_overflow':0,'tight_text':0,'nonorthogonal_segments':0,'edge_node_crossings':0,'edge_label_node_overlaps':0,'edge_label_overlaps':0})
     target=png_path.with_suffix('.export.json')
     target.write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     verify(drawio_path,png_path,target)

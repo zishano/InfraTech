@@ -32,26 +32,92 @@ def build():
  g['limitations']=['Official model card states the same base as GLM-5.2; core configuration and pinned implementation match.','GLM-5.3 weight-index download blocked by proxy at official CDN; baseline weight-index citations are explicitly marked and do not verify target weights.','FP8 overlay describes release configuration, not added model operators or a verified backend execution graph.','MTP auxiliary structure inherited from matching config/base; no target tensor-name or backend-iteration verification.','No tensor headers, full weights, GPU inference, benchmark or Feishu import tested.']
  # Tensor contracts use sequence-major logical axes; implementations may transpose.
  # These are within-forward dimension transforms, not changes from 5.2 to 5.3.
- g['height']=3660;ns['footer']['box'][1]=3618
  g['tensor_contracts']={
   'symbols':{'B':'batch','S':'current query length','T':'cached + current key length','K':'min(2048,T)','N':'B*S tokens','m':'12288 dense; 2048 expert'},
   'dsa':{'input':['B','S',6144],'q_residual':['B','S',2048],'q':['B','S',64,256],'cache_latent':['B','T',1,512],'cache_rope':['B','T',1,64],'key_expanded':['B','T',64,256],'value_expanded':['B','T',64,256],'output':['B','S',6144]},
   'indexer':{'q':['B','S',32,128],'key':['B','T',128],'head_weights':['B','S',32],'scores':['B','S',32,'T'],'reduced_scores':['B','S','T'],'indices':['B','S','K']},
   'moe':{'router':['N',256],'selection':['N',8],'expert_input':['N_e',6144],'expert_hidden':['N_e',2048],'expert_output':['N_e',6144],'merged_output':['B','S',6144]},
   'absorbed_mqa_equivalent':{'q':['B','S',64,576],'selected_k':['B','S','K',1,576],'selected_v':['B','S','K',1,512],'latent_output':['B','S',64,512],'value_projected':['B','S',64,256],'output':['B','S',6144],'scope':'algebraic correspondence only; no backend execution or numeric equivalence test'}}
- def note(key,label,box,color='#526983',fill='none',size=22,bold=False,locator='Attention.forward / expand_kv; Indexer.forward; MoE and MLP forward'):
-  g['nodes'].append(dict(id=key,label=label,description=label,box=box,kind='decoration',status='verified',evidence=[dict(source='model',locator=locator),dict(source='config',locator='Explicit projection dimensions and model sizes')],style=f'rounded=1;arcSize=12;absoluteArcSize=1;html=0;whiteSpace=wrap;fontFamily=Arial;fontSize={size};fontColor={color};align=center;verticalAlign=middle;spacing=12;fillColor={fill};strokeColor=none;fontStyle={1 if bold else 0};'))
- note('dim_title','Tensor dimensions — transformations within one forward pass',[30,2680,2340,55],size=28,bold=True)
- note('dim_symbols','B=batch · S=query length · T=KV length incl. cache · K=min(2048,T) · N=B×S · head axes shown before channel\nPrefill: S may be many tokens; decode: S=1, T grows. All network dimensions below also apply to GLM-5.2.',[50,2740,2300,85],size=21)
- note('dim_dsa_title','DSA / MLA  |  64 heads',[40,2840,750,45],color='#d78105',size=25,bold=True)
- note('dim_dsa','h [B,S,6144]\nQ down → [B,S,2048]\nQ up / reshape → [B,S,64,256]\nQ split: content192 + RoPE64\nKV down → [B,S,512+64]\nCache: c [B,T,1,512] + kPE [B,T,1,64]\nKV up: 512 → 64×(192+256)\nK [B,T,64,256] · V [B,T,64,256]\nAttention → [B,S,64,256]\nFlatten 16384 → O → [B,S,6144]',[40,2895,750,380],color='#915800',fill='#fff7e9',size=22)
- note('dim_index_title','Indexer  |  32 heads',[825,2840,750,45],color='#698e32',size=25,bold=True)
- note('dim_index','Qr [B,S,2048] → Qi [B,S,32,128]\nh [B,S,6144] → Ki [B,S,128]\nK cache → [B,T,128] (shared by heads)\nh → weights [B,S,32]\nQi × Kiᵀ → scores [B,S,32,T]\nReLU → weighted head sum\nReduced scores [B,S,T]\nCausal mask → TopK → J [B,S,K]\nFULL: compute J; SHARED: reuse J\nK is read selection, not cache capacity',[825,2895,750,380],color='#587a28',fill='#f7faef',size=22)
- note('dim_moe_title','FFN / MoE  |  256 experts, top-8',[1610,2840,750,45],color='#148b8c',size=25,bold=True)
- note('dim_moe','h [B,S,6144] → flatten [N,6144]\nRouter 6144 →256: scores [N,256]\nTop8 IDs / weights [N,8]\nDispatch → each expert input [N_e,6144]\nGate / Up → [N_e,2048] each\nSiLU(gate) × Up → Down → [N_e,6144]\nWeight / scatter-sum → [N,6144]\n+ shared expert → [B,S,6144]\nDense L0–2: m=12288 (no dispatch)\nLM head: [B,S,6144] → [B,S,154880]',[1610,2895,750,380],color='#137578',fill='#effafa',size=22)
- note('dim_mqa_title','Absorbed MQA correspondence — alternative algebraic view, not an additional model branch',[40,3300,2320,50],color='#d78105',size=26,bold=True)
- note('dim_mqa','Q content192 × W_Kᵀ →512; concat RoPE64 → Q_abs [B,S,64,576]\nSelected K_abs [B,S,K,1,576] = latent512 + positional64; selected V_abs [B,S,K,1,512]\nSoftmax(Q_abs K_absᵀ / sqrt(256)) V_abs → [B,S,64,512]\nPer-head W_V: 512 →256 → [B,S,64,256]; flatten → Linear O: 16384 →6144\nMQA uses one shared latent KV head. This is the screenshot’s 512+64 view; the main diagram explicitly expands K/V.\nSelection is query-dependent (S axis); no materialized gather, fused kernel or quantized numerical equivalence is claimed.',[40,3360,2320,240],color='#915800',fill='#fff7e9',size=22,locator='Algebra from Attention.__init__/expand_kv: kv_b_proj splits per-head W_K (512→192) and W_V (512→256); o_proj 64×256→6144')
- g['limitations'].append('Dimension guide uses logical sequence-major axes; absorbed MQA is an algebraic correspondence, not a verified backend or quantized numeric execution graph.')
+ # Place dimensions on the actual mxGraph edges, not in a separate legend table.
+ # Logical sequence-major shapes; implementation-only transposes are omitted.
+ labels={
+ ('main_tokens','main_embed'):'[B,S]',
+ ('main_embed','main_x'):'[B,S,6144]',
+ ('main_n1','main_attn'):'[B,S,6144]',
+ ('main_n2','main_ffn'):'[B,S,6144]',
+ ('main_norm','main_head'):'[B,S,6144]',
+ ('main_head','main_out'):'[B,S,154880]',
+ ('attn_h','attn_qa'):'[B,S,6144]',
+ ('attn_qa','attn_qnorm'):'[B,S,2048]',
+ ('attn_qnorm','attn_qup'):'[B,S,2048]',
+ ('attn_qup','attn_qsplit'):'[B,S,64,256]',
+ ('attn_qsplit','attn_qnope'):'[B,S,64,192]',
+ ('attn_qsplit','attn_qrope'):'[B,S,64,64]',
+ ('attn_qcat','attn_core'):'Q [B,S,64,256]',
+ ('attn_h','attn_kvdown'):'[B,S,6144]',
+ ('attn_kvdown','attn_kvsplit'):'[B,S,576]',
+ ('attn_kvsplit','attn_kvnorm'):'[B,S,512]',
+ ('attn_kvsplit','attn_kvrope'):'[B,S,64]',
+ ('attn_cache','attn_expand'):'c [B,T,1,512]\nkPE [B,T,1,64]',
+ ('attn_k','attn_core'):'K [B,T,64,256]',
+ ('attn_v','attn_core'):'V [B,T,64,256]',
+ ('attn_indices','attn_core'):'J [B,S,K]',
+ ('attn_core','attn_o'):'[B,S,64,256]\nreshape → [B,S,16384]',
+ ('attn_o','attn_out'):'[B,S,6144]',
+ ('idx_qr','idx_qp'):'[B,S,2048]',
+ ('idx_qp','idx_qrpe'):'[B,S,32,128]',
+ ('idx_q','idx_dot'):'Qi [B,S,32,128]',
+ ('idx_h','idx_kp'):'[B,S,6144]',
+ ('idx_kp','idx_kn'):'[B,S,128]',
+ ('idx_cache','idx_dot'):'Ki [B,T,128]',
+ ('idx_h','idx_wp'):'[B,S,6144]',
+ ('idx_wp','idx_scale'):'[B,S,32]',
+ ('idx_w','idx_sum'):'w [B,S,32]',
+ ('idx_dot','idx_relu'):'[B,S,32,T]',
+ ('idx_relu','idx_sum'):'[B,S,32,T]',
+ ('idx_sum','idx_mask'):'[B,S,T]',
+ ('idx_mask','idx_topk'):'[B,S,T]',
+ ('moe_h','moe_router'):'[N,6144]',
+ ('moe_router','moe_choice'):'[N,256]',
+ ('moe_choice','moe_weights'):'IDs [N,8]',
+ ('moe_weights','moe_experts'):'weights [N,8]',
+ ('moe_experts','moe_weighted'):'[N,8,6144]',
+ ('moe_weighted','moe_add'):'[N,6144]',
+ ('moe_h','moe_shared'):'[N,6144]',
+ ('moe_shared','moe_add'):'[N,6144]',
+ ('mlp_x','mlp_gate'):'[N_e,6144]',
+ ('mlp_x','mlp_up'):'[N_e,6144]',
+ ('mlp_gate','mlp_silu'):'[N_e,m]',
+ ('mlp_silu','mlp_mul'):'[N_e,m]',
+ ('mlp_up','mlp_mul'):'[N_e,m]',
+ ('mlp_mul','mlp_down'):'[N_e,m]',
+ }
+ for edge in g['edges']:
+  pair=(edge['source'],edge['target'])
+  if pair in labels:
+   edge.update(label=labels[pair],label_font_size=17,tensor_shape=labels[pair],label_offset=[0,0])
+ # More whitespace between operator rows accommodates edge text without tiny type.
+ scale=1.4
+ for n in g['nodes']:
+  x,y,w,h=n['box']
+  if n['kind']=='decoration':n['box']=[x,y*scale,w,h*scale]
+  else:n['box']=[x,(y+h/2)*scale-h/2,w,h]
+  if 'operator_layout' in n:
+   n['operator_layout']['lane_center'][1]*=scale
+   slot=n['operator_layout']['reserved_slot'];slot[1]*=scale;slot[3]*=scale
+ for edge in g['edges']:
+  if 'points' in edge:edge['points']=[[x,y*scale] for x,y in edge['points']]
+ g['height']=3780
+ edit('scope','FP8 @ba32f8c · B=batch, S=query, T=KV incl. cache, K=min(2048,T), N=B×S · dimensions label the arrows')
+ edit('mlp_width','m=12288 Dense /2048 expert · N_e=tokens per expert (Dense: N_e=N)')
+ edit('idx_topk','TopK ≤2048 → J [B,S,K]')
+ # Describe implicit reshapes/dispatch in tooltips, with concise visible operators.
+ ns['attn_o']['description']+='\nInput [B,S,64,256] is flattened to [B,S,16384] before Linear O.'
+ ns['moe_h']['description']+='\nFlatten token axes to N=B*S before routing / expert execution.'
+ ns['moe_experts']['description']+='\nLogical expert results [N,8,6144]; grouped/fused implementations need not materialize this tensor.'
+ ns['mlp_down']['description']+='\nOutput [N_e,6144]. Routed/shared expert m=2048; dense m=12288.'
+ g['edge_dimension_policy']='Native edge labels on actual computational connections; logical shapes, batch included; no standalone dimension panel.'
+ g['limitations'].append('Edge dimensions use logical sequence-major axes; MoE selected-expert results need not be physically materialized. Absorbed MQA correspondence is documentation only.')
  return g
 if __name__=='__main__':
  g=build();Path(__file__).with_name('glm53.graph.json').write_text(json.dumps(g,ensure_ascii=False,indent=2)+'\n');print(len(g['nodes']),'nodes',len(g['edges']),'edges')

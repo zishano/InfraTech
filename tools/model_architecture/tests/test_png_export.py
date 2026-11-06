@@ -60,6 +60,9 @@ class ExportTests(unittest.TestCase):
         for key in clean:
             broken=dict(clean);broken[key]=[dict(id='bad-node-or-edge')]
             with self.assertRaisesRegex(ValueError,key):a.validate_layout(broken)
+        for key in ('edge_label_node_overlaps','edge_label_overlaps'):
+            broken=dict(clean);broken[key]=[dict(id='shape-label',node='projection')]
+            with self.assertRaisesRegex(ValueError,key):a.validate_layout(broken)
         with self.assertRaisesRegex(ValueError,'Missing'):a.validate_layout({})
 
     def test_branch_centers_and_explicit_ports_stay_aligned(self):

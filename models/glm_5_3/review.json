@@ -17,6 +17,6 @@
   "presentation": [
     "Approved adaptive GLM5.1 layout reused via reviewed GLM5.2 core",
     "Bottom-up; short labels; native XML is sole formal PNG source",
-    "Added sequence-major tensor contracts for DSA, Indexer and MoE; absorbed MQA algebraic correspondence explicitly separated from actual backend execution."
+    "Tensor dimensions appear on native computational edge labels; standalone dimension panels removed. Measured label-node and label-label overlaps must be zero."
   ]
 }

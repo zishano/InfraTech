@@ -1,6 +1,7 @@
 """Do not invent architecture changes from post-training or FP8 storage."""
 from pathlib import Path
 import sys,unittest
+import xml.etree.ElementTree as ET
 BASE=Path(__file__).resolve().parents[1];REPO=BASE.parents[1]
 sys.path.insert(0,str(BASE))
 import model_architecture as a
@@ -13,7 +14,7 @@ class GLM53Tests(unittest.TestCase):
   self.assertEqual(len(c['quantization_config']['modules_to_not_convert']),541)
   g=a.read(BASE/'examples/glm53.graph.json');a.validate(g)
   old=a.read(BASE/'examples/glm52.graph.json')
-  self.assertEqual(g['edges'],old['edges'])
+  self.assertEqual([(e['source'],e['target'],e.get('ports')) for e in g['edges']],[(e['source'],e['target'],e.get('ports')) for e in old['edges']])
   self.assertFalse(g['checkpoint']['weight_index_verified'])
   self.assertNotIn('index',g['sources']);self.assertIn('baseline_index',g['sources'])
   self.assertTrue(all(e['source']!='index' for n in g['nodes'] for e in n.get('evidence',[])))
@@ -26,9 +27,19 @@ class GLM53Tests(unittest.TestCase):
   self.assertEqual(t['moe']['selection'][-1],c['num_experts_per_tok'])
   m=t['absorbed_mqa_equivalent'];self.assertEqual(m['q'][-1],c['kv_lora_rank']+c['qk_rope_head_dim'])
   self.assertEqual(m['latent_output'][-1],c['kv_lora_rank']);self.assertEqual(m['value_projected'][-1],c['v_head_dim'])
-  self.assertIn('not an additional model branch',next(n['label'] for n in g['nodes'] if n['id']=='dim_mqa_title'))
+  self.assertFalse(any(n['id'].startswith('dim_') for n in g['nodes']))
+  edges={ (e['source'],e['target']):e for e in g['edges'] }
+  self.assertEqual(edges['attn_qup','attn_qsplit']['label'],'[B,S,64,256]')
+  self.assertIn('[B,S,16384]',edges['attn_core','attn_o']['label'])
+  cells={x.get('id'):x for x in ET.parse(REPO/'models/glm_5_3/glm_5_3_architecture.drawio').iter('mxCell')}
+  for e in g['edges']:
+   if e.get('tensor_shape'):
+    self.assertEqual(cells[e['id']].get('value'),e['tensor_shape'])
+    self.assertIn('fontSize=17;',cells[e['id']].get('style'))
  def test_native_pair_and_layout(self):
   f=REPO/'models/glm_5_3';s='glm_5_3_architecture'
   m=p.verify(f/(s+'.drawio'),f/(s+'.png'),f/(s+'.export.json'))
-  self.assertEqual((m['vertices'],m['edges']),(108,71));p.validate_layout(a.read(f/(s+'.layout.json')))
+  self.assertEqual((m['vertices'],m['edges']),(98,71));p.validate_layout(a.read(f/(s+'.layout.json')))
+  layout=a.read(f/(s+'.layout.json'));self.assertGreaterEqual(len(layout['edge_labels']),45)
+  self.assertEqual(layout['edge_label_node_overlaps'],[]);self.assertEqual(layout['edge_label_overlaps'],[])
 if __name__=='__main__':unittest.main()

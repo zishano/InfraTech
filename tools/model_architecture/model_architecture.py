@@ -254,10 +254,18 @@ def drawio(g, path):
         edge_color=e.get('color','#333333')
         if not re.fullmatch(r'#[0-9a-fA-F]{6}',edge_color):
             raise ValueError('Invalid edge color')
-        style=f'edgeStyle={routing};html=0;endArrow=block;endFill=1;strokeColor={edge_color};fontColor={edge_color};strokeWidth=1;fontSize=7;labelBackgroundColor=#ffffff;exitX={a};exitY={b};entryX={c};entryY={d};'
+        label_font=e.get('label_font_size',7)
+        if not isinstance(label_font,(int,float)) or not 6<=label_font<=48:
+            raise ValueError('Invalid edge label font size')
+        style=f'edgeStyle={routing};html=0;endArrow=block;endFill=1;strokeColor={edge_color};fontColor={edge_color};strokeWidth=1;fontFamily=Arial;fontSize={label_font};labelBackgroundColor=#ffffff;exitX={a};exitY={b};entryX={c};entryY={d};'
         if e.get('dashed'):style+='dashed=1;'
         cell=ET.SubElement(r,'mxCell',id=e.get('id',f'edge_{i}'),source=e['source'],target=e['target'],value=e.get('label',''),edge='1',parent='1',style=style)
         geo=ET.SubElement(cell,'mxGeometry',relative='1',attrib={'as':'geometry'})
+        if 'label_offset' in e:
+            dx,dy=e['label_offset']
+            if not all(isinstance(v,(int,float)) and math.isfinite(v) for v in (dx,dy)):
+                raise ValueError('Invalid edge label offset')
+            ET.SubElement(geo,'mxPoint',x=str(dx),y=str(dy),attrib={'as':'offset'})
         if e.get('points'):
             arr=ET.SubElement(geo,'Array',attrib={'as':'points'})
             for x,y in e['points']:ET.SubElement(arr,'mxPoint',x=str(x),y=str(y))

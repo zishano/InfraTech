@@ -2,21 +2,23 @@
   "version": 1,
   "drawio_file": "glm_5_3_architecture.drawio",
   "png_file": "glm_5_3_architecture.png",
-  "drawio_sha256": "8cf10cd4169024076e762ee9c277708c9ec8de0f92bd24efb8ade6fc6642ee60",
-  "png_sha256": "9daae819e26558ef3f097edc10136d37648883af27dce4314fc0fed55ebf600c",
+  "drawio_sha256": "cadb74dee1d08c5f29f1f44e3c0bd885156ea5e7f50b9a2f7278c32fea773dd3",
+  "png_sha256": "1c33e2304a40c83cad10899414ce392b5196f55df574beb1111826ee18fc49e1",
   "renderer": "mxGraph 4.2.2 / Chromium",
   "browser_version": "155.0.8059.79",
   "scale": 2.0,
   "width": 2400,
-  "height": 3660,
-  "vertices": 108,
+  "height": 3780,
+  "vertices": 98,
   "edges": 71,
   "layout_file": "glm_5_3_architecture.layout.json",
-  "layout_sha256": "7b461caa3da271216732817ff078bfae4e9a7ef8ca1f22215d3457d0f5367bd6",
+  "layout_sha256": "7d8f63388a40bc2b4eb6735789a7327a0a92d0cc83963f492b74ade0cd1c8ec7",
   "layout_check": {
     "text_overflow": 0,
     "tight_text": 0,
     "nonorthogonal_segments": 0,
-    "edge_node_crossings": 0
+    "edge_node_crossings": 0,
+    "edge_label_node_overlaps": 0,
+    "edge_label_overlaps": 0
   }
 }

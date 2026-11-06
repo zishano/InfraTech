@@ -2,7 +2,7 @@
 
 [PNG 架构图](glm_5_3_architecture.png) · [可编辑 draw.io](glm_5_3_architecture.drawio) · [节点证据](evidence.md) · [布局实测](glm_5_3_architecture.layout.json) · [配对记录](glm_5_3_architecture.export.json)
 
-**GLM-5.3 沿用 GLM-5.2 的基座，官方明确表示全部能力提升来自后训练。** 本图保留已认可的自下而上、自适应算子框布局，展开 DSA、Indexer 的 Q/K/head-weight 三路、IndexShare、MoE 路由与 SwiGLU。共108个原生图元、71条连接；正式 PNG 直接从同名 draw.io XML 导出。
+**GLM-5.3 沿用 GLM-5.2 的基座，官方明确表示全部能力提升来自后训练。** 本图保留已认可的自下而上、自适应算子框布局，展开 DSA、Indexer 的 Q/K/head-weight 三路、IndexShare、MoE 路由与 SwiGLU。共98个原生图元、71条连接；正式 PNG 直接从同名 draw.io XML 导出。
 
 ## 核心结构
 
@@ -47,7 +47,7 @@ python tools/model_architecture/model_architecture.py verify-png models/glm_5_3/
 
 ## 输入输出维度与吸收式 MQA 对照
 
-图底部增加参数／张量维度说明，`tensor_contracts`同时保存在构造器与graph JSON中。这里的“变化”指**算子前后的维度变换**；GLM-5.2→5.3没有这些网络尺寸变化。
+关键张量维度直接标注于原生流程连线：Q/K/V、KV缓存、输出reshape、Indexer及MoE/SwiGLU路径；不再保留独立维度说明区。标签属于draw.io的edge value，编辑／移动连接时可跟随连线。`tensor_contracts`同时保存在构造器与graph JSON中。这里的“变化”指**算子前后的维度变换**；GLM-5.2→5.3没有这些网络尺寸变化。
 
 统一使用逻辑序列优先轴：B为batch，S为本次查询长度，T为含历史缓存的KV长度，K=min(2048,T)，N=B×S。实现可将heads轴置于序列前；表中的transpose是表示方式，不改变维度含义。Prefill可有多个查询token，decode通常S=1，T随生成增长。TopK输出有K个槽位；因果及padding屏蔽后有效可读位置可能更少。
 
@@ -66,4 +66,4 @@ N_e是分派至某个专家的token数，不一定等于N/256。主干L0–2的D
 
 用户示例是吸收式MQA表示：将每个head的W_K吸收到Q的内容分量，192→512，再拼接RoPE64，Q_abs为[B,S,64,576]；缓存保持单个潜变量KV head。每个查询选中K个位置的逻辑K_abs为[B,S,K,1,576]，V_abs为[B,S,K,1,512]。注意力聚合产生[B,S,64,512]，再经每头W_V的512→256和原输出投影得到[B,S,6144]。注意原QK缩放仍为sqrt(256)，不能因为吸收后576维就改为sqrt(576)。
 
-该说明来自已审阅源码的线性投影代数关系，用于解释两种视图；它不是额外分支，不表示已验证某个后端的融合/物理gather实现，也没有验证FP8下的数值等价。正式主图仍采用所读Transformers未吸收视图。
+本段MQA对照只保留在文档，不作为独立图中说明区。该说明来自已审阅源码的线性投影代数关系，用于解释两种视图；它不是额外分支，不表示已验证某个后端的融合/物理gather实现，也没有验证FP8下的数值等价。正式主图仍采用所读Transformers未吸收视图。

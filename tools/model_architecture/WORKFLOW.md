@@ -192,3 +192,7 @@ python tools/model_architecture/model_architecture.py init-study org/NewModel \
 | `examples/build_kimi_k31_pro.py` | 基线继承、模型差异证据与构造方式 | Kimi专属维度和DSA公式直接套到新模型 |
 | `examples/kimi_k31_presentation.py` | 字体层级、短标签、主链对齐 | 固定坐标照搬到不同密度的图 |
 | DeepSeek构造器及展示层 | 总览／详细页、压缩与状态展开 | 默认假定所有DSA都带RoPE／Hadamard或压缩cache |
+
+### 用户确认的维度标注方式
+
+需要输入输出维度时，将关键形状直接写在对应计算连线旁（原生edge label），不要改为单独的维度说明区。算子框保留简短名称／必要参数，连线展示张量如何改变；对reshape、head拆分、缓存序列T和查询序列S分别核对。根据标签长度增加行距或调整偏移，检查标签不压节点、不相互重叠。只在文档解释替代实现视图，不将另一种布局的维度混入当前计算路径。

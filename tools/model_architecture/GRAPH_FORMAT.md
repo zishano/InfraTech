@@ -51,3 +51,9 @@
 - `review.json` 的 `optimization_claims`：将优化按introduced / inherited / backend_specific / unverified记录，附来源、硬件／后端范围及实测边界；不是将所有实现kernel串进模型主干。
 
 标准图形检查只负责结构合法性、证据引用及原生几何；颜色含义、端口语义、softmax轴、缓存读写和模型优化归属仍需模型专属审阅／验证。
+
+## 连线上的输入输出维度
+
+`edges[].label` 是原生连接文字，可用于 `[B,S,64,256]` 等张量形状；`label_font_size` 可设为6–48（默认7，正式大图建议16–20），`label_offset: [dx,dy]` 控制相对连线中点的像素偏移。维度标签应跟随实际计算连接，避免用独立维度表替代；仅有排版变化不得改变source/target或删去计算边。长reshape可分两行并增加算子间距。维度语义与证据由模型构造器核对。
+
+原生导出新增实测 `edge_labels`、`edge_label_node_overlaps` 和 `edge_label_overlaps`；后两项非空时拒绝导出。旧布局报告兼容，但不据此宣称已执行新增标签检查。
